@@ -1,42 +1,39 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class AccountRepository
+    public class BookRepository
     {
         private readonly string _connectionString;
 
-        public AccountRepository(string connectionString)
+        public BookRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        public List<Account> GetAllAccounts()
+        public List<Book> GetHotBooks()
         {
-            var accounts = new List<Account>();
+            var books = new List<Book>();
             using (var connection = new MySqlConnection(_connectionString))
             {
                 try
                 {
                     connection.Open();
-                    using (var command = new MySqlCommand("SELECT * FROM accounts", connection))
+                    using (var command = new MySqlCommand("SELECT * FROM books ORDER BY views, rating, likes DESC LIMIT 6", connection))
                     {
                         using (var reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                accounts.Add(new Account
+                                books.Add(new Book
                                 {
-                                    Username = (string)reader["username"],
-                                    Email = (string)reader["email"],
-                                    Password = (string)reader["password"],
-                                    RoleID = (int)reader["role_id"]
+                                    Name = (string)reader["book_name"],
+                                    BookCover = (byte[])reader["book_cover"]
                                 });
                             }
                         }
@@ -49,7 +46,7 @@ namespace DataAccessLayer
                 {
                     connection.Close();
                 }
-                return accounts;
+                return books;
             }
         }
     }

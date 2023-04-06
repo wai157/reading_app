@@ -9,6 +9,7 @@ namespace DataAccessLayer
     public class Book
     {
         public string Name { get; set; }
+        public byte[] BookCover { get; set; }
         public List<string> Genres { get; set; }
         public string Description { get; set; }
         public int Rating { get; set; }

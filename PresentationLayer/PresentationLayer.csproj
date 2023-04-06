@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,27 +47,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormUserMainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormUserMainScreen.Designer.cs">
+      <DependentUpon>FormUserMainScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogInScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogInScreen.Designer.cs">
+      <DependentUpon>FormLogInScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReadingApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReadingApp.Designer.cs">
+      <DependentUpon>FormReadingApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Header.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Header.Designer.cs">
+      <DependentUpon>Header.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormUserMainScreen.resx">
+      <DependentUpon>FormUserMainScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogInScreen.resx">
+      <DependentUpon>FormLogInScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReadingApp.resx">
+      <DependentUpon>FormReadingApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Header.resx">
+      <DependentUpon>Header.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -85,6 +117,18 @@
       <Project>{9905e6cd-5b72-472d-8e91-fa2b98dbd5ad}</Project>
       <Name>DataAccessLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-search-icon-free-vector.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vivid-blurred-colorful-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1871564-200.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
