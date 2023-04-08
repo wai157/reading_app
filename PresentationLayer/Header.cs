@@ -16,5 +16,12 @@ namespace PresentationLayer
         {
             InitializeComponent();
         }
+        
+        private void buttonHome_Click(object sender, EventArgs e)
+        {
+            Form parentForm = FindForm();
+            MainScreen mainScreen = parentForm.Controls.Find("mainScreen", true).First() as MainScreen;
+            mainScreen.BringToFront();
+        }
     }
 }

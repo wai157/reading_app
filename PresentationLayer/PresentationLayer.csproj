@@ -33,9 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,19 +48,20 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormUserMainScreen.cs">
-      <SubType>Form</SubType>
+    <Compile Include="BookScreen.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FormUserMainScreen.Designer.cs">
-      <DependentUpon>FormUserMainScreen.cs</DependentUpon>
+    <Compile Include="BookScreen.Designer.cs">
+      <DependentUpon>BookScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogInScreen.cs">
-      <SubType>Form</SubType>
+    <Compile Include="btnBookCover.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FormLogInScreen.Designer.cs">
-      <DependentUpon>FormLogInScreen.cs</DependentUpon>
+    <Compile Include="btnBookCover.Designer.cs">
+      <DependentUpon>btnBookCover.cs</DependentUpon>
     </Compile>
     <Compile Include="FormReadingApp.cs">
       <SubType>Form</SubType>
@@ -71,19 +75,38 @@
     <Compile Include="Header.Designer.cs">
       <DependentUpon>Header.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogInScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LogInScreen.Designer.cs">
+      <DependentUpon>LogInScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainScreen.Designer.cs">
+      <DependentUpon>MainScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormUserMainScreen.resx">
-      <DependentUpon>FormUserMainScreen.cs</DependentUpon>
+    <Compile Include="utils.cs" />
+    <EmbeddedResource Include="BookScreen.resx">
+      <DependentUpon>BookScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogInScreen.resx">
-      <DependentUpon>FormLogInScreen.cs</DependentUpon>
+    <EmbeddedResource Include="btnBookCover.resx">
+      <DependentUpon>btnBookCover.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReadingApp.resx">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Header.resx">
       <DependentUpon>Header.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInScreen.resx">
+      <DependentUpon>LogInScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainScreen.resx">
+      <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

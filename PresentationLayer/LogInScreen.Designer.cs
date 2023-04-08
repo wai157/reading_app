@@ -1,14 +1,14 @@
 ﻿
 namespace PresentationLayer
 {
-    partial class FormLogInScreen
+    partial class LogInScreen
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -21,24 +21,35 @@ namespace PresentationLayer
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            this.panelMain = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonSignUp = new System.Windows.Forms.Button();
             this.linkLabelForgotPassword = new System.Windows.Forms.LinkLabel();
             this.buttonLogIn = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
-            this.panelMain = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
             this.panelMain.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panelMain
+            // 
+            this.panelMain.BackgroundImage = global::PresentationLayer.Properties.Resources.vivid_blurred_colorful_background;
+            this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMain.Controls.Add(this.panel1);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(1280, 720);
+            this.panelMain.TabIndex = 2;
             // 
             // panel1
             // 
@@ -65,7 +76,6 @@ namespace PresentationLayer
             this.buttonSignUp.TabIndex = 4;
             this.buttonSignUp.Text = "Đăng kí";
             this.buttonSignUp.UseVisualStyleBackColor = false;
-            this.buttonSignUp.Click += new System.EventHandler(this.buttonSignUp_Click);
             // 
             // linkLabelForgotPassword
             // 
@@ -89,11 +99,10 @@ namespace PresentationLayer
             this.buttonLogIn.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogIn.Location = new System.Drawing.Point(200, 172);
             this.buttonLogIn.Name = "buttonLogIn";
-            this.buttonLogIn.Size = new System.Drawing.Size(200, 40);
+            this.buttonLogIn.Size = new System.Drawing.Size(200, 43);
             this.buttonLogIn.TabIndex = 2;
             this.buttonLogIn.Text = "Đăng nhập";
             this.buttonLogIn.UseVisualStyleBackColor = false;
-            this.buttonLogIn.Click += new System.EventHandler(this.buttonLogIn_Click);
             // 
             // textBoxPassword
             // 
@@ -121,44 +130,35 @@ namespace PresentationLayer
             this.textBoxUsername.GotFocus += new System.EventHandler(this.textBoxUsername_RemoveText);
             this.textBoxUsername.LostFocus += new System.EventHandler(this.textBoxUsername_AddText);
             // 
-            // panelMain
+            // LogInScreen
             // 
-            this.panelMain.BackgroundImage = global::PresentationLayer.Properties.Resources.vivid_blurred_colorful_background;
-            this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelMain.Controls.Add(this.panel1);
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 0);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1280, 720);
-            this.panelMain.TabIndex = 1;
-            // 
-            // FormLogInScreen
-            // 
-            this.AcceptButton = this.buttonLogIn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.ControlBox = false;
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "FormLogInScreen";
-            this.Text = "FormLogInScreen";
+            this.Name = "LogInScreen";
+            this.Size = new System.Drawing.Size(1280, 720);
+            this.panelMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panelMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonSignUp;
         private System.Windows.Forms.LinkLabel linkLabelForgotPassword;
         private System.Windows.Forms.Button buttonLogIn;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.TextBox textBoxUsername;
-        private System.Windows.Forms.Panel panelMain;
+
+        public System.Windows.Forms.Button ButtonSignUp { get; }
+        public System.Windows.Forms.LinkLabel LinkLabelForgotPassword { get; }
+        public System.Windows.Forms.Button ButtonLogIn { get { return buttonLogIn; } }
+        public System.Windows.Forms.TextBox TextBoxPassword { get { return textBoxPassword; } }
+        public System.Windows.Forms.TextBox TextBoxUsername { get { return textBoxUsername; } }
     }
 }

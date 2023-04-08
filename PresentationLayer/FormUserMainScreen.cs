@@ -27,18 +27,9 @@ namespace PresentationLayer
         private void FormUserMainScreen_Load(object sender, EventArgs e)
         {
             List<Book> hotBooks = _bookManager.GetHotBooks();
-            List<Button> hotButtons = new List<Button>
-            {
-                buttonHot1,
-                buttonHot2,
-                buttonHot3,
-                buttonHot4,
-                buttonHot5,
-                buttonHot6
-            };
             foreach (Book hotBook in hotBooks)
             {
-                buttonHot1.BackgroundImage = Image.FromStream(new MemoryStream(hotBook.BookCover));
+                //.BackgroundImage = Image.FromStream(new MemoryStream(hotBook.BookCover));
             }        
         }
     }

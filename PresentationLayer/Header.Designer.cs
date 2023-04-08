@@ -60,8 +60,9 @@ namespace PresentationLayer
             this.buttonHome.Location = new System.Drawing.Point(12, 12);
             this.buttonHome.Name = "buttonHome";
             this.buttonHome.Size = new System.Drawing.Size(47, 47);
-            this.buttonHome.TabIndex = 8;
+            this.buttonHome.TabIndex = 0;
             this.buttonHome.UseVisualStyleBackColor = false;
+            this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
             // buttonUserProfile
             // 
@@ -71,7 +72,7 @@ namespace PresentationLayer
             this.buttonUserProfile.Location = new System.Drawing.Point(1128, 12);
             this.buttonUserProfile.Name = "buttonUserProfile";
             this.buttonUserProfile.Size = new System.Drawing.Size(47, 47);
-            this.buttonUserProfile.TabIndex = 10;
+            this.buttonUserProfile.TabIndex = 3;
             this.buttonUserProfile.UseVisualStyleBackColor = true;
             // 
             // buttonSearch
@@ -84,7 +85,7 @@ namespace PresentationLayer
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(47, 47);
-            this.buttonSearch.TabIndex = 9;
+            this.buttonSearch.TabIndex = 2;
             this.buttonSearch.UseVisualStyleBackColor = false;
             // 
             // textBoxSearch
@@ -95,7 +96,7 @@ namespace PresentationLayer
             this.textBoxSearch.Location = new System.Drawing.Point(256, 12);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(768, 47);
-            this.textBoxSearch.TabIndex = 7;
+            this.textBoxSearch.TabIndex = 1;
             this.textBoxSearch.Text = " Tìm Kiếm";
             // 
             // Header

@@ -25,10 +25,14 @@ namespace PresentationLayer
 
         private void buttonSignUp_Click(object sender, EventArgs e)
         {
+            Form parentForm = ParentForm;
+            buttonSignUp.Text = parentForm.Name;
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
+            if (textBoxUsername.ForeColor != Color.Black || textBoxPassword.ForeColor != Color.Black
+                || string.IsNullOrEmpty(textBoxUsername.Text) || string.IsNullOrEmpty(textBoxPassword.Text)) return;
             string username = textBoxUsername.Text;
             string password = textBoxPassword.Text;
             bool matchAccount = false;
@@ -56,15 +60,13 @@ namespace PresentationLayer
                 else if (logInAccount.RoleID == 2)
                 {
                     Form parentForm = ParentForm;
-                    Form formTest = new FormUserMainScreen();
-                    formTest.TopLevel = false;
-                    parentForm.SuspendLayout();
-                    parentForm.Controls.Add(formTest);
-                    formTest.FormBorderStyle = FormBorderStyle.None;
-                    formTest.Dock = DockStyle.Fill;
-                    parentForm.ResumeLayout(false);
+                    Form formToChange = new FormUserMainScreen();
+                    formToChange.TopLevel = false;
+                    parentForm.Controls.Add(formToChange);
+                    formToChange.FormBorderStyle = FormBorderStyle.None;
+                    formToChange.Dock = DockStyle.Fill;
                     Close();
-                    formTest.Show();
+                    formToChange.Show();
                 }
             }
             else
@@ -109,11 +111,6 @@ namespace PresentationLayer
                 textBoxPassword.ForeColor = Color.Black;
                 this.textBoxPassword.PasswordChar = '*';
             }
-        }
-
-        private void StealFocus(object sender, EventArgs e)
-        {
-            panel1.Focus();
         }
     }
 }
