@@ -14,6 +14,13 @@ namespace PresentationLayer
 {
     public partial class btnBookCover : UserControl
     {
+        private Book presentedBook;
+        public Book PresentedBook
+        {
+            get { return presentedBook; }
+            set { presentedBook = value; }
+        }
+
         public btnBookCover()
         {
             InitializeComponent();
@@ -23,8 +30,7 @@ namespace PresentationLayer
         {
             Form parentForm = FindForm();
             BookScreen bookScreen = parentForm.Controls.Find("bookScreen", true).First() as BookScreen;
-            //MainScreen mainScreen = parentForm.Controls.Find("mainScreen", true).First() as MainScreen;
-            //mainScreen.Hide();
+            bookScreen.load(presentedBook);
             bookScreen.BringToFront();
         }
     }

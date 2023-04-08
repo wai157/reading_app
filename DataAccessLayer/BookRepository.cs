@@ -24,7 +24,7 @@ namespace DataAccessLayer
                 try
                 {
                     connection.Open();
-                    using (var command = new MySqlCommand("SELECT * FROM books ORDER BY views, rating, likes DESC LIMIT 6", connection))
+                    using (var command = new MySqlCommand("SELECT * FROM books join authors on books.author_id=authors.author_id ORDER BY views, rating, likes DESC LIMIT 6", connection))
                     {
                         using (var reader = command.ExecuteReader())
                         {
@@ -33,7 +33,10 @@ namespace DataAccessLayer
                                 books.Add(new Book
                                 {
                                     Name = (string)reader["book_name"],
-                                    BookCover = (byte[])reader["book_cover"]
+                                    BookCover = (byte[])reader["book_cover"],
+                                    Rating = (int)reader["rating"],
+                                    Views = (int)reader["views"],
+                                    Author = (string)reader["author_name"]
                                 });
                             }
                         }

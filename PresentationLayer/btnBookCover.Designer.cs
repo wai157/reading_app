@@ -47,6 +47,7 @@ namespace PresentationLayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "btnBookCover";
@@ -58,5 +59,11 @@ namespace PresentationLayer
         #endregion
 
         private System.Windows.Forms.Button button1;
+
+        public System.Windows.Forms.Button Button 
+        { 
+            get { return button1; } 
+            set { button1 = value; } 
+        }
     }
 }

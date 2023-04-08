@@ -47,6 +47,7 @@ namespace PresentationLayer
             }
             if (matchAccount == true)
             {
+                this.mainScreen.load(logInAccount);
                 this.mainScreen.BringToFront();
                 this.AcceptButton = null;
             }
