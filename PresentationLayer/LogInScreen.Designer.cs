@@ -50,6 +50,7 @@ namespace PresentationLayer
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.TabIndex = 2;
+            this.panelMain.Click += new System.EventHandler(utils.StealFocus);
             // 
             // panel1
             // 
@@ -64,6 +65,7 @@ namespace PresentationLayer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 400);
             this.panel1.TabIndex = 0;
+            this.panel1.Click += new System.EventHandler(utils.StealFocus);
             // 
             // buttonSignUp
             // 
