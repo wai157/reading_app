@@ -11,11 +11,18 @@ namespace PresentationLayer
     {
         public static void StealFocus(object sender, EventArgs e)
         {
-            if (sender.GetType() == typeof(Panel))
+            //Panel stealPanel = (Panel)sender;
+            //stealPanel.Focus();
+            Control stealControl = (Control)sender;
+            stealControl.Focus();
+        }
+        public static void ShowScreen(Control screen)
+        {
+            foreach (Control childControl in screen.Parent.Controls)
             {
-                Panel stealPanel = (Panel)sender;
-                stealPanel.Focus();
+                childControl.Hide();
             }
+            screen.Show();
         }
     }
 }

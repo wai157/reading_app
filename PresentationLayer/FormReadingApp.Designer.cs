@@ -63,7 +63,6 @@ namespace PresentationLayer
             // 
             // FormReadingApp
             // 
-            this.AcceptButton = this.logInScreen.ButtonLogIn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
@@ -75,7 +74,6 @@ namespace PresentationLayer
             this.Name = "FormReadingApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reading App";
-            this.Load += new System.EventHandler(this.FormReadingApp_Load);
             this.ResumeLayout(false);
 
         }

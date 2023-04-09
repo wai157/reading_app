@@ -105,6 +105,7 @@ namespace PresentationLayer
             this.buttonLogIn.TabIndex = 2;
             this.buttonLogIn.Text = "Đăng nhập";
             this.buttonLogIn.UseVisualStyleBackColor = false;
+            this.buttonLogIn.Click += new System.EventHandler(this.buttonLogIn_Click);
             // 
             // textBoxPassword
             // 
@@ -156,11 +157,5 @@ namespace PresentationLayer
         private System.Windows.Forms.Button buttonLogIn;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.TextBox textBoxUsername;
-
-        public System.Windows.Forms.Button ButtonSignUp { get; }
-        public System.Windows.Forms.LinkLabel LinkLabelForgotPassword { get; }
-        public System.Windows.Forms.Button ButtonLogIn { get { return buttonLogIn; } }
-        public System.Windows.Forms.TextBox TextBoxPassword { get { return textBoxPassword; } }
-        public System.Windows.Forms.TextBox TextBoxUsername { get { return textBoxUsername; } }
     }
 }

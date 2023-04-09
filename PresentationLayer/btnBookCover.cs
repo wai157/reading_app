@@ -31,7 +31,7 @@ namespace PresentationLayer
             Form parentForm = FindForm();
             BookScreen bookScreen = parentForm.Controls.Find("bookScreen", true).First() as BookScreen;
             bookScreen.load(presentedBook);
-            bookScreen.BringToFront();
+            utils.ShowScreen(bookScreen);
         }
     }
 }

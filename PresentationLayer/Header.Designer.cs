@@ -50,6 +50,7 @@ namespace PresentationLayer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1280, 72);
             this.panel1.TabIndex = 0;
+            this.panel1.Click += new System.EventHandler(utils.StealFocus);
             // 
             // buttonHome
             // 
@@ -98,6 +99,8 @@ namespace PresentationLayer
             this.textBoxSearch.Size = new System.Drawing.Size(768, 47);
             this.textBoxSearch.TabIndex = 1;
             this.textBoxSearch.Text = " Tìm Kiếm";
+            this.textBoxSearch.LostFocus += new System.EventHandler(this.textBoxSearch_AddText);
+            this.textBoxSearch.GotFocus += new System.EventHandler(this.textBoxSearch_RemoveText);
             // 
             // Header
             // 

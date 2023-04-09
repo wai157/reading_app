@@ -16,9 +16,14 @@ namespace BusinessLayer
             _repository = repository;
         }
 
-        public List<Account> GetAllAccounts()
+        public Account Validate(String username, String password)
         {
-            return _repository.GetAllAccounts();
+            foreach(Account account in _repository.GetAllAccounts())
+            {
+                if (account.Username == username && account.Password == password)
+                    return account;
+            }
+            return null;
         }
     }
 }

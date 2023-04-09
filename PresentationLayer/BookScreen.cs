@@ -25,7 +25,7 @@ namespace PresentationLayer
             {
                 pictureBoxCover.Image = Image.FromStream(new MemoryStream(book.BookCover));
                 pictureBoxCover.SizeMode = PictureBoxSizeMode.StretchImage;
-                labelViews.Text = $"Lượt xem: {book.Views}";
+                labelViews.Text = $"Lượt đọc: {book.Views}";
                 labelRating.Text = $"Đánh giá: {book.Rating}";
                 labelName.Text = book.Name;
                 labelAuthor.Text = "Tác giả: " + book.Author;

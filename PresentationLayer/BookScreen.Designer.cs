@@ -82,6 +82,7 @@ namespace PresentationLayer
             // 
             this.splitContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -211,20 +212,21 @@ namespace PresentationLayer
             this.labelName.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelName.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.Location = new System.Drawing.Point(3, 3);
+            this.labelName.MaximumSize = new System.Drawing.Size(622, 100);
             this.labelName.MinimumSize = new System.Drawing.Size(622, 100);
             this.labelName.Name = "labelName";
             this.labelName.Padding = new System.Windows.Forms.Padding(5);
             this.labelName.Size = new System.Drawing.Size(622, 100);
             this.labelName.TabIndex = 0;
-            this.labelName.Text = "Nameaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            this.labelName.Text = "Nameaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             // 
             // tabPageTableOfContent
             // 
             this.tabPageTableOfContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
-            this.tabPageTableOfContent.Location = new System.Drawing.Point(4, 23);
+            this.tabPageTableOfContent.Location = new System.Drawing.Point(4, 32);
             this.tabPageTableOfContent.Name = "tabPageTableOfContent";
             this.tabPageTableOfContent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTableOfContent.Size = new System.Drawing.Size(628, 585);
+            this.tabPageTableOfContent.Size = new System.Drawing.Size(628, 576);
             this.tabPageTableOfContent.TabIndex = 1;
             this.tabPageTableOfContent.Text = "Mục lục";
             // 

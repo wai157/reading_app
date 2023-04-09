@@ -62,6 +62,7 @@ namespace PresentationLayer
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.TabIndex = 16;
+            this.panelMain.Click += new System.EventHandler(utils.StealFocus);
             // 
             // panel2
             // 
@@ -85,100 +86,125 @@ namespace PresentationLayer
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1024, 612);
             this.panel2.TabIndex = 3;
+            this.panel2.Click += new System.EventHandler(utils.StealFocus);
             // 
             // btnHotBookCover6
             // 
+            this.btnHotBookCover6.BackColor = System.Drawing.Color.Transparent;
             this.btnHotBookCover6.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHotBookCover6.Location = new System.Drawing.Point(835, 371);
             this.btnHotBookCover6.Name = "btnHotBookCover6";
+            this.btnHotBookCover6.PresentedBook = null;
             this.btnHotBookCover6.Size = new System.Drawing.Size(154, 231);
             this.btnHotBookCover6.TabIndex = 26;
             // 
             // btnHotBookCover5
             // 
+            this.btnHotBookCover5.BackColor = System.Drawing.Color.Transparent;
             this.btnHotBookCover5.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHotBookCover5.Location = new System.Drawing.Point(675, 371);
             this.btnHotBookCover5.Name = "btnHotBookCover5";
+            this.btnHotBookCover5.PresentedBook = null;
             this.btnHotBookCover5.Size = new System.Drawing.Size(154, 231);
             this.btnHotBookCover5.TabIndex = 25;
             // 
             // btnHotBookCover4
             // 
+            this.btnHotBookCover4.BackColor = System.Drawing.Color.Transparent;
             this.btnHotBookCover4.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHotBookCover4.Location = new System.Drawing.Point(515, 371);
             this.btnHotBookCover4.Name = "btnHotBookCover4";
+            this.btnHotBookCover4.PresentedBook = null;
             this.btnHotBookCover4.Size = new System.Drawing.Size(154, 231);
             this.btnHotBookCover4.TabIndex = 24;
             // 
             // btnHotBookCover3
             // 
+            this.btnHotBookCover3.BackColor = System.Drawing.Color.Transparent;
             this.btnHotBookCover3.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHotBookCover3.Location = new System.Drawing.Point(355, 371);
             this.btnHotBookCover3.Name = "btnHotBookCover3";
+            this.btnHotBookCover3.PresentedBook = null;
             this.btnHotBookCover3.Size = new System.Drawing.Size(154, 231);
             this.btnHotBookCover3.TabIndex = 23;
             // 
             // btnHotBookCover2
             // 
+            this.btnHotBookCover2.BackColor = System.Drawing.Color.Transparent;
             this.btnHotBookCover2.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHotBookCover2.Location = new System.Drawing.Point(195, 371);
             this.btnHotBookCover2.Name = "btnHotBookCover2";
+            this.btnHotBookCover2.PresentedBook = null;
             this.btnHotBookCover2.Size = new System.Drawing.Size(154, 231);
             this.btnHotBookCover2.TabIndex = 22;
             // 
             // btnHotBookCover1
             // 
+            this.btnHotBookCover1.BackColor = System.Drawing.Color.Transparent;
             this.btnHotBookCover1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHotBookCover1.Location = new System.Drawing.Point(35, 371);
             this.btnHotBookCover1.Name = "btnHotBookCover1";
+            this.btnHotBookCover1.PresentedBook = null;
             this.btnHotBookCover1.Size = new System.Drawing.Size(154, 231);
             this.btnHotBookCover1.TabIndex = 21;
             // 
             // btnRcmBookCover6
             // 
+            this.btnRcmBookCover6.BackColor = System.Drawing.Color.Transparent;
             this.btnRcmBookCover6.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRcmBookCover6.Location = new System.Drawing.Point(835, 68);
             this.btnRcmBookCover6.Name = "btnRcmBookCover6";
+            this.btnRcmBookCover6.PresentedBook = null;
             this.btnRcmBookCover6.Size = new System.Drawing.Size(154, 231);
             this.btnRcmBookCover6.TabIndex = 20;
             // 
             // btnRcmBookCover5
             // 
+            this.btnRcmBookCover5.BackColor = System.Drawing.Color.Transparent;
             this.btnRcmBookCover5.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRcmBookCover5.Location = new System.Drawing.Point(675, 68);
             this.btnRcmBookCover5.Name = "btnRcmBookCover5";
+            this.btnRcmBookCover5.PresentedBook = null;
             this.btnRcmBookCover5.Size = new System.Drawing.Size(154, 231);
             this.btnRcmBookCover5.TabIndex = 19;
             // 
             // btnRcmBookCover4
             // 
+            this.btnRcmBookCover4.BackColor = System.Drawing.Color.Transparent;
             this.btnRcmBookCover4.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRcmBookCover4.Location = new System.Drawing.Point(515, 68);
             this.btnRcmBookCover4.Name = "btnRcmBookCover4";
+            this.btnRcmBookCover4.PresentedBook = null;
             this.btnRcmBookCover4.Size = new System.Drawing.Size(154, 231);
             this.btnRcmBookCover4.TabIndex = 18;
             // 
             // btnRcmBookCover3
             // 
+            this.btnRcmBookCover3.BackColor = System.Drawing.Color.Transparent;
             this.btnRcmBookCover3.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRcmBookCover3.Location = new System.Drawing.Point(355, 68);
             this.btnRcmBookCover3.Name = "btnRcmBookCover3";
+            this.btnRcmBookCover3.PresentedBook = null;
             this.btnRcmBookCover3.Size = new System.Drawing.Size(154, 231);
             this.btnRcmBookCover3.TabIndex = 17;
             // 
             // btnRcmBookCover2
             // 
+            this.btnRcmBookCover2.BackColor = System.Drawing.Color.Transparent;
             this.btnRcmBookCover2.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRcmBookCover2.Location = new System.Drawing.Point(195, 68);
             this.btnRcmBookCover2.Name = "btnRcmBookCover2";
+            this.btnRcmBookCover2.PresentedBook = null;
             this.btnRcmBookCover2.Size = new System.Drawing.Size(154, 231);
             this.btnRcmBookCover2.TabIndex = 16;
             // 
             // btnRcmBookCover1
             // 
+            this.btnRcmBookCover1.BackColor = System.Drawing.Color.Transparent;
             this.btnRcmBookCover1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRcmBookCover1.Location = new System.Drawing.Point(35, 68);
             this.btnRcmBookCover1.Name = "btnRcmBookCover1";
+            this.btnRcmBookCover1.PresentedBook = null;
             this.btnRcmBookCover1.Size = new System.Drawing.Size(154, 231);
             this.btnRcmBookCover1.TabIndex = 15;
             // 

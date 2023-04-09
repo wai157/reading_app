@@ -23,7 +23,7 @@ namespace PresentationLayer
             InitializeComponent();
             _bookManager = new BookManager(new BookRepository(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString));
         }
-        public void load(Account logInAcc)
+        public void LoadBooks(Account logInAcc)
         {
             List<Book> hotBooks = _bookManager.GetHotBooks();
             List<btnBookCover> btnHotBooks = new List<btnBookCover>
