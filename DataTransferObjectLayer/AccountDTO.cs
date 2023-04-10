@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer
+namespace DataTransferObjectLayer
 {
     public enum Sex
     {
@@ -13,7 +13,7 @@ namespace DataAccessLayer
         Other
     }
 
-    public class Account
+    public class AccountDTO
     {
         public string Username { get; set; }
         public string Email { get; set; }

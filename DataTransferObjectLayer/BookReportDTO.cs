@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer
+namespace DataTransferObjectLayer
 {
-    public class Chapter
+    public class BookReportDTO
     {
+        public int CreateAccountID { get; set; }
+        public int ReportedBookID { get; set; }
         public string Content { get; set; }
-        public int Views { get; set; }
-        public int Likes { get; set; }
     }
 }

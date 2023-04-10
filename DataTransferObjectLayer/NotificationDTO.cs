@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer
+namespace DataTransferObjectLayer
 {
-    public class Notification
+    public class NotificationDTO
     {
         public int CreateAccountID { get; set; }
         public int ReceiverRoleID { get; set; }
