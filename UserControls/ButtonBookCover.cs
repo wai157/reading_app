@@ -1,4 +1,4 @@
-﻿using DataAccessLayer;
+﻿using DataTransferObjectLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,18 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace UserControls
 {
-    public partial class btnBookCover : UserControl
+    public partial class ButtonBookCover : UserControl
     {
-        private Book presentedBook;
-        public Book PresentedBook
+        private BookDTO presentedBook;
+        public BookDTO PresentedBook
         {
             get { return presentedBook; }
             set { presentedBook = value; }
         }
 
-        public btnBookCover()
+        public ButtonBookCover()
         {
             InitializeComponent();
         }
@@ -30,8 +30,8 @@ namespace PresentationLayer
         {
             Form parentForm = FindForm();
             BookScreen bookScreen = parentForm.Controls.Find("bookScreen", true).First() as BookScreen;
-            bookScreen.load(presentedBook);
-            utils.ShowScreen(bookScreen);
+            bookScreen.Load_Book(presentedBook);
+            Utils.ShowScreen(bookScreen);
         }
     }
 }

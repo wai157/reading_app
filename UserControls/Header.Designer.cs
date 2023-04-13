@@ -1,5 +1,5 @@
 ﻿
-namespace PresentationLayer
+namespace UserControls
 {
     partial class Header
     {
@@ -39,7 +39,7 @@ namespace PresentationLayer
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.buttonHome);
             this.panel1.Controls.Add(this.buttonUserProfile);
@@ -50,13 +50,13 @@ namespace PresentationLayer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1280, 72);
             this.panel1.TabIndex = 0;
-            this.panel1.Click += new System.EventHandler(utils.StealFocus);
+            this.panel1.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // buttonHome
             // 
             this.buttonHome.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonHome.BackColor = System.Drawing.Color.Transparent;
-            this.buttonHome.BackgroundImage = global::PresentationLayer.Properties.Resources._1871564_200;
+            this.buttonHome.BackgroundImage = UserControls.Properties.Resources._1871564_200;
             this.buttonHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonHome.Location = new System.Drawing.Point(12, 12);
             this.buttonHome.Name = "buttonHome";
@@ -68,7 +68,7 @@ namespace PresentationLayer
             // buttonUserProfile
             // 
             this.buttonUserProfile.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonUserProfile.BackgroundImage = global::PresentationLayer.Properties.Resources.user;
+            this.buttonUserProfile.BackgroundImage = global::UserControls.Properties.Resources.user;
             this.buttonUserProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonUserProfile.Location = new System.Drawing.Point(1128, 12);
             this.buttonUserProfile.Name = "buttonUserProfile";
@@ -80,7 +80,7 @@ namespace PresentationLayer
             // 
             this.buttonSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonSearch.BackColor = System.Drawing.Color.Transparent;
-            this.buttonSearch.BackgroundImage = global::PresentationLayer.Properties.Resources.free_search_icon_free_vector;
+            this.buttonSearch.BackgroundImage = global::UserControls.Properties.Resources.free_search_icon_free_vector;
             this.buttonSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonSearch.Location = new System.Drawing.Point(977, 11);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(0);

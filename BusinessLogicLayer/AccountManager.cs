@@ -1,4 +1,6 @@
 ﻿using DataAccessLayer;
+using DataTransferObjectLayer;
+using Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +13,16 @@ namespace BusinessLayer
     {
         private readonly AccountRepository _repository;
         
-        public AccountManager(AccountRepository repository)
+        public AccountManager()
         {
-            _repository = repository;
+            _repository = new AccountRepository();
         }
 
-        public Account Validate(String username, String password)
+        public AccountDTO Validate(String username, String password)
         {
-            foreach(Account account in _repository.GetAllAccounts())
+            foreach(AccountDTO account in _repository.GetAllAccounts())
             {
-                if (account.Username == username && account.Password == password)
+                if (account.Username == username && account.Password == Extensions.GetSHA256Hash(password))
                     return account;
             }
             return null;

@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer;
+using DataTransferObjectLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,12 @@ namespace BusinessLogicLayer
     {
         private readonly BookRepository _repository;
 
-        public BookManager(BookRepository repository)
+        public BookManager()
         {
-            _repository = repository;
+            _repository = new BookRepository();
         }
 
-        public List<Book> GetHotBooks()
+        public List<BookDTO> GetHotBooks()
         {
             return _repository.GetHotBooks();
         }

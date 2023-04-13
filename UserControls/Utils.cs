@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace UserControls
 {
-    public class utils
+    public class Utils
     {
         public static void StealFocus(object sender, EventArgs e)
         {
-            //Panel stealPanel = (Panel)sender;
-            //stealPanel.Focus();
             Control stealControl = (Control)sender;
             stealControl.Focus();
         }

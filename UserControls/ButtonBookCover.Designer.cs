@@ -1,7 +1,7 @@
 ﻿
-namespace PresentationLayer
+namespace UserControls
 {
-    partial class btnBookCover
+    partial class ButtonBookCover
     {
         /// <summary> 
         /// Required designer variable.
@@ -60,10 +60,10 @@ namespace PresentationLayer
 
         private System.Windows.Forms.Button button1;
 
-        public System.Windows.Forms.Button Button 
-        { 
-            get { return button1; } 
-            set { button1 = value; } 
+        public System.Windows.Forms.Button Button
+        {
+            get { return button1; }
+            set { button1 = value; }
         }
     }
 }

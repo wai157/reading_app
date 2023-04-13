@@ -1,9 +1,6 @@
-﻿using BusinessLayer;
-using DataTransferObjectLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -11,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace UserControls
 {
-    public partial class FormReadingApp : Form
+    public partial class UserProfileScreen : UserControl
     {
-        public FormReadingApp()
+        public UserProfileScreen()
         {
             InitializeComponent();
         }

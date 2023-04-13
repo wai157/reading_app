@@ -1,18 +1,11 @@
-﻿using DataAccessLayer;
+﻿using DataTransferObjectLayer;
 using BusinessLogicLayer;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Configuration;
 using System.IO;
 
-namespace PresentationLayer
+namespace UserControls
 {
     public partial class MainScreen : UserControl
     {
@@ -21,12 +14,12 @@ namespace PresentationLayer
         public MainScreen()
         {
             InitializeComponent();
-            _bookManager = new BookManager(new BookRepository(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString));
+            _bookManager = new BookManager();
         }
-        public void LoadBooks(Account logInAcc)
+        public void Load_Books(AccountDTO logInAcc)
         {
-            List<Book> hotBooks = _bookManager.GetHotBooks();
-            List<btnBookCover> btnHotBooks = new List<btnBookCover>
+            List<BookDTO> hotBooks = _bookManager.GetHotBooks();
+            List<ButtonBookCover> btnHotBooks = new List<ButtonBookCover>
             {
                 btnHotBookCover1,
                 btnHotBookCover2,
@@ -35,7 +28,7 @@ namespace PresentationLayer
                 btnHotBookCover5,
                 btnHotBookCover6,
             };
-            for (int i = 0; i < hotBooks.Count; i++)
+            for (int i = 0; i < 6; i++)
             {
                 btnHotBooks[i].PresentedBook = hotBooks[i];
                 btnHotBooks[i].Button.BackgroundImage = Image.FromStream(new MemoryStream(hotBooks[i].BookCover));

@@ -1,5 +1,5 @@
 ﻿
-namespace PresentationLayer
+namespace UserControls
 {
     partial class MainScreen
     {
@@ -31,21 +31,21 @@ namespace PresentationLayer
         {
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnHotBookCover6 = new PresentationLayer.btnBookCover();
-            this.btnHotBookCover5 = new PresentationLayer.btnBookCover();
-            this.btnHotBookCover4 = new PresentationLayer.btnBookCover();
-            this.btnHotBookCover3 = new PresentationLayer.btnBookCover();
-            this.btnHotBookCover2 = new PresentationLayer.btnBookCover();
-            this.btnHotBookCover1 = new PresentationLayer.btnBookCover();
-            this.btnRcmBookCover6 = new PresentationLayer.btnBookCover();
-            this.btnRcmBookCover5 = new PresentationLayer.btnBookCover();
-            this.btnRcmBookCover4 = new PresentationLayer.btnBookCover();
-            this.btnRcmBookCover3 = new PresentationLayer.btnBookCover();
-            this.btnRcmBookCover2 = new PresentationLayer.btnBookCover();
-            this.btnRcmBookCover1 = new PresentationLayer.btnBookCover();
+            this.btnHotBookCover6 = new UserControls.ButtonBookCover();
+            this.btnHotBookCover5 = new UserControls.ButtonBookCover();
+            this.btnHotBookCover4 = new UserControls.ButtonBookCover();
+            this.btnHotBookCover3 = new UserControls.ButtonBookCover();
+            this.btnHotBookCover2 = new UserControls.ButtonBookCover();
+            this.btnHotBookCover1 = new UserControls.ButtonBookCover();
+            this.btnRcmBookCover6 = new UserControls.ButtonBookCover();
+            this.btnRcmBookCover5 = new UserControls.ButtonBookCover();
+            this.btnRcmBookCover4 = new UserControls.ButtonBookCover();
+            this.btnRcmBookCover3 = new UserControls.ButtonBookCover();
+            this.btnRcmBookCover2 = new UserControls.ButtonBookCover();
+            this.btnRcmBookCover1 = new UserControls.ButtonBookCover();
             this.labelHot = new System.Windows.Forms.Label();
             this.labelRecommend = new System.Windows.Forms.Label();
-            this.header1 = new PresentationLayer.Header();
+            this.header1 = new UserControls.Header();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +53,7 @@ namespace PresentationLayer
             // panelMain
             // 
             this.panelMain.AutoScroll = true;
-            this.panelMain.BackgroundImage = global::PresentationLayer.Properties.Resources.vivid_blurred_colorful_background;
+            this.panelMain.BackgroundImage = global::UserControls.Properties.Resources.vivid_blurred_colorful_background;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMain.Controls.Add(this.panel2);
             this.panelMain.Controls.Add(this.header1);
@@ -62,7 +62,7 @@ namespace PresentationLayer
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.TabIndex = 16;
-            this.panelMain.Click += new System.EventHandler(utils.StealFocus);
+            this.panelMain.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // panel2
             // 
@@ -86,7 +86,7 @@ namespace PresentationLayer
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1024, 612);
             this.panel2.TabIndex = 3;
-            this.panel2.Click += new System.EventHandler(utils.StealFocus);
+            this.panel2.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // btnHotBookCover6
             // 
@@ -236,7 +236,7 @@ namespace PresentationLayer
             // 
             // header1
             // 
-            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.header1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.header1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -256,6 +256,7 @@ namespace PresentationLayer
             this.panelMain.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.ActiveControl = null;
             this.ResumeLayout(false);
 
         }
@@ -267,17 +268,17 @@ namespace PresentationLayer
         private System.Windows.Forms.Label labelHot;
         private System.Windows.Forms.Label labelRecommend;
         private Header header1;
-        private btnBookCover btnHotBookCover6;
-        private btnBookCover btnHotBookCover5;
-        private btnBookCover btnHotBookCover4;
-        private btnBookCover btnHotBookCover3;
-        private btnBookCover btnHotBookCover2;
-        private btnBookCover btnHotBookCover1;
-        private btnBookCover btnRcmBookCover6;
-        private btnBookCover btnRcmBookCover5;
-        private btnBookCover btnRcmBookCover4;
-        private btnBookCover btnRcmBookCover3;
-        private btnBookCover btnRcmBookCover2;
-        private btnBookCover btnRcmBookCover1;
+        private ButtonBookCover btnHotBookCover6;
+        private ButtonBookCover btnHotBookCover5;
+        private ButtonBookCover btnHotBookCover4;
+        private ButtonBookCover btnHotBookCover3;
+        private ButtonBookCover btnHotBookCover2;
+        private ButtonBookCover btnHotBookCover1;
+        private ButtonBookCover btnRcmBookCover6;
+        private ButtonBookCover btnRcmBookCover5;
+        private ButtonBookCover btnRcmBookCover4;
+        private ButtonBookCover btnRcmBookCover3;
+        private ButtonBookCover btnRcmBookCover2;
+        private ButtonBookCover btnRcmBookCover1;
     }
 }

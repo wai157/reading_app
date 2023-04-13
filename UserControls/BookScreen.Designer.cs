@@ -1,5 +1,5 @@
 ﻿
-namespace PresentationLayer
+namespace UserControls
 {
     partial class BookScreen
     {
@@ -44,7 +44,7 @@ namespace PresentationLayer
             this.labelAuthor = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.tabPageTableOfContent = new System.Windows.Forms.TabPage();
-            this.header1 = new PresentationLayer.Header();
+            this.header1 = new UserControls.Header();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -59,7 +59,7 @@ namespace PresentationLayer
             // panelMain
             // 
             this.panelMain.AutoScroll = true;
-            this.panelMain.BackgroundImage = global::PresentationLayer.Properties.Resources.vivid_blurred_colorful_background;
+            this.panelMain.BackgroundImage = global::UserControls.Properties.Resources.vivid_blurred_colorful_background;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMain.Controls.Add(this.panel2);
             this.panelMain.Controls.Add(this.header1);
@@ -232,7 +232,7 @@ namespace PresentationLayer
             // 
             // header1
             // 
-            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.header1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.header1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

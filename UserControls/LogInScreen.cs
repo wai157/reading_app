@@ -1,27 +1,21 @@
 ﻿using BusinessLayer;
-using DataAccessLayer;
+using DataTransferObjectLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace UserControls
 {
     public partial class LogInScreen : UserControl
     {
         private readonly AccountManager _accountManager;
-        private Account logInAccount = new Account();
+        private AccountDTO logInAccount;
 
         public LogInScreen()
         {
             InitializeComponent();
-            _accountManager = new AccountManager(new AccountRepository(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString));
+            _accountManager = new AccountManager();
         }
 
         private void textBoxUsername_AddText(object sender, EventArgs e)
@@ -73,8 +67,8 @@ namespace PresentationLayer
             {
                 Form parentForm = FindForm();
                 MainScreen mainScreen = parentForm.Controls.Find("mainScreen", true).First() as MainScreen;
-                mainScreen.LoadBooks(logInAccount);
-                utils.ShowScreen(mainScreen);
+                mainScreen.Load_Books(logInAccount);
+                Utils.ShowScreen(mainScreen);
             }
         }
     }

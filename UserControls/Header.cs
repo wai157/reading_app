@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace UserControls
 {
     public partial class Header : UserControl
     {
@@ -21,7 +21,7 @@ namespace PresentationLayer
         {
             Form parentForm = FindForm();
             MainScreen mainScreen = parentForm.Controls.Find("mainScreen", true).First() as MainScreen;
-            utils.ShowScreen(mainScreen);
+            Utils.ShowScreen(mainScreen);
         }
 
         private void textBoxSearch_AddText(object sender, EventArgs e)

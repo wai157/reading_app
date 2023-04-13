@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PresentationLayer.Properties {
+namespace DataAccessLayer.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace PresentationLayer.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PresentationLayer.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DataAccessLayer.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1871564_200 {
+        internal static System.Drawing.Bitmap backiem {
             get {
-                object obj = ResourceManager.GetObject("1871564-200", resourceCulture);
+                object obj = ResourceManager.GetObject("backiem", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _634011 {
+        internal static System.Drawing.Bitmap daiquangialamahoang {
             get {
-                object obj = ResourceManager.GetObject("634011", resourceCulture);
+                object obj = ResourceManager.GetObject("daiquangialamahoang", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit_246 {
+        internal static System.Drawing.Bitmap gocnhincuatacgia {
             get {
-                object obj = ResourceManager.GetObject("edit-246", resourceCulture);
+                object obj = ResourceManager.GetObject("gocnhincuatacgia", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap free_search_icon_free_vector {
+        internal static System.Drawing.Bitmap kdtcntvdtd {
             get {
-                object obj = ResourceManager.GetObject("free-search-icon-free-vector", resourceCulture);
+                object obj = ResourceManager.GetObject("kdtcntvdtd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap user {
+        internal static System.Drawing.Bitmap tathatkhongphaicaithecaonhan {
             get {
-                object obj = ResourceManager.GetObject("user", resourceCulture);
+                object obj = ResourceManager.GetObject("tathatkhongphaicaithecaonhan", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,29 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap vivid_blurred_colorful_background {
+        internal static System.Drawing.Bitmap tuthanphieunguyet {
             get {
-                object obj = ResourceManager.GetObject("vivid-blurred-colorful-background", resourceCulture);
+                object obj = ResourceManager.GetObject("tuthanphieunguyet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vdkh {
+            get {
+                object obj = ResourceManager.GetObject("vdkh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vohanmaphapsu {
+            get {
+                object obj = ResourceManager.GetObject("vohanmaphapsu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

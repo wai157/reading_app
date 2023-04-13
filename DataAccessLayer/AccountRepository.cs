@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DataTransferObjectLayer;
+using EntityLayer;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,47 +12,25 @@ namespace DataAccessLayer
 {
     public class AccountRepository
     {
-        private readonly string _connectionString;
+        private readonly PBL3DbContext _context;
 
-        public AccountRepository(string connectionString)
+        public AccountRepository()
         {
-            _connectionString = connectionString;
+            _context = new PBL3DbContext();
         }
 
-        public List<Account> GetAllAccounts()
+        public List<AccountDTO> GetAllAccounts()
         {
-            var accounts = new List<Account>();
-            using (var connection = new MySqlConnection(_connectionString))
+            List<Account> accounts = _context.Accounts.ToList();
+            List<AccountDTO> accountDTOs = new List<AccountDTO>();
+            foreach(Account account in accounts)
             {
-                try
-                {
-                    connection.Open();
-                    using (var command = new MySqlCommand("SELECT * FROM accounts", connection))
-                    {
-                        using (var reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                accounts.Add(new Account
-                                {
-                                    Username = (string)reader["username"],
-                                    Email = (string)reader["email"],
-                                    Password = (string)reader["password"],
-                                    RoleID = (int)reader["role_id"]
-                                });
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                }
-                finally
-                {
-                    connection.Close();
-                }
-                return accounts;
+                AccountDTO accountDTO = new AccountDTO();
+                accountDTO.Username = account.Username;
+                accountDTO.Password = account.Password;
+                accountDTOs.Add(accountDTO);
             }
+            return accountDTOs;
         }
     }
 }

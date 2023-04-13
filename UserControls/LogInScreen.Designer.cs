@@ -1,5 +1,5 @@
 ﻿
-namespace PresentationLayer
+namespace UserControls
 {
     partial class LogInScreen
     {
@@ -42,7 +42,7 @@ namespace PresentationLayer
             // 
             // panelMain
             // 
-            this.panelMain.BackgroundImage = global::PresentationLayer.Properties.Resources.vivid_blurred_colorful_background;
+            this.panelMain.BackgroundImage = global::UserControls.Properties.Resources.vivid_blurred_colorful_background;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMain.Controls.Add(this.panel1);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -50,7 +50,7 @@ namespace PresentationLayer
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.TabIndex = 2;
-            this.panelMain.Click += new System.EventHandler(utils.StealFocus);
+            this.panelMain.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // panel1
             // 
@@ -65,7 +65,7 @@ namespace PresentationLayer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 400);
             this.panel1.TabIndex = 0;
-            this.panel1.Click += new System.EventHandler(utils.StealFocus);
+            this.panel1.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // buttonSignUp
             // 

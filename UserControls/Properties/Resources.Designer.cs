@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PresentationLayer.Properties {
+namespace UserControls.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace PresentationLayer.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PresentationLayer.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UserControls.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -65,7 +65,7 @@ namespace PresentationLayer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1871564_200 {
             get {
-                object obj = ResourceManager.GetObject("1871564-200", resourceCulture);
+                object obj = ResourceManager.GetObject("_1871564_200", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -75,7 +75,7 @@ namespace PresentationLayer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _634011 {
             get {
-                object obj = ResourceManager.GetObject("634011", resourceCulture);
+                object obj = ResourceManager.GetObject("_634011", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -85,7 +85,7 @@ namespace PresentationLayer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap edit_246 {
             get {
-                object obj = ResourceManager.GetObject("edit-246", resourceCulture);
+                object obj = ResourceManager.GetObject("edit_246", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -95,7 +95,7 @@ namespace PresentationLayer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap free_search_icon_free_vector {
             get {
-                object obj = ResourceManager.GetObject("free-search-icon-free-vector", resourceCulture);
+                object obj = ResourceManager.GetObject("free_search_icon_free_vector", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -115,7 +115,7 @@ namespace PresentationLayer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap vivid_blurred_colorful_background {
             get {
-                object obj = ResourceManager.GetObject("vivid-blurred-colorful-background", resourceCulture);
+                object obj = ResourceManager.GetObject("vivid_blurred_colorful_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

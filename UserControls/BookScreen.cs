@@ -1,4 +1,4 @@
-﻿using DataAccessLayer;
+﻿using DataTransferObjectLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace UserControls
 {
     public partial class BookScreen : UserControl
     {
@@ -19,7 +19,7 @@ namespace PresentationLayer
             InitializeComponent();
         }
 
-        public void load(Book book)
+        public void Load_Book(BookDTO book)
         {
             if (book != null)
             {

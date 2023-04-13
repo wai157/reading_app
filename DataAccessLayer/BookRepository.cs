@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DataTransferObjectLayer;
+using EntityLayer;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,48 +11,25 @@ namespace DataAccessLayer
 {
     public class BookRepository
     {
-        private readonly string _connectionString;
+        private readonly PBL3DbContext _context;
 
-        public BookRepository(string connectionString)
+        public BookRepository()
         {
-            _connectionString = connectionString;
+            _context = new PBL3DbContext();
         }
 
-        public List<Book> GetHotBooks()
+        public List<BookDTO> GetHotBooks()
         {
-            var books = new List<Book>();
-            using (var connection = new MySqlConnection(_connectionString))
+            List<Book> books = _context.Books.ToList();
+            List<BookDTO> bookDTOs = new List<BookDTO>();
+            foreach(Book book in books)
             {
-                try
-                {
-                    connection.Open();
-                    using (var command = new MySqlCommand("SELECT * FROM books join authors on books.author_id=authors.author_id ORDER BY views, rating, likes DESC LIMIT 6", connection))
-                    {
-                        using (var reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                books.Add(new Book
-                                {
-                                    Name = (string)reader["book_name"],
-                                    BookCover = (byte[])reader["book_cover"],
-                                    Rating = (int)reader["rating"],
-                                    Views = (int)reader["views"],
-                                    Author = (string)reader["author_name"]
-                                });
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                }
-                finally
-                {
-                    connection.Close();
-                }
-                return books;
+                BookDTO bookDTO = new BookDTO();
+                bookDTO.Name = book.Name;
+                bookDTO.BookCover = book.Cover;
+                bookDTOs.Add(bookDTO);
             }
+            return bookDTOs;
         }
     }
 }
