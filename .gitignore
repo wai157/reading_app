@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 PresentationLayer/App.config
+DataAccessLayer/app.config
