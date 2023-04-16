@@ -66,6 +66,29 @@
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.BookGenres",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        BookId = c.Int(nullable: false),
+                        GenreId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
+                .ForeignKey("dbo.Genres", t => t.GenreId, cascadeDelete: true)
+                .Index(t => t.BookId)
+                .Index(t => t.GenreId);
+            
+            CreateTable(
+                "dbo.Genres",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(unicode: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Chapters",
                 c => new
                     {
@@ -127,7 +150,7 @@
                         DOB = c.DateTime(nullable: false, precision: 0),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Accounts", t => t.Id, cascadeDelete: true)
+                .ForeignKey("dbo.Accounts", t => t.Id)
                 .Index(t => t.Id);
             
         }
@@ -143,6 +166,8 @@
             DropForeignKey("dbo.Libraries", "AccountId", "dbo.Accounts");
             DropForeignKey("dbo.Histories", "BookId", "dbo.Books");
             DropForeignKey("dbo.Chapters", "BookId", "dbo.Books");
+            DropForeignKey("dbo.BookGenres", "GenreId", "dbo.Genres");
+            DropForeignKey("dbo.BookGenres", "BookId", "dbo.Books");
             DropForeignKey("dbo.Books", "AuthorId", "dbo.Authors");
             DropForeignKey("dbo.Histories", "AccountId", "dbo.Accounts");
             DropIndex("dbo.UserInfoes", new[] { "Id" });
@@ -151,6 +176,8 @@
             DropIndex("dbo.Libraries", new[] { "BookId" });
             DropIndex("dbo.Libraries", new[] { "AccountId" });
             DropIndex("dbo.Chapters", new[] { "BookId" });
+            DropIndex("dbo.BookGenres", new[] { "GenreId" });
+            DropIndex("dbo.BookGenres", new[] { "BookId" });
             DropIndex("dbo.Books", new[] { "AuthorId" });
             DropIndex("dbo.Books", new[] { "AccountId" });
             DropIndex("dbo.Histories", new[] { "BookId" });
@@ -161,6 +188,8 @@
             DropTable("dbo.RatedBooks");
             DropTable("dbo.Libraries");
             DropTable("dbo.Chapters");
+            DropTable("dbo.Genres");
+            DropTable("dbo.BookGenres");
             DropTable("dbo.Authors");
             DropTable("dbo.Books");
             DropTable("dbo.Histories");

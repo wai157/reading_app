@@ -21,5 +21,10 @@ namespace BusinessLogicLayer
         {
             return _repository.GetHotBooks();
         }
+
+        public List<BookDTO> GetAllBooks()
+        {
+            return _repository.GetAllBooks();
+        }
     }
 }

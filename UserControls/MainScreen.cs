@@ -16,7 +16,7 @@ namespace UserControls
             InitializeComponent();
             _bookManager = new BookManager();
         }
-        public void Load_Books(AccountDTO logInAcc)
+        public void LoadScreen(AccountDTO logInAcc)
         {
             List<BookDTO> hotBooks = _bookManager.GetHotBooks();
             List<ButtonBookCover> btnHotBooks = new List<ButtonBookCover>

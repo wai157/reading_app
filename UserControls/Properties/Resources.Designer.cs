@@ -63,6 +63,16 @@ namespace UserControls.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _111365_200 {
+            get {
+                object obj = ResourceManager.GetObject("111365-200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1871564_200 {
             get {
                 object obj = ResourceManager.GetObject("_1871564_200", resourceCulture);
@@ -76,6 +86,16 @@ namespace UserControls.Properties {
         internal static System.Drawing.Bitmap _634011 {
             get {
                 object obj = ResourceManager.GetObject("_634011", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _665049 {
+            get {
+                object obj = ResourceManager.GetObject("_665049", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

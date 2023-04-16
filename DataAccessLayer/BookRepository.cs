@@ -20,9 +20,27 @@ namespace DataAccessLayer
 
         public List<BookDTO> GetHotBooks()
         {
-            List<Book> books = _context.Books.ToList();
+            List<Book> books = _context.Books.OrderByDescending(x => x.Views)
+                                             .ThenByDescending(x => x.Likes)
+                                             .ThenByDescending(x => x.Rating)
+                                             .Take(6)
+                                             .ToList();
             List<BookDTO> bookDTOs = new List<BookDTO>();
             foreach(Book book in books)
+            {
+                BookDTO bookDTO = new BookDTO();
+                bookDTO.Name = book.Name;
+                bookDTO.BookCover = book.Cover;
+                bookDTOs.Add(bookDTO);
+            }
+            return bookDTOs;
+        }
+
+        public List<BookDTO> GetAllBooks()
+        {
+            List<Book> books = _context.Books.ToList();
+            List<BookDTO> bookDTOs = new List<BookDTO>();
+            foreach (Book book in books)
             {
                 BookDTO bookDTO = new BookDTO();
                 bookDTO.Name = book.Name;

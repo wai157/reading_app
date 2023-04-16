@@ -29,6 +29,7 @@ namespace UserControls
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookScreen));
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -45,6 +46,7 @@ namespace UserControls
             this.labelName = new System.Windows.Forms.Label();
             this.tabPageTableOfContent = new System.Windows.Forms.TabPage();
             this.header1 = new UserControls.Header();
+            this.labelDescription = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -174,7 +176,9 @@ namespace UserControls
             // 
             // tabPageAbout
             // 
+            this.tabPageAbout.AutoScroll = true;
             this.tabPageAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.tabPageAbout.Controls.Add(this.labelDescription);
             this.tabPageAbout.Controls.Add(this.labelGenres);
             this.tabPageAbout.Controls.Add(this.labelAuthor);
             this.tabPageAbout.Controls.Add(this.labelName);
@@ -212,11 +216,11 @@ namespace UserControls
             this.labelName.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelName.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.Location = new System.Drawing.Point(3, 3);
-            this.labelName.MaximumSize = new System.Drawing.Size(622, 100);
-            this.labelName.MinimumSize = new System.Drawing.Size(622, 100);
+            this.labelName.MaximumSize = new System.Drawing.Size(605, 100);
+            this.labelName.MinimumSize = new System.Drawing.Size(605, 100);
             this.labelName.Name = "labelName";
             this.labelName.Padding = new System.Windows.Forms.Padding(5);
-            this.labelName.Size = new System.Drawing.Size(622, 100);
+            this.labelName.Size = new System.Drawing.Size(605, 100);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Nameaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             // 
@@ -232,7 +236,7 @@ namespace UserControls
             // 
             // header1
             // 
-            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.header1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.header1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -240,6 +244,18 @@ namespace UserControls
             this.header1.Name = "header1";
             this.header1.Size = new System.Drawing.Size(1280, 72);
             this.header1.TabIndex = 0;
+            // 
+            // labelDescription
+            // 
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescription.Location = new System.Drawing.Point(6, 175);
+            this.labelDescription.MaximumSize = new System.Drawing.Size(602, 0);
+            this.labelDescription.MinimumSize = new System.Drawing.Size(602, 0);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(602, 500);
+            this.labelDescription.TabIndex = 3;
+            this.labelDescription.Text = resources.GetString("labelDescription.Text");
             // 
             // BookScreen
             // 
@@ -282,5 +298,6 @@ namespace UserControls
         private System.Windows.Forms.Label labelViews;
         private System.Windows.Forms.Label labelGenres;
         private System.Windows.Forms.Label labelAuthor;
+        private System.Windows.Forms.Label labelDescription;
     }
 }

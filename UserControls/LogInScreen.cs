@@ -10,7 +10,8 @@ namespace UserControls
     public partial class LogInScreen : UserControl
     {
         private readonly AccountManager _accountManager;
-        private AccountDTO logInAccount;
+
+        public AccountDTO LogInAccount { get; set; }
 
         public LogInScreen()
         {
@@ -62,13 +63,27 @@ namespace UserControls
                 || string.IsNullOrEmpty(textBoxUsername.Text) || string.IsNullOrEmpty(textBoxPassword.Text)) return;
             string username = textBoxUsername.Text;
             string password = textBoxPassword.Text;
-            logInAccount = _accountManager.Validate(username, password);
-            if (logInAccount != null)
+            LogInAccount = _accountManager.Validate(username, password);
+            if (LogInAccount != null)
             {
                 Form parentForm = FindForm();
-                MainScreen mainScreen = parentForm.Controls.Find("mainScreen", true).First() as MainScreen;
-                mainScreen.Load_Books(logInAccount);
-                Utils.ShowScreen(mainScreen);
+                if (LogInAccount.RoleID == 1)
+                {
+                    AdminScreen adminScreen = parentForm.Controls.Find("adminScreen", true).First() as AdminScreen;
+                    adminScreen.LoadScreen(LogInAccount);
+                    Utils.ShowScreen(adminScreen);
+                }
+                else if (LogInAccount.RoleID == 3)
+                {
+                    MainScreen mainScreen = parentForm.Controls.Find("mainScreen", true).First() as MainScreen;
+                    mainScreen.LoadScreen(LogInAccount);
+                    Utils.ShowScreen(mainScreen);
+                }
+                this.textBoxUsername.Text = "Tên đăng nhập";
+                this.textBoxUsername.ForeColor = Color.Gray;
+                this.textBoxPassword.Text = "Mật khẩu";
+                this.textBoxPassword.ForeColor = Color.Gray;
+                this.textBoxPassword.PasswordChar = '\0';
             }
         }
     }

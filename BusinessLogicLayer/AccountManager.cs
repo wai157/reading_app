@@ -27,5 +27,10 @@ namespace BusinessLayer
             }
             return null;
         }
+
+        public UserInfoDTO GetUserInfo(int accountId)
+        {
+            return _repository.GetUserInfo(accountId);
+        }
     }
 }

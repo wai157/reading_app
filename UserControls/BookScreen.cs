@@ -29,6 +29,7 @@ namespace UserControls
                 labelRating.Text = $"Đánh giá: {book.Rating}";
                 labelName.Text = book.Name;
                 labelAuthor.Text = "Tác giả: " + book.Author;
+                labelDescription.Text = "Nội dung: " + book.Description;
             }
         }
     }

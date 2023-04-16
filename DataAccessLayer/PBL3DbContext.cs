@@ -21,6 +21,7 @@ namespace DataAccessLayer
         public virtual DbSet<UserInfo> UserInfoes { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<Chapter> Chapters { get; set; }
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<History> Histories { get; set; }

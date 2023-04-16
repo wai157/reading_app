@@ -46,8 +46,10 @@
     <Compile Include="BookDTO.cs" />
     <Compile Include="BookReportDTO.cs" />
     <Compile Include="ChapterDTO.cs" />
+    <Compile Include="GenreDTO.cs" />
     <Compile Include="NotificationDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInfoDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

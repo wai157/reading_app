@@ -20,8 +20,17 @@ namespace UserControls
         private void buttonHome_Click(object sender, EventArgs e)
         {
             Form parentForm = FindForm();
-            MainScreen mainScreen = parentForm.Controls.Find("mainScreen", true).First() as MainScreen;
-            Utils.ShowScreen(mainScreen);
+            LogInScreen logInScreen = parentForm.Controls.Find("logInScreen", true).First() as LogInScreen;
+            if (logInScreen.LogInAccount.RoleID == 1)
+            {
+                AdminScreen adminScreen = parentForm.Controls.Find("adminScreen", true).First() as AdminScreen;
+                Utils.ShowScreen(adminScreen);
+            }
+            else if (logInScreen.LogInAccount.RoleID == 3)
+            {
+                MainScreen mainScreen = parentForm.Controls.Find("mainScreen", true).First() as MainScreen;
+                Utils.ShowScreen(mainScreen);
+            }
         }
 
         private void textBoxSearch_AddText(object sender, EventArgs e)
@@ -40,6 +49,15 @@ namespace UserControls
                 textBoxSearch.Text = "";
                 textBoxSearch.ForeColor = Color.Black;
             }
+        }
+
+        private void buttonUserProfile_Click(object sender, EventArgs e)
+        {
+            Form parentForm = FindForm();
+            LogInScreen logInScreen = parentForm.Controls.Find("logInScreen", true).First() as LogInScreen;
+            UserProfileScreen userProfileScreen = parentForm.Controls.Find("userProfileScreen", true).First() as UserProfileScreen;
+            userProfileScreen.LoadScreen(logInScreen.LogInAccount);
+            Utils.ShowScreen(userProfileScreen);
         }
     }
 }

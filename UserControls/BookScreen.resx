@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="labelDescription.Text" xml:space="preserve">
+    <value>Nội dung: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dui justo, commodo a nibh sit amet, tempor pharetra risus. Nullam mollis magna eget justo congue facilisis. Suspendisse interdum, massa facilisis consectetur consectetur, ante sapien condimentum ex, ut luctus arcu nisl ac massa. In eget mauris dui. Nam venenatis quam nisl, at auctor diam pellentesque a. Maecenas consequat, velit sit amet convallis feugiat, augue ligula lobortis lorem, gravida consectetur massa velit sed lacus. Duis ultricies mauris ac ullamcorper malesuada. Aliquam quis nibh rutrum, malesuada odio nec, malesuada ante. Nam ac nibh in quam semper egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec pellentesque dapibus risus pulvinar feugiat. Sed pulvinar consectetur lorem quis pulvinar. Curabitur sit amet mauris consequat, elementum ipsum sit amet, egestas nisl. Praesent nec magna a lectus placerat fringilla. Nam euismod a nibh nec tristique. Donec id quam eu tortor varius dictum. Ut ac facilisis enim, sed suscipit metus. Etiam laoreet orci nec viverra tincidunt. Nunc scelerisque molestie justo eget convallis. Ut luctus elit ac porta lobortis. Integer varius at metus condimentum tempus.</value>
+  </data>
 </root>

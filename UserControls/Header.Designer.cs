@@ -39,7 +39,7 @@ namespace UserControls
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.buttonHome);
             this.panel1.Controls.Add(this.buttonUserProfile);
@@ -56,7 +56,7 @@ namespace UserControls
             // 
             this.buttonHome.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonHome.BackColor = System.Drawing.Color.Transparent;
-            this.buttonHome.BackgroundImage = UserControls.Properties.Resources._1871564_200;
+            this.buttonHome.BackgroundImage = global::UserControls.Properties.Resources._1871564_200;
             this.buttonHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonHome.Location = new System.Drawing.Point(12, 12);
             this.buttonHome.Name = "buttonHome";
@@ -75,6 +75,7 @@ namespace UserControls
             this.buttonUserProfile.Size = new System.Drawing.Size(47, 47);
             this.buttonUserProfile.TabIndex = 3;
             this.buttonUserProfile.UseVisualStyleBackColor = true;
+            this.buttonUserProfile.Click += new System.EventHandler(this.buttonUserProfile_Click);
             // 
             // buttonSearch
             // 
@@ -99,8 +100,8 @@ namespace UserControls
             this.textBoxSearch.Size = new System.Drawing.Size(768, 47);
             this.textBoxSearch.TabIndex = 1;
             this.textBoxSearch.Text = " Tìm Kiếm";
-            this.textBoxSearch.LostFocus += new System.EventHandler(this.textBoxSearch_AddText);
             this.textBoxSearch.GotFocus += new System.EventHandler(this.textBoxSearch_RemoveText);
+            this.textBoxSearch.LostFocus += new System.EventHandler(this.textBoxSearch_AddText);
             // 
             // Header
             // 

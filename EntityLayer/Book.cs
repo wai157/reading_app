@@ -20,6 +20,7 @@ namespace EntityLayer
         public int AccountId { get; set; }
         public int AuthorId { get; set; }
 
+        public virtual List<BookGenre> BookGenre { get; set; }
         public virtual List<Chapter> Chapters { get; set; }
         public virtual Account UploadAccount { get; set; }
         public virtual Author Author { get; set; }

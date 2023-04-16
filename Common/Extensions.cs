@@ -45,8 +45,7 @@ namespace Common
         {
             using (var ms = new MemoryStream())
             {
-                Bitmap bmp = new Bitmap(imageIn);
-                bmp.Save(ms, imageIn.RawFormat);
+                imageIn.Save(ms, imageIn.RawFormat);
                 return ms.ToArray();
             }
         }
