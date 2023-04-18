@@ -45,9 +45,35 @@ namespace DataAccessLayer
                 BookDTO bookDTO = new BookDTO();
                 bookDTO.Name = book.Name;
                 bookDTO.BookCover = book.Cover;
+                bookDTO.Author = _context.Authors.First(x => x.Id == book.AuthorId).Name;
+                bookDTO.UploadAccountId = book.AccountId;
+                bookDTO.Description = book.Description;
+                bookDTO.Genre = _context.Genres.First(x => x.Id == book.GenreId).Name;
+                bookDTO.Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count();
                 bookDTOs.Add(bookDTO);
             }
             return bookDTOs;
+        }
+
+        public void AddBook(BookDTO book)
+        {
+            if(_context.Authors.Where(x => x.Name == book.Author).Count() == 0)
+            {
+                _context.Authors.Add(new Author { Name = book.Author });
+                _context.SaveChanges();
+            }
+            Author author = _context.Authors.First(x => x.Name == book.Author);
+            Genre genre = _context.Genres.First(x => x.Name == book.Genre);
+            _context.Books.Add(new Book
+            {
+                Name = book.Name,
+                Description = book.Description,
+                Cover = book.BookCover,
+                GenreId = genre.Id,
+                AuthorId = author.Id,
+                AccountId = book.UploadAccountId
+            });
+            _context.SaveChanges();
         }
     }
 }

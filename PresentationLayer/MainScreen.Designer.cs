@@ -1,5 +1,5 @@
 ﻿
-namespace UserControls
+namespace PresentationLayer
 {
     partial class MainScreen
     {
@@ -31,21 +31,21 @@ namespace UserControls
         {
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnHotBookCover6 = new UserControls.ButtonBookCover();
-            this.btnHotBookCover5 = new UserControls.ButtonBookCover();
-            this.btnHotBookCover4 = new UserControls.ButtonBookCover();
-            this.btnHotBookCover3 = new UserControls.ButtonBookCover();
-            this.btnHotBookCover2 = new UserControls.ButtonBookCover();
-            this.btnHotBookCover1 = new UserControls.ButtonBookCover();
-            this.btnRcmBookCover6 = new UserControls.ButtonBookCover();
-            this.btnRcmBookCover5 = new UserControls.ButtonBookCover();
-            this.btnRcmBookCover4 = new UserControls.ButtonBookCover();
-            this.btnRcmBookCover3 = new UserControls.ButtonBookCover();
-            this.btnRcmBookCover2 = new UserControls.ButtonBookCover();
-            this.btnRcmBookCover1 = new UserControls.ButtonBookCover();
+            this.btnHotBookCover6 = new PresentationLayer.ButtonBookCover();
+            this.btnHotBookCover5 = new PresentationLayer.ButtonBookCover();
+            this.btnHotBookCover4 = new PresentationLayer.ButtonBookCover();
+            this.btnHotBookCover3 = new PresentationLayer.ButtonBookCover();
+            this.btnHotBookCover2 = new PresentationLayer.ButtonBookCover();
+            this.btnHotBookCover1 = new PresentationLayer.ButtonBookCover();
+            this.btnRcmBookCover6 = new PresentationLayer.ButtonBookCover();
+            this.btnRcmBookCover5 = new PresentationLayer.ButtonBookCover();
+            this.btnRcmBookCover4 = new PresentationLayer.ButtonBookCover();
+            this.btnRcmBookCover3 = new PresentationLayer.ButtonBookCover();
+            this.btnRcmBookCover2 = new PresentationLayer.ButtonBookCover();
+            this.btnRcmBookCover1 = new PresentationLayer.ButtonBookCover();
             this.labelHot = new System.Windows.Forms.Label();
             this.labelRecommend = new System.Windows.Forms.Label();
-            this.header1 = new UserControls.Header();
+            this.header1 = new PresentationLayer.Header();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +53,7 @@ namespace UserControls
             // panelMain
             // 
             this.panelMain.AutoScroll = true;
-            this.panelMain.BackgroundImage = global::UserControls.Properties.Resources.vivid_blurred_colorful_background;
+            this.panelMain.BackgroundImage = global::PresentationLayer.Properties.Resources.vivid_blurred_colorful_background;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMain.Controls.Add(this.panel2);
             this.panelMain.Controls.Add(this.header1);

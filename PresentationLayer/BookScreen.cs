@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UserControls
+namespace PresentationLayer
 {
     public partial class BookScreen : UserControl
     {
@@ -27,9 +27,11 @@ namespace UserControls
                 pictureBoxCover.SizeMode = PictureBoxSizeMode.StretchImage;
                 labelViews.Text = $"Lượt đọc: {book.Views}";
                 labelRating.Text = $"Đánh giá: {book.Rating}";
+                labelFollowed.Text = $"Lượt theo dõi: {book.Follows}";
                 labelName.Text = book.Name;
                 labelAuthor.Text = "Tác giả: " + book.Author;
                 labelDescription.Text = "Nội dung: " + book.Description;
+                labelGenres.Text = "Thể loại: " + book.Genre;
             }
         }
     }

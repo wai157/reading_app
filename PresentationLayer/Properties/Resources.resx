@@ -124,7 +124,7 @@
   <data name="665049" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\665049.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1871564-200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Home" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1871564-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="634011" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -139,7 +139,7 @@
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="6650491" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\6650491.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_111365_200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\111365-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

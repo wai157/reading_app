@@ -1,5 +1,5 @@
 ﻿
-namespace UserControls
+namespace PresentationLayer
 {
     partial class Header
     {
@@ -56,7 +56,7 @@ namespace UserControls
             // 
             this.buttonHome.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonHome.BackColor = System.Drawing.Color.Transparent;
-            this.buttonHome.BackgroundImage = global::UserControls.Properties.Resources._1871564_200;
+            this.buttonHome.BackgroundImage = global::PresentationLayer.Properties.Resources.Home;
             this.buttonHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonHome.Location = new System.Drawing.Point(12, 12);
             this.buttonHome.Name = "buttonHome";
@@ -68,7 +68,7 @@ namespace UserControls
             // buttonUserProfile
             // 
             this.buttonUserProfile.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonUserProfile.BackgroundImage = global::UserControls.Properties.Resources.user;
+            this.buttonUserProfile.BackgroundImage = global::PresentationLayer.Properties.Resources.user;
             this.buttonUserProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonUserProfile.Location = new System.Drawing.Point(1128, 12);
             this.buttonUserProfile.Name = "buttonUserProfile";
@@ -81,7 +81,7 @@ namespace UserControls
             // 
             this.buttonSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonSearch.BackColor = System.Drawing.Color.Transparent;
-            this.buttonSearch.BackgroundImage = global::UserControls.Properties.Resources.free_search_icon_free_vector;
+            this.buttonSearch.BackgroundImage = global::PresentationLayer.Properties.Resources.free_search_icon_free_vector;
             this.buttonSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonSearch.Location = new System.Drawing.Point(977, 11);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(0);

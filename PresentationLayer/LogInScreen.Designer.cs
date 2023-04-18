@@ -1,5 +1,5 @@
 ﻿
-namespace UserControls
+namespace PresentationLayer
 {
     partial class LogInScreen
     {
@@ -29,6 +29,7 @@ namespace UserControls
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonSignUp = new System.Windows.Forms.Button();
@@ -36,13 +37,16 @@ namespace UserControls
             this.buttonLogIn = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.labelError = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
             // 
-            this.panelMain.BackgroundImage = global::UserControls.Properties.Resources.vivid_blurred_colorful_background;
+            this.panelMain.BackgroundImage = global::PresentationLayer.Properties.Resources.vivid_blurred_colorful_background;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMain.Controls.Add(this.panel1);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -50,12 +54,12 @@ namespace UserControls
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.TabIndex = 2;
-            this.panelMain.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.panel1.Controls.Add(this.labelError);
             this.panel1.Controls.Add(this.buttonSignUp);
             this.panel1.Controls.Add(this.linkLabelForgotPassword);
             this.panel1.Controls.Add(this.buttonLogIn);
@@ -65,7 +69,6 @@ namespace UserControls
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 400);
             this.panel1.TabIndex = 0;
-            this.panel1.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // buttonSignUp
             // 
@@ -119,6 +122,7 @@ namespace UserControls
             this.textBoxPassword.Text = "Mật khẩu";
             this.textBoxPassword.GotFocus += new System.EventHandler(this.textBoxPassword_RemoveText);
             this.textBoxPassword.LostFocus += new System.EventHandler(this.textBoxPassword_AddText);
+            this.textBoxPassword.Validated += new System.EventHandler(this.textBoxPassword_Validated);
             // 
             // textBoxUsername
             // 
@@ -132,6 +136,22 @@ namespace UserControls
             this.textBoxUsername.Text = "Tên đăng nhập";
             this.textBoxUsername.GotFocus += new System.EventHandler(this.textBoxUsername_RemoveText);
             this.textBoxUsername.LostFocus += new System.EventHandler(this.textBoxUsername_AddText);
+            this.textBoxUsername.Validated += new System.EventHandler(this.textBoxUsername_Validated);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.Crimson;
+            this.labelError.Location = new System.Drawing.Point(172, 79);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 16);
+            this.labelError.TabIndex = 3;
+            this.labelError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LogInScreen
             // 
@@ -144,6 +164,7 @@ namespace UserControls
             this.panelMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -157,5 +178,12 @@ namespace UserControls
         private System.Windows.Forms.Button buttonLogIn;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+
+        public System.Windows.Forms.Button ButtonLogIn
+        {
+            get { return this.buttonLogIn; }
+        }
     }
 }

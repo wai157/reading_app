@@ -1,5 +1,5 @@
 ﻿
-namespace UserControls
+namespace PresentationLayer
 {
     partial class AdminScreen
     {
@@ -36,7 +36,7 @@ namespace UserControls
             this.tabPageBooks = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPageUsers = new System.Windows.Forms.TabPage();
-            this.header1 = new UserControls.Header();
+            this.header1 = new PresentationLayer.Header();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -46,7 +46,7 @@ namespace UserControls
             // panelMain
             // 
             this.panelMain.AutoScroll = true;
-            this.panelMain.BackgroundImage = global::UserControls.Properties.Resources.vivid_blurred_colorful_background;
+            this.panelMain.BackgroundImage = global::PresentationLayer.Properties.Resources.vivid_blurred_colorful_background;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMain.Controls.Add(this.buttonAddBook);
             this.panelMain.Controls.Add(this.panel2);
@@ -55,13 +55,12 @@ namespace UserControls
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1280, 720);
-            this.panelMain.Click += new System.EventHandler(Utils.StealFocus);
             this.panelMain.TabIndex = 17;
             // 
             // buttonAddBook
             // 
             this.buttonAddBook.BackColor = System.Drawing.Color.Transparent;
-            this.buttonAddBook.BackgroundImage = global::UserControls.Properties.Resources._111365_200;
+            this.buttonAddBook.BackgroundImage = global::PresentationLayer.Properties.Resources._111365_200;
             this.buttonAddBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonAddBook.Location = new System.Drawing.Point(69, 12);
             this.buttonAddBook.Name = "buttonAddBook";
@@ -78,7 +77,6 @@ namespace UserControls
             this.panel2.Location = new System.Drawing.Point(128, 78);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1024, 612);
-            this.panel2.Click += new System.EventHandler(Utils.StealFocus);
             this.panel2.TabIndex = 3;
             // 
             // tabControl1
@@ -97,6 +95,7 @@ namespace UserControls
             // tabPageBooks
             // 
             this.tabPageBooks.AutoScroll = true;
+            this.tabPageBooks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.tabPageBooks.Controls.Add(this.flowLayoutPanelBooks);
             this.tabPageBooks.Location = new System.Drawing.Point(4, 34);
             this.tabPageBooks.Name = "tabPageBooks";
@@ -104,29 +103,28 @@ namespace UserControls
             this.tabPageBooks.Size = new System.Drawing.Size(1016, 574);
             this.tabPageBooks.TabIndex = 0;
             this.tabPageBooks.Text = "Sách";
-            this.tabPageBooks.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanelBooks
             // 
             this.flowLayoutPanelBooks.AutoScroll = true;
+            this.flowLayoutPanelBooks.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanelBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelBooks.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelBooks.Name = "flowLayoutPanelBooks";
             this.flowLayoutPanelBooks.Padding = new System.Windows.Forms.Padding(25, 10, 0, 10);
             this.flowLayoutPanelBooks.Size = new System.Drawing.Size(1010, 568);
-            this.flowLayoutPanelBooks.Click += new System.EventHandler(Utils.StealFocus);
             this.flowLayoutPanelBooks.TabIndex = 0;
             // 
             // tabPageUsers
             // 
             this.tabPageUsers.AutoScroll = true;
+            this.tabPageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.tabPageUsers.Location = new System.Drawing.Point(4, 34);
             this.tabPageUsers.Name = "tabPageUsers";
             this.tabPageUsers.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageUsers.Size = new System.Drawing.Size(1016, 574);
             this.tabPageUsers.TabIndex = 1;
             this.tabPageUsers.Text = "Người dùng";
-            this.tabPageUsers.UseVisualStyleBackColor = true;
             // 
             // header1
             // 

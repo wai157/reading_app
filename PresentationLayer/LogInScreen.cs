@@ -5,12 +5,11 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace UserControls
+namespace PresentationLayer
 {
     public partial class LogInScreen : UserControl
     {
         private readonly AccountManager _accountManager;
-
         public AccountDTO LogInAccount { get; set; }
 
         public LogInScreen()
@@ -59,31 +58,61 @@ namespace UserControls
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
-            if (textBoxUsername.ForeColor != Color.Black || textBoxPassword.ForeColor != Color.Black
-                || string.IsNullOrEmpty(textBoxUsername.Text) || string.IsNullOrEmpty(textBoxPassword.Text)) return;
+            labelError.Text = "";
+            ValidateChildren(ValidationConstraints.Enabled);
+            if (string.IsNullOrEmpty(errorProvider.GetError(textBoxUsername)) == false
+                || string.IsNullOrEmpty(errorProvider.GetError(textBoxPassword)) == false) return;
             string username = textBoxUsername.Text;
             string password = textBoxPassword.Text;
             LogInAccount = _accountManager.Validate(username, password);
             if (LogInAccount != null)
             {
-                Form parentForm = FindForm();
+                FormReadingApp formReadingApp = ParentForm as FormReadingApp;
+                formReadingApp.LogInAccountDTO = LogInAccount;
+                formReadingApp.AcceptButton = null;
                 if (LogInAccount.RoleID == 1)
                 {
-                    AdminScreen adminScreen = parentForm.Controls.Find("adminScreen", true).First() as AdminScreen;
-                    adminScreen.LoadScreen(LogInAccount);
-                    Utils.ShowScreen(adminScreen);
+                    AdminScreen adminScreen = new AdminScreen(LogInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
                 }
                 else if (LogInAccount.RoleID == 3)
                 {
-                    MainScreen mainScreen = parentForm.Controls.Find("mainScreen", true).First() as MainScreen;
-                    mainScreen.LoadScreen(LogInAccount);
-                    Utils.ShowScreen(mainScreen);
+                    MainScreen mainScreen = new MainScreen(LogInAccount);
+                    Utils.ShowScreen(ParentForm, mainScreen);
                 }
                 this.textBoxUsername.Text = "Tên đăng nhập";
                 this.textBoxUsername.ForeColor = Color.Gray;
                 this.textBoxPassword.Text = "Mật khẩu";
                 this.textBoxPassword.ForeColor = Color.Gray;
                 this.textBoxPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                labelError.Text = "Tên đăng nhập hoặc mật khẩu không đúng!";
+            }
+        }
+
+        private void textBoxUsername_Validated(object sender, EventArgs e)
+        {
+            if (textBoxUsername.ForeColor != Color.Black || string.IsNullOrEmpty(textBoxUsername.Text))
+            {
+                errorProvider.SetError(textBoxUsername, "Vui lòng nhập tên đăng nhập!");
+            }
+            else
+            {
+                errorProvider.SetError(textBoxUsername, null);
+            }
+        }
+
+        private void textBoxPassword_Validated(object sender, EventArgs e)
+        {
+            if (textBoxPassword.ForeColor != Color.Black || string.IsNullOrEmpty(textBoxPassword.Text))
+            {
+                errorProvider.SetError(textBoxPassword, "Vui lòng nhập mật khẩu!");
+            }
+            else
+            {
+                errorProvider.SetError(textBoxPassword, null);
             }
         }
     }

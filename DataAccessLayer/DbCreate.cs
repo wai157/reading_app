@@ -26,14 +26,14 @@ namespace DataAccessLayer
             });
             context.Genres.AddRange(new Genre[]
             {
-                new Genre{Name = "Trinh thám"},
-                new Genre{Name = "Hồi hộp, giật gân"},
-                new Genre{Name = "Kinh dị"},
-                new Genre{Name = "Lịch sử"},
-                new Genre{Name = "Tình cảm"},
-                new Genre{Name = "Khoa học viễn tưởng"},
-                new Genre{Name = "Giả tưởng"},
-                new Genre{Name = "Hư cấu hiện thực"}
+                new Genre{Id = 1, Name = "Trinh thám"},
+                new Genre{Id = 2, Name = "Hồi hộp, giật gân"},
+                new Genre{Id = 3, Name = "Kinh dị"},
+                new Genre{Id = 4, Name = "Lịch sử"},
+                new Genre{Id = 5, Name = "Tình cảm"},
+                new Genre{Id = 6, Name = "Khoa học viễn tưởng"},
+                new Genre{Id = 7, Name = "Giả tưởng"},
+                new Genre{Id = 8, Name = "Hư cấu hiện thực"}
             });
             context.Accounts.AddRange(new Account[]
             {
@@ -48,14 +48,14 @@ namespace DataAccessLayer
             });
             context.Books.AddRange(new Book[]
             {
-                new Book{Name = "Đại quản gia là ma hoàng", Cover = Extensions.ImageToByteArray(Resources.daiquangialamahoang), AuthorId = 1, AccountId = 1},
-                new Book{Name = "Ta thật không phải cải thế cao nhân", Cover = Extensions.ImageToByteArray(Resources.tathatkhongphaicaithecaonhan), AuthorId = 1, AccountId = 1},
-                new Book{Name = "Không để ta chết nữa ta vô địch thật đấy", Cover = Extensions.ImageToByteArray(Resources.kdtcntvdtd), AuthorId = 1, AccountId = 1},
-                new Book{Name = "Góc nhìn của tác giả", Cover = Extensions.ImageToByteArray(Resources.gocnhincuatacgia), AuthorId = 1, AccountId = 1},
-                new Book{Name = "Bắc kiếm", Cover = Extensions.ImageToByteArray(Resources.backiem), AuthorId = 1, AccountId = 1},
-                new Book{Name = "Võ đang kì hiệp", Cover = Extensions.ImageToByteArray(Resources.vdkh), AuthorId = 1, AccountId = 1},
-                new Book{Name = "Vô hạn ma pháp sư", Cover = Extensions.ImageToByteArray(Resources.vohanmaphapsu), AuthorId = 1, AccountId = 1},
-                new Book{Name = "Tử thần phiêu nguyệt", Cover = Extensions.ImageToByteArray(Resources.tuthanphieunguyet), AuthorId = 1, AccountId = 1},
+                new Book{Name = "Đại quản gia là ma hoàng", Cover = Extensions.ImageToByteArray(Resources.daiquangialamahoang), AuthorId = 1, AccountId = 1, GenreId = 1},
+                new Book{Name = "Ta thật không phải cải thế cao nhân", Cover = Extensions.ImageToByteArray(Resources.tathatkhongphaicaithecaonhan), AuthorId = 1, AccountId = 1, GenreId = 1},
+                new Book{Name = "Không để ta chết nữa ta vô địch thật đấy", Cover = Extensions.ImageToByteArray(Resources.kdtcntvdtd), AuthorId = 1, AccountId = 1, GenreId = 1},
+                new Book{Name = "Góc nhìn của tác giả", Cover = Extensions.ImageToByteArray(Resources.gocnhincuatacgia), AuthorId = 1, AccountId = 1, GenreId = 1},
+                new Book{Name = "Bắc kiếm", Cover = Extensions.ImageToByteArray(Resources.backiem), AuthorId = 1, AccountId = 1, GenreId = 1},
+                new Book{Name = "Võ đang kì hiệp", Cover = Extensions.ImageToByteArray(Resources.vdkh), AuthorId = 1, AccountId = 1, GenreId = 1},
+                new Book{Name = "Vô hạn ma pháp sư", Cover = Extensions.ImageToByteArray(Resources.vohanmaphapsu), AuthorId = 1, AccountId = 1, GenreId = 1},
+                new Book{Name = "Tử thần phiêu nguyệt", Cover = Extensions.ImageToByteArray(Resources.tuthanphieunguyet), AuthorId = 1, AccountId = 1, GenreId = 1},
             });
         }
     }

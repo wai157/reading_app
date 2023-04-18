@@ -11,19 +11,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UserControls
+namespace PresentationLayer
 {
     public partial class AdminScreen : UserControl
     {
         private readonly BookManager _bookManager;
-        public AdminScreen()
+        private readonly AccountDTO _logInAccount;
+        public AdminScreen(AccountDTO logInAccountDTO)
         {
             InitializeComponent();
             _bookManager = new BookManager();
-        }
-
-        public void LoadScreen(AccountDTO logInAccount)
-        {
+            _logInAccount = logInAccountDTO;
             List<BookDTO> books = _bookManager.GetAllBooks();
             foreach (BookDTO book in books)
             {
@@ -36,18 +34,8 @@ namespace UserControls
 
         private void buttonAddBook_Click(object sender, EventArgs e)
         {
-            FormAddBook formAddBook = new FormAddBook();
+            FormAddBook formAddBook = new FormAddBook(_logInAccount);
             formAddBook.ShowDialog();
-            if (formAddBook.DialogResult == DialogResult.OK)
-            {
-                MessageBox.Show("Thêm sách thành công!");
-                formAddBook.Dispose();
-            }
-            else
-            {
-                MessageBox.Show("Hủy thêm sách!");
-                formAddBook.Dispose();
-            }
         }
     }
 }

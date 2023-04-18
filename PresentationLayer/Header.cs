@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UserControls
+namespace PresentationLayer
 {
     public partial class Header : UserControl
     {
@@ -19,17 +19,16 @@ namespace UserControls
         
         private void buttonHome_Click(object sender, EventArgs e)
         {
-            Form parentForm = FindForm();
-            LogInScreen logInScreen = parentForm.Controls.Find("logInScreen", true).First() as LogInScreen;
-            if (logInScreen.LogInAccount.RoleID == 1)
+            FormReadingApp formReadingApp = ParentForm as FormReadingApp;
+            if (formReadingApp.LogInAccountDTO.RoleID == 1)
             {
-                AdminScreen adminScreen = parentForm.Controls.Find("adminScreen", true).First() as AdminScreen;
-                Utils.ShowScreen(adminScreen);
+                AdminScreen adminScreen = new AdminScreen(formReadingApp.LogInAccountDTO);
+                Utils.ShowScreen(ParentForm, adminScreen);
             }
-            else if (logInScreen.LogInAccount.RoleID == 3)
+            else if (formReadingApp.LogInAccountDTO.RoleID == 3)
             {
-                MainScreen mainScreen = parentForm.Controls.Find("mainScreen", true).First() as MainScreen;
-                Utils.ShowScreen(mainScreen);
+                MainScreen mainScreen = new MainScreen(formReadingApp.LogInAccountDTO);
+                Utils.ShowScreen(ParentForm, mainScreen);
             }
         }
 
@@ -53,11 +52,9 @@ namespace UserControls
 
         private void buttonUserProfile_Click(object sender, EventArgs e)
         {
-            Form parentForm = FindForm();
-            LogInScreen logInScreen = parentForm.Controls.Find("logInScreen", true).First() as LogInScreen;
-            UserProfileScreen userProfileScreen = parentForm.Controls.Find("userProfileScreen", true).First() as UserProfileScreen;
-            userProfileScreen.LoadScreen(logInScreen.LogInAccount);
-            Utils.ShowScreen(userProfileScreen);
+            FormReadingApp formReadingApp = ParentForm as FormReadingApp;
+            UserProfileScreen userProfileScreen = new UserProfileScreen(formReadingApp.LogInAccountDTO);
+            Utils.ShowScreen(ParentForm, userProfileScreen);
         }
     }
 }

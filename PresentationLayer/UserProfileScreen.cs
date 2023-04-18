@@ -10,34 +10,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UserControls
+namespace PresentationLayer
 {   
     public partial class UserProfileScreen : UserControl
     {
         private readonly AccountManager _accountManager;
-        public UserProfileScreen()
+        public UserProfileScreen(AccountDTO logInAccountDTO)
         {
             InitializeComponent();
             _accountManager = new AccountManager();
-        }
-        public void LoadScreen(AccountDTO logInAccount)
-        {
-            UserInfoDTO userInfoDTO = _accountManager.GetUserInfo(logInAccount.Id);
+            UserInfoDTO userInfoDTO = _accountManager.GetUserInfo(logInAccountDTO.Id);
             if (userInfoDTO != null)
             {
                 labelName.Text = "Họ và tên: " + userInfoDTO.Name;
                 labelSex.Text = "Giới tính: " + userInfoDTO.Sex;
                 labelDOB.Text = "Ngày sinh: " + userInfoDTO.DOB.ToString("yyyy-MM-dd");
-                labelUsername.Text = "Tên đăng nhập: " + logInAccount.Username;
-                labelEmail.Text = "Email: " + logInAccount.Email;
+                labelUsername.Text = "Tên đăng nhập: " + logInAccountDTO.Username;
+                labelEmail.Text = "Email: " + logInAccountDTO.Email;
             }
         }
 
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
-            Form parentForm = FindForm();
-            LogInScreen loginScreen = parentForm.Controls.Find("logInScreen", true).First() as LogInScreen;
-            Utils.ShowScreen(loginScreen);
+            LogInScreen loginScreen = new LogInScreen();
+            FormReadingApp formReadingApp = ParentForm as FormReadingApp;
+            formReadingApp.LogInAccountDTO = null;
+            formReadingApp.AcceptButton = loginScreen.ButtonLogIn;
+            Utils.ShowScreen(ParentForm, loginScreen);
         }
 
     }

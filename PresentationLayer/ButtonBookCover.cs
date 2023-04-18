@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UserControls
+namespace PresentationLayer
 {
     public partial class ButtonBookCover : UserControl
     {
@@ -28,10 +28,9 @@ namespace UserControls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form parentForm = FindForm();
-            BookScreen bookScreen = parentForm.Controls.Find("bookScreen", true).First() as BookScreen;
+            BookScreen bookScreen = new BookScreen();
             bookScreen.Load_Book(presentedBook);
-            Utils.ShowScreen(bookScreen);
+            Utils.ShowScreen(ParentForm, bookScreen);
         }
     }
 }

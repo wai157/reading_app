@@ -49,38 +49,18 @@
                         Likes = c.Int(nullable: false),
                         AccountId = c.Int(nullable: false),
                         AuthorId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Authors", t => t.AuthorId, cascadeDelete: true)
-                .ForeignKey("dbo.Accounts", t => t.AccountId, cascadeDelete: true)
-                .Index(t => t.AccountId)
-                .Index(t => t.AuthorId);
-            
-            CreateTable(
-                "dbo.Authors",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(unicode: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.BookGenres",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        BookId = c.Int(nullable: false),
                         GenreId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
+                .ForeignKey("dbo.Authors", t => t.AuthorId, cascadeDelete: true)
                 .ForeignKey("dbo.Genres", t => t.GenreId, cascadeDelete: true)
-                .Index(t => t.BookId)
+                .ForeignKey("dbo.Accounts", t => t.AccountId, cascadeDelete: true)
+                .Index(t => t.AccountId)
+                .Index(t => t.AuthorId)
                 .Index(t => t.GenreId);
             
             CreateTable(
-                "dbo.Genres",
+                "dbo.Authors",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -102,6 +82,15 @@
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
                 .Index(t => t.BookId);
+            
+            CreateTable(
+                "dbo.Genres",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(unicode: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Libraries",
@@ -165,9 +154,8 @@
             DropForeignKey("dbo.Libraries", "BookId", "dbo.Books");
             DropForeignKey("dbo.Libraries", "AccountId", "dbo.Accounts");
             DropForeignKey("dbo.Histories", "BookId", "dbo.Books");
+            DropForeignKey("dbo.Books", "GenreId", "dbo.Genres");
             DropForeignKey("dbo.Chapters", "BookId", "dbo.Books");
-            DropForeignKey("dbo.BookGenres", "GenreId", "dbo.Genres");
-            DropForeignKey("dbo.BookGenres", "BookId", "dbo.Books");
             DropForeignKey("dbo.Books", "AuthorId", "dbo.Authors");
             DropForeignKey("dbo.Histories", "AccountId", "dbo.Accounts");
             DropIndex("dbo.UserInfoes", new[] { "Id" });
@@ -176,8 +164,7 @@
             DropIndex("dbo.Libraries", new[] { "BookId" });
             DropIndex("dbo.Libraries", new[] { "AccountId" });
             DropIndex("dbo.Chapters", new[] { "BookId" });
-            DropIndex("dbo.BookGenres", new[] { "GenreId" });
-            DropIndex("dbo.BookGenres", new[] { "BookId" });
+            DropIndex("dbo.Books", new[] { "GenreId" });
             DropIndex("dbo.Books", new[] { "AuthorId" });
             DropIndex("dbo.Books", new[] { "AccountId" });
             DropIndex("dbo.Histories", new[] { "BookId" });
@@ -187,9 +174,8 @@
             DropTable("dbo.Roles");
             DropTable("dbo.RatedBooks");
             DropTable("dbo.Libraries");
-            DropTable("dbo.Chapters");
             DropTable("dbo.Genres");
-            DropTable("dbo.BookGenres");
+            DropTable("dbo.Chapters");
             DropTable("dbo.Authors");
             DropTable("dbo.Books");
             DropTable("dbo.Histories");

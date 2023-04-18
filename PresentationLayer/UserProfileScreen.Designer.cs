@@ -1,5 +1,5 @@
 ﻿
-namespace UserControls
+namespace PresentationLayer
 {
     partial class UserProfileScreen
     {
@@ -51,7 +51,7 @@ namespace UserControls
             this.labelLogInInfo = new System.Windows.Forms.Label();
             this.labelAvatar = new System.Windows.Forms.Label();
             this.labelGeneralInfo = new System.Windows.Forms.Label();
-            this.header1 = new UserControls.Header();
+            this.header1 = new PresentationLayer.Header();
             this.panelMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelAccountInfo.SuspendLayout();
@@ -60,7 +60,7 @@ namespace UserControls
             // 
             // panelMain
             // 
-            this.panelMain.BackgroundImage = global::UserControls.Properties.Resources.vivid_blurred_colorful_background;
+            this.panelMain.BackgroundImage = global::PresentationLayer.Properties.Resources.vivid_blurred_colorful_background;
             this.panelMain.Controls.Add(this.panel1);
             this.panelMain.Controls.Add(this.header1);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -159,7 +159,7 @@ namespace UserControls
             // 
             // buttonChangeGeneralInfo
             // 
-            this.buttonChangeGeneralInfo.BackgroundImage = global::UserControls.Properties.Resources.edit_246;
+            this.buttonChangeGeneralInfo.BackgroundImage = global::PresentationLayer.Properties.Resources.edit_246;
             this.buttonChangeGeneralInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonChangeGeneralInfo.Location = new System.Drawing.Point(255, 16);
             this.buttonChangeGeneralInfo.Name = "buttonChangeGeneralInfo";
@@ -270,7 +270,7 @@ namespace UserControls
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BackgroundImage = global::UserControls.Properties.Resources._634011;
+            this.pictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources._634011;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(141, 63);
             this.pictureBox1.Name = "pictureBox1";

@@ -5,20 +5,16 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 
-namespace UserControls
+namespace PresentationLayer
 {
     public partial class MainScreen : UserControl
     {
         private readonly BookManager _bookManager;
 
-        public MainScreen()
+        public MainScreen(AccountDTO logInAccountDTO)
         {
             InitializeComponent();
-            _bookManager = new BookManager();
-        }
-        public void LoadScreen(AccountDTO logInAcc)
-        {
-            List<BookDTO> hotBooks = _bookManager.GetHotBooks();
+            _bookManager = new BookManager(); List<BookDTO> hotBooks = _bookManager.GetHotBooks();
             List<ButtonBookCover> btnHotBooks = new List<ButtonBookCover>
             {
                 btnHotBookCover1,
@@ -33,6 +29,10 @@ namespace UserControls
                 btnHotBooks[i].PresentedBook = hotBooks[i];
                 btnHotBooks[i].Button.BackgroundImage = Image.FromStream(new MemoryStream(hotBooks[i].BookCover));
             }
+        }
+        public void LoadScreen(AccountDTO logInAcc)
+        {
+            
         }
     }
 }

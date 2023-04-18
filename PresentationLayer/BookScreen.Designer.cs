@@ -1,5 +1,5 @@
 ﻿
-namespace UserControls
+namespace PresentationLayer
 {
     partial class BookScreen
     {
@@ -45,7 +45,7 @@ namespace UserControls
             this.labelAuthor = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.tabPageTableOfContent = new System.Windows.Forms.TabPage();
-            this.header1 = new UserControls.Header();
+            this.header1 = new PresentationLayer.Header();
             this.labelDescription = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -61,7 +61,7 @@ namespace UserControls
             // panelMain
             // 
             this.panelMain.AutoScroll = true;
-            this.panelMain.BackgroundImage = global::UserControls.Properties.Resources.vivid_blurred_colorful_background;
+            this.panelMain.BackgroundImage = global::PresentationLayer.Properties.Resources.vivid_blurred_colorful_background;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMain.Controls.Add(this.panel2);
             this.panelMain.Controls.Add(this.header1);

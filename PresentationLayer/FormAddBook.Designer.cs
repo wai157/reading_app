@@ -1,5 +1,5 @@
 ﻿
-namespace UserControls
+namespace PresentationLayer
 {
     partial class FormAddBook
     {
@@ -29,6 +29,7 @@ namespace UserControls
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelMain = new System.Windows.Forms.Panel();
             this.buttonConfirm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,8 +43,10 @@ namespace UserControls
             this.labelAuthor = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.pictureBoxCover = new System.Windows.Forms.PictureBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -78,13 +81,12 @@ namespace UserControls
             this.buttonConfirm.TabIndex = 11;
             this.buttonConfirm.Text = "Xác nhận";
             this.buttonConfirm.UseVisualStyleBackColor = true;
-            this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = global::UserControls.Properties.Resources._665049;
+            this.label1.Image = global::PresentationLayer.Properties.Resources._665049;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(3, 478);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
@@ -121,24 +123,27 @@ namespace UserControls
             this.textBoxDescription.Location = new System.Drawing.Point(286, 135);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(502, 300);
+            this.textBoxDescription.Size = new System.Drawing.Size(480, 300);
             this.textBoxDescription.TabIndex = 7;
+            this.textBoxDescription.Validated += new System.EventHandler(this.textBoxDescription_Validated);
             // 
             // textBoxAuthor
             // 
             this.textBoxAuthor.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAuthor.Location = new System.Drawing.Point(286, 53);
             this.textBoxAuthor.Name = "textBoxAuthor";
-            this.textBoxAuthor.Size = new System.Drawing.Size(502, 32);
+            this.textBoxAuthor.Size = new System.Drawing.Size(480, 32);
             this.textBoxAuthor.TabIndex = 6;
+            this.textBoxAuthor.Validated += new System.EventHandler(this.textBoxAuthor_Validated);
             // 
             // textBoxName
             // 
             this.textBoxName.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxName.Location = new System.Drawing.Point(286, 12);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(502, 32);
+            this.textBoxName.Size = new System.Drawing.Size(480, 32);
             this.textBoxName.TabIndex = 5;
+            this.textBoxName.Validated += new System.EventHandler(this.textBoxName_Validated);
             // 
             // labelDescription
             // 
@@ -189,10 +194,14 @@ namespace UserControls
             this.pictureBoxCover.Size = new System.Drawing.Size(154, 231);
             this.pictureBoxCover.TabIndex = 0;
             this.pictureBoxCover.TabStop = false;
+            this.pictureBoxCover.Validated += new System.EventHandler(this.pictureBoxCover_Validated);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // FormAddBook
             // 
-            this.AcceptButton = this.buttonConfirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 500);
@@ -203,9 +212,11 @@ namespace UserControls
             this.Name = "FormAddBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAddBook";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAddBook_FormClosing);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,5 +236,6 @@ namespace UserControls
         private System.Windows.Forms.Button buttonSelectCover;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonConfirm;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

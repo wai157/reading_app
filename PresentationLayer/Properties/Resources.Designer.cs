@@ -63,9 +63,9 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1871564_200 {
+        internal static System.Drawing.Bitmap _111365_200 {
             get {
-                object obj = ResourceManager.GetObject("1871564-200", resourceCulture);
+                object obj = ResourceManager.GetObject("_111365_200", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,16 +93,6 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _6650491 {
-            get {
-                object obj = ResourceManager.GetObject("6650491", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap edit_246 {
             get {
                 object obj = ResourceManager.GetObject("edit-246", resourceCulture);
@@ -116,6 +106,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap free_search_icon_free_vector {
             get {
                 object obj = ResourceManager.GetObject("free-search-icon-free-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Home {
+            get {
+                object obj = ResourceManager.GetObject("Home", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

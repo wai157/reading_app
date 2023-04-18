@@ -11,10 +11,11 @@ namespace DataTransferObjectLayer
         public string Name { get; set; }
         public byte[] BookCover { get; set; }
         public string Description { get; set; }
+        public string Genre { get; set; }
         public int Rating { get; set; }
         public int Views { get; set; }
-        public int Likes { get; set; }
-        public string UploadAccount { get; set; }
+        public int Follows { get; set; }
+        public int UploadAccountId { get; set; }
         public string Author { get; set; }
     }
 }

@@ -15,6 +15,8 @@ namespace PresentationLayer
 {
     public partial class FormReadingApp : Form
     {
+        public AccountDTO LogInAccountDTO { get; set; }
+
         public FormReadingApp()
         {
             InitializeComponent();

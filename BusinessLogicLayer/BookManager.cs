@@ -26,5 +26,9 @@ namespace BusinessLogicLayer
         {
             return _repository.GetAllBooks();
         }
+        public void AddBook(BookDTO book)
+        {
+            _repository.AddBook(book);
+        }
     }
 }

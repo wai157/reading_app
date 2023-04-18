@@ -55,21 +55,94 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminScreen.Designer.cs">
+      <DependentUpon>AdminScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BookScreen.Designer.cs">
+      <DependentUpon>BookScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonBookCover.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ButtonBookCover.Designer.cs">
+      <DependentUpon>ButtonBookCover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddBook.Designer.cs">
+      <DependentUpon>FormAddBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReadingApp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormReadingApp.Designer.cs">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Header.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Header.Designer.cs">
+      <DependentUpon>Header.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogInScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LogInScreen.Designer.cs">
+      <DependentUpon>LogInScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainScreen.Designer.cs">
+      <DependentUpon>MainScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserProfileScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserProfileScreen.Designer.cs">
+      <DependentUpon>UserProfileScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="AdminScreen.resx">
+      <DependentUpon>AdminScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookScreen.resx">
+      <DependentUpon>BookScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ButtonBookCover.resx">
+      <DependentUpon>ButtonBookCover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddBook.resx">
+      <DependentUpon>FormAddBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReadingApp.resx">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Header.resx">
+      <DependentUpon>Header.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInScreen.resx">
+      <DependentUpon>LogInScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainScreen.resx">
+      <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserProfileScreen.resx">
+      <DependentUpon>UserProfileScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -94,6 +167,10 @@
       <Project>{c5f8e871-cf6a-4f22-ba4e-1724cfea5dec}</Project>
       <Name>BusinessLogicLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{dc3a8ba9-373a-403a-8e5c-bfda1f800529}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
       <Project>{9905e6cd-5b72-472d-8e91-fa2b98dbd5ad}</Project>
       <Name>DataAccessLayer</Name>
@@ -102,32 +179,30 @@
       <Project>{4c9d5de4-ec68-4b3a-a4ca-45ad56ebc0f2}</Project>
       <Name>DataTransferObjectLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UserControls\UserControls.csproj">
-      <Project>{81AAB3CD-B3CB-4DFE-B1FF-23C0D64523B9}</Project>
-      <Name>UserControls</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\user.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\free-search-icon-free-vector.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\vivid-blurred-colorful-background.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1871564-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\edit-246.png" />
     <None Include="Resources\634011.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\665049.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\6650491.png" />
+    <None Include="Resources\edit-246.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-search-icon-free-vector.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vivid-blurred-colorful-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\111365-200.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
