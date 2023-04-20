@@ -19,7 +19,7 @@ namespace PresentationLayer
     {
         private readonly GenreManager _genreManager;
         private readonly BookManager _bookManager;
-        private BookDTO _bookToAdd;
+        private readonly BookDTO _bookToAdd;
         private readonly AccountDTO _uploadAccount;
         public FormAddBook(AccountDTO logInAccountDTO)
         {

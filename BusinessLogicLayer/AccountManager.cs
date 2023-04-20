@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer
+namespace BusinessLogicLayer
 {
     public class AccountManager
     {
@@ -16,6 +16,11 @@ namespace BusinessLayer
         public AccountManager()
         {
             _repository = new AccountRepository();
+        }
+
+        public List<AccountDTO> GetAllAccounts()
+        {
+            return _repository.GetAllAccounts();
         }
 
         public AccountDTO Validate(String username, String password)

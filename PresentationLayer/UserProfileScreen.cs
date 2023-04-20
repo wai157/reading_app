@@ -1,4 +1,4 @@
-﻿using BusinessLayer;
+﻿using BusinessLogicLayer;
 using DataTransferObjectLayer;
 using System;
 using System.Collections.Generic;
@@ -39,5 +39,41 @@ namespace PresentationLayer
             Utils.ShowScreen(ParentForm, loginScreen);
         }
 
+        private void textBox_RemoveText(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.ForeColor != Color.Black)
+            {
+                textBox.Text = "";
+                textBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxConfirmNewPassword_AddText(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxConfirmNewPassword.Text))
+            {
+                textBoxConfirmNewPassword.Text = "Xác nhận mật khẩu mới";
+                textBoxConfirmNewPassword.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBoxNewPassword_AddText(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxNewPassword.Text))
+            {
+                textBoxNewPassword.Text = "Mật khẩu mới";
+                textBoxNewPassword.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBoxCurrentPassword_AddText(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxCurrentPassword.Text))
+            {
+                textBoxCurrentPassword.Text = "Mật khẩu hiện tại";
+                textBoxCurrentPassword.ForeColor = Color.Gray;
+            }
+        }
     }
 }

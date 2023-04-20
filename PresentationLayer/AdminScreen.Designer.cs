@@ -36,11 +36,13 @@ namespace PresentationLayer
             this.tabPageBooks = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPageUsers = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanelAccounts = new System.Windows.Forms.FlowLayoutPanel();
             this.header1 = new PresentationLayer.Header();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageBooks.SuspendLayout();
+            this.tabPageUsers.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
@@ -78,6 +80,7 @@ namespace PresentationLayer
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1024, 612);
             this.panel2.TabIndex = 3;
+            this.panel2.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // tabControl1
             // 
@@ -119,12 +122,24 @@ namespace PresentationLayer
             // 
             this.tabPageUsers.AutoScroll = true;
             this.tabPageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            this.tabPageUsers.Controls.Add(this.flowLayoutPanelAccounts);
             this.tabPageUsers.Location = new System.Drawing.Point(4, 34);
             this.tabPageUsers.Name = "tabPageUsers";
             this.tabPageUsers.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageUsers.Size = new System.Drawing.Size(1016, 574);
             this.tabPageUsers.TabIndex = 1;
             this.tabPageUsers.Text = "Người dùng";
+            // 
+            // flowLayoutPanelAccounts
+            // 
+            this.flowLayoutPanelAccounts.AutoScroll = true;
+            this.flowLayoutPanelAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelAccounts.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanelAccounts.Name = "flowLayoutPanelAccounts";
+            this.flowLayoutPanelAccounts.Padding = new System.Windows.Forms.Padding(25, 10, 0, 15);
+            this.flowLayoutPanelAccounts.Size = new System.Drawing.Size(1010, 568);
+            this.flowLayoutPanelAccounts.TabIndex = 0;
+            this.flowLayoutPanelAccounts.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // header1
             // 
@@ -149,6 +164,7 @@ namespace PresentationLayer
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPageBooks.ResumeLayout(false);
+            this.tabPageUsers.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -163,5 +179,6 @@ namespace PresentationLayer
         private System.Windows.Forms.TabPage tabPageUsers;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Button buttonAddBook;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelAccounts;
     }
 }

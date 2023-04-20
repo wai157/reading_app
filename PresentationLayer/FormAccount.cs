@@ -1,9 +1,6 @@
-﻿using BusinessLogicLayer;
-using DataTransferObjectLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -13,11 +10,9 @@ using System.Windows.Forms;
 
 namespace PresentationLayer
 {
-    public partial class FormReadingApp : Form
+    public partial class FormAccount : Form
     {
-        public AccountDTO LogInAccountDTO { get; set; }
-
-        public FormReadingApp()
+        public FormAccount()
         {
             InitializeComponent();
         }

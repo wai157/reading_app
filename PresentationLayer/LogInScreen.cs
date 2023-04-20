@@ -1,4 +1,4 @@
-﻿using BusinessLayer;
+﻿using BusinessLogicLayer;
 using DataTransferObjectLayer;
 using System;
 using System.Drawing;

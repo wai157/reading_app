@@ -104,11 +104,16 @@
     <Compile Include="AccountRepository.cs" />
     <Compile Include="BaseRepository.cs" />
     <Compile Include="BookRepository.cs" />
+    <Compile Include="ChapterRepository.cs" />
     <Compile Include="DbCreate.cs" />
     <Compile Include="GenreRepository.cs" />
     <Compile Include="Migrations\202304161034010_initial.cs" />
     <Compile Include="Migrations\202304161034010_initial.designer.cs">
       <DependentUpon>202304161034010_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304201501586_initial1.cs" />
+    <Compile Include="Migrations\202304201501586_initial1.designer.cs">
+      <DependentUpon>202304201501586_initial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PBL3DbContext.cs" />
@@ -143,6 +148,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202304161034010_initial.resx">
       <DependentUpon>202304161034010_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304201501586_initial1.resx">
+      <DependentUpon>202304201501586_initial1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

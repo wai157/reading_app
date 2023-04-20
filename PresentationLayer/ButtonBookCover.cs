@@ -14,22 +14,20 @@ namespace PresentationLayer
 {
     public partial class ButtonBookCover : UserControl
     {
-        private BookDTO presentedBook;
-        public BookDTO PresentedBook
-        {
-            get { return presentedBook; }
-            set { presentedBook = value; }
-        }
+        public BookDTO PresentedBook { get; set; }
 
-        public ButtonBookCover()
+        public ButtonBookCover(BookDTO book)
         {
             InitializeComponent();
+            PresentedBook = book;
+            button1.BackgroundImage = Image.FromStream(new MemoryStream(book.BookCover));
+            toolTip.SetToolTip(this.button1, PresentedBook.Name);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BookScreen bookScreen = new BookScreen();
-            bookScreen.Load_Book(presentedBook);
+            FormReadingApp parentForm = ParentForm as FormReadingApp;
+            BookScreen bookScreen = new BookScreen(parentForm.LogInAccountDTO.RoleID, PresentedBook);
             Utils.ShowScreen(ParentForm, bookScreen);
         }
     }

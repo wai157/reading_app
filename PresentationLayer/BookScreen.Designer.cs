@@ -41,12 +41,14 @@ namespace PresentationLayer
             this.pictureBoxCover = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
+            this.labelDescription = new System.Windows.Forms.Label();
             this.labelGenres = new System.Windows.Forms.Label();
             this.labelAuthor = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.tabPageTableOfContent = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanelChapters = new System.Windows.Forms.FlowLayoutPanel();
             this.header1 = new PresentationLayer.Header();
-            this.labelDescription = new System.Windows.Forms.Label();
+            this.buttonAddChap = new System.Windows.Forms.Button();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -56,6 +58,7 @@ namespace PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageAbout.SuspendLayout();
+            this.tabPageTableOfContent.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
@@ -190,6 +193,19 @@ namespace PresentationLayer
             this.tabPageAbout.TabIndex = 0;
             this.tabPageAbout.Text = "Giới thiệu";
             // 
+            // labelDescription
+            // 
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescription.Location = new System.Drawing.Point(6, 175);
+            this.labelDescription.MaximumSize = new System.Drawing.Size(602, 0);
+            this.labelDescription.MinimumSize = new System.Drawing.Size(602, 0);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.labelDescription.Size = new System.Drawing.Size(602, 510);
+            this.labelDescription.TabIndex = 3;
+            this.labelDescription.Text = resources.GetString("labelDescription.Text");
+            // 
             // labelGenres
             // 
             this.labelGenres.AutoSize = true;
@@ -222,17 +238,28 @@ namespace PresentationLayer
             this.labelName.Padding = new System.Windows.Forms.Padding(5);
             this.labelName.Size = new System.Drawing.Size(605, 100);
             this.labelName.TabIndex = 0;
-            this.labelName.Text = "Nameaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            this.labelName.Text = "Lorem Ipsum";
             // 
             // tabPageTableOfContent
             // 
             this.tabPageTableOfContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.tabPageTableOfContent.Controls.Add(this.flowLayoutPanelChapters);
             this.tabPageTableOfContent.Location = new System.Drawing.Point(4, 32);
             this.tabPageTableOfContent.Name = "tabPageTableOfContent";
             this.tabPageTableOfContent.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageTableOfContent.Size = new System.Drawing.Size(628, 576);
             this.tabPageTableOfContent.TabIndex = 1;
             this.tabPageTableOfContent.Text = "Mục lục";
+            // 
+            // flowLayoutPanelChapters
+            // 
+            this.flowLayoutPanelChapters.AutoScroll = true;
+            this.flowLayoutPanelChapters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelChapters.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanelChapters.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanelChapters.Name = "flowLayoutPanelChapters";
+            this.flowLayoutPanelChapters.Size = new System.Drawing.Size(622, 570);
+            this.flowLayoutPanelChapters.TabIndex = 0;
             // 
             // header1
             // 
@@ -245,17 +272,16 @@ namespace PresentationLayer
             this.header1.Size = new System.Drawing.Size(1280, 72);
             this.header1.TabIndex = 0;
             // 
-            // labelDescription
+            // buttonAddChap
             // 
-            this.labelDescription.AutoSize = true;
-            this.labelDescription.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(6, 175);
-            this.labelDescription.MaximumSize = new System.Drawing.Size(602, 0);
-            this.labelDescription.MinimumSize = new System.Drawing.Size(602, 0);
-            this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(602, 500);
-            this.labelDescription.TabIndex = 3;
-            this.labelDescription.Text = resources.GetString("labelDescription.Text");
+            this.buttonAddChap.Location = new System.Drawing.Point(3, 0);
+            this.buttonAddChap.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.buttonAddChap.Name = "buttonAddChap";
+            this.buttonAddChap.Size = new System.Drawing.Size(595, 30);
+            this.buttonAddChap.TabIndex = 18;
+            this.buttonAddChap.Text = "+";
+            this.buttonAddChap.UseVisualStyleBackColor = true;
+            this.buttonAddChap.Click += new System.EventHandler(this.buttonAddChap_Click);
             // 
             // BookScreen
             // 
@@ -276,6 +302,7 @@ namespace PresentationLayer
             this.tabControl1.ResumeLayout(false);
             this.tabPageAbout.ResumeLayout(false);
             this.tabPageAbout.PerformLayout();
+            this.tabPageTableOfContent.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -299,5 +326,7 @@ namespace PresentationLayer
         private System.Windows.Forms.Label labelGenres;
         private System.Windows.Forms.Label labelAuthor;
         private System.Windows.Forms.Label labelDescription;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelChapters;
+        private System.Windows.Forms.Button buttonAddChap;
     }
 }

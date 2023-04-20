@@ -121,7 +121,8 @@ namespace PresentationLayer
             // 
             this.textBoxDescription.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDescription.Location = new System.Drawing.Point(286, 135);
-            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.MaximumSize = new System.Drawing.Size(480, 300);
+            this.textBoxDescription.MinimumSize = new System.Drawing.Size(480, 300);
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(480, 300);
             this.textBoxDescription.TabIndex = 7;
@@ -207,7 +208,9 @@ namespace PresentationLayer
             this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(816, 539);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(816, 539);
             this.Name = "FormAddBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

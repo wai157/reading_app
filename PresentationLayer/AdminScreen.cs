@@ -16,19 +16,25 @@ namespace PresentationLayer
     public partial class AdminScreen : UserControl
     {
         private readonly BookManager _bookManager;
+        private readonly AccountManager _accountManager;
         private readonly AccountDTO _logInAccount;
         public AdminScreen(AccountDTO logInAccountDTO)
         {
             InitializeComponent();
             _bookManager = new BookManager();
+            _accountManager = new AccountManager();
             _logInAccount = logInAccountDTO;
             List<BookDTO> books = _bookManager.GetAllBooks();
             foreach (BookDTO book in books)
             {
-                ButtonBookCover bookCover = new ButtonBookCover();
-                bookCover.PresentedBook = book;
-                bookCover.Button.BackgroundImage = Image.FromStream(new MemoryStream(book.BookCover));
+                ButtonBookCover bookCover = new ButtonBookCover(book);
                 this.flowLayoutPanelBooks.Controls.Add(bookCover);
+            }
+            List<AccountDTO> accounts = _accountManager.GetAllAccounts();
+            foreach(AccountDTO account in accounts)
+            {
+                ButtonAccount buttonAccount = new ButtonAccount(account);
+                this.flowLayoutPanelAccounts.Controls.Add(buttonAccount);
             }
         }
 
@@ -37,5 +43,6 @@ namespace PresentationLayer
             FormAddBook formAddBook = new FormAddBook(_logInAccount);
             formAddBook.ShowDialog();
         }
+
     }
 }

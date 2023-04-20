@@ -28,9 +28,11 @@ namespace DataAccessLayer
             List<BookDTO> bookDTOs = new List<BookDTO>();
             foreach(Book book in books)
             {
-                BookDTO bookDTO = new BookDTO();
-                bookDTO.Name = book.Name;
-                bookDTO.BookCover = book.Cover;
+                BookDTO bookDTO = new BookDTO
+                {
+                    Name = book.Name,
+                    BookCover = book.Cover
+                };
                 bookDTOs.Add(bookDTO);
             }
             return bookDTOs;
@@ -42,14 +44,17 @@ namespace DataAccessLayer
             List<BookDTO> bookDTOs = new List<BookDTO>();
             foreach (Book book in books)
             {
-                BookDTO bookDTO = new BookDTO();
-                bookDTO.Name = book.Name;
-                bookDTO.BookCover = book.Cover;
-                bookDTO.Author = _context.Authors.First(x => x.Id == book.AuthorId).Name;
-                bookDTO.UploadAccountId = book.AccountId;
-                bookDTO.Description = book.Description;
-                bookDTO.Genre = _context.Genres.First(x => x.Id == book.GenreId).Name;
-                bookDTO.Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count();
+                BookDTO bookDTO = new BookDTO
+                {
+                    Id = book.Id,
+                    Name = book.Name,
+                    BookCover = book.Cover,
+                    Author = _context.Authors.First(x => x.Id == book.AuthorId).Name,
+                    UploadAccountId = book.AccountId,
+                    Description = book.Description,
+                    Genre = _context.Genres.First(x => x.Id == book.GenreId).Name,
+                    Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count()
+                };
                 bookDTOs.Add(bookDTO);
             }
             return bookDTOs;

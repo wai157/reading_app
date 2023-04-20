@@ -15,24 +15,18 @@ namespace PresentationLayer
         {
             InitializeComponent();
             _bookManager = new BookManager(); List<BookDTO> hotBooks = _bookManager.GetHotBooks();
-            List<ButtonBookCover> btnHotBooks = new List<ButtonBookCover>
+            foreach (BookDTO book in hotBooks)
             {
-                btnHotBookCover1,
-                btnHotBookCover2,
-                btnHotBookCover3,
-                btnHotBookCover4,
-                btnHotBookCover5,
-                btnHotBookCover6,
-            };
-            for (int i = 0; i < 6; i++)
+                ButtonBookCover bookCover = new ButtonBookCover(book);
+                this.flowLayoutPanelHotBooks.Controls.Add(bookCover);
+            }
+            List<BookDTO> books = _bookManager.GetAllBooks();
+            foreach (BookDTO book in books)
             {
-                btnHotBooks[i].PresentedBook = hotBooks[i];
-                btnHotBooks[i].Button.BackgroundImage = Image.FromStream(new MemoryStream(hotBooks[i].BookCover));
+                ButtonBookCover bookCover = new ButtonBookCover(book);
+                this.flowLayoutPanelAllBooks.Controls.Add(bookCover);
             }
         }
-        public void LoadScreen(AccountDTO logInAcc)
-        {
-            
-        }
+
     }
 }

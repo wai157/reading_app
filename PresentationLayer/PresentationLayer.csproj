@@ -67,17 +67,47 @@
     <Compile Include="BookScreen.Designer.cs">
       <DependentUpon>BookScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="ButtonAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ButtonAccount.Designer.cs">
+      <DependentUpon>ButtonAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="ButtonBookCover.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ButtonBookCover.Designer.cs">
       <DependentUpon>ButtonBookCover.cs</DependentUpon>
     </Compile>
+    <Compile Include="ButtonChapter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ButtonChapter.Designer.cs">
+      <DependentUpon>ButtonChapter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChapterScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChapterScreen.Designer.cs">
+      <DependentUpon>ChapterScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccount.Designer.cs">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAddBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAddBook.Designer.cs">
       <DependentUpon>FormAddBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddChap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddChap.Designer.cs">
+      <DependentUpon>FormAddChap.cs</DependentUpon>
     </Compile>
     <Compile Include="FormReadingApp.cs">
       <SubType>Form</SubType>
@@ -118,11 +148,26 @@
     <EmbeddedResource Include="BookScreen.resx">
       <DependentUpon>BookScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ButtonAccount.resx">
+      <DependentUpon>ButtonAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ButtonBookCover.resx">
       <DependentUpon>ButtonBookCover.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ButtonChapter.resx">
+      <DependentUpon>ButtonChapter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChapterScreen.resx">
+      <DependentUpon>ChapterScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAccount.resx">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddBook.resx">
       <DependentUpon>FormAddBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddChap.resx">
+      <DependentUpon>FormAddChap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReadingApp.resx">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
@@ -203,6 +248,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\111365-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\go-back-icon-3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back-vector-icon-256.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

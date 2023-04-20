@@ -156,6 +156,7 @@ namespace PresentationLayer
             this.panelAccountInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panelAccountInfo.Size = new System.Drawing.Size(768, 612);
             this.panelAccountInfo.TabIndex = 0;
+            this.panelAccountInfo.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // buttonChangeGeneralInfo
             // 
@@ -186,6 +187,8 @@ namespace PresentationLayer
             this.textBoxConfirmNewPassword.Size = new System.Drawing.Size(218, 32);
             this.textBoxConfirmNewPassword.TabIndex = 12;
             this.textBoxConfirmNewPassword.Text = "Xác nhận mật khẩu mới";
+            this.textBoxConfirmNewPassword.GotFocus += new System.EventHandler(this.textBox_RemoveText);
+            this.textBoxConfirmNewPassword.LostFocus += new System.EventHandler(this.textBoxConfirmNewPassword_AddText);
             // 
             // textBoxNewPassword
             // 
@@ -196,6 +199,8 @@ namespace PresentationLayer
             this.textBoxNewPassword.Size = new System.Drawing.Size(218, 32);
             this.textBoxNewPassword.TabIndex = 11;
             this.textBoxNewPassword.Text = "Mật khẩu mới";
+            this.textBoxNewPassword.GotFocus += new System.EventHandler(this.textBox_RemoveText);
+            this.textBoxNewPassword.LostFocus += new System.EventHandler(this.textBoxNewPassword_AddText);
             // 
             // textBoxCurrentPassword
             // 
@@ -206,6 +211,8 @@ namespace PresentationLayer
             this.textBoxCurrentPassword.Size = new System.Drawing.Size(218, 32);
             this.textBoxCurrentPassword.TabIndex = 10;
             this.textBoxCurrentPassword.Text = "Mật khẩu hiện tại";
+            this.textBoxCurrentPassword.GotFocus += new System.EventHandler(this.textBox_RemoveText);
+            this.textBoxCurrentPassword.LostFocus += new System.EventHandler(this.textBoxCurrentPassword_AddText);
             // 
             // labelChangePassword
             // 

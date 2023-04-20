@@ -31,20 +31,10 @@ namespace PresentationLayer
         {
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnHotBookCover6 = new PresentationLayer.ButtonBookCover();
-            this.btnHotBookCover5 = new PresentationLayer.ButtonBookCover();
-            this.btnHotBookCover4 = new PresentationLayer.ButtonBookCover();
-            this.btnHotBookCover3 = new PresentationLayer.ButtonBookCover();
-            this.btnHotBookCover2 = new PresentationLayer.ButtonBookCover();
-            this.btnHotBookCover1 = new PresentationLayer.ButtonBookCover();
-            this.btnRcmBookCover6 = new PresentationLayer.ButtonBookCover();
-            this.btnRcmBookCover5 = new PresentationLayer.ButtonBookCover();
-            this.btnRcmBookCover4 = new PresentationLayer.ButtonBookCover();
-            this.btnRcmBookCover3 = new PresentationLayer.ButtonBookCover();
-            this.btnRcmBookCover2 = new PresentationLayer.ButtonBookCover();
-            this.btnRcmBookCover1 = new PresentationLayer.ButtonBookCover();
+            this.flowLayoutPanelAllBooks = new System.Windows.Forms.FlowLayoutPanel();
+            this.labelAllBooks = new System.Windows.Forms.Label();
             this.labelHot = new System.Windows.Forms.Label();
-            this.labelRecommend = new System.Windows.Forms.Label();
+            this.flowLayoutPanelHotBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.header1 = new PresentationLayer.Header();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -62,158 +52,52 @@ namespace PresentationLayer
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.TabIndex = 16;
-            this.panelMain.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
-            this.panel2.Controls.Add(this.btnHotBookCover6);
-            this.panel2.Controls.Add(this.btnHotBookCover5);
-            this.panel2.Controls.Add(this.btnHotBookCover4);
-            this.panel2.Controls.Add(this.btnHotBookCover3);
-            this.panel2.Controls.Add(this.btnHotBookCover2);
-            this.panel2.Controls.Add(this.btnHotBookCover1);
-            this.panel2.Controls.Add(this.btnRcmBookCover6);
-            this.panel2.Controls.Add(this.btnRcmBookCover5);
-            this.panel2.Controls.Add(this.btnRcmBookCover4);
-            this.panel2.Controls.Add(this.btnRcmBookCover3);
-            this.panel2.Controls.Add(this.btnRcmBookCover2);
-            this.panel2.Controls.Add(this.btnRcmBookCover1);
+            this.panel2.Controls.Add(this.flowLayoutPanelHotBooks);
+            this.panel2.Controls.Add(this.flowLayoutPanelAllBooks);
+            this.panel2.Controls.Add(this.labelAllBooks);
             this.panel2.Controls.Add(this.labelHot);
-            this.panel2.Controls.Add(this.labelRecommend);
             this.panel2.Location = new System.Drawing.Point(128, 78);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1024, 612);
             this.panel2.TabIndex = 3;
-            this.panel2.Click += new System.EventHandler(Utils.StealFocus);
             // 
-            // btnHotBookCover6
+            // flowLayoutPanelAllBooks
             // 
-            this.btnHotBookCover6.BackColor = System.Drawing.Color.Transparent;
-            this.btnHotBookCover6.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHotBookCover6.Location = new System.Drawing.Point(835, 371);
-            this.btnHotBookCover6.Name = "btnHotBookCover6";
-            this.btnHotBookCover6.PresentedBook = null;
-            this.btnHotBookCover6.Size = new System.Drawing.Size(154, 231);
-            this.btnHotBookCover6.TabIndex = 26;
+            this.flowLayoutPanelAllBooks.AutoSize = true;
+            this.flowLayoutPanelAllBooks.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanelAllBooks.Location = new System.Drawing.Point(0, 367);
+            this.flowLayoutPanelAllBooks.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.flowLayoutPanelAllBooks.MaximumSize = new System.Drawing.Size(1024, 0);
+            this.flowLayoutPanelAllBooks.Name = "flowLayoutPanelAllBooks";
+            this.flowLayoutPanelAllBooks.Padding = new System.Windows.Forms.Padding(32, 0, 0, 16);
+            this.flowLayoutPanelAllBooks.Size = new System.Drawing.Size(32, 16);
+            this.flowLayoutPanelAllBooks.TabIndex = 28;
             // 
-            // btnHotBookCover5
+            // labelAllBooks
             // 
-            this.btnHotBookCover5.BackColor = System.Drawing.Color.Transparent;
-            this.btnHotBookCover5.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHotBookCover5.Location = new System.Drawing.Point(675, 371);
-            this.btnHotBookCover5.Name = "btnHotBookCover5";
-            this.btnHotBookCover5.PresentedBook = null;
-            this.btnHotBookCover5.Size = new System.Drawing.Size(154, 231);
-            this.btnHotBookCover5.TabIndex = 25;
-            // 
-            // btnHotBookCover4
-            // 
-            this.btnHotBookCover4.BackColor = System.Drawing.Color.Transparent;
-            this.btnHotBookCover4.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHotBookCover4.Location = new System.Drawing.Point(515, 371);
-            this.btnHotBookCover4.Name = "btnHotBookCover4";
-            this.btnHotBookCover4.PresentedBook = null;
-            this.btnHotBookCover4.Size = new System.Drawing.Size(154, 231);
-            this.btnHotBookCover4.TabIndex = 24;
-            // 
-            // btnHotBookCover3
-            // 
-            this.btnHotBookCover3.BackColor = System.Drawing.Color.Transparent;
-            this.btnHotBookCover3.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHotBookCover3.Location = new System.Drawing.Point(355, 371);
-            this.btnHotBookCover3.Name = "btnHotBookCover3";
-            this.btnHotBookCover3.PresentedBook = null;
-            this.btnHotBookCover3.Size = new System.Drawing.Size(154, 231);
-            this.btnHotBookCover3.TabIndex = 23;
-            // 
-            // btnHotBookCover2
-            // 
-            this.btnHotBookCover2.BackColor = System.Drawing.Color.Transparent;
-            this.btnHotBookCover2.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHotBookCover2.Location = new System.Drawing.Point(195, 371);
-            this.btnHotBookCover2.Name = "btnHotBookCover2";
-            this.btnHotBookCover2.PresentedBook = null;
-            this.btnHotBookCover2.Size = new System.Drawing.Size(154, 231);
-            this.btnHotBookCover2.TabIndex = 22;
-            // 
-            // btnHotBookCover1
-            // 
-            this.btnHotBookCover1.BackColor = System.Drawing.Color.Transparent;
-            this.btnHotBookCover1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHotBookCover1.Location = new System.Drawing.Point(35, 371);
-            this.btnHotBookCover1.Name = "btnHotBookCover1";
-            this.btnHotBookCover1.PresentedBook = null;
-            this.btnHotBookCover1.Size = new System.Drawing.Size(154, 231);
-            this.btnHotBookCover1.TabIndex = 21;
-            // 
-            // btnRcmBookCover6
-            // 
-            this.btnRcmBookCover6.BackColor = System.Drawing.Color.Transparent;
-            this.btnRcmBookCover6.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRcmBookCover6.Location = new System.Drawing.Point(835, 68);
-            this.btnRcmBookCover6.Name = "btnRcmBookCover6";
-            this.btnRcmBookCover6.PresentedBook = null;
-            this.btnRcmBookCover6.Size = new System.Drawing.Size(154, 231);
-            this.btnRcmBookCover6.TabIndex = 20;
-            // 
-            // btnRcmBookCover5
-            // 
-            this.btnRcmBookCover5.BackColor = System.Drawing.Color.Transparent;
-            this.btnRcmBookCover5.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRcmBookCover5.Location = new System.Drawing.Point(675, 68);
-            this.btnRcmBookCover5.Name = "btnRcmBookCover5";
-            this.btnRcmBookCover5.PresentedBook = null;
-            this.btnRcmBookCover5.Size = new System.Drawing.Size(154, 231);
-            this.btnRcmBookCover5.TabIndex = 19;
-            // 
-            // btnRcmBookCover4
-            // 
-            this.btnRcmBookCover4.BackColor = System.Drawing.Color.Transparent;
-            this.btnRcmBookCover4.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRcmBookCover4.Location = new System.Drawing.Point(515, 68);
-            this.btnRcmBookCover4.Name = "btnRcmBookCover4";
-            this.btnRcmBookCover4.PresentedBook = null;
-            this.btnRcmBookCover4.Size = new System.Drawing.Size(154, 231);
-            this.btnRcmBookCover4.TabIndex = 18;
-            // 
-            // btnRcmBookCover3
-            // 
-            this.btnRcmBookCover3.BackColor = System.Drawing.Color.Transparent;
-            this.btnRcmBookCover3.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRcmBookCover3.Location = new System.Drawing.Point(355, 68);
-            this.btnRcmBookCover3.Name = "btnRcmBookCover3";
-            this.btnRcmBookCover3.PresentedBook = null;
-            this.btnRcmBookCover3.Size = new System.Drawing.Size(154, 231);
-            this.btnRcmBookCover3.TabIndex = 17;
-            // 
-            // btnRcmBookCover2
-            // 
-            this.btnRcmBookCover2.BackColor = System.Drawing.Color.Transparent;
-            this.btnRcmBookCover2.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRcmBookCover2.Location = new System.Drawing.Point(195, 68);
-            this.btnRcmBookCover2.Name = "btnRcmBookCover2";
-            this.btnRcmBookCover2.PresentedBook = null;
-            this.btnRcmBookCover2.Size = new System.Drawing.Size(154, 231);
-            this.btnRcmBookCover2.TabIndex = 16;
-            // 
-            // btnRcmBookCover1
-            // 
-            this.btnRcmBookCover1.BackColor = System.Drawing.Color.Transparent;
-            this.btnRcmBookCover1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRcmBookCover1.Location = new System.Drawing.Point(35, 68);
-            this.btnRcmBookCover1.Name = "btnRcmBookCover1";
-            this.btnRcmBookCover1.PresentedBook = null;
-            this.btnRcmBookCover1.Size = new System.Drawing.Size(154, 231);
-            this.btnRcmBookCover1.TabIndex = 15;
+            this.labelAllBooks.AutoSize = true;
+            this.labelAllBooks.BackColor = System.Drawing.Color.Transparent;
+            this.labelAllBooks.Font = new System.Drawing.Font("Times New Roman", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAllBooks.Location = new System.Drawing.Point(3, 305);
+            this.labelAllBooks.Margin = new System.Windows.Forms.Padding(3);
+            this.labelAllBooks.Name = "labelAllBooks";
+            this.labelAllBooks.Padding = new System.Windows.Forms.Padding(10);
+            this.labelAllBooks.Size = new System.Drawing.Size(215, 59);
+            this.labelAllBooks.TabIndex = 27;
+            this.labelAllBooks.Text = "Tất cả truyện";
             // 
             // labelHot
             // 
             this.labelHot.AutoSize = true;
             this.labelHot.BackColor = System.Drawing.Color.Transparent;
             this.labelHot.Font = new System.Drawing.Font("Times New Roman", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHot.Location = new System.Drawing.Point(3, 306);
+            this.labelHot.Location = new System.Drawing.Point(3, 3);
             this.labelHot.Margin = new System.Windows.Forms.Padding(3);
             this.labelHot.Name = "labelHot";
             this.labelHot.Padding = new System.Windows.Forms.Padding(10);
@@ -221,22 +105,21 @@ namespace PresentationLayer
             this.labelHot.TabIndex = 3;
             this.labelHot.Text = "Truyện HOT";
             // 
-            // labelRecommend
+            // flowLayoutPanelHotBooks
             // 
-            this.labelRecommend.AutoSize = true;
-            this.labelRecommend.BackColor = System.Drawing.Color.Transparent;
-            this.labelRecommend.Font = new System.Drawing.Font("Times New Roman", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecommend.Location = new System.Drawing.Point(3, 3);
-            this.labelRecommend.Margin = new System.Windows.Forms.Padding(3);
-            this.labelRecommend.Name = "labelRecommend";
-            this.labelRecommend.Padding = new System.Windows.Forms.Padding(10);
-            this.labelRecommend.Size = new System.Drawing.Size(216, 59);
-            this.labelRecommend.TabIndex = 1;
-            this.labelRecommend.Text = "Truyện đề cử";
+            this.flowLayoutPanelHotBooks.AutoSize = true;
+            this.flowLayoutPanelHotBooks.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanelHotBooks.Location = new System.Drawing.Point(0, 65);
+            this.flowLayoutPanelHotBooks.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.flowLayoutPanelHotBooks.MaximumSize = new System.Drawing.Size(1024, 0);
+            this.flowLayoutPanelHotBooks.Name = "flowLayoutPanelHotBooks";
+            this.flowLayoutPanelHotBooks.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
+            this.flowLayoutPanelHotBooks.Size = new System.Drawing.Size(32, 0);
+            this.flowLayoutPanelHotBooks.TabIndex = 29;
             // 
             // header1
             // 
-            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.header1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.header1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -256,7 +139,6 @@ namespace PresentationLayer
             this.panelMain.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.ActiveControl = null;
             this.ResumeLayout(false);
 
         }
@@ -266,19 +148,9 @@ namespace PresentationLayer
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labelHot;
-        private System.Windows.Forms.Label labelRecommend;
         private Header header1;
-        private ButtonBookCover btnHotBookCover6;
-        private ButtonBookCover btnHotBookCover5;
-        private ButtonBookCover btnHotBookCover4;
-        private ButtonBookCover btnHotBookCover3;
-        private ButtonBookCover btnHotBookCover2;
-        private ButtonBookCover btnHotBookCover1;
-        private ButtonBookCover btnRcmBookCover6;
-        private ButtonBookCover btnRcmBookCover5;
-        private ButtonBookCover btnRcmBookCover4;
-        private ButtonBookCover btnRcmBookCover3;
-        private ButtonBookCover btnRcmBookCover2;
-        private ButtonBookCover btnRcmBookCover1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelAllBooks;
+        private System.Windows.Forms.Label labelAllBooks;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelHotBooks;
     }
 }
