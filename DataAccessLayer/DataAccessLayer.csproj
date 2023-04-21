@@ -115,6 +115,14 @@
     <Compile Include="Migrations\202304201501586_initial1.designer.cs">
       <DependentUpon>202304201501586_initial1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304211324495_initial2.cs" />
+    <Compile Include="Migrations\202304211324495_initial2.designer.cs">
+      <DependentUpon>202304211324495_initial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304211345423_initial3.cs" />
+    <Compile Include="Migrations\202304211345423_initial3.designer.cs">
+      <DependentUpon>202304211345423_initial3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PBL3DbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,6 +160,12 @@
     <EmbeddedResource Include="Migrations\202304201501586_initial1.resx">
       <DependentUpon>202304201501586_initial1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304211324495_initial2.resx">
+      <DependentUpon>202304211324495_initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304211345423_initial3.resx">
+      <DependentUpon>202304211345423_initial3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -183,6 +197,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\daiquangialamahoang.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\634011.png" />

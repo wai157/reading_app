@@ -33,7 +33,7 @@ namespace PresentationLayer
             List<AccountDTO> accounts = _accountManager.GetAllAccounts();
             foreach(AccountDTO account in accounts)
             {
-                ButtonAccount buttonAccount = new ButtonAccount(account);
+                ButtonAccount buttonAccount = new ButtonAccount(_logInAccount, account);
                 this.flowLayoutPanelAccounts.Controls.Add(buttonAccount);
             }
         }

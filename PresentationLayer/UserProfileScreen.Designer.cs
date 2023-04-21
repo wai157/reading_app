@@ -47,7 +47,7 @@ namespace PresentationLayer
             this.labelDOB = new System.Windows.Forms.Label();
             this.labelSex = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAvatar = new System.Windows.Forms.PictureBox();
             this.labelLogInInfo = new System.Windows.Forms.Label();
             this.labelAvatar = new System.Windows.Forms.Label();
             this.labelGeneralInfo = new System.Windows.Forms.Label();
@@ -55,7 +55,7 @@ namespace PresentationLayer
             this.panelMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelAccountInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -146,7 +146,7 @@ namespace PresentationLayer
             this.panelAccountInfo.Controls.Add(this.labelDOB);
             this.panelAccountInfo.Controls.Add(this.labelSex);
             this.panelAccountInfo.Controls.Add(this.labelName);
-            this.panelAccountInfo.Controls.Add(this.pictureBox1);
+            this.panelAccountInfo.Controls.Add(this.pictureBoxAvatar);
             this.panelAccountInfo.Controls.Add(this.labelLogInInfo);
             this.panelAccountInfo.Controls.Add(this.labelAvatar);
             this.panelAccountInfo.Controls.Add(this.labelGeneralInfo);
@@ -156,7 +156,6 @@ namespace PresentationLayer
             this.panelAccountInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panelAccountInfo.Size = new System.Drawing.Size(768, 612);
             this.panelAccountInfo.TabIndex = 0;
-            this.panelAccountInfo.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // buttonChangeGeneralInfo
             // 
@@ -167,6 +166,7 @@ namespace PresentationLayer
             this.buttonChangeGeneralInfo.Size = new System.Drawing.Size(32, 32);
             this.buttonChangeGeneralInfo.TabIndex = 14;
             this.buttonChangeGeneralInfo.UseVisualStyleBackColor = true;
+            this.buttonChangeGeneralInfo.Click += new System.EventHandler(this.buttonChangeGeneralInfo_Click);
             // 
             // buttonSave
             // 
@@ -274,16 +274,16 @@ namespace PresentationLayer
             this.labelName.TabIndex = 4;
             this.labelName.Text = "Họ và tên: ";
             // 
-            // pictureBox1
+            // pictureBoxAvatar
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources._634011;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(141, 63);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxAvatar.BackColor = System.Drawing.Color.White;
+            this.pictureBoxAvatar.BackgroundImage = global::PresentationLayer.Properties.Resources._634011;
+            this.pictureBoxAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxAvatar.Location = new System.Drawing.Point(141, 63);
+            this.pictureBoxAvatar.Name = "pictureBoxAvatar";
+            this.pictureBoxAvatar.Size = new System.Drawing.Size(128, 128);
+            this.pictureBoxAvatar.TabIndex = 3;
+            this.pictureBoxAvatar.TabStop = false;
             // 
             // labelLogInInfo
             // 
@@ -342,7 +342,7 @@ namespace PresentationLayer
             this.panel1.ResumeLayout(false);
             this.panelAccountInfo.ResumeLayout(false);
             this.panelAccountInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -360,7 +360,7 @@ namespace PresentationLayer
         private System.Windows.Forms.Label labelAvatar;
         private System.Windows.Forms.Label labelGeneralInfo;
         private System.Windows.Forms.Label labelLogInInfo;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxAvatar;
         private System.Windows.Forms.Button buttonChangeGeneralInfo;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.TextBox textBoxConfirmNewPassword;

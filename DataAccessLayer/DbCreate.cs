@@ -38,13 +38,12 @@ namespace DataAccessLayer
             context.Accounts.AddRange(new Account[]
             {
                 new Account{Id = 1, Username = "admin", Email = "admin@gmail.com", Password = Extensions.GetSHA256Hash("admin"), RoleId = 1},
-                new Account{Id = 2, Username = "mod", Email = "mod@gmail.com", Password = Extensions.GetSHA256Hash("mod"), RoleId = 2},
                 new Account{Id = 3, Username = "user", Email = "user@gmail.com", Password = Extensions.GetSHA256Hash("user"), RoleId = 3},
             });
             context.UserInfoes.AddRange(new UserInfo[]
             {
-                new UserInfo{Id = 1, Name = "admin", DOB = new DateTime(2003, 07, 15)},
-                new UserInfo{Id = 2, Name = "mod", Sex = "Nam"}
+                new UserInfo{Id = 1, Name = "admin", Avatar = Extensions.ImageToByteArray(Resources._634011), DOB = new DateTime(2003, 07, 15)},
+                new UserInfo{Id = 3, Avatar = Extensions.ImageToByteArray(Resources._634011), DOB = new DateTime(1945, 09, 02)}
             });
             context.Books.AddRange(new Book[]
             {

@@ -30,20 +30,26 @@ namespace Common
         }
         public static bool IsValidEmail(string Email)
         {
-            string pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|" + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)" + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
-            var regex = new Regex(pattern, RegexOptions.IgnoreCase);
-            return regex.IsMatch(Email);
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(Email);
+                return addr.Address == Email;
+            }
+            catch
+            {
+                return false;
+            }
         }
         public static Image ByteArrayToImage(byte[] byteArray)
         {
-            using (var ms = new MemoryStream(byteArray))
+            using (MemoryStream ms = new MemoryStream(byteArray))
             {
                 return Image.FromStream(ms);
             }
         }
         public static byte[] ImageToByteArray(Image imageIn)
         {
-            using (var ms = new MemoryStream())
+            using (MemoryStream ms = new MemoryStream())
             {
                 imageIn.Save(ms, imageIn.RawFormat);
                 return ms.ToArray();

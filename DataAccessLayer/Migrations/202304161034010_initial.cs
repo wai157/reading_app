@@ -139,7 +139,7 @@
                         DOB = c.DateTime(nullable: false, precision: 0),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Accounts", t => t.Id)
+                .ForeignKey("dbo.Accounts", t => t.Id, cascadeDelete: true)
                 .Index(t => t.Id);
             
         }

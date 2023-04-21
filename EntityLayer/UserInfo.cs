@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EntityLayer
 {
@@ -12,9 +7,8 @@ namespace EntityLayer
     {
         [ForeignKey("Account")]
         public int Id { get; set; }
-        [DefaultValue(" ")]
+        public byte[] Avatar { get; set; }
         public string Name { get; set; }
-        [DefaultValue(" ")]
         public string Sex { get; set; }
         public DateTime DOB { get; set; }
 
