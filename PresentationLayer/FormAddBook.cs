@@ -124,5 +124,10 @@ namespace PresentationLayer
                 errorProvider.SetError(buttonSelectCover, null);
             }
         }
+
+        private void pictureBoxCover_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
