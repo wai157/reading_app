@@ -156,7 +156,6 @@ namespace PresentationLayer
             this.panelAccountInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panelAccountInfo.Size = new System.Drawing.Size(768, 612);
             this.panelAccountInfo.TabIndex = 0;
-            this.panelAccountInfo.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // buttonChangeGeneralInfo
             // 
@@ -167,6 +166,7 @@ namespace PresentationLayer
             this.buttonChangeGeneralInfo.Size = new System.Drawing.Size(32, 32);
             this.buttonChangeGeneralInfo.TabIndex = 14;
             this.buttonChangeGeneralInfo.UseVisualStyleBackColor = true;
+            this.buttonChangeGeneralInfo.Click += new System.EventHandler(this.buttonChangeGeneralInfo_Click);
             // 
             // buttonSave
             // 
@@ -184,7 +184,7 @@ namespace PresentationLayer
             this.textBoxConfirmNewPassword.ForeColor = System.Drawing.Color.Gray;
             this.textBoxConfirmNewPassword.Location = new System.Drawing.Point(149, 522);
             this.textBoxConfirmNewPassword.Name = "textBoxConfirmNewPassword";
-            this.textBoxConfirmNewPassword.Size = new System.Drawing.Size(218, 32);
+            this.textBoxConfirmNewPassword.Size = new System.Drawing.Size(218, 38);
             this.textBoxConfirmNewPassword.TabIndex = 12;
             this.textBoxConfirmNewPassword.Text = "Xác nhận mật khẩu mới";
             this.textBoxConfirmNewPassword.GotFocus += new System.EventHandler(this.textBox_RemoveText);
@@ -196,7 +196,7 @@ namespace PresentationLayer
             this.textBoxNewPassword.ForeColor = System.Drawing.Color.Gray;
             this.textBoxNewPassword.Location = new System.Drawing.Point(149, 483);
             this.textBoxNewPassword.Name = "textBoxNewPassword";
-            this.textBoxNewPassword.Size = new System.Drawing.Size(218, 32);
+            this.textBoxNewPassword.Size = new System.Drawing.Size(218, 38);
             this.textBoxNewPassword.TabIndex = 11;
             this.textBoxNewPassword.Text = "Mật khẩu mới";
             this.textBoxNewPassword.GotFocus += new System.EventHandler(this.textBox_RemoveText);
@@ -208,7 +208,7 @@ namespace PresentationLayer
             this.textBoxCurrentPassword.ForeColor = System.Drawing.Color.Gray;
             this.textBoxCurrentPassword.Location = new System.Drawing.Point(149, 445);
             this.textBoxCurrentPassword.Name = "textBoxCurrentPassword";
-            this.textBoxCurrentPassword.Size = new System.Drawing.Size(218, 32);
+            this.textBoxCurrentPassword.Size = new System.Drawing.Size(218, 38);
             this.textBoxCurrentPassword.TabIndex = 10;
             this.textBoxCurrentPassword.Text = "Mật khẩu hiện tại";
             this.textBoxCurrentPassword.GotFocus += new System.EventHandler(this.textBox_RemoveText);
@@ -220,7 +220,7 @@ namespace PresentationLayer
             this.labelChangePassword.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelChangePassword.Location = new System.Drawing.Point(16, 448);
             this.labelChangePassword.Name = "labelChangePassword";
-            this.labelChangePassword.Size = new System.Drawing.Size(137, 25);
+            this.labelChangePassword.Size = new System.Drawing.Size(168, 31);
             this.labelChangePassword.TabIndex = 9;
             this.labelChangePassword.Text = "Đổi mật khẩu:";
             // 
@@ -230,7 +230,7 @@ namespace PresentationLayer
             this.labelEmail.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmail.Location = new System.Drawing.Point(16, 413);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(75, 25);
+            this.labelEmail.Size = new System.Drawing.Size(91, 31);
             this.labelEmail.TabIndex = 8;
             this.labelEmail.Text = "Email: ";
             // 
@@ -240,7 +240,7 @@ namespace PresentationLayer
             this.labelUsername.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsername.Location = new System.Drawing.Point(16, 378);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(152, 25);
+            this.labelUsername.Size = new System.Drawing.Size(189, 31);
             this.labelUsername.TabIndex = 7;
             this.labelUsername.Text = "Tên đăng nhập: ";
             // 
@@ -250,7 +250,7 @@ namespace PresentationLayer
             this.labelDOB.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDOB.Location = new System.Drawing.Point(16, 236);
             this.labelDOB.Name = "labelDOB";
-            this.labelDOB.Size = new System.Drawing.Size(112, 25);
+            this.labelDOB.Size = new System.Drawing.Size(135, 31);
             this.labelDOB.TabIndex = 6;
             this.labelDOB.Text = "Ngày sinh: ";
             // 
@@ -260,7 +260,7 @@ namespace PresentationLayer
             this.labelSex.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSex.Location = new System.Drawing.Point(16, 271);
             this.labelSex.Name = "labelSex";
-            this.labelSex.Size = new System.Drawing.Size(102, 25);
+            this.labelSex.Size = new System.Drawing.Size(124, 31);
             this.labelSex.TabIndex = 5;
             this.labelSex.Text = "Giới tính: ";
             // 
@@ -270,7 +270,7 @@ namespace PresentationLayer
             this.labelName.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.Location = new System.Drawing.Point(16, 201);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(109, 25);
+            this.labelName.Size = new System.Drawing.Size(132, 31);
             this.labelName.TabIndex = 4;
             this.labelName.Text = "Họ và tên: ";
             // 
@@ -293,7 +293,7 @@ namespace PresentationLayer
             this.labelLogInInfo.Margin = new System.Windows.Forms.Padding(3);
             this.labelLogInInfo.Name = "labelLogInInfo";
             this.labelLogInInfo.Padding = new System.Windows.Forms.Padding(10);
-            this.labelLogInInfo.Size = new System.Drawing.Size(314, 59);
+            this.labelLogInInfo.Size = new System.Drawing.Size(397, 68);
             this.labelLogInInfo.TabIndex = 2;
             this.labelLogInInfo.Text = "Thông tin đăng nhập";
             // 
@@ -303,7 +303,7 @@ namespace PresentationLayer
             this.labelAvatar.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAvatar.Location = new System.Drawing.Point(15, 65);
             this.labelAvatar.Name = "labelAvatar";
-            this.labelAvatar.Size = new System.Drawing.Size(130, 25);
+            this.labelAvatar.Size = new System.Drawing.Size(161, 31);
             this.labelAvatar.TabIndex = 1;
             this.labelAvatar.Text = "Ảnh đại diện:";
             // 
@@ -315,7 +315,7 @@ namespace PresentationLayer
             this.labelGeneralInfo.Margin = new System.Windows.Forms.Padding(3);
             this.labelGeneralInfo.Name = "labelGeneralInfo";
             this.labelGeneralInfo.Padding = new System.Windows.Forms.Padding(10);
-            this.labelGeneralInfo.Size = new System.Drawing.Size(257, 59);
+            this.labelGeneralInfo.Size = new System.Drawing.Size(323, 68);
             this.labelGeneralInfo.TabIndex = 0;
             this.labelGeneralInfo.Text = "Thông tin chung";
             // 
@@ -332,7 +332,7 @@ namespace PresentationLayer
             // 
             // UserProfileScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -68,7 +68,7 @@ namespace PresentationLayer
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(800, 500);
+            this.panelMain.Size = new System.Drawing.Size(798, 492);
             this.panelMain.TabIndex = 0;
             // 
             // buttonConfirm
@@ -91,7 +91,7 @@ namespace PresentationLayer
             this.label1.Location = new System.Drawing.Point(3, 478);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(256, 19);
+            this.label1.Size = new System.Drawing.Size(326, 22);
             this.label1.TabIndex = 10;
             this.label1.Text = "    Bạn có thể thêm các chương sách sau.";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -114,7 +114,7 @@ namespace PresentationLayer
             this.comboBoxGenre.FormattingEnabled = true;
             this.comboBoxGenre.Location = new System.Drawing.Point(286, 94);
             this.comboBoxGenre.Name = "comboBoxGenre";
-            this.comboBoxGenre.Size = new System.Drawing.Size(200, 31);
+            this.comboBoxGenre.Size = new System.Drawing.Size(200, 39);
             this.comboBoxGenre.TabIndex = 8;
             // 
             // textBoxDescription
@@ -124,7 +124,7 @@ namespace PresentationLayer
             this.textBoxDescription.MaximumSize = new System.Drawing.Size(480, 300);
             this.textBoxDescription.MinimumSize = new System.Drawing.Size(480, 300);
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(480, 300);
+            this.textBoxDescription.Size = new System.Drawing.Size(480, 38);
             this.textBoxDescription.TabIndex = 7;
             this.textBoxDescription.Validated += new System.EventHandler(this.textBoxDescription_Validated);
             // 
@@ -133,7 +133,7 @@ namespace PresentationLayer
             this.textBoxAuthor.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAuthor.Location = new System.Drawing.Point(286, 53);
             this.textBoxAuthor.Name = "textBoxAuthor";
-            this.textBoxAuthor.Size = new System.Drawing.Size(480, 32);
+            this.textBoxAuthor.Size = new System.Drawing.Size(480, 38);
             this.textBoxAuthor.TabIndex = 6;
             this.textBoxAuthor.Validated += new System.EventHandler(this.textBoxAuthor_Validated);
             // 
@@ -142,7 +142,7 @@ namespace PresentationLayer
             this.textBoxName.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxName.Location = new System.Drawing.Point(286, 12);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(480, 32);
+            this.textBoxName.Size = new System.Drawing.Size(480, 38);
             this.textBoxName.TabIndex = 5;
             this.textBoxName.Validated += new System.EventHandler(this.textBoxName_Validated);
             // 
@@ -152,7 +152,7 @@ namespace PresentationLayer
             this.labelDescription.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescription.Location = new System.Drawing.Point(172, 135);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(121, 31);
+            this.labelDescription.Size = new System.Drawing.Size(153, 39);
             this.labelDescription.TabIndex = 4;
             this.labelDescription.Text = "Nội dung:";
             // 
@@ -162,7 +162,7 @@ namespace PresentationLayer
             this.labelGenres.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGenres.Location = new System.Drawing.Point(172, 94);
             this.labelGenres.Name = "labelGenres";
-            this.labelGenres.Size = new System.Drawing.Size(110, 31);
+            this.labelGenres.Size = new System.Drawing.Size(137, 39);
             this.labelGenres.TabIndex = 3;
             this.labelGenres.Text = "Thể loại:";
             // 
@@ -172,7 +172,7 @@ namespace PresentationLayer
             this.labelAuthor.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAuthor.Location = new System.Drawing.Point(172, 53);
             this.labelAuthor.Name = "labelAuthor";
-            this.labelAuthor.Size = new System.Drawing.Size(98, 31);
+            this.labelAuthor.Size = new System.Drawing.Size(127, 39);
             this.labelAuthor.TabIndex = 2;
             this.labelAuthor.Text = "Tác giả:";
             // 
@@ -182,7 +182,7 @@ namespace PresentationLayer
             this.labelName.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.Location = new System.Drawing.Point(172, 12);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(117, 31);
+            this.labelName.Size = new System.Drawing.Size(146, 39);
             this.labelName.TabIndex = 1;
             this.labelName.Text = "Tên sách:";
             // 
@@ -195,6 +195,7 @@ namespace PresentationLayer
             this.pictureBoxCover.Size = new System.Drawing.Size(154, 231);
             this.pictureBoxCover.TabIndex = 0;
             this.pictureBoxCover.TabStop = false;
+            this.pictureBoxCover.Click += new System.EventHandler(this.pictureBoxCover_Click);
             this.pictureBoxCover.Validated += new System.EventHandler(this.pictureBoxCover_Validated);
             // 
             // errorProvider
@@ -203,9 +204,9 @@ namespace PresentationLayer
             // 
             // FormAddBook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 500);
+            this.ClientSize = new System.Drawing.Size(798, 492);
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;

@@ -75,5 +75,10 @@ namespace PresentationLayer
                 textBoxCurrentPassword.ForeColor = Color.Gray;
             }
         }
+
+        private void buttonChangeGeneralInfo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
