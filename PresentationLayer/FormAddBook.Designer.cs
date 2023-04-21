@@ -106,6 +106,7 @@ namespace PresentationLayer
             this.buttonSelectCover.Text = "Chọn bìa sách";
             this.buttonSelectCover.UseVisualStyleBackColor = true;
             this.buttonSelectCover.Click += new System.EventHandler(this.buttonSelectCover_Click);
+            this.buttonSelectCover.Validated += new System.EventHandler(this.buttonSelectCover_Validated);
             // 
             // comboBoxGenre
             // 
@@ -124,7 +125,7 @@ namespace PresentationLayer
             this.textBoxDescription.MaximumSize = new System.Drawing.Size(480, 300);
             this.textBoxDescription.MinimumSize = new System.Drawing.Size(480, 300);
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(480, 300);
+            this.textBoxDescription.Size = new System.Drawing.Size(480, 32);
             this.textBoxDescription.TabIndex = 7;
             this.textBoxDescription.Validated += new System.EventHandler(this.textBoxDescription_Validated);
             // 
@@ -195,7 +196,6 @@ namespace PresentationLayer
             this.pictureBoxCover.Size = new System.Drawing.Size(154, 231);
             this.pictureBoxCover.TabIndex = 0;
             this.pictureBoxCover.TabStop = false;
-            this.pictureBoxCover.Validated += new System.EventHandler(this.pictureBoxCover_Validated);
             // 
             // errorProvider
             // 

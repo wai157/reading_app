@@ -135,6 +135,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RegisterScreen.Designer.cs">
+      <DependentUpon>RegisterScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserProfileScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,6 +191,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterScreen.resx">
+      <DependentUpon>RegisterScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserProfileScreen.resx">
       <DependentUpon>UserProfileScreen.cs</DependentUpon>

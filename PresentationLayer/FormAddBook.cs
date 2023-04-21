@@ -113,7 +113,7 @@ namespace PresentationLayer
             }
         }
 
-        private void pictureBoxCover_Validated(object sender, EventArgs e)
+        private void buttonSelectCover_Validated(object sender, EventArgs e)
         {
             if (pictureBoxCover.BackgroundImage == null)
             {

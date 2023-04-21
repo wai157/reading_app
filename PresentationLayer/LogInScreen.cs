@@ -115,5 +115,11 @@ namespace PresentationLayer
                 errorProvider.SetError(textBoxPassword, null);
             }
         }
+
+        private void buttonSignUp_Click(object sender, EventArgs e)
+        {
+            RegisterScreen registerScreen = new RegisterScreen();
+            Utils.ShowScreen(ParentForm, registerScreen);
+        }
     }
 }
