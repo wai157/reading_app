@@ -15,10 +15,12 @@ namespace PresentationLayer
     public partial class UserProfileScreen : UserControl
     {
         private readonly AccountManager _accountManager;
+        private readonly AccountDTO _uploadAccount;
         public UserProfileScreen(AccountDTO logInAccountDTO)
         {
             InitializeComponent();
             _accountManager = new AccountManager();
+            _uploadAccount = logInAccountDTO;
             UserInfoDTO userInfoDTO = _accountManager.GetUserInfo(logInAccountDTO.Id);
             if (userInfoDTO != null)
             {
@@ -78,6 +80,8 @@ namespace PresentationLayer
 
         private void buttonChangeGeneralInfo_Click(object sender, EventArgs e)
         {
+            FormEditUserInfo editUserInfoScreen = new FormEditUserInfo(_uploadAccount, _uploadAccount);
+            editUserInfoScreen.ShowDialog();
 
         }
     }

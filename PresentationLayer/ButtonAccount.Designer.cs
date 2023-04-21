@@ -61,6 +61,7 @@ namespace PresentationLayer
             this.pictureBox1.Size = new System.Drawing.Size(144, 144);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // labelUsername
             // 
@@ -69,7 +70,7 @@ namespace PresentationLayer
             this.labelUsername.Location = new System.Drawing.Point(5, 159);
             this.labelUsername.Margin = new System.Windows.Forms.Padding(5);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(70, 19);
+            this.labelUsername.Size = new System.Drawing.Size(88, 22);
             this.labelUsername.TabIndex = 2;
             this.labelUsername.Text = "Username";
             // 
@@ -80,13 +81,13 @@ namespace PresentationLayer
             this.labelRole.Location = new System.Drawing.Point(5, 188);
             this.labelRole.Margin = new System.Windows.Forms.Padding(5);
             this.labelRole.Name = "labelRole";
-            this.labelRole.Size = new System.Drawing.Size(40, 19);
+            this.labelRole.Size = new System.Drawing.Size(54, 22);
             this.labelRole.TabIndex = 3;
             this.labelRole.Text = "Role:";
             // 
             // ButtonAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.labelRole);
