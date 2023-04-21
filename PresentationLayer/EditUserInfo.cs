@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace PresentationLayer
 {
-    public partial class EditUserInfo : Form
+    public partial class FormEditUserInfo : Form
     {
-        public EditUserInfo()
+        public FormEditUserInfo()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
