@@ -26,7 +26,7 @@ namespace PresentationLayer
         private void button1_Click(object sender, EventArgs e)
         {
             FormReadingApp parentForm = ParentForm as FormReadingApp;
-            ChapterScreen chapterScreen = new ChapterScreen(parentForm.LogInAccountDTO.RoleID, _book, _chapter);
+            ChapterScreen chapterScreen = new ChapterScreen(parentForm.LogInAccountDTO, _book, _chapter);
             Utils.ShowScreen(ParentForm, chapterScreen);
         }
     }

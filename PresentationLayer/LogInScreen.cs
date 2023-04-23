@@ -18,6 +18,13 @@ namespace PresentationLayer
             _accountManager = new AccountManager();
         }
 
+        private void LogInScreen_Load(object sender, EventArgs e)
+        {
+            FormReadingApp formReadingApp = ParentForm as FormReadingApp;
+            formReadingApp.LogInAccountDTO = null;
+            formReadingApp.AcceptButton = ButtonLogIn;
+        }
+
         private void textBoxUsername_AddText(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxUsername.Text))
@@ -121,5 +128,6 @@ namespace PresentationLayer
             RegisterScreen registerScreen = new RegisterScreen();
             Utils.ShowScreen(ParentForm, registerScreen);
         }
+
     }
 }

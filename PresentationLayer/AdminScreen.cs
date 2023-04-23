@@ -40,8 +40,15 @@ namespace PresentationLayer
 
         private void buttonAddBook_Click(object sender, EventArgs e)
         {
-            FormAddBook formAddBook = new FormAddBook(_logInAccount);
-            formAddBook.ShowDialog();
+            using (FormAddBook formAddBook = new FormAddBook(_logInAccount))
+            {
+                formAddBook.ShowDialog();
+                if (formAddBook.DialogResult == DialogResult.OK)
+                {
+                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
+                }
+            }
         }
 
     }

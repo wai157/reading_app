@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataTransferObjectLayer
 {
-    public class GenreDTO
+    public class AuthorDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }

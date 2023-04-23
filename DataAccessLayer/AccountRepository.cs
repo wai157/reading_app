@@ -111,5 +111,15 @@ namespace DataAccessLayer
             account.RoleId = updatedAccount.RoleID;
             _context.SaveChanges();
         }
+
+        public void DeleteAccount(int Id)
+        {
+            Account accountToDelete = _context.Accounts.FirstOrDefault(x => x.Id == Id);
+            if(accountToDelete != null)
+            {
+                _context.Accounts.Remove(accountToDelete);
+                _context.SaveChanges();
+            }
+        }
     }
 }

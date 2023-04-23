@@ -91,6 +91,12 @@
     <Compile Include="ChapterScreen.Designer.cs">
       <DependentUpon>ChapterScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditBook.Designer.cs">
+      <DependentUpon>FormEditBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditUserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,12 @@
     <Compile Include="RegisterScreen.Designer.cs">
       <DependentUpon>RegisterScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchResultScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SearchResultScreen.Designer.cs">
+      <DependentUpon>SearchResultScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserProfileScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -165,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChapterScreen.resx">
       <DependentUpon>ChapterScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBook.resx">
+      <DependentUpon>FormEditBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditUserInfo.resx">
       <DependentUpon>FormEditUserInfo.cs</DependentUpon>
@@ -194,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterScreen.resx">
       <DependentUpon>RegisterScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchResultScreen.resx">
+      <DependentUpon>SearchResultScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserProfileScreen.resx">
       <DependentUpon>UserProfileScreen.cs</DependentUpon>

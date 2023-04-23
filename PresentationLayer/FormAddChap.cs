@@ -28,23 +28,25 @@ namespace PresentationLayer
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Text Files (*.txt)|*.txt";
-            if (fileDialog.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog fileDialog = new OpenFileDialog())
             {
-                string[] filePath = fileDialog.FileName.Split('\\');
-                labelFile.Text = filePath[filePath.Length - 1];
-                labelFile.Visible = true;
-                buttonDel.Visible = true;
-                buttonDel.Enabled = true;
-                buttonDel.Location = new Point(labelFile.Location.X + labelFile.Size.Width + 3, 92);
-                buttonAdd.Visible = false;
-                buttonAdd.Enabled = false;
-                using (StreamReader streamReader = new StreamReader(fileDialog.FileName))
+                fileDialog.Filter = "Text Files (*.txt)|*.txt";
+                if (fileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    _chapter.Content = streamReader.ReadToEnd();
+                    string[] filePath = fileDialog.FileName.Split('\\');
+                    labelFile.Text = filePath[filePath.Length - 1];
+                    labelFile.Visible = true;
+                    buttonDel.Visible = true;
+                    buttonDel.Enabled = true;
+                    buttonDel.Location = new Point(labelFile.Location.X + labelFile.Size.Width + 3, 92);
+                    buttonAdd.Visible = false;
+                    buttonAdd.Enabled = false;
+                    using (StreamReader streamReader = new StreamReader(fileDialog.FileName))
+                    {
+                        _chapter.Content = streamReader.ReadToEnd();
+                    }
                 }
-            }
+            } 
         }
 
         private void buttonDel_Click(object sender, EventArgs e)

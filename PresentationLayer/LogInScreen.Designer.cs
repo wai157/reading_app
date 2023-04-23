@@ -54,7 +54,6 @@ namespace PresentationLayer
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.TabIndex = 2;
-            this.panelMain.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // panel1
             // 
@@ -70,7 +69,6 @@ namespace PresentationLayer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 400);
             this.panel1.TabIndex = 0;
-            this.panel1.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // labelError
             // 
@@ -164,6 +162,7 @@ namespace PresentationLayer
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "LogInScreen";
             this.Size = new System.Drawing.Size(1280, 720);
+            this.Load += new System.EventHandler(this.LogInScreen_Load);
             this.panelMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

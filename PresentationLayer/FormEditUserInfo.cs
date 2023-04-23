@@ -17,14 +17,12 @@ namespace PresentationLayer
     public partial class FormEditUserInfo : Form
     {
         private readonly AccountManager _accountManager;
-        private readonly AccountDTO _logInAccount;
         private readonly AccountDTO _presentedAccount;
         private readonly UserInfoDTO _presentedUserInfo;
         public FormEditUserInfo(AccountDTO logInAccount, AccountDTO presentedAccount)          
         {
             InitializeComponent();
             _accountManager = new AccountManager();
-            _logInAccount = logInAccount;
             _presentedAccount = presentedAccount;
             _presentedUserInfo = _accountManager.GetUserInfo(_presentedAccount.Id);
             comboBoxRole.DataSource = new List<string>{
@@ -77,12 +75,7 @@ namespace PresentationLayer
             {
                 sex = radioButtonOther.Text;
             }
-            Bitmap image = new Bitmap(pictureBoxAvatar.BackgroundImage);
-            using (var ms = new MemoryStream())
-            {
-                image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                _presentedUserInfo.Avatar = Extensions.ImageToByteArray(Image.FromStream(ms));
-            }
+            _presentedUserInfo.Avatar = Extensions.ImageToByteArray(pictureBoxAvatar.BackgroundImage);
             _presentedUserInfo.Name = textBoxName.Text;
             _presentedUserInfo.DOB = dateTimePickerDOB.Value;
             _presentedUserInfo.Sex = sex;
@@ -95,31 +88,32 @@ namespace PresentationLayer
                 _presentedAccount.RoleID = 3;
             }
             _accountManager.UpdateUserInfo(_presentedAccount, _presentedUserInfo);
-            if (_logInAccount.Id == _presentedAccount.Id && _logInAccount.RoleID != _presentedAccount.RoleID)
-            {
-                MessageBox.Show("Bạn vừa thay đổi phân quyền của bản thân!\nVui lòng đăng nhập lại để thay đổi có hiệu lực!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
             MessageBox.Show("Cập nhật thông tin thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Dispose();
         }
 
         private void buttonSelectAvatar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Image Files (*.bmp, *.jpg, *.jpeg, *.png)|*.bmp;*.jpg;*.jpeg;*.png";
-            if (fileDialog.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog fileDialog = new OpenFileDialog())
             {
-                string fileName = fileDialog.FileName;
-                Bitmap image = new Bitmap(fileName);
-                pictureBoxAvatar.BackgroundImage = image;
+                fileDialog.Filter = "Image Files (*.bmp, *.jpg, *.jpeg, *.png)|*.bmp;*.jpg;*.jpeg;*.png";
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string fileName = fileDialog.FileName;
+                    Bitmap image = new Bitmap(fileName);
+                    pictureBoxAvatar.BackgroundImage = image;
+                }
             }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn xóa tài khoản này!", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (MessageBox.Show("Bạn có chắc muốn xóa tài khoản này!", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+                _accountManager.DeleteAccount(_presentedAccount.Id);
+                _presentedAccount.Id = -1;
                 MessageBox.Show("Xóa tài khoản thành công!", "Xóa tài khoản", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
+                this.Dispose();
             }
         }
     }

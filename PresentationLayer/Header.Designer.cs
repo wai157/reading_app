@@ -30,10 +30,10 @@ namespace PresentationLayer
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonHome = new System.Windows.Forms.Button();
             this.buttonUserProfile = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +50,19 @@ namespace PresentationLayer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1280, 72);
             this.panel1.TabIndex = 0;
-            this.panel1.Click += new System.EventHandler(Utils.StealFocus);
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearch.Font = new System.Drawing.Font("Times New Roman", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxSearch.Location = new System.Drawing.Point(256, 12);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(724, 47);
+            this.textBoxSearch.TabIndex = 1;
+            this.textBoxSearch.Text = " Tìm Kiếm";
+            this.textBoxSearch.GotFocus += new System.EventHandler(this.textBoxSearch_RemoveText);
+            this.textBoxSearch.LostFocus += new System.EventHandler(this.textBoxSearch_AddText);
             // 
             // buttonHome
             // 
@@ -89,19 +101,7 @@ namespace PresentationLayer
             this.buttonSearch.Size = new System.Drawing.Size(47, 47);
             this.buttonSearch.TabIndex = 2;
             this.buttonSearch.UseVisualStyleBackColor = false;
-            // 
-            // textBoxSearch
-            // 
-            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearch.Font = new System.Drawing.Font("Times New Roman", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearch.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxSearch.Location = new System.Drawing.Point(256, 12);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(768, 47);
-            this.textBoxSearch.TabIndex = 1;
-            this.textBoxSearch.Text = " Tìm Kiếm";
-            this.textBoxSearch.GotFocus += new System.EventHandler(this.textBoxSearch_RemoveText);
-            this.textBoxSearch.LostFocus += new System.EventHandler(this.textBoxSearch_AddText);
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // Header
             // 

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountManager.cs" />
+    <Compile Include="AuthorManager.cs" />
     <Compile Include="BookManager.cs" />
     <Compile Include="ChapterManager.cs" />
     <Compile Include="GenreManager.cs" />

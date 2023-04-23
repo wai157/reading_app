@@ -17,9 +17,31 @@ namespace DataAccessLayer
             _context = new PBL3DbContext();
         }
         
-        public List<string> GetAllGenres()
+        public List<GenreDTO> GetAllGenres()
         {
-            return _context.Genres.Select(x => x.Name).ToList();
+            List<Genre> genres =  _context.Genres.ToList();
+            List<GenreDTO> genreDTOs = new List<GenreDTO>();
+            foreach(Genre genre in genres)
+            {
+                GenreDTO genreDTO = new GenreDTO
+                {
+                    Id = genre.Id,
+                    Name = genre.Name
+                };
+                genreDTOs.Add(genreDTO);
+            }
+            return genreDTOs;
+        }
+
+        public GenreDTO GetGenreById(int Id)
+        {
+            Genre genre = _context.Genres.FirstOrDefault(x => x.Id == Id);
+            GenreDTO genreDTO = new GenreDTO
+            {
+                Id = genre.Id,
+                Name = genre.Name
+            };
+            return genreDTO;
         }
     }
 }

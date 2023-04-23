@@ -33,6 +33,7 @@ namespace PresentationLayer
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.labelRating = new System.Windows.Forms.Label();
             this.labelFollowed = new System.Windows.Forms.Label();
             this.labelViews = new System.Windows.Forms.Label();
@@ -93,6 +94,7 @@ namespace PresentationLayer
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.buttonEdit);
             this.splitContainer1.Panel1.Controls.Add(this.labelRating);
             this.splitContainer1.Panel1.Controls.Add(this.labelFollowed);
             this.splitContainer1.Panel1.Controls.Add(this.labelViews);
@@ -107,13 +109,26 @@ namespace PresentationLayer
             this.splitContainer1.SplitterDistance = 384;
             this.splitContainer1.TabIndex = 1;
             // 
+            // buttonEdit
+            // 
+            this.buttonEdit.BackgroundImage = global::PresentationLayer.Properties.Resources.edit_246;
+            this.buttonEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonEdit.Enabled = false;
+            this.buttonEdit.Location = new System.Drawing.Point(16, 20);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(32, 32);
+            this.buttonEdit.TabIndex = 15;
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Visible = false;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonChangeGeneralInfo_Click);
+            // 
             // labelRating
             // 
             this.labelRating.AutoSize = true;
             this.labelRating.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRating.Location = new System.Drawing.Point(60, 472);
             this.labelRating.Name = "labelRating";
-            this.labelRating.Size = new System.Drawing.Size(82, 22);
+            this.labelRating.Size = new System.Drawing.Size(62, 19);
             this.labelRating.TabIndex = 5;
             this.labelRating.Text = "đánh giá:";
             // 
@@ -123,7 +138,7 @@ namespace PresentationLayer
             this.labelFollowed.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFollowed.Location = new System.Drawing.Point(60, 448);
             this.labelFollowed.Name = "labelFollowed";
-            this.labelFollowed.Size = new System.Drawing.Size(123, 22);
+            this.labelFollowed.Size = new System.Drawing.Size(93, 19);
             this.labelFollowed.TabIndex = 4;
             this.labelFollowed.Text = "lượt theo dõi: ";
             // 
@@ -133,7 +148,7 @@ namespace PresentationLayer
             this.labelViews.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelViews.Location = new System.Drawing.Point(60, 424);
             this.labelViews.Name = "labelViews";
-            this.labelViews.Size = new System.Drawing.Size(83, 22);
+            this.labelViews.Size = new System.Drawing.Size(63, 19);
             this.labelViews.TabIndex = 3;
             this.labelViews.Text = "lượt đọc:";
             // 
@@ -156,6 +171,7 @@ namespace PresentationLayer
             this.btnRead.TabIndex = 1;
             this.btnRead.Text = "Đọc";
             this.btnRead.UseVisualStyleBackColor = true;
+            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
             // 
             // pictureBoxCover
             // 
@@ -186,10 +202,10 @@ namespace PresentationLayer
             this.tabPageAbout.Controls.Add(this.labelAuthor);
             this.tabPageAbout.Controls.Add(this.labelName);
             this.tabPageAbout.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPageAbout.Location = new System.Drawing.Point(4, 40);
+            this.tabPageAbout.Location = new System.Drawing.Point(4, 32);
             this.tabPageAbout.Name = "tabPageAbout";
             this.tabPageAbout.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAbout.Size = new System.Drawing.Size(628, 568);
+            this.tabPageAbout.Size = new System.Drawing.Size(628, 576);
             this.tabPageAbout.TabIndex = 0;
             this.tabPageAbout.Text = "Giới thiệu";
             // 
@@ -202,7 +218,7 @@ namespace PresentationLayer
             this.labelDescription.MinimumSize = new System.Drawing.Size(602, 0);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.labelDescription.Size = new System.Drawing.Size(602, 754);
+            this.labelDescription.Size = new System.Drawing.Size(602, 510);
             this.labelDescription.TabIndex = 3;
             this.labelDescription.Text = resources.GetString("labelDescription.Text");
             // 
@@ -212,7 +228,7 @@ namespace PresentationLayer
             this.labelGenres.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGenres.Location = new System.Drawing.Point(6, 139);
             this.labelGenres.Name = "labelGenres";
-            this.labelGenres.Size = new System.Drawing.Size(110, 31);
+            this.labelGenres.Size = new System.Drawing.Size(91, 25);
             this.labelGenres.TabIndex = 2;
             this.labelGenres.Text = "Thể loại:";
             // 
@@ -222,7 +238,7 @@ namespace PresentationLayer
             this.labelAuthor.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAuthor.Location = new System.Drawing.Point(6, 103);
             this.labelAuthor.Name = "labelAuthor";
-            this.labelAuthor.Size = new System.Drawing.Size(105, 31);
+            this.labelAuthor.Size = new System.Drawing.Size(90, 25);
             this.labelAuthor.TabIndex = 1;
             this.labelAuthor.Text = "Tác giả: ";
             // 
@@ -244,10 +260,10 @@ namespace PresentationLayer
             // 
             this.tabPageTableOfContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
             this.tabPageTableOfContent.Controls.Add(this.flowLayoutPanelChapters);
-            this.tabPageTableOfContent.Location = new System.Drawing.Point(4, 40);
+            this.tabPageTableOfContent.Location = new System.Drawing.Point(4, 32);
             this.tabPageTableOfContent.Name = "tabPageTableOfContent";
             this.tabPageTableOfContent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTableOfContent.Size = new System.Drawing.Size(628, 568);
+            this.tabPageTableOfContent.Size = new System.Drawing.Size(628, 576);
             this.tabPageTableOfContent.TabIndex = 1;
             this.tabPageTableOfContent.Text = "Mục lục";
             // 
@@ -258,7 +274,7 @@ namespace PresentationLayer
             this.flowLayoutPanelChapters.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelChapters.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanelChapters.Name = "flowLayoutPanelChapters";
-            this.flowLayoutPanelChapters.Size = new System.Drawing.Size(622, 562);
+            this.flowLayoutPanelChapters.Size = new System.Drawing.Size(622, 570);
             this.flowLayoutPanelChapters.TabIndex = 0;
             // 
             // header1
@@ -285,7 +301,7 @@ namespace PresentationLayer
             // 
             // BookScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -328,5 +344,6 @@ namespace PresentationLayer
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelChapters;
         private System.Windows.Forms.Button buttonAddChap;
+        private System.Windows.Forms.Button buttonEdit;
     }
 }

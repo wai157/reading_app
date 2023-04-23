@@ -62,5 +62,10 @@ namespace BusinessLogicLayer
             }
             return true;
         }
+
+        public void DeleteAccount(int Id)
+        {
+            _repository.DeleteAccount(Id);
+        }
     }
 }

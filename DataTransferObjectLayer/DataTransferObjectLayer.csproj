@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AccountDTO.cs" />
     <Compile Include="AccountReportDTO.cs" />
+    <Compile Include="AuthorDTO.cs" />
     <Compile Include="BookDTO.cs" />
     <Compile Include="BookReportDTO.cs" />
     <Compile Include="ChapterDTO.cs" />

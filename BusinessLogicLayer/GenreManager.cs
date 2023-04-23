@@ -17,9 +17,14 @@ namespace BusinessLogicLayer
             _repository = new GenreRepository();
         }
 
-        public List<string> GetAllGenres()
+        public List<GenreDTO> GetAllGenres()
         {
             return _repository.GetAllGenres();
+        }
+
+        public GenreDTO GetGenreById(int Id)
+        {
+            return _repository.GetGenreById(Id);
         }
     }
 }

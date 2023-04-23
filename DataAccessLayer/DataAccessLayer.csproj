@@ -102,7 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountRepository.cs" />
-    <Compile Include="BaseRepository.cs" />
+    <Compile Include="AuthorRepository.cs" />
     <Compile Include="BookRepository.cs" />
     <Compile Include="ChapterRepository.cs" />
     <Compile Include="DbCreate.cs" />

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,22 +14,25 @@ using System.Windows.Forms;
 
 namespace PresentationLayer
 {
-    public partial class FormAddBook : Form
+    public partial class FormEditBook : Form
     {
         private readonly GenreManager _genreManager;
         private readonly BookManager _bookManager;
-        private readonly BookDTO _bookToAdd;
-        private readonly AccountDTO _uploadAccount;
-        public FormAddBook(AccountDTO logInAccountDTO)
+        private readonly BookDTO _book;
+        public FormEditBook(BookDTO book)
         {
             InitializeComponent();
-            _uploadAccount = logInAccountDTO;
             _genreManager = new GenreManager();
             _bookManager = new BookManager();
+            _book = book;
             comboBoxGenre.DataSource = _genreManager.GetAllGenres();
             comboBoxGenre.DisplayMember = "Name";
             comboBoxGenre.ValueMember = "Id";
-            _bookToAdd = new BookDTO();
+            comboBoxGenre.SelectedValue = _book.GenreId;
+            textBoxName.Text = _book.Name;
+            textBoxAuthor.Text = _book.Author;
+            textBoxDescription.Text = _book.Description;
+            pictureBoxCover.BackgroundImage = Extensions.ByteArrayToImage(_book.BookCover);
         }
 
         private void buttonSelectCover_Click(object sender, EventArgs e)
@@ -47,7 +49,7 @@ namespace PresentationLayer
             }
         }
 
-        private void FormAddBook_FormClosing(object sender, FormClosingEventArgs e)
+        private void FormEditBook_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (this.DialogResult == DialogResult.OK)
             {
@@ -62,22 +64,16 @@ namespace PresentationLayer
                 }
                 else
                 {
-                    _bookToAdd.Name = textBoxName.Text;
-                    _bookToAdd.Author = textBoxAuthor.Text;
-                    _bookToAdd.Description = textBoxDescription.Text;
-                    _bookToAdd.BookCover = Extensions.ImageToByteArray(pictureBoxCover.BackgroundImage);
-                    _bookToAdd.GenreId = (int)comboBoxGenre.SelectedValue;
-                    _bookToAdd.UploadAccountId = _uploadAccount.Id;
-                    _bookManager.AddBook(_bookToAdd);
-                    MessageBox.Show("Thêm sách thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _book.BookCover = Extensions.ImageToByteArray(pictureBoxCover.BackgroundImage);
+                    _book.Name = textBoxName.Text;
+                    _book.Author = textBoxAuthor.Text;
+                    _book.Description = textBoxDescription.Text;
+                    _book.GenreId = (int)comboBoxGenre.SelectedValue;
+                    _bookManager.UpdateBook(_book);
+                    MessageBox.Show("Chỉnh sửa sách thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     e.Cancel = false;
                     this.Dispose();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Hủy thêm sách!", "Hủy", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
             }
         }
 
@@ -129,5 +125,15 @@ namespace PresentationLayer
             }
         }
 
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn xóa sách này!", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                _bookManager.DeleteBook(_book.Id);
+                _book.Id = -1;
+                MessageBox.Show("Xóa sách thành công!", "Xóa sách", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Dispose();
+            }
+        }
     }
 }

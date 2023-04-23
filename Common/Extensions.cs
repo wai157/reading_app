@@ -49,11 +49,13 @@ namespace Common
         }
         public static byte[] ImageToByteArray(Image imageIn)
         {
-            using (MemoryStream ms = new MemoryStream())
+            Bitmap image = new Bitmap(imageIn);
+            using (var ms = new MemoryStream())
             {
-                imageIn.Save(ms, imageIn.RawFormat);
+                image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                 return ms.ToArray();
             }
+            
         }
     }
 }

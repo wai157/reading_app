@@ -56,5 +56,14 @@ namespace PresentationLayer
             UserProfileScreen userProfileScreen = new UserProfileScreen(formReadingApp.LogInAccountDTO);
             Utils.ShowScreen(ParentForm, userProfileScreen);
         }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBoxSearch.Text) == false && textBoxSearch.ForeColor != Color.Gray)
+            {
+                SearchResultScreen searchResultScreen = new SearchResultScreen(textBoxSearch.Text);
+                Utils.ShowScreen(ParentForm, searchResultScreen);
+            }
+        }
     }
 }

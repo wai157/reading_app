@@ -100,9 +100,6 @@ namespace PresentationLayer
         private void linkLabelBackToLogIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LogInScreen logInScreen = new LogInScreen();
-            FormReadingApp formReadingApp = ParentForm as FormReadingApp;
-            formReadingApp.LogInAccountDTO = null;
-            formReadingApp.AcceptButton = logInScreen.ButtonLogIn;
             Utils.ShowScreen(ParentForm, logInScreen);
         }
 

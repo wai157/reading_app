@@ -16,12 +16,12 @@ namespace PresentationLayer
     public partial class UserProfileScreen : UserControl
     {
         private readonly AccountManager _accountManager;
-        private readonly AccountDTO _uploadAccount;
+        private readonly AccountDTO _logInAccount;
         public UserProfileScreen(AccountDTO logInAccountDTO)
         {
             InitializeComponent();
             _accountManager = new AccountManager();
-            _uploadAccount = logInAccountDTO;
+            _logInAccount = logInAccountDTO;
             UserInfoDTO userInfoDTO = _accountManager.GetUserInfo(logInAccountDTO.Id);
             if (userInfoDTO != null)
             {
@@ -37,9 +37,6 @@ namespace PresentationLayer
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
             LogInScreen loginScreen = new LogInScreen();
-            FormReadingApp formReadingApp = ParentForm as FormReadingApp;
-            formReadingApp.LogInAccountDTO = null;
-            formReadingApp.AcceptButton = loginScreen.ButtonLogIn;
             Utils.ShowScreen(ParentForm, loginScreen);
         }
 
@@ -82,9 +79,28 @@ namespace PresentationLayer
 
         private void buttonChangeGeneralInfo_Click(object sender, EventArgs e)
         {
-            FormEditUserInfo editUserInfoScreen = new FormEditUserInfo(_uploadAccount, _uploadAccount);
-            editUserInfoScreen.ShowDialog();
-
+            int prevRoleId = _logInAccount.RoleID;
+            using (FormEditUserInfo editUserInfoScreen = new FormEditUserInfo(_logInAccount, _logInAccount))
+            {
+                editUserInfoScreen.ShowDialog();
+                if (_logInAccount.Id == -1)
+                {
+                    MessageBox.Show("Phiên đăng nhập hết hạn!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LogInScreen logInScreen = new LogInScreen();
+                    Utils.ShowScreen(ParentForm, logInScreen);
+                }
+                else if (_logInAccount.RoleID != prevRoleId)
+                {
+                    MessageBox.Show("Bạn vừa thay đổi phân quyền của bản thân!\nVui lòng đăng nhập lại để thay đổi có hiệu lực!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LogInScreen logInScreen = new LogInScreen();
+                    Utils.ShowScreen(ParentForm, logInScreen);
+                }
+                else if (editUserInfoScreen.DialogResult == DialogResult.OK)
+                {
+                    UserProfileScreen userProfileScreen = new UserProfileScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, userProfileScreen);
+                }
+            }
         }
     }
 }
