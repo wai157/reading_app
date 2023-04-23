@@ -18,6 +18,22 @@ namespace DataAccessLayer
             _context = new PBL3DbContext();
         }
 
+        public BookDTO GetBookById(int Id)
+        {
+            Book book = _context.Books.First(x => x.Id == Id);
+            return new BookDTO
+            {
+                Id = book.Id,
+                Name = book.Name,
+                BookCover = book.Cover,
+                Author = _context.Authors.First(x => x.Id == book.AuthorId).Name,
+                UploadAccountId = book.AccountId,
+                Description = book.Description,
+                GenreId = book.GenreId,
+                Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count()
+            };
+        }
+
         public List<BookDTO> GetHotBooks()
         {
             List<Book> books = _context.Books.OrderByDescending(x => x.Views)

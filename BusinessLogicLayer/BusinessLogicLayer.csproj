@@ -47,6 +47,7 @@
     <Compile Include="BookManager.cs" />
     <Compile Include="ChapterManager.cs" />
     <Compile Include="GenreManager.cs" />
+    <Compile Include="HistoryManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataTransferObjectLayer
 {
-    public class ChapterDTO
+    public class HistoryDTO
     {
         public int Id { get; set; }
-        public int No { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
+        public int AccountId { get; set; }
         public int BookId { get; set; }
-        public int Views { get; set; }
-        public int Likes { get; set; }
+        public List<int> ReadChapterIds { get; set; }
     }
 }

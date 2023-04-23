@@ -49,7 +49,7 @@ namespace PresentationLayer
                     LogInScreen logInScreen = new LogInScreen();
                     Utils.ShowScreen(ParentForm, logInScreen);
                 }
-                else if (formEditUserInfo.DialogResult == DialogResult.OK)
+                else if (formEditUserInfo.DialogResult == DialogResult.OK || _presentedAccount.Id == -1)
                 {
                     AdminScreen adminScreen = new AdminScreen(_logInAccount);
                     Utils.ShowScreen(ParentForm, adminScreen);

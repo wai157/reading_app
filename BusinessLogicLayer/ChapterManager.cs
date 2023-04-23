@@ -17,6 +17,11 @@ namespace BusinessLogicLayer
             _repository = new ChapterRepository();
         }
 
+        public ChapterDTO GetChapterById(int Id)
+        {
+            return _repository.GetChapterById(Id);
+        }
+
         public List<ChapterDTO> GetAllChapters(BookDTO book)
         {
             return _repository.GetAllChapters(book);

@@ -121,5 +121,15 @@ namespace DataAccessLayer
                 _context.SaveChanges();
             }
         }
+
+        public void ChangePassword(int Id, string newPass)
+        {
+            Account account = _context.Accounts.FirstOrDefault(x => x.Id == Id);
+            if (account != null)
+            {
+                account.Password = newPass;
+                _context.SaveChanges();
+            }
+        }
     }
 }

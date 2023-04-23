@@ -16,12 +16,17 @@ namespace PresentationLayer
     public partial class UserProfileScreen : UserControl
     {
         private readonly AccountManager _accountManager;
+        private readonly HistoryManager _historyManager;
+        private readonly BookManager _bookManager;
         private readonly AccountDTO _logInAccount;
         public UserProfileScreen(AccountDTO logInAccountDTO)
         {
             InitializeComponent();
             _accountManager = new AccountManager();
+            _historyManager = new HistoryManager();
+            _bookManager = new BookManager();
             _logInAccount = logInAccountDTO;
+            List<HistoryDTO> histories = _historyManager.GetHistoryByAccountId(_logInAccount.Id);
             UserInfoDTO userInfoDTO = _accountManager.GetUserInfo(logInAccountDTO.Id);
             if (userInfoDTO != null)
             {
@@ -31,6 +36,11 @@ namespace PresentationLayer
                 labelDOB.Text = "Ngày sinh: " + userInfoDTO.DOB.ToString("yyyy-MM-dd");
                 labelUsername.Text = "Tên đăng nhập: " + logInAccountDTO.Username;
                 labelEmail.Text = "Email: " + logInAccountDTO.Email;
+            }
+            foreach(HistoryDTO history in histories)
+            {
+                ButtonBookCover buttonBookCover = new ButtonBookCover(_bookManager.GetBookById(history.BookId));
+                flowLayoutPanelHistory.Controls.Add(buttonBookCover);
             }
         }
 
@@ -47,6 +57,7 @@ namespace PresentationLayer
             {
                 textBox.Text = "";
                 textBox.ForeColor = Color.Black;
+                textBox.PasswordChar = '*';
             }
         }
 
@@ -56,6 +67,7 @@ namespace PresentationLayer
             {
                 textBoxConfirmNewPassword.Text = "Xác nhận mật khẩu mới";
                 textBoxConfirmNewPassword.ForeColor = Color.Gray;
+                textBoxConfirmNewPassword.PasswordChar = '\0';
             }
         }
 
@@ -65,6 +77,7 @@ namespace PresentationLayer
             {
                 textBoxNewPassword.Text = "Mật khẩu mới";
                 textBoxNewPassword.ForeColor = Color.Gray;
+                textBoxNewPassword.PasswordChar = '\0';
             }
         }
 
@@ -74,6 +87,7 @@ namespace PresentationLayer
             {
                 textBoxCurrentPassword.Text = "Mật khẩu hiện tại";
                 textBoxCurrentPassword.ForeColor = Color.Gray;
+                textBoxCurrentPassword.PasswordChar = '\0';
             }
         }
 
@@ -101,6 +115,80 @@ namespace PresentationLayer
                     Utils.ShowScreen(ParentForm, userProfileScreen);
                 }
             }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (textBoxCurrentPassword.ForeColor == Color.Gray || string.IsNullOrEmpty(textBoxCurrentPassword.Text))
+            {
+                errorProvider.SetError(textBoxCurrentPassword, "Vui lòng nhập mật khẩu hiện tại!");
+            }
+            else
+            {
+                errorProvider.SetError(textBoxCurrentPassword, null);
+            }
+
+            if (textBoxNewPassword.ForeColor == Color.Gray || string.IsNullOrEmpty(textBoxNewPassword.Text))
+            {
+                errorProvider.SetError(textBoxNewPassword, "Vui lòng nhập mật khẩu mới!");
+            }
+            else
+            {
+                errorProvider.SetError(textBoxNewPassword, null);
+            }
+
+            if (textBoxConfirmNewPassword.ForeColor == Color.Gray || string.IsNullOrEmpty(textBoxConfirmNewPassword.Text))
+            {
+                errorProvider.SetError(textBoxConfirmNewPassword, "Vui lòng nhập lại mật khẩu!");
+            }
+            else if (textBoxConfirmNewPassword.Text != textBoxNewPassword.Text)
+            {
+                errorProvider.SetError(textBoxConfirmNewPassword, "Mật khẩu nhập lại không đúng!");
+            }
+            else 
+            {
+                errorProvider.SetError(textBoxConfirmNewPassword, null);
+            }
+
+            ValidateChildren(ValidationConstraints.Enabled);
+            if (string.IsNullOrEmpty(errorProvider.GetError(textBoxCurrentPassword))
+                && string.IsNullOrEmpty(errorProvider.GetError(textBoxNewPassword))
+                && string.IsNullOrEmpty(errorProvider.GetError(textBoxConfirmNewPassword)))
+            {
+                bool res = _accountManager.ChangePassword(_logInAccount.Id, textBoxCurrentPassword.Text, textBoxConfirmNewPassword.Text);
+                if (res != true)
+                {
+                    MessageBox.Show("Mật khẩu hiện tại không đúng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Đổi mật khẩu thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void buttonAccountInfo_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanelHistory.Visible = false;
+            flowLayoutPanelHistory.Enabled = false;
+            panelAccountInfo.Visible = true;
+            panelAccountInfo.Enabled = true;
+            buttonAccountInfo.BackColor = SystemColors.ActiveCaption;
+            buttonHistory.BackColor = Color.White;
+        }
+
+        private void buttonFollowed_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void buttonHistory_Click(object sender, EventArgs e)
+        {
+            panelAccountInfo.Visible = false;
+            panelAccountInfo.Enabled = false;
+            flowLayoutPanelHistory.Visible = true;
+            flowLayoutPanelHistory.Enabled = true;
+            buttonHistory.BackColor = SystemColors.ActiveCaption;
+            buttonAccountInfo.BackColor = Color.White;
         }
     }
 }

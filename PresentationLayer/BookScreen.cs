@@ -17,14 +17,18 @@ namespace PresentationLayer
     {
         private readonly ChapterManager _chapterManager;
         private readonly GenreManager _genreManager;
+        private readonly HistoryManager _historyManager;
         private readonly AccountDTO _logInAccount;
         private readonly BookDTO _book;
+        private readonly HistoryDTO _history;
         public BookScreen(AccountDTO logInAccount, BookDTO book)
         {
             InitializeComponent();
             _chapterManager = new ChapterManager();
             _genreManager = new GenreManager();
+            _historyManager = new HistoryManager();
             _logInAccount = logInAccount;
+
             if (book != null)
             {
                 _book = book;
@@ -44,15 +48,29 @@ namespace PresentationLayer
                     this.buttonEdit.Enabled = true;
                 }
                 List<ChapterDTO> chapters = _chapterManager.GetAllChapters(book);
+                _history = _historyManager.GetHistoryOfBook(_logInAccount.Id, _book.Id);
+                if (_history != null)
+                {
+                    btnRead.Text = "Đọc tiếp";
+                }
+                if (chapters.Count == 0)
+                {
+                    btnRead.Enabled = false;
+                }
                 int X = buttonAddChap.Location.X;
                 int Y = buttonAddChap.Location.Y + buttonAddChap.Size.Height + 3;
                 foreach (ChapterDTO chapter in chapters)
                 {
+
                     ButtonChapter buttonChapter = new ButtonChapter(book, chapter)
                     {
                         Location = new Point(X, Y)
                     };
                     Y += buttonChapter.Size.Height + 3;
+                    if (_history != null && _history.ReadChapterIds.Contains(chapter.Id))
+                    {
+                        buttonChapter.ForeColor = Color.Gray;
+                    }
                     this.flowLayoutPanelChapters.Controls.Add(buttonChapter);
                 }
             }
@@ -63,6 +81,11 @@ namespace PresentationLayer
             using (FormAddChap formAddChap = new FormAddChap(_book))
             {
                 formAddChap.ShowDialog();
+                if (formAddChap.DialogResult == DialogResult.OK)
+                {
+                    BookScreen bookScreen = new BookScreen(_logInAccount, _book);
+                    Utils.ShowScreen(ParentForm, bookScreen);
+                }
             }
         }
 
@@ -76,12 +99,27 @@ namespace PresentationLayer
                     AdminScreen adminScreen = new AdminScreen(_logInAccount);
                     Utils.ShowScreen(ParentForm, adminScreen);
                 }
+                else if (formEditBook.DialogResult == DialogResult.OK)
+                {
+                    BookScreen bookScreen = new BookScreen(_logInAccount, _book);
+                    Utils.ShowScreen(ParentForm, bookScreen);
+                }
             }
         }
 
         private void btnRead_Click(object sender, EventArgs e)
         {
-
+            ChapterDTO chapterDTO = new ChapterDTO();
+            if (_history != null)
+            {
+                chapterDTO = _chapterManager.GetChapterById(_history.ReadChapterIds.Last());
+            }
+            else
+            {
+                chapterDTO = _chapterManager.GetAllChapters(_book).Last();
+            }
+            ChapterScreen chapterScreen = new ChapterScreen(_logInAccount, _book, chapterDTO);
+            Utils.ShowScreen(ParentForm, chapterScreen);
         }
     }
 }

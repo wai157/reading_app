@@ -67,5 +67,15 @@ namespace BusinessLogicLayer
         {
             _repository.DeleteAccount(Id);
         }
+
+        public bool ChangePassword(int Id, string oldPass, string newPass)
+        {
+            if (_repository.GetAccountById(Id).Password != Extensions.GetSHA256Hash(oldPass))
+            {
+                return false;
+            }
+            _repository.ChangePassword(Id, Extensions.GetSHA256Hash(newPass));
+            return true;
+        }
     }
 }

@@ -172,7 +172,6 @@
             // buttonDelete
             // 
             this.buttonDelete.BackColor = System.Drawing.Color.Red;
-            this.buttonDelete.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonDelete.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
             this.buttonDelete.Location = new System.Drawing.Point(566, 309);

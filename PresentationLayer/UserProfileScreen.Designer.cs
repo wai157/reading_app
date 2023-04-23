@@ -29,10 +29,12 @@ namespace PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelHistory = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonLogOut = new System.Windows.Forms.Button();
-            this.buttonHítory = new System.Windows.Forms.Button();
+            this.buttonHistory = new System.Windows.Forms.Button();
             this.buttonFollowed = new System.Windows.Forms.Button();
             this.buttonAccountInfo = new System.Windows.Forms.Button();
             this.panelAccountInfo = new System.Windows.Forms.Panel();
@@ -51,11 +53,13 @@ namespace PresentationLayer
             this.labelLogInInfo = new System.Windows.Forms.Label();
             this.labelAvatar = new System.Windows.Forms.Label();
             this.labelGeneralInfo = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.header1 = new PresentationLayer.Header();
             this.panelMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelAccountInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -73,8 +77,9 @@ namespace PresentationLayer
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.panel1.Controls.Add(this.flowLayoutPanelHistory);
             this.panel1.Controls.Add(this.buttonLogOut);
-            this.panel1.Controls.Add(this.buttonHítory);
+            this.panel1.Controls.Add(this.buttonHistory);
             this.panel1.Controls.Add(this.buttonFollowed);
             this.panel1.Controls.Add(this.buttonAccountInfo);
             this.panel1.Controls.Add(this.panelAccountInfo);
@@ -83,9 +88,20 @@ namespace PresentationLayer
             this.panel1.Size = new System.Drawing.Size(1024, 612);
             this.panel1.TabIndex = 1;
             // 
+            // flowLayoutPanelHistory
+            // 
+            this.flowLayoutPanelHistory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanelHistory.Enabled = false;
+            this.flowLayoutPanelHistory.Location = new System.Drawing.Point(256, 0);
+            this.flowLayoutPanelHistory.Name = "flowLayoutPanelHistory";
+            this.flowLayoutPanelHistory.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.flowLayoutPanelHistory.Size = new System.Drawing.Size(768, 612);
+            this.flowLayoutPanelHistory.TabIndex = 15;
+            this.flowLayoutPanelHistory.Visible = false;
+            // 
             // buttonLogOut
             // 
-            this.buttonLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.buttonLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.buttonLogOut.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogOut.Location = new System.Drawing.Point(0, 512);
             this.buttonLogOut.Name = "buttonLogOut";
@@ -95,41 +111,43 @@ namespace PresentationLayer
             this.buttonLogOut.UseVisualStyleBackColor = false;
             this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
             // 
-            // buttonHítory
+            // buttonHistory
             // 
-            this.buttonHítory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
-            this.buttonHítory.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonHítory.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHítory.Location = new System.Drawing.Point(0, 197);
-            this.buttonHítory.Name = "buttonHítory";
-            this.buttonHítory.Size = new System.Drawing.Size(256, 50);
-            this.buttonHítory.TabIndex = 3;
-            this.buttonHítory.Text = "Lịch sử đọc";
-            this.buttonHítory.UseVisualStyleBackColor = false;
+            this.buttonHistory.BackColor = System.Drawing.Color.White;
+            this.buttonHistory.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHistory.Location = new System.Drawing.Point(0, 197);
+            this.buttonHistory.Name = "buttonHistory";
+            this.buttonHistory.Size = new System.Drawing.Size(256, 50);
+            this.buttonHistory.TabIndex = 3;
+            this.buttonHistory.Text = "Lịch sử đọc";
+            this.buttonHistory.UseVisualStyleBackColor = false;
+            this.buttonHistory.Click += new System.EventHandler(this.buttonHistory_Click);
             // 
             // buttonFollowed
             // 
-            this.buttonFollowed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
-            this.buttonFollowed.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonFollowed.BackColor = System.Drawing.Color.White;
             this.buttonFollowed.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFollowed.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonFollowed.Location = new System.Drawing.Point(0, 141);
             this.buttonFollowed.Name = "buttonFollowed";
             this.buttonFollowed.Size = new System.Drawing.Size(256, 50);
             this.buttonFollowed.TabIndex = 2;
             this.buttonFollowed.Text = "Tủ đọc";
             this.buttonFollowed.UseVisualStyleBackColor = false;
+            this.buttonFollowed.Click += new System.EventHandler(this.buttonFollowed_Click);
             // 
             // buttonAccountInfo
             // 
-            this.buttonAccountInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
-            this.buttonAccountInfo.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonAccountInfo.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttonAccountInfo.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAccountInfo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonAccountInfo.Location = new System.Drawing.Point(0, 85);
             this.buttonAccountInfo.Name = "buttonAccountInfo";
             this.buttonAccountInfo.Size = new System.Drawing.Size(256, 50);
             this.buttonAccountInfo.TabIndex = 1;
             this.buttonAccountInfo.Text = "Thông tin tài khoản";
             this.buttonAccountInfo.UseVisualStyleBackColor = false;
+            this.buttonAccountInfo.Click += new System.EventHandler(this.buttonAccountInfo_Click);
             // 
             // panelAccountInfo
             // 
@@ -177,6 +195,7 @@ namespace PresentationLayer
             this.buttonSave.TabIndex = 13;
             this.buttonSave.Text = "Lưu";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // textBoxConfirmNewPassword
             // 
@@ -319,6 +338,10 @@ namespace PresentationLayer
             this.labelGeneralInfo.TabIndex = 0;
             this.labelGeneralInfo.Text = "Thông tin chung";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // header1
             // 
             this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -343,6 +366,7 @@ namespace PresentationLayer
             this.panelAccountInfo.ResumeLayout(false);
             this.panelAccountInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -354,7 +378,7 @@ namespace PresentationLayer
         private Header header1;
         private System.Windows.Forms.Panel panelAccountInfo;
         private System.Windows.Forms.Button buttonLogOut;
-        private System.Windows.Forms.Button buttonHítory;
+        private System.Windows.Forms.Button buttonHistory;
         private System.Windows.Forms.Button buttonFollowed;
         private System.Windows.Forms.Button buttonAccountInfo;
         private System.Windows.Forms.Label labelAvatar;
@@ -372,5 +396,7 @@ namespace PresentationLayer
         private System.Windows.Forms.Label labelDOB;
         private System.Windows.Forms.Label labelSex;
         private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelHistory;
     }
 }

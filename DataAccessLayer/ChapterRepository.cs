@@ -17,6 +17,25 @@ namespace DataAccessLayer
             _context = new PBL3DbContext();
         }
 
+        public ChapterDTO GetChapterById(int Id)
+        {
+            Chapter chapter = _context.Chapters.FirstOrDefault(x => x.Id == Id);
+            if (chapter != null)
+            {
+                return new ChapterDTO
+                {
+                    Id = chapter.Id,
+                    No = chapter.No,
+                    Title = chapter.Title,
+                    Content = chapter.Content,
+                    BookId = chapter.BookId,
+                    Views = chapter.Views,
+                    Likes = chapter.Likes
+                };
+            }
+            return null;
+        }
+
         public List<ChapterDTO> GetAllChapters(BookDTO book)
         {
             List<Chapter> chapters = _context.Chapters.Where(x => x.BookId == book.Id)
@@ -27,6 +46,7 @@ namespace DataAccessLayer
             {
                 ChapterDTO chapterDTO = new ChapterDTO
                 {
+                    Id = chapter.Id,
                     No = chapter.No,
                     Title = chapter.Title,
                     Content = chapter.Content,
