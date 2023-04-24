@@ -17,6 +17,7 @@ namespace PresentationLayer
     {
         private readonly AccountManager _accountManager;
         private readonly HistoryManager _historyManager;
+        private readonly LibraryManager _libraryManager;
         private readonly BookManager _bookManager;
         private readonly AccountDTO _logInAccount;
         public UserProfileScreen(AccountDTO logInAccountDTO)
@@ -24,9 +25,11 @@ namespace PresentationLayer
             InitializeComponent();
             _accountManager = new AccountManager();
             _historyManager = new HistoryManager();
+            _libraryManager = new LibraryManager();
             _bookManager = new BookManager();
             _logInAccount = logInAccountDTO;
             List<HistoryDTO> histories = _historyManager.GetHistoryByAccountId(_logInAccount.Id);
+            List<LibraryDTO> libraries = _libraryManager.GetLibraryByAccountId(_logInAccount.Id);
             UserInfoDTO userInfoDTO = _accountManager.GetUserInfo(logInAccountDTO.Id);
             if (userInfoDTO != null)
             {
@@ -37,10 +40,15 @@ namespace PresentationLayer
                 labelUsername.Text = "Tên đăng nhập: " + logInAccountDTO.Username;
                 labelEmail.Text = "Email: " + logInAccountDTO.Email;
             }
-            foreach(HistoryDTO history in histories)
+            foreach (HistoryDTO history in histories)
             {
                 ButtonBookCover buttonBookCover = new ButtonBookCover(_bookManager.GetBookById(history.BookId));
                 flowLayoutPanelHistory.Controls.Add(buttonBookCover);
+            }
+            foreach (LibraryDTO library in libraries)
+            {
+                ButtonBookCover buttonBookCover = new ButtonBookCover(_bookManager.GetBookById(library.BookId));
+                flowLayoutPanelLibrary.Controls.Add(buttonBookCover);
             }
         }
 
@@ -171,24 +179,39 @@ namespace PresentationLayer
         {
             flowLayoutPanelHistory.Visible = false;
             flowLayoutPanelHistory.Enabled = false;
+            flowLayoutPanelLibrary.Visible = false;
+            flowLayoutPanelLibrary.Enabled = false;
             panelAccountInfo.Visible = true;
             panelAccountInfo.Enabled = true;
             buttonAccountInfo.BackColor = SystemColors.ActiveCaption;
             buttonHistory.BackColor = Color.White;
+            buttonFollowed.BackColor = Color.White;
         }
 
         private void buttonFollowed_Click(object sender, EventArgs e)
         {
+            flowLayoutPanelHistory.Visible = false;
+            flowLayoutPanelHistory.Enabled = false;
+            panelAccountInfo.Visible = false;
+            panelAccountInfo.Enabled = false;
+            flowLayoutPanelLibrary.Visible = true;
+            flowLayoutPanelLibrary.Enabled = true;
+            buttonFollowed.BackColor = SystemColors.ActiveCaption;
+            buttonHistory.BackColor = Color.White;
+            buttonAccountInfo.BackColor = Color.White;
         }
 
         private void buttonHistory_Click(object sender, EventArgs e)
         {
             panelAccountInfo.Visible = false;
             panelAccountInfo.Enabled = false;
+            flowLayoutPanelLibrary.Visible = false;
+            flowLayoutPanelLibrary.Enabled = false;
             flowLayoutPanelHistory.Visible = true;
             flowLayoutPanelHistory.Enabled = true;
             buttonHistory.BackColor = SystemColors.ActiveCaption;
             buttonAccountInfo.BackColor = Color.White;
+            buttonFollowed.BackColor = Color.White;
         }
     }
 }

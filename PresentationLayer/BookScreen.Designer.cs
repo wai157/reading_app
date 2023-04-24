@@ -161,6 +161,7 @@ namespace PresentationLayer
             this.btdFollow.TabIndex = 2;
             this.btdFollow.Text = "Theo dõi";
             this.btdFollow.UseVisualStyleBackColor = true;
+            this.btdFollow.Click += new System.EventHandler(this.btdFollow_Click);
             // 
             // btnRead
             // 

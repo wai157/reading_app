@@ -49,6 +49,7 @@
     <Compile Include="ChapterDTO.cs" />
     <Compile Include="GenreDTO.cs" />
     <Compile Include="HistoryDTO.cs" />
+    <Compile Include="LibraryDTO.cs" />
     <Compile Include="NotificationDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInfoDTO.cs" />

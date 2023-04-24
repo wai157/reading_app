@@ -18,15 +18,18 @@ namespace PresentationLayer
         private readonly ChapterManager _chapterManager;
         private readonly GenreManager _genreManager;
         private readonly HistoryManager _historyManager;
+        private readonly LibraryManager _libraryManager;
         private readonly AccountDTO _logInAccount;
         private readonly BookDTO _book;
         private readonly HistoryDTO _history;
+        private readonly LibraryDTO _library;
         public BookScreen(AccountDTO logInAccount, BookDTO book)
         {
             InitializeComponent();
             _chapterManager = new ChapterManager();
             _genreManager = new GenreManager();
             _historyManager = new HistoryManager();
+            _libraryManager = new LibraryManager();
             _logInAccount = logInAccount;
 
             if (book != null)
@@ -72,6 +75,18 @@ namespace PresentationLayer
                         buttonChapter.ForeColor = Color.Gray;
                     }
                     this.flowLayoutPanelChapters.Controls.Add(buttonChapter);
+                }
+                bool inLibrary = _libraryManager.GetLibraryByAccountId(_logInAccount.Id)
+                                                .Where(x => x.BookId == _book.Id)
+                                                .Count() > 0;
+                if (inLibrary == true)
+                {
+                    btdFollow.Text = "Hủy theo dõi";
+                    _library = _libraryManager.GetLibraryByAccountId(_logInAccount.Id).FirstOrDefault(x => x.BookId == _book.Id);
+                }
+                else
+                {
+                    _library = null;
                 }
             }
         }
@@ -120,6 +135,20 @@ namespace PresentationLayer
             }
             ChapterScreen chapterScreen = new ChapterScreen(_logInAccount, _book, chapterDTO);
             Utils.ShowScreen(ParentForm, chapterScreen);
+        }
+
+        private void btdFollow_Click(object sender, EventArgs e)
+        {
+            if (_library == null)
+            {
+                _libraryManager.AddLibrary(_logInAccount.Id, _book.Id);
+            }
+            else
+            {
+                _libraryManager.DeleteLibrary(_library.Id);
+            }
+            BookScreen bookScreen = new BookScreen(_logInAccount, _book);
+            Utils.ShowScreen(ParentForm, bookScreen);
         }
     }
 }

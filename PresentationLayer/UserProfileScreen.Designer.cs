@@ -54,6 +54,7 @@ namespace PresentationLayer
             this.labelAvatar = new System.Windows.Forms.Label();
             this.labelGeneralInfo = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.flowLayoutPanelLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.header1 = new PresentationLayer.Header();
             this.panelMain.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -77,6 +78,7 @@ namespace PresentationLayer
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.panel1.Controls.Add(this.flowLayoutPanelLibrary);
             this.panel1.Controls.Add(this.flowLayoutPanelHistory);
             this.panel1.Controls.Add(this.buttonLogOut);
             this.panel1.Controls.Add(this.buttonHistory);
@@ -342,6 +344,17 @@ namespace PresentationLayer
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // flowLayoutPanelLibrary
+            // 
+            this.flowLayoutPanelLibrary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanelLibrary.Enabled = false;
+            this.flowLayoutPanelLibrary.Location = new System.Drawing.Point(256, 0);
+            this.flowLayoutPanelLibrary.Name = "flowLayoutPanelLibrary";
+            this.flowLayoutPanelLibrary.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.flowLayoutPanelLibrary.Size = new System.Drawing.Size(768, 612);
+            this.flowLayoutPanelLibrary.TabIndex = 16;
+            this.flowLayoutPanelLibrary.Visible = false;
+            // 
             // header1
             // 
             this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -398,5 +411,6 @@ namespace PresentationLayer
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelHistory;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelLibrary;
     }
 }
