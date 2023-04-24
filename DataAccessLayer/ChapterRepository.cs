@@ -71,5 +71,12 @@ namespace DataAccessLayer
             });
             _context.SaveChanges();
         }
+
+        public void IncreaseView(int Id)
+        {
+            Chapter chapter = _context.Chapters.FirstOrDefault(x => x.Id == Id);
+            chapter.Views += 1;
+            _context.SaveChanges();
+        }
     }
 }

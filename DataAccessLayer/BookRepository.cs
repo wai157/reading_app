@@ -30,6 +30,7 @@ namespace DataAccessLayer
                 UploadAccountId = book.AccountId,
                 Description = book.Description,
                 GenreId = book.GenreId,
+                Views = book.Views,
                 Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count()
             };
         }
@@ -37,7 +38,7 @@ namespace DataAccessLayer
         public List<BookDTO> GetHotBooks()
         {
             List<Book> books = _context.Books.OrderByDescending(x => x.Views)
-                                             .ThenByDescending(x => x.Likes)
+                                             .ThenByDescending(x => _context.Libraries.Where(s => s.BookId == x.Id).Count())
                                              .ThenByDescending(x => x.Rating)
                                              .Take(6)
                                              .ToList();
@@ -53,6 +54,7 @@ namespace DataAccessLayer
                     UploadAccountId = book.AccountId,
                     Description = book.Description,
                     GenreId = book.GenreId,
+                    Views = book.Views,
                     Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count()
                 };
                 bookDTOs.Add(bookDTO);
@@ -75,6 +77,7 @@ namespace DataAccessLayer
                     UploadAccountId = book.AccountId,
                     Description = book.Description,
                     GenreId = book.GenreId,
+                    Views = book.Views,
                     Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count()
                 };
                 bookDTOs.Add(bookDTO);
@@ -119,7 +122,7 @@ namespace DataAccessLayer
             }
         }
 
-        public List<BookDTO> SearchBooks(string search)
+        public List<BookDTO> GetSearchBooks(string search)
         {
             List<Book> books = _context.Books.Where(x => x.Name.ToLower().Contains(search)).ToList();
             List<BookDTO> bookDTOs = new List<BookDTO>();
@@ -134,11 +137,19 @@ namespace DataAccessLayer
                     UploadAccountId = book.AccountId,
                     Description = book.Description,
                     GenreId = book.GenreId,
+                    Views = book.Views,
                     Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count()
                 };
                 bookDTOs.Add(bookDTO);
             }
             return bookDTOs;
+        }
+
+        public void IncreaseView(int Id)
+        {
+            Book book = _context.Books.FirstOrDefault(x => x.Id == Id);
+            book.Views += 1;
+            _context.SaveChanges();
         }
     }
 }

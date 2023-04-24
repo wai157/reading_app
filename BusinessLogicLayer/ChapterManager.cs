@@ -31,5 +31,10 @@ namespace BusinessLogicLayer
         {
             _repository.AddChapter(chapter);
         }
+
+        public void IncreaseView(int Id)
+        {
+            _repository.IncreaseView(Id);
+        }
     }
 }

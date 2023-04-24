@@ -20,7 +20,7 @@ namespace PresentationLayer
             InitializeComponent();
             _bookManager = new BookManager();
             labelResult.Text = "Kết quả tìm kiếm cho: " + search;
-            List<BookDTO> books = _bookManager.SearchBooks(search);
+            List<BookDTO> books = _bookManager.GetSearchBooks(search);
             foreach (BookDTO book in books)
             {
                 ButtonBookCover bookCover = new ButtonBookCover(book);

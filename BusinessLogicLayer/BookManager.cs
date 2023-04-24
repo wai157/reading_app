@@ -57,9 +57,14 @@ namespace BusinessLogicLayer
             _bookRepository.DeleteBook(Id);
         }
 
-        public List<BookDTO> SearchBooks(string search)
+        public List<BookDTO> GetSearchBooks(string search)
         {
-            return _bookRepository.SearchBooks(search.ToLower().Trim());
+            return _bookRepository.GetSearchBooks(search.ToLower().Trim());
+        }
+
+        public void IncreaseView(int Id)
+        {
+            _bookRepository.IncreaseView(Id);
         }
     }
 }
