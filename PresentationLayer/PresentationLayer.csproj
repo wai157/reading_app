@@ -147,11 +147,11 @@
     <Compile Include="RegisterScreen.Designer.cs">
       <DependentUpon>RegisterScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchResultScreen.cs">
+    <Compile Include="GeneralScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SearchResultScreen.Designer.cs">
-      <DependentUpon>SearchResultScreen.cs</DependentUpon>
+    <Compile Include="GeneralScreen.Designer.cs">
+      <DependentUpon>GeneralScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserProfileScreen.cs">
       <SubType>UserControl</SubType>
@@ -210,8 +210,8 @@
     <EmbeddedResource Include="RegisterScreen.resx">
       <DependentUpon>RegisterScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchResultScreen.resx">
-      <DependentUpon>SearchResultScreen.cs</DependentUpon>
+    <EmbeddedResource Include="GeneralScreen.resx">
+      <DependentUpon>GeneralScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserProfileScreen.resx">
       <DependentUpon>UserProfileScreen.cs</DependentUpon>

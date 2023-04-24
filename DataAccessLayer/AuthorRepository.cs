@@ -21,12 +21,7 @@ namespace DataAccessLayer
             Author author = _context.Authors.FirstOrDefault(x => x.Name == name);
             if (author != null)
             {
-                AuthorDTO authorDTO = new AuthorDTO
-                {
-                    Id = author.Id,
-                    Name = author.Name
-                };
-                return authorDTO;
+                return Mapper.ToAuthorDTO(author);
             }
             return null;
         }

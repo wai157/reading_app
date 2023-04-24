@@ -109,6 +109,7 @@
     <Compile Include="GenreRepository.cs" />
     <Compile Include="HistoryRepository.cs" />
     <Compile Include="LibraryRepository.cs" />
+    <Compile Include="Mapper.cs" />
     <Compile Include="Migrations\202304161034010_initial.cs" />
     <Compile Include="Migrations\202304161034010_initial.designer.cs">
       <DependentUpon>202304161034010_initial.cs</DependentUpon>

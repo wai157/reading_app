@@ -22,7 +22,7 @@ namespace PresentationLayer
         private readonly AccountDTO _logInAccount;
         private readonly BookDTO _book;
         private readonly HistoryDTO _history;
-        private readonly LibraryDTO _library;
+        private LibraryDTO _library;
         public BookScreen(AccountDTO logInAccount, BookDTO book)
         {
             InitializeComponent();
@@ -41,9 +41,9 @@ namespace PresentationLayer
                 labelRating.Text = $"Đánh giá: {book.Rating}";
                 labelFollowed.Text = $"Lượt theo dõi: {book.Follows}";
                 labelName.Text = book.Name;
-                labelAuthor.Text = "Tác giả: " + book.Author;
+                linkLabelAuthor.Text = book.Author;
                 labelDescription.Text = "Nội dung: " + book.Description;
-                labelGenres.Text = "Thể loại: " + _genreManager.GetGenreById(book.GenreId).Name;
+                linkLabelGenre.Text = _genreManager.GetGenreById(book.GenreId).Name;
                 if (_logInAccount.RoleID == 1)
                 {
                     this.flowLayoutPanelChapters.Controls.Add(this.buttonAddChap);
@@ -142,13 +142,32 @@ namespace PresentationLayer
             if (_library == null)
             {
                 _libraryManager.AddLibrary(_logInAccount.Id, _book.Id);
+                _library = _libraryManager.GetLibraryByAccountId(_logInAccount.Id).FirstOrDefault(x => x.BookId == _book.Id);
+                btdFollow.Text = "Hủy theo dõi";
+                _book.Follows += 1;
             }
             else
             {
                 _libraryManager.DeleteLibrary(_library.Id);
+                _library = null;
+                btdFollow.Text = "Theo dõi";
+                _book.Follows -= 1;
             }
-            BookScreen bookScreen = new BookScreen(_logInAccount, _book);
-            Utils.ShowScreen(ParentForm, bookScreen);
+            labelFollowed.Text = "Lượt theo dõi: " + _book.Follows;
+            //BookScreen bookScreen = new BookScreen(_logInAccount, _book);
+            //Utils.ShowScreen(ParentForm, bookScreen);
+        }
+
+        private void linkLabelGenre_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            GeneralScreen searchResultScreen = new GeneralScreen(1, _book.GenreId.ToString());
+            Utils.ShowScreen(ParentForm, searchResultScreen);
+        }
+
+        private void linkLabelAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            GeneralScreen searchResultScreen = new GeneralScreen(2, _book.Author);
+            Utils.ShowScreen(ParentForm, searchResultScreen);
         }
     }
 }

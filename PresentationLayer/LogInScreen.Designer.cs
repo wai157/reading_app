@@ -182,10 +182,5 @@ namespace PresentationLayer
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.ErrorProvider errorProvider;
-
-        public System.Windows.Forms.Button ButtonLogIn
-        {
-            get { return this.buttonLogIn; }
-        }
     }
 }

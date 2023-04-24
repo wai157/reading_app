@@ -24,15 +24,7 @@ namespace DataAccessLayer
         public AccountDTO GetAccountById(int Id)
         {
             Account account = _context.Accounts.First(x => x.Id == Id);
-            AccountDTO accountDTO = new AccountDTO
-            {
-                Id = account.Id,
-                Username = account.Username,
-                Email = account.Email,
-                Password = account.Password,
-                RoleID = account.RoleId
-            };
-            return accountDTO;
+            return Mapper.ToAccountDTO(account);
         }
         public int IsExistByUsername(string username)
         {
@@ -72,14 +64,7 @@ namespace DataAccessLayer
             List<AccountDTO> accountDTOs = new List<AccountDTO>();
             foreach(Account account in accounts)
             {
-                AccountDTO accountDTO = new AccountDTO
-                {
-                    Id = account.Id,
-                    Username = account.Username,
-                    Email = account.Email,
-                    Password = account.Password,
-                    RoleID = account.RoleId
-                };
+                AccountDTO accountDTO = Mapper.ToAccountDTO(account);
                 accountDTOs.Add(accountDTO);
             }
             return accountDTOs;
@@ -87,17 +72,8 @@ namespace DataAccessLayer
 
         public UserInfoDTO GetUserInfo(int accountId)
         {
-            UserInfo userInfo = _context.UserInfoes.Find(accountId);
-            UserInfoDTO userInfoDTO = new UserInfoDTO();
-            if (userInfo != null)
-            {
-                userInfoDTO.Id = userInfo.Id;
-                userInfoDTO.Name = userInfo.Name;
-                userInfoDTO.Avatar = userInfo.Avatar;
-                userInfoDTO.Sex = userInfo.Sex;
-                userInfoDTO.DOB = userInfo.DOB;
-            }
-            return userInfoDTO;
+            UserInfo userInfo = _context.UserInfoes.First(x => x.Id == accountId);
+            return Mapper.ToUserInfoDTO(userInfo);
         }
 
         public void UpdateUserInfo(AccountDTO updatedAccount, UserInfoDTO updatedUserInfo)

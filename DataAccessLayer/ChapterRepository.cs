@@ -22,16 +22,7 @@ namespace DataAccessLayer
             Chapter chapter = _context.Chapters.FirstOrDefault(x => x.Id == Id);
             if (chapter != null)
             {
-                return new ChapterDTO
-                {
-                    Id = chapter.Id,
-                    No = chapter.No,
-                    Title = chapter.Title,
-                    Content = chapter.Content,
-                    BookId = chapter.BookId,
-                    Views = chapter.Views,
-                    Likes = chapter.Likes
-                };
+                return Mapper.ToChapterDTO(chapter);
             }
             return null;
         }
@@ -44,16 +35,7 @@ namespace DataAccessLayer
             List<ChapterDTO> chapterDTOs = new List<ChapterDTO>();
             foreach(Chapter chapter in chapters)
             {
-                ChapterDTO chapterDTO = new ChapterDTO
-                {
-                    Id = chapter.Id,
-                    No = chapter.No,
-                    Title = chapter.Title,
-                    Content = chapter.Content,
-                    BookId = chapter.BookId,
-                    Views = chapter.Views,
-                    Likes = chapter.Likes
-                };
+                ChapterDTO chapterDTO = Mapper.ToChapterDTO(chapter);
                 chapterDTOs.Add(chapterDTO);
             }
 

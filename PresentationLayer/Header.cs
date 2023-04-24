@@ -61,7 +61,7 @@ namespace PresentationLayer
         {
             if (string.IsNullOrWhiteSpace(textBoxSearch.Text) == false && textBoxSearch.ForeColor != Color.Gray)
             {
-                SearchResultScreen searchResultScreen = new SearchResultScreen(textBoxSearch.Text);
+                GeneralScreen searchResultScreen = new GeneralScreen(0, textBoxSearch.Text);
                 Utils.ShowScreen(ParentForm, searchResultScreen);
             }
         }

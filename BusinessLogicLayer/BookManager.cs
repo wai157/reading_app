@@ -29,6 +29,17 @@ namespace BusinessLogicLayer
             return _bookRepository.GetHotBooks();
         }
 
+        public List<BookDTO> GetBooksByGenreId(int genreId)
+        {
+            return _bookRepository.GetBooksByGenreId(genreId);
+        }
+
+        public List<BookDTO> GetBooksByAuthorName(string name)
+        {
+            int authorId = _authorRepository.GetAuthorByName(name).Id;
+            return _bookRepository.GetBooksByAuthorId(authorId);
+        }
+
         public List<BookDTO> GetAllBooks()
         {
             return _bookRepository.GetAllBooks();

@@ -50,6 +50,8 @@ namespace PresentationLayer
             this.flowLayoutPanelChapters = new System.Windows.Forms.FlowLayoutPanel();
             this.header1 = new PresentationLayer.Header();
             this.buttonAddChap = new System.Windows.Forms.Button();
+            this.linkLabelGenre = new System.Windows.Forms.LinkLabel();
+            this.linkLabelAuthor = new System.Windows.Forms.LinkLabel();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -198,6 +200,8 @@ namespace PresentationLayer
             // 
             this.tabPageAbout.AutoScroll = true;
             this.tabPageAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.tabPageAbout.Controls.Add(this.linkLabelAuthor);
+            this.tabPageAbout.Controls.Add(this.linkLabelGenre);
             this.tabPageAbout.Controls.Add(this.labelDescription);
             this.tabPageAbout.Controls.Add(this.labelGenres);
             this.tabPageAbout.Controls.Add(this.labelAuthor);
@@ -239,9 +243,9 @@ namespace PresentationLayer
             this.labelAuthor.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAuthor.Location = new System.Drawing.Point(6, 103);
             this.labelAuthor.Name = "labelAuthor";
-            this.labelAuthor.Size = new System.Drawing.Size(90, 25);
+            this.labelAuthor.Size = new System.Drawing.Size(84, 25);
             this.labelAuthor.TabIndex = 1;
-            this.labelAuthor.Text = "Tác giả: ";
+            this.labelAuthor.Text = "Tác giả:";
             // 
             // labelName
             // 
@@ -300,6 +304,36 @@ namespace PresentationLayer
             this.buttonAddChap.UseVisualStyleBackColor = true;
             this.buttonAddChap.Click += new System.EventHandler(this.buttonAddChap_Click);
             // 
+            // linkLabelGenre
+            // 
+            this.linkLabelGenre.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelGenre.AutoSize = true;
+            this.linkLabelGenre.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelGenre.LinkColor = System.Drawing.Color.Black;
+            this.linkLabelGenre.Location = new System.Drawing.Point(90, 139);
+            this.linkLabelGenre.Name = "linkLabelGenre";
+            this.linkLabelGenre.Size = new System.Drawing.Size(105, 25);
+            this.linkLabelGenre.TabIndex = 4;
+            this.linkLabelGenre.TabStop = true;
+            this.linkLabelGenre.Text = "linkLabel1";
+            this.linkLabelGenre.VisitedLinkColor = System.Drawing.Color.Black;
+            this.linkLabelGenre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGenre_LinkClicked);
+            // 
+            // linkLabelAuthor
+            // 
+            this.linkLabelAuthor.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelAuthor.AutoSize = true;
+            this.linkLabelAuthor.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelAuthor.LinkColor = System.Drawing.Color.Black;
+            this.linkLabelAuthor.Location = new System.Drawing.Point(83, 103);
+            this.linkLabelAuthor.Name = "linkLabelAuthor";
+            this.linkLabelAuthor.Size = new System.Drawing.Size(105, 25);
+            this.linkLabelAuthor.TabIndex = 5;
+            this.linkLabelAuthor.TabStop = true;
+            this.linkLabelAuthor.Text = "linkLabel1";
+            this.linkLabelAuthor.VisitedLinkColor = System.Drawing.Color.Black;
+            this.linkLabelAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAuthor_LinkClicked);
+            // 
             // BookScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -346,5 +380,7 @@ namespace PresentationLayer
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelChapters;
         private System.Windows.Forms.Button buttonAddChap;
         private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.LinkLabel linkLabelGenre;
+        private System.Windows.Forms.LinkLabel linkLabelAuthor;
     }
 }

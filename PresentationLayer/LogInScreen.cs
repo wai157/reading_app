@@ -22,7 +22,7 @@ namespace PresentationLayer
         {
             FormReadingApp formReadingApp = ParentForm as FormReadingApp;
             formReadingApp.LogInAccountDTO = null;
-            formReadingApp.AcceptButton = ButtonLogIn;
+            formReadingApp.AcceptButton = this.buttonLogIn;
         }
 
         private void textBoxUsername_AddText(object sender, EventArgs e)

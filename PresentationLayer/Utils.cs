@@ -12,15 +12,13 @@ namespace PresentationLayer
         }
         public static void ShowScreen(Form parentForm, Control screen)
         {
-            parentForm.SuspendLayout();
             foreach (Control childControl in parentForm.Controls)
             {
                 childControl.Dispose();
             }
             parentForm.Controls.Clear();
-            screen.Dock = DockStyle.Fill;
             parentForm.Controls.Add(screen);
-            parentForm.ResumeLayout(false);
+            screen.Dock = DockStyle.Fill;
             screen.Show();
         }
     }

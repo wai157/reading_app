@@ -32,6 +32,7 @@ namespace PresentationLayer
             _chapter = chapter;
             labelTitle.Text = book.Name + " - Chương " + chapter.No.ToString();
             labelContent.Text = chapter.Content;
+            _book.Views += 1;
             _bookManager.IncreaseView(_book.Id);
             _chapterManager.IncreaseView(_chapter.Id);
             _history = _historyManager.GetHistoryOfBook(_logInAccount.Id, _book.Id);
