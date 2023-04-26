@@ -54,6 +54,7 @@
     <Compile Include="RatedBook.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="UserInfo.cs" />
+    <Compile Include="Verification.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

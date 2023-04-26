@@ -31,10 +31,10 @@ namespace PresentationLayer
         {
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelHotBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanelAllBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.labelAllBooks = new System.Windows.Forms.Label();
             this.labelHot = new System.Windows.Forms.Label();
-            this.flowLayoutPanelHotBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.header1 = new PresentationLayer.Header();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,6 +67,18 @@ namespace PresentationLayer
             this.panel2.Size = new System.Drawing.Size(1024, 612);
             this.panel2.TabIndex = 3;
             // 
+            // flowLayoutPanelHotBooks
+            // 
+            this.flowLayoutPanelHotBooks.AutoSize = true;
+            this.flowLayoutPanelHotBooks.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanelHotBooks.Location = new System.Drawing.Point(0, 65);
+            this.flowLayoutPanelHotBooks.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.flowLayoutPanelHotBooks.MaximumSize = new System.Drawing.Size(1024, 0);
+            this.flowLayoutPanelHotBooks.Name = "flowLayoutPanelHotBooks";
+            this.flowLayoutPanelHotBooks.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.flowLayoutPanelHotBooks.Size = new System.Drawing.Size(20, 0);
+            this.flowLayoutPanelHotBooks.TabIndex = 29;
+            // 
             // flowLayoutPanelAllBooks
             // 
             this.flowLayoutPanelAllBooks.AutoSize = true;
@@ -75,8 +87,8 @@ namespace PresentationLayer
             this.flowLayoutPanelAllBooks.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.flowLayoutPanelAllBooks.MaximumSize = new System.Drawing.Size(1024, 0);
             this.flowLayoutPanelAllBooks.Name = "flowLayoutPanelAllBooks";
-            this.flowLayoutPanelAllBooks.Padding = new System.Windows.Forms.Padding(32, 0, 0, 16);
-            this.flowLayoutPanelAllBooks.Size = new System.Drawing.Size(32, 16);
+            this.flowLayoutPanelAllBooks.Padding = new System.Windows.Forms.Padding(20, 0, 0, 16);
+            this.flowLayoutPanelAllBooks.Size = new System.Drawing.Size(20, 16);
             this.flowLayoutPanelAllBooks.TabIndex = 28;
             // 
             // labelAllBooks
@@ -104,18 +116,6 @@ namespace PresentationLayer
             this.labelHot.Size = new System.Drawing.Size(213, 59);
             this.labelHot.TabIndex = 3;
             this.labelHot.Text = "Truyện HOT";
-            // 
-            // flowLayoutPanelHotBooks
-            // 
-            this.flowLayoutPanelHotBooks.AutoSize = true;
-            this.flowLayoutPanelHotBooks.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanelHotBooks.Location = new System.Drawing.Point(0, 65);
-            this.flowLayoutPanelHotBooks.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.flowLayoutPanelHotBooks.MaximumSize = new System.Drawing.Size(1024, 0);
-            this.flowLayoutPanelHotBooks.Name = "flowLayoutPanelHotBooks";
-            this.flowLayoutPanelHotBooks.Padding = new System.Windows.Forms.Padding(32, 0, 0, 0);
-            this.flowLayoutPanelHotBooks.Size = new System.Drawing.Size(32, 0);
-            this.flowLayoutPanelHotBooks.TabIndex = 29;
             // 
             // header1
             // 

@@ -42,6 +42,8 @@ namespace PresentationLayer
             this.pictureBoxCover = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
+            this.linkLabelAuthor = new System.Windows.Forms.LinkLabel();
+            this.linkLabelGenre = new System.Windows.Forms.LinkLabel();
             this.labelDescription = new System.Windows.Forms.Label();
             this.labelGenres = new System.Windows.Forms.Label();
             this.labelAuthor = new System.Windows.Forms.Label();
@@ -50,8 +52,6 @@ namespace PresentationLayer
             this.flowLayoutPanelChapters = new System.Windows.Forms.FlowLayoutPanel();
             this.header1 = new PresentationLayer.Header();
             this.buttonAddChap = new System.Windows.Forms.Button();
-            this.linkLabelGenre = new System.Windows.Forms.LinkLabel();
-            this.linkLabelAuthor = new System.Windows.Forms.LinkLabel();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -128,7 +128,7 @@ namespace PresentationLayer
             // 
             this.labelRating.AutoSize = true;
             this.labelRating.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRating.Location = new System.Drawing.Point(60, 472);
+            this.labelRating.Location = new System.Drawing.Point(60, 429);
             this.labelRating.Name = "labelRating";
             this.labelRating.Size = new System.Drawing.Size(62, 19);
             this.labelRating.TabIndex = 5;
@@ -138,7 +138,7 @@ namespace PresentationLayer
             // 
             this.labelFollowed.AutoSize = true;
             this.labelFollowed.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFollowed.Location = new System.Drawing.Point(60, 448);
+            this.labelFollowed.Location = new System.Drawing.Point(60, 405);
             this.labelFollowed.Name = "labelFollowed";
             this.labelFollowed.Size = new System.Drawing.Size(93, 19);
             this.labelFollowed.TabIndex = 4;
@@ -148,7 +148,7 @@ namespace PresentationLayer
             // 
             this.labelViews.AutoSize = true;
             this.labelViews.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelViews.Location = new System.Drawing.Point(60, 424);
+            this.labelViews.Location = new System.Drawing.Point(60, 381);
             this.labelViews.Name = "labelViews";
             this.labelViews.Size = new System.Drawing.Size(63, 19);
             this.labelViews.TabIndex = 3;
@@ -180,7 +180,7 @@ namespace PresentationLayer
             // 
             this.pictureBoxCover.Location = new System.Drawing.Point(64, 20);
             this.pictureBoxCover.Name = "pictureBoxCover";
-            this.pictureBoxCover.Size = new System.Drawing.Size(256, 384);
+            this.pictureBoxCover.Size = new System.Drawing.Size(256, 341);
             this.pictureBoxCover.TabIndex = 0;
             this.pictureBoxCover.TabStop = false;
             // 
@@ -213,6 +213,36 @@ namespace PresentationLayer
             this.tabPageAbout.Size = new System.Drawing.Size(628, 576);
             this.tabPageAbout.TabIndex = 0;
             this.tabPageAbout.Text = "Giới thiệu";
+            // 
+            // linkLabelAuthor
+            // 
+            this.linkLabelAuthor.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelAuthor.AutoSize = true;
+            this.linkLabelAuthor.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelAuthor.LinkColor = System.Drawing.Color.Black;
+            this.linkLabelAuthor.Location = new System.Drawing.Point(83, 103);
+            this.linkLabelAuthor.Name = "linkLabelAuthor";
+            this.linkLabelAuthor.Size = new System.Drawing.Size(105, 25);
+            this.linkLabelAuthor.TabIndex = 5;
+            this.linkLabelAuthor.TabStop = true;
+            this.linkLabelAuthor.Text = "linkLabel1";
+            this.linkLabelAuthor.VisitedLinkColor = System.Drawing.Color.Black;
+            this.linkLabelAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAuthor_LinkClicked);
+            // 
+            // linkLabelGenre
+            // 
+            this.linkLabelGenre.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelGenre.AutoSize = true;
+            this.linkLabelGenre.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelGenre.LinkColor = System.Drawing.Color.Black;
+            this.linkLabelGenre.Location = new System.Drawing.Point(90, 139);
+            this.linkLabelGenre.Name = "linkLabelGenre";
+            this.linkLabelGenre.Size = new System.Drawing.Size(105, 25);
+            this.linkLabelGenre.TabIndex = 4;
+            this.linkLabelGenre.TabStop = true;
+            this.linkLabelGenre.Text = "linkLabel1";
+            this.linkLabelGenre.VisitedLinkColor = System.Drawing.Color.Black;
+            this.linkLabelGenre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGenre_LinkClicked);
             // 
             // labelDescription
             // 
@@ -303,36 +333,6 @@ namespace PresentationLayer
             this.buttonAddChap.Text = "+";
             this.buttonAddChap.UseVisualStyleBackColor = true;
             this.buttonAddChap.Click += new System.EventHandler(this.buttonAddChap_Click);
-            // 
-            // linkLabelGenre
-            // 
-            this.linkLabelGenre.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
-            this.linkLabelGenre.AutoSize = true;
-            this.linkLabelGenre.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelGenre.LinkColor = System.Drawing.Color.Black;
-            this.linkLabelGenre.Location = new System.Drawing.Point(90, 139);
-            this.linkLabelGenre.Name = "linkLabelGenre";
-            this.linkLabelGenre.Size = new System.Drawing.Size(105, 25);
-            this.linkLabelGenre.TabIndex = 4;
-            this.linkLabelGenre.TabStop = true;
-            this.linkLabelGenre.Text = "linkLabel1";
-            this.linkLabelGenre.VisitedLinkColor = System.Drawing.Color.Black;
-            this.linkLabelGenre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGenre_LinkClicked);
-            // 
-            // linkLabelAuthor
-            // 
-            this.linkLabelAuthor.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
-            this.linkLabelAuthor.AutoSize = true;
-            this.linkLabelAuthor.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelAuthor.LinkColor = System.Drawing.Color.Black;
-            this.linkLabelAuthor.Location = new System.Drawing.Point(83, 103);
-            this.linkLabelAuthor.Name = "linkLabelAuthor";
-            this.linkLabelAuthor.Size = new System.Drawing.Size(105, 25);
-            this.linkLabelAuthor.TabIndex = 5;
-            this.linkLabelAuthor.TabStop = true;
-            this.linkLabelAuthor.Text = "linkLabel1";
-            this.linkLabelAuthor.VisitedLinkColor = System.Drawing.Color.Black;
-            this.linkLabelAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAuthor_LinkClicked);
             // 
             // BookScreen
             // 

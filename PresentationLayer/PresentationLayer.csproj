@@ -91,6 +91,12 @@
     <Compile Include="ChapterScreen.Designer.cs">
       <DependentUpon>ChapterScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="ForgotPasswordScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ForgotPasswordScreen.Designer.cs">
+      <DependentUpon>ForgotPasswordScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,12 @@
     </Compile>
     <Compile Include="FormReadingApp.Designer.cs">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResetPassword.Designer.cs">
+      <DependentUpon>FormResetPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Header.cs">
       <SubType>UserControl</SubType>
@@ -178,6 +190,9 @@
     <EmbeddedResource Include="ChapterScreen.resx">
       <DependentUpon>ChapterScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPasswordScreen.resx">
+      <DependentUpon>ForgotPasswordScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditBook.resx">
       <DependentUpon>FormEditBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReadingApp.resx">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResetPassword.resx">
+      <DependentUpon>FormResetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Header.resx">
       <DependentUpon>Header.cs</DependentUpon>

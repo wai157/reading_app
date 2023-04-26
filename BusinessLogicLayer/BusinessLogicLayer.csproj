@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +47,7 @@
     <Compile Include="AuthorManager.cs" />
     <Compile Include="BookManager.cs" />
     <Compile Include="ChapterManager.cs" />
+    <Compile Include="EmailService.cs" />
     <Compile Include="GenreManager.cs" />
     <Compile Include="HistoryManager.cs" />
     <Compile Include="LibraryManager.cs" />

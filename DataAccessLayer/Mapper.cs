@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class Mapper
+    public static class Mapper
     {
-        private static readonly PBL3DbContext _context = new PBL3DbContext();
-
         public static AccountDTO ToAccountDTO(Account account)
         {
+            if (account == null) return null;
             return new AccountDTO
             {
                 Id = account.Id,
@@ -26,6 +25,7 @@ namespace DataAccessLayer
 
         public static UserInfoDTO ToUserInfoDTO(UserInfo userInfo)
         {
+            if (userInfo == null) return null;
             return new UserInfoDTO()
             {
                 Id = userInfo.Id,
@@ -36,24 +36,40 @@ namespace DataAccessLayer
             };
         }
 
+        public static VerificationDTO ToVerificationDTO(Verification verification)
+        {
+            if (verification == null) return null;
+            return new VerificationDTO
+            {
+                Id = verification.Id,
+                Code = verification.Code,
+                RequestedDateTime = verification.RequestedDateTime
+            };
+        }
+
         public static BookDTO ToBookDTO(Book book)
         {
-            return new BookDTO
+            if (book == null) return null;
+            using (var context = new PBL3DbContext())
             {
-                Id = book.Id,
-                Name = book.Name,
-                BookCover = book.Cover,
-                Author = _context.Authors.First(x => x.Id == book.AuthorId).Name,
-                UploadAccountId = book.AccountId,
-                Description = book.Description,
-                GenreId = book.GenreId,
-                Views = book.Views,
-                Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count()
+                return new BookDTO
+                {
+                    Id = book.Id,
+                    Name = book.Name,
+                    BookCover = book.Cover,
+                    Author = context.Authors.First(x => x.Id == book.AuthorId).Name,
+                    UploadAccountId = book.AccountId,
+                    Description = book.Description,
+                    GenreId = book.GenreId,
+                    Views = book.Views,
+                    Follows = context.Libraries.Where(x => x.BookId == book.Id).Count()
+                };
             };
         }
 
         public static ChapterDTO ToChapterDTO(Chapter chapter)
         {
+            if (chapter == null) return null;
             return new ChapterDTO
             {
                 Id = chapter.Id,
@@ -68,6 +84,7 @@ namespace DataAccessLayer
 
         public static GenreDTO ToGenreDTO(Genre genre)
         {
+            if (genre == null) return null;
             return new GenreDTO
             {
                 Id = genre.Id,
@@ -77,6 +94,7 @@ namespace DataAccessLayer
 
         public static AuthorDTO ToAuthorDTO(Author author)
         {
+            if (author == null) return null;
             return new AuthorDTO
             {
                 Id = author.Id,
@@ -86,6 +104,7 @@ namespace DataAccessLayer
 
         public static HistoryDTO ToHistoryDTO(History history)
         {
+            if (history == null) return null;
             return new HistoryDTO
             {
                 Id = history.Id,
@@ -100,6 +119,7 @@ namespace DataAccessLayer
 
         public static LibraryDTO ToLibraryDTO(Library library)
         {
+            if (library == null) return null;
             return new LibraryDTO
             {
                 Id = library.Id,

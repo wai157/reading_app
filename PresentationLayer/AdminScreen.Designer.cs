@@ -80,7 +80,6 @@ namespace PresentationLayer
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1024, 612);
             this.panel2.TabIndex = 3;
-            this.panel2.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // tabControl1
             // 
@@ -114,7 +113,7 @@ namespace PresentationLayer
             this.flowLayoutPanelBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelBooks.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelBooks.Name = "flowLayoutPanelBooks";
-            this.flowLayoutPanelBooks.Padding = new System.Windows.Forms.Padding(25, 10, 0, 10);
+            this.flowLayoutPanelBooks.Padding = new System.Windows.Forms.Padding(19, 10, 0, 16);
             this.flowLayoutPanelBooks.Size = new System.Drawing.Size(1010, 568);
             this.flowLayoutPanelBooks.TabIndex = 0;
             // 
@@ -139,7 +138,6 @@ namespace PresentationLayer
             this.flowLayoutPanelAccounts.Padding = new System.Windows.Forms.Padding(25, 10, 0, 15);
             this.flowLayoutPanelAccounts.Size = new System.Drawing.Size(1010, 568);
             this.flowLayoutPanelAccounts.TabIndex = 0;
-            this.flowLayoutPanelAccounts.Click += new System.EventHandler(Utils.StealFocus);
             // 
             // header1
             // 
