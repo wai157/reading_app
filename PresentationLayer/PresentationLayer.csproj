@@ -61,6 +61,12 @@
     <Compile Include="AdminScreen.Designer.cs">
       <DependentUpon>AdminScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBookReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBookReportView.Designer.cs">
+      <DependentUpon>FormBookReportView.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -126,6 +132,12 @@
     </Compile>
     <Compile Include="FormReadingApp.Designer.cs">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
     </Compile>
     <Compile Include="FormResetPassword.cs">
       <SubType>Form</SubType>
@@ -193,6 +205,9 @@
     <EmbeddedResource Include="ForgotPasswordScreen.resx">
       <DependentUpon>ForgotPasswordScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBookReportView.resx">
+      <DependentUpon>FormBookReportView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditBook.resx">
       <DependentUpon>FormEditBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReadingApp.resx">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResetPassword.resx">
       <DependentUpon>FormResetPassword.cs</DependentUpon>
@@ -299,6 +317,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\back-vector-icon-256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

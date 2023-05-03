@@ -127,5 +127,17 @@ namespace DataAccessLayer
                 BookId = library.BookId
             };
         }
+
+        public static BookReportDTO ToBookReportDTO(BookReport bookReport)
+        {
+            if (bookReport == null) return null;
+            return new BookReportDTO
+            {
+                Id = bookReport.Id,
+                CreateAccountID = bookReport.AccountID,
+                ReportedBookID = bookReport.BookID,
+                Content = bookReport.Content
+            };
+        }
     }
 }

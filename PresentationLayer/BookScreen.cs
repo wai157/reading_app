@@ -154,8 +154,6 @@ namespace PresentationLayer
                 _book.Follows -= 1;
             }
             labelFollowed.Text = "Lượt theo dõi: " + _book.Follows;
-            //BookScreen bookScreen = new BookScreen(_logInAccount, _book);
-            //Utils.ShowScreen(ParentForm, bookScreen);
         }
 
         private void linkLabelGenre_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -168,6 +166,14 @@ namespace PresentationLayer
         {
             GeneralScreen searchResultScreen = new GeneralScreen(2, _book.Author);
             Utils.ShowScreen(ParentForm, searchResultScreen);
+        }
+
+        private void linkLabelReport_Click(object sender, EventArgs e)
+        {
+            using (FormReport formReport = new FormReport(_logInAccount.Id, _book.Id))
+            {
+                formReport.ShowDialog();
+            }
         }
     }
 }

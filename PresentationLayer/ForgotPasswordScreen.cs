@@ -40,7 +40,17 @@ namespace PresentationLayer
             }
             if (string.IsNullOrEmpty(errorProvider.GetError(buttonSend)))
             {
-                if (_accountManager.SendCode(textBoxUsername.Text) != true)
+                bool sent = false;
+                try
+                {
+                    sent = _accountManager.SendCode(textBoxUsername.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Vui lòng kết nối wifi.");
+                    return;
+                }
+                if (sent != true)
                 {
                     labelError.Text = "Không tìm thấy người dùng nào với tên đăng nhập này. Vui lòng thử lại.";
                     return;

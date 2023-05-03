@@ -50,8 +50,10 @@ namespace PresentationLayer
             this.labelName = new System.Windows.Forms.Label();
             this.tabPageTableOfContent = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelChapters = new System.Windows.Forms.FlowLayoutPanel();
-            this.header1 = new PresentationLayer.Header();
             this.buttonAddChap = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.linkLabelReport = new System.Windows.Forms.LinkLabel();
+            this.header1 = new PresentationLayer.Header();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -62,6 +64,7 @@ namespace PresentationLayer
             this.tabControl1.SuspendLayout();
             this.tabPageAbout.SuspendLayout();
             this.tabPageTableOfContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -96,6 +99,8 @@ namespace PresentationLayer
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.linkLabelReport);
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer1.Panel1.Controls.Add(this.buttonEdit);
             this.splitContainer1.Panel1.Controls.Add(this.labelRating);
             this.splitContainer1.Panel1.Controls.Add(this.labelFollowed);
@@ -157,7 +162,7 @@ namespace PresentationLayer
             // btdFollow
             // 
             this.btdFollow.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btdFollow.Location = new System.Drawing.Point(176, 544);
+            this.btdFollow.Location = new System.Drawing.Point(176, 500);
             this.btdFollow.Name = "btdFollow";
             this.btdFollow.Size = new System.Drawing.Size(144, 48);
             this.btdFollow.TabIndex = 2;
@@ -168,7 +173,7 @@ namespace PresentationLayer
             // btnRead
             // 
             this.btnRead.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead.Location = new System.Drawing.Point(64, 544);
+            this.btnRead.Location = new System.Drawing.Point(64, 500);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(106, 48);
             this.btnRead.TabIndex = 1;
@@ -312,17 +317,6 @@ namespace PresentationLayer
             this.flowLayoutPanelChapters.Size = new System.Drawing.Size(622, 570);
             this.flowLayoutPanelChapters.TabIndex = 0;
             // 
-            // header1
-            // 
-            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.header1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.header1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.header1.Location = new System.Drawing.Point(0, 0);
-            this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(1280, 72);
-            this.header1.TabIndex = 0;
-            // 
             // buttonAddChap
             // 
             this.buttonAddChap.Location = new System.Drawing.Point(3, 0);
@@ -333,6 +327,42 @@ namespace PresentationLayer
             this.buttonAddChap.Text = "+";
             this.buttonAddChap.UseVisualStyleBackColor = true;
             this.buttonAddChap.Click += new System.EventHandler(this.buttonAddChap_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.download;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 585);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
+            // linkLabelReport
+            // 
+            this.linkLabelReport.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelReport.AutoSize = true;
+            this.linkLabelReport.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelReport.LinkColor = System.Drawing.Color.Black;
+            this.linkLabelReport.Location = new System.Drawing.Point(24, 585);
+            this.linkLabelReport.Name = "linkLabelReport";
+            this.linkLabelReport.Size = new System.Drawing.Size(101, 19);
+            this.linkLabelReport.TabIndex = 6;
+            this.linkLabelReport.TabStop = true;
+            this.linkLabelReport.Text = "Báo cáo truyện";
+            this.linkLabelReport.VisitedLinkColor = System.Drawing.Color.Black;
+            this.linkLabelReport.Click += new System.EventHandler(this.linkLabelReport_Click);
+            // 
+            // header1
+            // 
+            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.header1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.header1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header1.Location = new System.Drawing.Point(0, 0);
+            this.header1.Name = "header1";
+            this.header1.Size = new System.Drawing.Size(1280, 72);
+            this.header1.TabIndex = 0;
             // 
             // BookScreen
             // 
@@ -354,6 +384,7 @@ namespace PresentationLayer
             this.tabPageAbout.ResumeLayout(false);
             this.tabPageAbout.PerformLayout();
             this.tabPageTableOfContent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -382,5 +413,7 @@ namespace PresentationLayer
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.LinkLabel linkLabelGenre;
         private System.Windows.Forms.LinkLabel linkLabelAuthor;
+        private System.Windows.Forms.LinkLabel linkLabelReport;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

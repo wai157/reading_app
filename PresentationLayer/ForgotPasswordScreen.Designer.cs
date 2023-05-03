@@ -103,13 +103,13 @@ namespace PresentationLayer
             // 
             this.labelInfo.AutoSize = true;
             this.labelInfo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInfo.Location = new System.Drawing.Point(102, 6);
+            this.labelInfo.Location = new System.Drawing.Point(107, 6);
             this.labelInfo.MaximumSize = new System.Drawing.Size(400, 40);
             this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(396, 38);
+            this.labelInfo.Size = new System.Drawing.Size(394, 38);
             this.labelInfo.TabIndex = 6;
-            this.labelInfo.Text = "Nhập tên dăng nhập và chúng tôi sẽ gửi cho bạn mã xác thực tới email bạn đã dùng " +
-    "để đăng kí tài khoản.";
+            this.labelInfo.Text = "Nhập tên dăng nhập và một mã xác thực gồm 6 chữ số sẽ được gửi tới tới email bạn " +
+    "đã dùng để đăng kí tài khoản.";
             this.labelInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelError

@@ -46,6 +46,7 @@
     <Compile Include="AccountManager.cs" />
     <Compile Include="AuthorManager.cs" />
     <Compile Include="BookManager.cs" />
+    <Compile Include="BookReportManager.cs" />
     <Compile Include="ChapterManager.cs" />
     <Compile Include="EmailService.cs" />
     <Compile Include="GenreManager.cs" />
