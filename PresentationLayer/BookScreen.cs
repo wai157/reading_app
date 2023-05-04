@@ -19,6 +19,7 @@ namespace PresentationLayer
         private readonly GenreManager _genreManager;
         private readonly HistoryManager _historyManager;
         private readonly LibraryManager _libraryManager;
+        private readonly RatedBookManager _ratedBookManager;
         private readonly AccountDTO _logInAccount;
         private readonly BookDTO _book;
         private readonly HistoryDTO _history;
@@ -30,6 +31,7 @@ namespace PresentationLayer
             _genreManager = new GenreManager();
             _historyManager = new HistoryManager();
             _libraryManager = new LibraryManager();
+            _ratedBookManager = new RatedBookManager();
             _logInAccount = logInAccount;
 
             if (book != null)
@@ -88,6 +90,9 @@ namespace PresentationLayer
                 {
                     _library = null;
                 }
+
+                double rating = _ratedBookManager.GetRatingListByBookId(_book.Id, out int count);
+                this.labelRating.Text = "Đánh giá: " + rating.ToString("F1") + "/5 (" + count.ToString() + " lượt)";
             }
         }
 
@@ -174,6 +179,21 @@ namespace PresentationLayer
             {
                 formReport.ShowDialog();
             }
+        }
+
+        private void buttonRate_Click(object sender, EventArgs e)
+        {
+            using (FormRating formRating = new FormRating(_logInAccount.Id, _book.Id))
+            {
+                formRating.Location = new Point(this.panel2.Location.X + 108, this.panel2.Location.Y + 490);
+                formRating.ShowDialog();
+                if (formRating.DialogResult == DialogResult.OK)
+                {
+                    double rating = _ratedBookManager.GetRatingListByBookId(_book.Id, out int count);
+                    this.labelRating.Text = "Đánh giá: " + rating.ToString("F1") + "/5 (" + count.ToString() + " lượt)";
+                }
+            }
+            
         }
     }
 }

@@ -33,6 +33,9 @@ namespace PresentationLayer
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.buttonRate = new System.Windows.Forms.Button();
+            this.linkLabelReport = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.labelRating = new System.Windows.Forms.Label();
             this.labelFollowed = new System.Windows.Forms.Label();
@@ -50,21 +53,19 @@ namespace PresentationLayer
             this.labelName = new System.Windows.Forms.Label();
             this.tabPageTableOfContent = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelChapters = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonAddChap = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.linkLabelReport = new System.Windows.Forms.LinkLabel();
             this.header1 = new PresentationLayer.Header();
+            this.buttonAddChap = new System.Windows.Forms.Button();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageAbout.SuspendLayout();
             this.tabPageTableOfContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -99,6 +100,7 @@ namespace PresentationLayer
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.buttonRate);
             this.splitContainer1.Panel1.Controls.Add(this.linkLabelReport);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer1.Panel1.Controls.Add(this.buttonEdit);
@@ -115,6 +117,41 @@ namespace PresentationLayer
             this.splitContainer1.Size = new System.Drawing.Size(1024, 612);
             this.splitContainer1.SplitterDistance = 384;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // buttonRate
+            // 
+            this.buttonRate.Location = new System.Drawing.Point(64, 454);
+            this.buttonRate.Name = "buttonRate";
+            this.buttonRate.Size = new System.Drawing.Size(75, 25);
+            this.buttonRate.TabIndex = 17;
+            this.buttonRate.Text = "đánh giá";
+            this.buttonRate.UseVisualStyleBackColor = true;
+            this.buttonRate.Click += new System.EventHandler(this.buttonRate_Click);
+            // 
+            // linkLabelReport
+            // 
+            this.linkLabelReport.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelReport.AutoSize = true;
+            this.linkLabelReport.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelReport.LinkColor = System.Drawing.Color.Black;
+            this.linkLabelReport.Location = new System.Drawing.Point(24, 585);
+            this.linkLabelReport.Name = "linkLabelReport";
+            this.linkLabelReport.Size = new System.Drawing.Size(101, 19);
+            this.linkLabelReport.TabIndex = 6;
+            this.linkLabelReport.TabStop = true;
+            this.linkLabelReport.Text = "Báo cáo truyện";
+            this.linkLabelReport.VisitedLinkColor = System.Drawing.Color.Black;
+            this.linkLabelReport.Click += new System.EventHandler(this.linkLabelReport_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.download;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 585);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
             // 
             // buttonEdit
             // 
@@ -135,9 +172,9 @@ namespace PresentationLayer
             this.labelRating.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRating.Location = new System.Drawing.Point(60, 429);
             this.labelRating.Name = "labelRating";
-            this.labelRating.Size = new System.Drawing.Size(62, 19);
+            this.labelRating.Size = new System.Drawing.Size(101, 19);
             this.labelRating.TabIndex = 5;
-            this.labelRating.Text = "đánh giá:";
+            this.labelRating.Text = "Đánh giá: 5.0/5";
             // 
             // labelFollowed
             // 
@@ -145,9 +182,9 @@ namespace PresentationLayer
             this.labelFollowed.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFollowed.Location = new System.Drawing.Point(60, 405);
             this.labelFollowed.Name = "labelFollowed";
-            this.labelFollowed.Size = new System.Drawing.Size(93, 19);
+            this.labelFollowed.Size = new System.Drawing.Size(99, 19);
             this.labelFollowed.TabIndex = 4;
-            this.labelFollowed.Text = "lượt theo dõi: ";
+            this.labelFollowed.Text = "Lượt theo dõi: ";
             // 
             // labelViews
             // 
@@ -155,9 +192,9 @@ namespace PresentationLayer
             this.labelViews.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelViews.Location = new System.Drawing.Point(60, 381);
             this.labelViews.Name = "labelViews";
-            this.labelViews.Size = new System.Drawing.Size(63, 19);
+            this.labelViews.Size = new System.Drawing.Size(69, 19);
             this.labelViews.TabIndex = 3;
-            this.labelViews.Text = "lượt đọc:";
+            this.labelViews.Text = "Lượt đọc:";
             // 
             // btdFollow
             // 
@@ -317,42 +354,6 @@ namespace PresentationLayer
             this.flowLayoutPanelChapters.Size = new System.Drawing.Size(622, 570);
             this.flowLayoutPanelChapters.TabIndex = 0;
             // 
-            // buttonAddChap
-            // 
-            this.buttonAddChap.Location = new System.Drawing.Point(3, 0);
-            this.buttonAddChap.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.buttonAddChap.Name = "buttonAddChap";
-            this.buttonAddChap.Size = new System.Drawing.Size(595, 30);
-            this.buttonAddChap.TabIndex = 18;
-            this.buttonAddChap.Text = "+";
-            this.buttonAddChap.UseVisualStyleBackColor = true;
-            this.buttonAddChap.Click += new System.EventHandler(this.buttonAddChap_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.download;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 585);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
-            // 
-            // linkLabelReport
-            // 
-            this.linkLabelReport.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
-            this.linkLabelReport.AutoSize = true;
-            this.linkLabelReport.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelReport.LinkColor = System.Drawing.Color.Black;
-            this.linkLabelReport.Location = new System.Drawing.Point(24, 585);
-            this.linkLabelReport.Name = "linkLabelReport";
-            this.linkLabelReport.Size = new System.Drawing.Size(101, 19);
-            this.linkLabelReport.TabIndex = 6;
-            this.linkLabelReport.TabStop = true;
-            this.linkLabelReport.Text = "Báo cáo truyện";
-            this.linkLabelReport.VisitedLinkColor = System.Drawing.Color.Black;
-            this.linkLabelReport.Click += new System.EventHandler(this.linkLabelReport_Click);
-            // 
             // header1
             // 
             this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -363,6 +364,17 @@ namespace PresentationLayer
             this.header1.Name = "header1";
             this.header1.Size = new System.Drawing.Size(1280, 72);
             this.header1.TabIndex = 0;
+            // 
+            // buttonAddChap
+            // 
+            this.buttonAddChap.Location = new System.Drawing.Point(3, 0);
+            this.buttonAddChap.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.buttonAddChap.Name = "buttonAddChap";
+            this.buttonAddChap.Size = new System.Drawing.Size(595, 30);
+            this.buttonAddChap.TabIndex = 18;
+            this.buttonAddChap.Text = "+";
+            this.buttonAddChap.UseVisualStyleBackColor = true;
+            this.buttonAddChap.Click += new System.EventHandler(this.buttonAddChap_Click);
             // 
             // BookScreen
             // 
@@ -379,12 +391,12 @@ namespace PresentationLayer
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPageAbout.ResumeLayout(false);
             this.tabPageAbout.PerformLayout();
             this.tabPageTableOfContent.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -415,5 +427,6 @@ namespace PresentationLayer
         private System.Windows.Forms.LinkLabel linkLabelAuthor;
         private System.Windows.Forms.LinkLabel linkLabelReport;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonRate;
     }
 }

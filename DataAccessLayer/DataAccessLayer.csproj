@@ -139,6 +139,10 @@
     <Compile Include="Migrations\202305031717483_initial6.designer.cs">
       <DependentUpon>202305031717483_initial6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305041932092_initial7.cs" />
+    <Compile Include="Migrations\202305041932092_initial7.designer.cs">
+      <DependentUpon>202305041932092_initial7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PBL3DbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,6 +151,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RatedBookRepository.cs" />
     <Compile Include="VerificationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305031717483_initial6.resx">
       <DependentUpon>202305031717483_initial6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305041932092_initial7.resx">
+      <DependentUpon>202305041932092_initial7.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

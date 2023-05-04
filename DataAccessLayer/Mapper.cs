@@ -139,5 +139,17 @@ namespace DataAccessLayer
                 Content = bookReport.Content
             };
         }
+
+        public static RatedBookDTO ToRatedBookDTO(RatedBook ratedBook)
+        {
+            if (ratedBook == null) return null;
+            return new RatedBookDTO
+            {
+                Id = ratedBook.Id,
+                AccountId = ratedBook.AccountId,
+                BookId = ratedBook.BookId,
+                Rating = ratedBook.Rating
+            };
+        }
     }
 }

@@ -127,6 +127,12 @@
     <Compile Include="FormAddChap.Designer.cs">
       <DependentUpon>FormAddChap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRating.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRating.Designer.cs">
+      <DependentUpon>FormRating.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReadingApp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddChap.resx">
       <DependentUpon>FormAddChap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRating.resx">
+      <DependentUpon>FormRating.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReadingApp.resx">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
@@ -320,6 +329,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star_empty.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star_fill.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
