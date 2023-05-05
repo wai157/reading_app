@@ -13,9 +13,7 @@ namespace EntityLayer
         public string Name { get; set; }
         public string Description { get; set; }
         public byte[] Cover { get; set; }
-        public int Rating { get; set; }
         public int Views { get; set; }
-        public int Likes { get; set; }
 
         public int AccountId { get; set; }
         public int AuthorId { get; set; }

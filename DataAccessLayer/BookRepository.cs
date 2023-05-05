@@ -24,11 +24,24 @@ namespace DataAccessLayer
             return Mapper.ToBookDTO(book);
         }
 
+        public List<BookDTO> GetBooksUploadById(int accountId)
+        {
+            List<Book> books = _context.Books.Where(x => x.AccountId == accountId)
+                                             .ToList();
+            List<BookDTO> bookDTOs = new List<BookDTO>();
+            foreach (Book book in books)
+            {
+                BookDTO bookDTO = Mapper.ToBookDTO(book);
+                bookDTOs.Add(bookDTO);
+            }
+            return bookDTOs;
+        }
+
         public List<BookDTO> GetHotBooks()
         {
             List<Book> books = _context.Books.OrderByDescending(x => x.Views)
                                              .ThenByDescending(x => _context.Libraries.Where(s => s.BookId == x.Id).Count())
-                                             .ThenByDescending(x => x.Rating)
+                                             .ThenByDescending(x => _context.RatedBooks.Where(s => s.BookId == x.Id).Select(s => s.Rating).DefaultIfEmpty().Average())
                                              .Take(6)
                                              .ToList();
             List<BookDTO> bookDTOs = new List<BookDTO>();

@@ -30,6 +30,7 @@ namespace PresentationLayer
             _logInAccount = logInAccountDTO;
             List<HistoryDTO> histories = _historyManager.GetHistoryByAccountId(_logInAccount.Id);
             List<LibraryDTO> libraries = _libraryManager.GetLibraryByAccountId(_logInAccount.Id);
+            List<BookDTO> uploadedBooks = _bookManager.GetBooksUploadById(_logInAccount.Id);
             UserInfoDTO userInfoDTO = _accountManager.GetUserInfo(logInAccountDTO.Id);
             if (userInfoDTO != null)
             {
@@ -49,6 +50,11 @@ namespace PresentationLayer
             {
                 ButtonBookCover buttonBookCover = new ButtonBookCover(_bookManager.GetBookById(library.BookId));
                 flowLayoutPanelLibrary.Controls.Add(buttonBookCover);
+            }
+            foreach (BookDTO book in uploadedBooks)
+            {
+                ButtonBookCover buttonBookCover = new ButtonBookCover(book);
+                flowLayoutPanelUpload.Controls.Add(buttonBookCover);
             }
         }
 
@@ -181,11 +187,14 @@ namespace PresentationLayer
             flowLayoutPanelHistory.Enabled = false;
             flowLayoutPanelLibrary.Visible = false;
             flowLayoutPanelLibrary.Enabled = false;
+            flowLayoutPanelUpload.Visible = false;
+            flowLayoutPanelUpload.Enabled = false;
             panelAccountInfo.Visible = true;
             panelAccountInfo.Enabled = true;
             buttonAccountInfo.BackColor = SystemColors.ActiveCaption;
             buttonHistory.BackColor = Color.White;
             buttonFollowed.BackColor = Color.White;
+            buttonUpload.BackColor = Color.White;
         }
 
         private void buttonFollowed_Click(object sender, EventArgs e)
@@ -194,11 +203,14 @@ namespace PresentationLayer
             flowLayoutPanelHistory.Enabled = false;
             panelAccountInfo.Visible = false;
             panelAccountInfo.Enabled = false;
+            flowLayoutPanelUpload.Visible = false;
+            flowLayoutPanelUpload.Enabled = false;
             flowLayoutPanelLibrary.Visible = true;
             flowLayoutPanelLibrary.Enabled = true;
             buttonFollowed.BackColor = SystemColors.ActiveCaption;
             buttonHistory.BackColor = Color.White;
             buttonAccountInfo.BackColor = Color.White;
+            buttonUpload.BackColor = Color.White;
         }
 
         private void buttonHistory_Click(object sender, EventArgs e)
@@ -207,11 +219,30 @@ namespace PresentationLayer
             panelAccountInfo.Enabled = false;
             flowLayoutPanelLibrary.Visible = false;
             flowLayoutPanelLibrary.Enabled = false;
+            flowLayoutPanelUpload.Visible = false;
+            flowLayoutPanelUpload.Enabled = false;
             flowLayoutPanelHistory.Visible = true;
             flowLayoutPanelHistory.Enabled = true;
             buttonHistory.BackColor = SystemColors.ActiveCaption;
             buttonAccountInfo.BackColor = Color.White;
             buttonFollowed.BackColor = Color.White;
+            buttonUpload.BackColor = Color.White;
+        }
+
+        private void buttonUpload_Click(object sender, EventArgs e)
+        {
+            panelAccountInfo.Visible = false;
+            panelAccountInfo.Enabled = false;
+            flowLayoutPanelLibrary.Visible = false;
+            flowLayoutPanelLibrary.Enabled = false;
+            flowLayoutPanelHistory.Visible = false;
+            flowLayoutPanelHistory.Enabled = false;
+            flowLayoutPanelUpload.Visible = true;
+            flowLayoutPanelUpload.Enabled = true;
+            buttonUpload.BackColor = SystemColors.ActiveCaption;
+            buttonAccountInfo.BackColor = Color.White;
+            buttonFollowed.BackColor = Color.White;
+            buttonHistory.BackColor = Color.White;
         }
     }
 }

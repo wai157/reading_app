@@ -32,7 +32,10 @@ namespace PresentationLayer
             this.components = new System.ComponentModel.Container();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonUpload = new System.Windows.Forms.Button();
+            this.flowLayoutPanelLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanelHistory = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelUpload = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonLogOut = new System.Windows.Forms.Button();
             this.buttonHistory = new System.Windows.Forms.Button();
             this.buttonFollowed = new System.Windows.Forms.Button();
@@ -53,9 +56,8 @@ namespace PresentationLayer
             this.labelLogInInfo = new System.Windows.Forms.Label();
             this.labelAvatar = new System.Windows.Forms.Label();
             this.labelGeneralInfo = new System.Windows.Forms.Label();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.flowLayoutPanelLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.header1 = new PresentationLayer.Header();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelAccountInfo.SuspendLayout();
@@ -78,8 +80,10 @@ namespace PresentationLayer
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.panel1.Controls.Add(this.buttonUpload);
             this.panel1.Controls.Add(this.flowLayoutPanelLibrary);
             this.panel1.Controls.Add(this.flowLayoutPanelHistory);
+            this.panel1.Controls.Add(this.flowLayoutPanelUpload);
             this.panel1.Controls.Add(this.buttonLogOut);
             this.panel1.Controls.Add(this.buttonHistory);
             this.panel1.Controls.Add(this.buttonFollowed);
@@ -89,6 +93,29 @@ namespace PresentationLayer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1024, 612);
             this.panel1.TabIndex = 1;
+            // 
+            // buttonUpload
+            // 
+            this.buttonUpload.BackColor = System.Drawing.Color.White;
+            this.buttonUpload.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUpload.Location = new System.Drawing.Point(0, 253);
+            this.buttonUpload.Name = "buttonUpload";
+            this.buttonUpload.Size = new System.Drawing.Size(256, 50);
+            this.buttonUpload.TabIndex = 17;
+            this.buttonUpload.Text = "Truyện đã đăng";
+            this.buttonUpload.UseVisualStyleBackColor = false;
+            this.buttonUpload.Click += new System.EventHandler(this.buttonUpload_Click);
+            // 
+            // flowLayoutPanelLibrary
+            // 
+            this.flowLayoutPanelLibrary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanelLibrary.Enabled = false;
+            this.flowLayoutPanelLibrary.Location = new System.Drawing.Point(256, 0);
+            this.flowLayoutPanelLibrary.Name = "flowLayoutPanelLibrary";
+            this.flowLayoutPanelLibrary.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.flowLayoutPanelLibrary.Size = new System.Drawing.Size(768, 612);
+            this.flowLayoutPanelLibrary.TabIndex = 16;
+            this.flowLayoutPanelLibrary.Visible = false;
             // 
             // flowLayoutPanelHistory
             // 
@@ -100,6 +127,17 @@ namespace PresentationLayer
             this.flowLayoutPanelHistory.Size = new System.Drawing.Size(768, 612);
             this.flowLayoutPanelHistory.TabIndex = 15;
             this.flowLayoutPanelHistory.Visible = false;
+            // 
+            // flowLayoutPanelUpload
+            // 
+            this.flowLayoutPanelUpload.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanelUpload.Enabled = false;
+            this.flowLayoutPanelUpload.Location = new System.Drawing.Point(256, 0);
+            this.flowLayoutPanelUpload.Name = "flowLayoutPanelUpload";
+            this.flowLayoutPanelUpload.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.flowLayoutPanelUpload.Size = new System.Drawing.Size(768, 612);
+            this.flowLayoutPanelUpload.TabIndex = 17;
+            this.flowLayoutPanelUpload.Visible = false;
             // 
             // buttonLogOut
             // 
@@ -340,21 +378,6 @@ namespace PresentationLayer
             this.labelGeneralInfo.TabIndex = 0;
             this.labelGeneralInfo.Text = "Thông tin chung";
             // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
-            // 
-            // flowLayoutPanelLibrary
-            // 
-            this.flowLayoutPanelLibrary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanelLibrary.Enabled = false;
-            this.flowLayoutPanelLibrary.Location = new System.Drawing.Point(256, 0);
-            this.flowLayoutPanelLibrary.Name = "flowLayoutPanelLibrary";
-            this.flowLayoutPanelLibrary.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.flowLayoutPanelLibrary.Size = new System.Drawing.Size(768, 612);
-            this.flowLayoutPanelLibrary.TabIndex = 16;
-            this.flowLayoutPanelLibrary.Visible = false;
-            // 
             // header1
             // 
             this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -365,6 +388,10 @@ namespace PresentationLayer
             this.header1.Name = "header1";
             this.header1.Size = new System.Drawing.Size(1280, 72);
             this.header1.TabIndex = 0;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // UserProfileScreen
             // 
@@ -412,5 +439,7 @@ namespace PresentationLayer
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelHistory;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelLibrary;
+        private System.Windows.Forms.Button buttonUpload;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelUpload;
     }
 }
