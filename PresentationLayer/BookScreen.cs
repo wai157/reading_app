@@ -67,7 +67,7 @@ namespace PresentationLayer
                 foreach (ChapterDTO chapter in chapters)
                 {
 
-                    ButtonChapter buttonChapter = new ButtonChapter(book, chapter)
+                    ButtonChapter buttonChapter = new ButtonChapter(_logInAccount.Id, book, chapter)
                     {
                         Location = new Point(X, Y)
                     };

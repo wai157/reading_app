@@ -30,26 +30,40 @@ namespace PresentationLayer
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(595, 30);
+            this.button1.Size = new System.Drawing.Size(565, 30);
             this.button1.TabIndex = 0;
             this.button1.Text = "Chapter name";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // buttonEdit
+            // 
+            this.buttonEdit.BackgroundImage = global::PresentationLayer.Properties.Resources.edit_246;
+            this.buttonEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonEdit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonEdit.Location = new System.Drawing.Point(565, 0);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(30, 30);
+            this.buttonEdit.TabIndex = 1;
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            // 
             // ButtonChapter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -63,5 +77,6 @@ namespace PresentationLayer
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonEdit;
     }
 }

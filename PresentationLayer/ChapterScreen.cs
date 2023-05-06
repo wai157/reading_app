@@ -30,7 +30,7 @@ namespace PresentationLayer
             _logInAccount = logInAccount;
             _book = book;
             _chapter = chapter;
-            labelTitle.Text = book.Name + " - Chương " + chapter.No.ToString();
+            labelTitle.Text = book.Name + " - Chương " + chapter.No.ToString() + ": " + chapter.Title;
             labelContent.Text = chapter.Content;
             _book.Views += 1;
             _bookManager.IncreaseView(_book.Id);

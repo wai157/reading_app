@@ -54,6 +54,28 @@ namespace DataAccessLayer
             _context.SaveChanges();
         }
 
+        public void UpdateChapter(ChapterDTO chapterDTO)
+        {
+            Chapter chapterToUpdate = _context.Chapters.FirstOrDefault(x => x.Id == chapterDTO.Id);
+            if (chapterToUpdate != null)
+            {
+                chapterToUpdate.No = chapterDTO.No;
+                chapterToUpdate.Title = chapterDTO.Title;
+                chapterToUpdate.Content = chapterDTO.Content;
+                _context.SaveChanges();
+            }
+        }
+
+        public void DeleteChapter(int chapterId)
+        {
+            Chapter chapterToRemove = _context.Chapters.FirstOrDefault(x => x.Id == chapterId);
+            if (chapterToRemove != null)
+            {
+                _context.Chapters.Remove(chapterToRemove);
+                _context.SaveChanges();
+            }
+        }
+
         public void IncreaseView(int Id)
         {
             Chapter chapter = _context.Chapters.FirstOrDefault(x => x.Id == Id);

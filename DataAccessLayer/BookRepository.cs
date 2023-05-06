@@ -41,7 +41,7 @@ namespace DataAccessLayer
         {
             List<Book> books = _context.Books.OrderByDescending(x => x.Views)
                                              .ThenByDescending(x => _context.Libraries.Where(s => s.BookId == x.Id).Count())
-                                             .ThenByDescending(x => _context.RatedBooks.Where(s => s.BookId == x.Id).Select(s => s.Rating).DefaultIfEmpty().Average())
+                                             .ThenByDescending(x => _context.RatedBooks.Where(s => s.BookId == x.Id).Select(s => s.Rating).DefaultIfEmpty(0).Average())
                                              .Take(6)
                                              .ToList();
             List<BookDTO> bookDTOs = new List<BookDTO>();

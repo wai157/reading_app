@@ -28,6 +28,17 @@ namespace DataAccessLayer
             return historyDTOs;
         }
 
+        public List<HistoryDTO> GetHistoryByBookId(int bookId)
+        {
+            List<History> histories = _context.Histories.Where(x => x.BookId == bookId).ToList();
+            List<HistoryDTO> historyDTOs = new List<HistoryDTO>();
+            foreach (History history in histories)
+            {
+                historyDTOs.Add(Mapper.ToHistoryDTO(history));
+            }
+            return historyDTOs;
+        }
+
         public void AddHistory(HistoryDTO historyDTO)
         {
             _context.Histories.Add(new History
