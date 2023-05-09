@@ -1,7 +1,7 @@
 ﻿
 namespace PresentationLayer
 {
-    partial class SearchResultScreen
+    partial class GeneralScreen
     {
         /// <summary> 
         /// Required designer variable.

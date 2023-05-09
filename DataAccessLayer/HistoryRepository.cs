@@ -23,16 +23,18 @@ namespace DataAccessLayer
             List<HistoryDTO> historyDTOs = new List<HistoryDTO>();
             foreach (History history in histories)
             {
-                historyDTOs.Add(new HistoryDTO
-                {
-                    Id = history.Id,
-                    AccountId = history.AccountId,
-                    BookId = history.BookId,
-                    ReadChapterIds = history.ReadChapterIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                                                           .ToList()
-                                                           .Select(int.Parse)
-                                                           .ToList()
-                });
+                historyDTOs.Add(Mapper.ToHistoryDTO(history));
+            }
+            return historyDTOs;
+        }
+
+        public List<HistoryDTO> GetHistoryByBookId(int bookId)
+        {
+            List<History> histories = _context.Histories.Where(x => x.BookId == bookId).ToList();
+            List<HistoryDTO> historyDTOs = new List<HistoryDTO>();
+            foreach (History history in histories)
+            {
+                historyDTOs.Add(Mapper.ToHistoryDTO(history));
             }
             return historyDTOs;
         }

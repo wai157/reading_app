@@ -98,9 +98,9 @@ namespace PresentationLayer
             // buttonSelectCover
             // 
             this.buttonSelectCover.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSelectCover.Location = new System.Drawing.Point(12, 249);
+            this.buttonSelectCover.Location = new System.Drawing.Point(12, 226);
             this.buttonSelectCover.Name = "buttonSelectCover";
-            this.buttonSelectCover.Size = new System.Drawing.Size(154, 30);
+            this.buttonSelectCover.Size = new System.Drawing.Size(156, 30);
             this.buttonSelectCover.TabIndex = 9;
             this.buttonSelectCover.Text = "Chọn bìa sách";
             this.buttonSelectCover.UseVisualStyleBackColor = true;
@@ -193,7 +193,7 @@ namespace PresentationLayer
             this.pictureBoxCover.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxCover.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxCover.Name = "pictureBoxCover";
-            this.pictureBoxCover.Size = new System.Drawing.Size(154, 231);
+            this.pictureBoxCover.Size = new System.Drawing.Size(156, 208);
             this.pictureBoxCover.TabIndex = 0;
             this.pictureBoxCover.TabStop = false;
             // 

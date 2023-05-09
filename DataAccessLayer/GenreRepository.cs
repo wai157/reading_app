@@ -23,11 +23,7 @@ namespace DataAccessLayer
             List<GenreDTO> genreDTOs = new List<GenreDTO>();
             foreach(Genre genre in genres)
             {
-                GenreDTO genreDTO = new GenreDTO
-                {
-                    Id = genre.Id,
-                    Name = genre.Name
-                };
+                GenreDTO genreDTO = Mapper.ToGenreDTO(genre);
                 genreDTOs.Add(genreDTO);
             }
             return genreDTOs;
@@ -36,12 +32,7 @@ namespace DataAccessLayer
         public GenreDTO GetGenreById(int Id)
         {
             Genre genre = _context.Genres.FirstOrDefault(x => x.Id == Id);
-            GenreDTO genreDTO = new GenreDTO
-            {
-                Id = genre.Id,
-                Name = genre.Name
-            };
-            return genreDTO;
+            return Mapper.ToGenreDTO(genre); 
         }
     }
 }

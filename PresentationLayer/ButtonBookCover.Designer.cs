@@ -40,7 +40,7 @@ namespace PresentationLayer
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 231);
+            this.button1.Size = new System.Drawing.Size(156, 208);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -53,7 +53,7 @@ namespace PresentationLayer
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ButtonBookCover";
-            this.Size = new System.Drawing.Size(154, 231);
+            this.Size = new System.Drawing.Size(156, 208);
             this.ResumeLayout(false);
 
         }

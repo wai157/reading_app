@@ -115,7 +115,7 @@ namespace PresentationLayer
             }
             else
             {
-                if (_accountManager.IsUsernameExist(textBoxUsername.Text) == true)
+                if (_accountManager.GetAccountByUsername(textBoxUsername.Text) != null)
                 {
                     labelError.Text = "Tên đăng nhập đã được sử dụng, vui lòng nhập tên khác!";
                 }

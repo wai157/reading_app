@@ -24,9 +24,25 @@ namespace BusinessLogicLayer
             return _bookRepository.GetBookById(Id);
         }
 
+        public List<BookDTO> GetBooksUploadById(int accountId)
+        {
+            return _bookRepository.GetBooksUploadById(accountId);
+        }
+
         public List<BookDTO> GetHotBooks()
         {
             return _bookRepository.GetHotBooks();
+        }
+
+        public List<BookDTO> GetBooksByGenreId(int genreId)
+        {
+            return _bookRepository.GetBooksByGenreId(genreId);
+        }
+
+        public List<BookDTO> GetBooksByAuthorName(string name)
+        {
+            int authorId = _authorRepository.GetAuthorByName(name).Id;
+            return _bookRepository.GetBooksByAuthorId(authorId);
         }
 
         public List<BookDTO> GetAllBooks()
@@ -57,9 +73,14 @@ namespace BusinessLogicLayer
             _bookRepository.DeleteBook(Id);
         }
 
-        public List<BookDTO> SearchBooks(string search)
+        public List<BookDTO> GetSearchBooks(string search)
         {
-            return _bookRepository.SearchBooks(search.ToLower().Trim());
+            return _bookRepository.GetSearchBooks(search.ToLower().Trim());
+        }
+
+        public void IncreaseView(int Id)
+        {
+            _bookRepository.IncreaseView(Id);
         }
     }
 }

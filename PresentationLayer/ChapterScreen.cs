@@ -18,18 +18,23 @@ namespace PresentationLayer
         private readonly BookDTO _book;
         private readonly ChapterDTO _chapter;
         private HistoryDTO _history;
-        private HistoryManager _historyManager;
+        private readonly HistoryManager _historyManager;
+        private readonly BookManager _bookManager;
+        private readonly ChapterManager _chapterManager;
         public ChapterScreen(AccountDTO logInAccount, BookDTO book, ChapterDTO chapter)
         {
             InitializeComponent();
             _historyManager = new HistoryManager();
+            _bookManager = new BookManager();
+            _chapterManager = new ChapterManager();
             _logInAccount = logInAccount;
             _book = book;
             _chapter = chapter;
-            labelTitle.Text = book.Name + " - Chương " + chapter.No.ToString();
+            labelTitle.Text = book.Name + " - Chương " + chapter.No.ToString() + ": " + chapter.Title;
             labelContent.Text = chapter.Content;
             _book.Views += 1;
-            _chapter.Views += 1;
+            _bookManager.IncreaseView(_book.Id);
+            _chapterManager.IncreaseView(_chapter.Id);
             _history = _historyManager.GetHistoryOfBook(_logInAccount.Id, _book.Id);
             if (_history != null)
             {

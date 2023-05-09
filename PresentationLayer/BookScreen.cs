@@ -19,10 +19,11 @@ namespace PresentationLayer
         private readonly GenreManager _genreManager;
         private readonly HistoryManager _historyManager;
         private readonly LibraryManager _libraryManager;
+        private readonly RatedBookManager _ratedBookManager;
         private readonly AccountDTO _logInAccount;
         private readonly BookDTO _book;
         private readonly HistoryDTO _history;
-        private readonly LibraryDTO _library;
+        private LibraryDTO _library;
         public BookScreen(AccountDTO logInAccount, BookDTO book)
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace PresentationLayer
             _genreManager = new GenreManager();
             _historyManager = new HistoryManager();
             _libraryManager = new LibraryManager();
+            _ratedBookManager = new RatedBookManager();
             _logInAccount = logInAccount;
 
             if (book != null)
@@ -41,9 +43,9 @@ namespace PresentationLayer
                 labelRating.Text = $"Đánh giá: {book.Rating}";
                 labelFollowed.Text = $"Lượt theo dõi: {book.Follows}";
                 labelName.Text = book.Name;
-                labelAuthor.Text = "Tác giả: " + book.Author;
+                linkLabelAuthor.Text = book.Author;
                 labelDescription.Text = "Nội dung: " + book.Description;
-                labelGenres.Text = "Thể loại: " + _genreManager.GetGenreById(book.GenreId).Name;
+                linkLabelGenre.Text = _genreManager.GetGenreById(book.GenreId).Name;
                 if (_logInAccount.RoleID == 1)
                 {
                     this.flowLayoutPanelChapters.Controls.Add(this.buttonAddChap);
@@ -65,7 +67,7 @@ namespace PresentationLayer
                 foreach (ChapterDTO chapter in chapters)
                 {
 
-                    ButtonChapter buttonChapter = new ButtonChapter(book, chapter)
+                    ButtonChapter buttonChapter = new ButtonChapter(_logInAccount.Id, book, chapter)
                     {
                         Location = new Point(X, Y)
                     };
@@ -88,6 +90,9 @@ namespace PresentationLayer
                 {
                     _library = null;
                 }
+
+                double rating = _ratedBookManager.GetRatingListByBookId(_book.Id, out int count);
+                this.labelRating.Text = "Đánh giá: " + rating.ToString("F1") + "/5 (" + count.ToString() + " lượt)";
             }
         }
 
@@ -142,13 +147,53 @@ namespace PresentationLayer
             if (_library == null)
             {
                 _libraryManager.AddLibrary(_logInAccount.Id, _book.Id);
+                _library = _libraryManager.GetLibraryByAccountId(_logInAccount.Id).FirstOrDefault(x => x.BookId == _book.Id);
+                btdFollow.Text = "Hủy theo dõi";
+                _book.Follows += 1;
             }
             else
             {
                 _libraryManager.DeleteLibrary(_library.Id);
+                _library = null;
+                btdFollow.Text = "Theo dõi";
+                _book.Follows -= 1;
             }
-            BookScreen bookScreen = new BookScreen(_logInAccount, _book);
-            Utils.ShowScreen(ParentForm, bookScreen);
+            labelFollowed.Text = "Lượt theo dõi: " + _book.Follows;
+        }
+
+        private void linkLabelGenre_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            GeneralScreen searchResultScreen = new GeneralScreen(1, _book.GenreId.ToString());
+            Utils.ShowScreen(ParentForm, searchResultScreen);
+        }
+
+        private void linkLabelAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            GeneralScreen searchResultScreen = new GeneralScreen(2, _book.Author);
+            Utils.ShowScreen(ParentForm, searchResultScreen);
+        }
+
+        private void linkLabelReport_Click(object sender, EventArgs e)
+        {
+            using (FormReport formReport = new FormReport(_logInAccount.Id, _book.Id))
+            {
+                formReport.ShowDialog();
+            }
+        }
+
+        private void buttonRate_Click(object sender, EventArgs e)
+        {
+            using (FormRating formRating = new FormRating(_logInAccount.Id, _book.Id))
+            {
+                formRating.Location = new Point(this.panel2.Location.X + 108, this.panel2.Location.Y + 490);
+                formRating.ShowDialog();
+                if (formRating.DialogResult == DialogResult.OK)
+                {
+                    double rating = _ratedBookManager.GetRatingListByBookId(_book.Id, out int count);
+                    this.labelRating.Text = "Đánh giá: " + rating.ToString("F1") + "/5 (" + count.ToString() + " lượt)";
+                }
+            }
+            
         }
     }
 }

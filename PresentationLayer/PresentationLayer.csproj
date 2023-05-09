@@ -61,6 +61,12 @@
     <Compile Include="AdminScreen.Designer.cs">
       <DependentUpon>AdminScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBookReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBookReportView.Designer.cs">
+      <DependentUpon>FormBookReportView.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -91,11 +97,23 @@
     <Compile Include="ChapterScreen.Designer.cs">
       <DependentUpon>ChapterScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="ForgotPasswordScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ForgotPasswordScreen.Designer.cs">
+      <DependentUpon>ForgotPasswordScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormEditBook.Designer.cs">
       <DependentUpon>FormEditBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditChap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditChap.Designer.cs">
+      <DependentUpon>FormEditChap.cs</DependentUpon>
     </Compile>
     <Compile Include="FormEditUserInfo.cs">
       <SubType>Form</SubType>
@@ -115,11 +133,29 @@
     <Compile Include="FormAddChap.Designer.cs">
       <DependentUpon>FormAddChap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRating.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRating.Designer.cs">
+      <DependentUpon>FormRating.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReadingApp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormReadingApp.Designer.cs">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResetPassword.Designer.cs">
+      <DependentUpon>FormResetPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Header.cs">
       <SubType>UserControl</SubType>
@@ -147,11 +183,11 @@
     <Compile Include="RegisterScreen.Designer.cs">
       <DependentUpon>RegisterScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchResultScreen.cs">
+    <Compile Include="GeneralScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SearchResultScreen.Designer.cs">
-      <DependentUpon>SearchResultScreen.cs</DependentUpon>
+    <Compile Include="GeneralScreen.Designer.cs">
+      <DependentUpon>GeneralScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserProfileScreen.cs">
       <SubType>UserControl</SubType>
@@ -178,8 +214,17 @@
     <EmbeddedResource Include="ChapterScreen.resx">
       <DependentUpon>ChapterScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPasswordScreen.resx">
+      <DependentUpon>ForgotPasswordScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBookReportView.resx">
+      <DependentUpon>FormBookReportView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditBook.resx">
       <DependentUpon>FormEditBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditChap.resx">
+      <DependentUpon>FormEditChap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditUserInfo.resx">
       <DependentUpon>FormEditUserInfo.cs</DependentUpon>
@@ -190,8 +235,17 @@
     <EmbeddedResource Include="FormAddChap.resx">
       <DependentUpon>FormAddChap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRating.resx">
+      <DependentUpon>FormRating.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReadingApp.resx">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResetPassword.resx">
+      <DependentUpon>FormResetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Header.resx">
       <DependentUpon>Header.cs</DependentUpon>
@@ -210,8 +264,8 @@
     <EmbeddedResource Include="RegisterScreen.resx">
       <DependentUpon>RegisterScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchResultScreen.resx">
-      <DependentUpon>SearchResultScreen.cs</DependentUpon>
+    <EmbeddedResource Include="GeneralScreen.resx">
+      <DependentUpon>GeneralScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserProfileScreen.resx">
       <DependentUpon>UserProfileScreen.cs</DependentUpon>
@@ -281,6 +335,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\back-vector-icon-256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star_empty.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star_fill.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,27 +24,11 @@ namespace DataAccessLayer
         public AccountDTO GetAccountById(int Id)
         {
             Account account = _context.Accounts.First(x => x.Id == Id);
-            AccountDTO accountDTO = new AccountDTO
-            {
-                Id = account.Id,
-                Username = account.Username,
-                Email = account.Email,
-                Password = account.Password,
-                RoleID = account.RoleId
-            };
-            return accountDTO;
+            return Mapper.ToAccountDTO(account);
         }
-        public int IsExistByUsername(string username)
+        public AccountDTO GetAccountByUsername(string username)
         {
-            try 
-            {
-                Account account = _context.Accounts.First(x => x.Username == username);
-                return account.Id;
-            }
-            catch (InvalidOperationException e)
-            {
-                return -1;
-            }
+            return Mapper.ToAccountDTO(_context.Accounts.FirstOrDefault(x => x.Username == username));
         }
 
         public void AddAccount(AccountDTO registerAccount)
@@ -59,9 +43,13 @@ namespace DataAccessLayer
             _context.SaveChanges();
             _context.UserInfoes.Add(new UserInfo
             {
-                Id = IsExistByUsername(registerAccount.Username),
+                Id = GetAccountByUsername(registerAccount.Username).Id,
                 Avatar = Extensions.ImageToByteArray(Resources._634011),
                 DOB = new DateTime(1945, 09, 02)
+            });
+            _context.Verifications.Add(new Verification
+            {
+                Id = GetAccountByUsername(registerAccount.Username).Id
             });
             _context.SaveChanges();
         }
@@ -72,44 +60,10 @@ namespace DataAccessLayer
             List<AccountDTO> accountDTOs = new List<AccountDTO>();
             foreach (Account account in accounts)
             {
-                AccountDTO accountDTO = new AccountDTO
-                {
-                    Id = account.Id,
-                    Username = account.Username,
-                    Email = account.Email,
-                    Password = account.Password,
-                    RoleID = account.RoleId
-                };
+                AccountDTO accountDTO = Mapper.ToAccountDTO(account);
                 accountDTOs.Add(accountDTO);
             }
             return accountDTOs;
-        }
-
-        public UserInfoDTO GetUserInfo(int accountId)
-        {
-            UserInfo userInfo = _context.UserInfoes.Find(accountId);
-            UserInfoDTO userInfoDTO = new UserInfoDTO();
-            if (userInfo != null)
-            {
-                userInfoDTO.Id = userInfo.Id;
-                userInfoDTO.Name = userInfo.Name;
-                userInfoDTO.Avatar = userInfo.Avatar;
-                userInfoDTO.Sex = userInfo.Sex;
-                userInfoDTO.DOB = userInfo.DOB;
-            }
-            return userInfoDTO;
-        }
-
-        public void UpdateUserInfo(AccountDTO updatedAccount, UserInfoDTO updatedUserInfo)
-        {
-            UserInfo userInfo = _context.UserInfoes.First(x => x.Id == updatedUserInfo.Id);
-            Account account = _context.Accounts.First(x => x.Id == updatedAccount.Id);
-            userInfo.Name = updatedUserInfo.Name;
-            userInfo.Avatar = updatedUserInfo.Avatar;
-            userInfo.Sex = updatedUserInfo.Sex;
-            userInfo.DOB = updatedUserInfo.DOB;
-            account.RoleId = updatedAccount.RoleID;
-            _context.SaveChanges();
         }
 
         public void DeleteAccount(int Id)
@@ -130,6 +84,38 @@ namespace DataAccessLayer
                 account.Password = newPass;
                 _context.SaveChanges();
             }
+        }
+
+        public UserInfoDTO GetUserInfo(int accountId)
+        {
+            UserInfo userInfo = _context.UserInfoes.First(x => x.Id == accountId);
+            return Mapper.ToUserInfoDTO(userInfo);
+        }
+
+        public void UpdateUserInfo(AccountDTO updatedAccount, UserInfoDTO updatedUserInfo)
+        {
+            UserInfo userInfo = _context.UserInfoes.First(x => x.Id == updatedUserInfo.Id);
+            Account account = _context.Accounts.First(x => x.Id == updatedAccount.Id);
+            userInfo.Name = updatedUserInfo.Name;
+            userInfo.Avatar = updatedUserInfo.Avatar;
+            userInfo.Sex = updatedUserInfo.Sex;
+            userInfo.DOB = updatedUserInfo.DOB;
+            account.RoleId = updatedAccount.RoleID;
+            _context.SaveChanges();
+        }
+
+        public VerificationDTO GetVerification(int accountId)
+        {
+            Verification verification = _context.Verifications.First(x => x.Id == accountId);
+            return Mapper.ToVerificationDTO(verification);
+        }
+
+        public void UpdateVerification(VerificationDTO updatedVerification)
+        {
+            Verification verification = _context.Verifications.First(x => x.Id == updatedVerification.Id);
+            verification.Code = updatedVerification.Code;
+            verification.RequestedDateTime = updatedVerification.RequestedDateTime;
+            _context.SaveChanges();
         }
     }
 }

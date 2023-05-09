@@ -54,13 +54,9 @@ namespace BusinessLogicLayer
             _repository.UpdateUserInfo(updatedAccount, updatedUserInfo);
         }
 
-        public bool IsUsernameExist(string username)
+        public AccountDTO GetAccountByUsername(string username)
         {
-            if(_repository.IsExistByUsername(username) == -1)
-            {
-                return false;
-            }
-            return true;
+            return _repository.GetAccountByUsername(username);
         }
 
         public void DeleteAccount(int Id)
@@ -76,6 +72,43 @@ namespace BusinessLogicLayer
             }
             _repository.ChangePassword(Id, Extensions.GetSHA256Hash(newPass));
             return true;
+        }
+
+        public bool SendCode(string username)
+        {
+            AccountDTO account = _repository.GetAccountByUsername(username);
+            if (account != null)
+            {
+                string address = account.Email;
+                EmailService emailService = new EmailService();
+                int code = emailService.SendEmail(address);
+                DateTime requestedDateTime = DateTime.Now;
+                _repository.UpdateVerification(new VerificationDTO
+                {
+                    Id = account.Id,
+                    Code = code,
+                    RequestedDateTime = requestedDateTime
+                });
+                return true;
+            }
+            return false;
+        }
+
+        public bool VerifyCode(string username, string code)
+        {
+            AccountDTO account = _repository.GetAccountByUsername(username);
+            VerificationDTO verification = _repository.GetVerification(account.Id);
+            TimeSpan diff = DateTime.Now - verification.RequestedDateTime;
+            if (verification.Code.ToString() == code && diff.TotalMinutes <= 30)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void ResetPassword(int Id, string newPass)
+        {
+            _repository.ChangePassword(Id, Extensions.GetSHA256Hash(newPass));
         }
     }
 }

@@ -31,5 +31,20 @@ namespace BusinessLogicLayer
         {
             _repository.AddChapter(chapter);
         }
+
+        public void UpdateChapter(ChapterDTO chapter)
+        {
+            _repository.UpdateChapter(chapter);
+        }
+
+        public void DeleteChapter(int chapterId)
+        {
+            _repository.DeleteChapter(chapterId);
+        }
+
+        public void IncreaseView(int Id)
+        {
+            _repository.IncreaseView(Id);
+        }
     }
 }

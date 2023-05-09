@@ -23,12 +23,7 @@ namespace DataAccessLayer
             List<LibraryDTO> libraryDTOs = new List<LibraryDTO>();
             foreach (Library library in libraries)
             {
-                libraryDTOs.Add(new LibraryDTO
-                {
-                    Id = library.Id,
-                    AccountId = library.AccountId,
-                    BookId = library.BookId
-                });
+                libraryDTOs.Add(Mapper.ToLibraryDTO(library));
             }
             return libraryDTOs;
         }

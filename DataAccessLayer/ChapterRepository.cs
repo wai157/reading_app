@@ -22,16 +22,7 @@ namespace DataAccessLayer
             Chapter chapter = _context.Chapters.FirstOrDefault(x => x.Id == Id);
             if (chapter != null)
             {
-                return new ChapterDTO
-                {
-                    Id = chapter.Id,
-                    No = chapter.No,
-                    Title = chapter.Title,
-                    Content = chapter.Content,
-                    BookId = chapter.BookId,
-                    Views = chapter.Views,
-                    Likes = chapter.Likes
-                };
+                return Mapper.ToChapterDTO(chapter);
             }
             return null;
         }
@@ -44,16 +35,7 @@ namespace DataAccessLayer
             List<ChapterDTO> chapterDTOs = new List<ChapterDTO>();
             foreach(Chapter chapter in chapters)
             {
-                ChapterDTO chapterDTO = new ChapterDTO
-                {
-                    Id = chapter.Id,
-                    No = chapter.No,
-                    Title = chapter.Title,
-                    Content = chapter.Content,
-                    BookId = chapter.BookId,
-                    Views = chapter.Views,
-                    Likes = chapter.Likes
-                };
+                ChapterDTO chapterDTO = Mapper.ToChapterDTO(chapter);
                 chapterDTOs.Add(chapterDTO);
             }
 
@@ -69,6 +51,35 @@ namespace DataAccessLayer
                 Content = chapter.Content,
                 BookId = chapter.BookId,
             });
+            _context.SaveChanges();
+        }
+
+        public void UpdateChapter(ChapterDTO chapterDTO)
+        {
+            Chapter chapterToUpdate = _context.Chapters.FirstOrDefault(x => x.Id == chapterDTO.Id);
+            if (chapterToUpdate != null)
+            {
+                chapterToUpdate.No = chapterDTO.No;
+                chapterToUpdate.Title = chapterDTO.Title;
+                chapterToUpdate.Content = chapterDTO.Content;
+                _context.SaveChanges();
+            }
+        }
+
+        public void DeleteChapter(int chapterId)
+        {
+            Chapter chapterToRemove = _context.Chapters.FirstOrDefault(x => x.Id == chapterId);
+            if (chapterToRemove != null)
+            {
+                _context.Chapters.Remove(chapterToRemove);
+                _context.SaveChanges();
+            }
+        }
+
+        public void IncreaseView(int Id)
+        {
+            Chapter chapter = _context.Chapters.FirstOrDefault(x => x.Id == Id);
+            chapter.Views += 1;
             _context.SaveChanges();
         }
     }

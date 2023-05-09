@@ -48,5 +48,18 @@ namespace BusinessLogicLayer
             history.ReadChapterIds.Add(chapterId);
             _repository.UpdateHistory(history);
         }
+
+        public void DeleteFromHistory(int bookId, int chapterId)
+        {
+            List<HistoryDTO> historyDTOs = _repository.GetHistoryByBookId(bookId);
+            foreach (HistoryDTO history in historyDTOs)
+            {
+                if (history.ReadChapterIds.Contains(chapterId))
+                {
+                    history.ReadChapterIds.Remove(chapterId);
+                    _repository.UpdateHistory(history);
+                }
+            }
+        }
     }
 }

@@ -103,12 +103,14 @@
   <ItemGroup>
     <Compile Include="AccountRepository.cs" />
     <Compile Include="AuthorRepository.cs" />
+    <Compile Include="BookReportRepository.cs" />
     <Compile Include="BookRepository.cs" />
     <Compile Include="ChapterRepository.cs" />
     <Compile Include="DbCreate.cs" />
     <Compile Include="GenreRepository.cs" />
     <Compile Include="HistoryRepository.cs" />
     <Compile Include="LibraryRepository.cs" />
+    <Compile Include="Mapper.cs" />
     <Compile Include="Migrations\202304161034010_initial.cs" />
     <Compile Include="Migrations\202304161034010_initial.designer.cs">
       <DependentUpon>202304161034010_initial.cs</DependentUpon>
@@ -125,6 +127,26 @@
     <Compile Include="Migrations\202304211345423_initial3.designer.cs">
       <DependentUpon>202304211345423_initial3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304251731176_initial4.cs" />
+    <Compile Include="Migrations\202304251731176_initial4.designer.cs">
+      <DependentUpon>202304251731176_initial4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304260309105_initial5.cs" />
+    <Compile Include="Migrations\202304260309105_initial5.designer.cs">
+      <DependentUpon>202304260309105_initial5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305031717483_initial6.cs" />
+    <Compile Include="Migrations\202305031717483_initial6.designer.cs">
+      <DependentUpon>202305031717483_initial6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305041932092_initial7.cs" />
+    <Compile Include="Migrations\202305041932092_initial7.designer.cs">
+      <DependentUpon>202305041932092_initial7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305051721541_initial8.cs" />
+    <Compile Include="Migrations\202305051721541_initial8.designer.cs">
+      <DependentUpon>202305051721541_initial8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PBL3DbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +155,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RatedBookRepository.cs" />
+    <Compile Include="VerificationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -167,6 +191,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304211345423_initial3.resx">
       <DependentUpon>202304211345423_initial3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304251731176_initial4.resx">
+      <DependentUpon>202304251731176_initial4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304260309105_initial5.resx">
+      <DependentUpon>202304260309105_initial5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305031717483_initial6.resx">
+      <DependentUpon>202305031717483_initial6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305041932092_initial7.resx">
+      <DependentUpon>202305041932092_initial7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305051721541_initial8.resx">
+      <DependentUpon>202305051721541_initial8.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

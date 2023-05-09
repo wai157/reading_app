@@ -21,40 +21,59 @@ namespace DataAccessLayer
         public BookDTO GetBookById(int Id)
         {
             Book book = _context.Books.First(x => x.Id == Id);
-            return new BookDTO
+            return Mapper.ToBookDTO(book);
+        }
+
+        public List<BookDTO> GetBooksUploadById(int accountId)
+        {
+            List<Book> books = _context.Books.Where(x => x.AccountId == accountId)
+                                             .ToList();
+            List<BookDTO> bookDTOs = new List<BookDTO>();
+            foreach (Book book in books)
             {
-                Id = book.Id,
-                Name = book.Name,
-                BookCover = book.Cover,
-                Author = _context.Authors.First(x => x.Id == book.AuthorId).Name,
-                UploadAccountId = book.AccountId,
-                Description = book.Description,
-                GenreId = book.GenreId,
-                Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count()
-            };
+                BookDTO bookDTO = Mapper.ToBookDTO(book);
+                bookDTOs.Add(bookDTO);
+            }
+            return bookDTOs;
         }
 
         public List<BookDTO> GetHotBooks()
         {
             List<Book> books = _context.Books.OrderByDescending(x => x.Views)
-                                             .ThenByDescending(x => x.Likes)
-                                             .ThenByDescending(x => x.Rating)
+                                             .ThenByDescending(x => _context.Libraries.Where(s => s.BookId == x.Id).Count())
+                                             .ThenByDescending(x => _context.RatedBooks.Where(s => s.BookId == x.Id).Select(s => s.Rating).DefaultIfEmpty(0).Average())
                                              .Take(6)
                                              .ToList();
             List<BookDTO> bookDTOs = new List<BookDTO>();
             foreach(Book book in books)
             {
-                BookDTO bookDTO = new BookDTO
-                {
-                    Id = book.Id,
-                    Name = book.Name,
-                    BookCover = book.Cover,
-                    Author = _context.Authors.First(x => x.Id == book.AuthorId).Name,
-                    UploadAccountId = book.AccountId,
-                    Description = book.Description,
-                    GenreId = book.GenreId,
-                    Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count()
-                };
+                BookDTO bookDTO = Mapper.ToBookDTO(book);
+                bookDTOs.Add(bookDTO);
+            }
+            return bookDTOs;
+        }
+
+        public List<BookDTO> GetBooksByGenreId(int genreId)
+        {
+            List<Book> books = _context.Books.Where(x => x.GenreId == genreId)
+                                             .ToList();
+            List<BookDTO> bookDTOs = new List<BookDTO>();
+            foreach (Book book in books)
+            {
+                BookDTO bookDTO = Mapper.ToBookDTO(book);
+                bookDTOs.Add(bookDTO);
+            }
+            return bookDTOs;
+        }
+
+        public List<BookDTO> GetBooksByAuthorId(int authorId)
+        {
+            List<Book> books = _context.Books.Where(x => x.AuthorId == authorId)
+                                             .ToList();
+            List<BookDTO> bookDTOs = new List<BookDTO>();
+            foreach (Book book in books)
+            {
+                BookDTO bookDTO = Mapper.ToBookDTO(book);
                 bookDTOs.Add(bookDTO);
             }
             return bookDTOs;
@@ -66,17 +85,7 @@ namespace DataAccessLayer
             List<BookDTO> bookDTOs = new List<BookDTO>();
             foreach (Book book in books)
             {
-                BookDTO bookDTO = new BookDTO
-                {
-                    Id = book.Id,
-                    Name = book.Name,
-                    BookCover = book.Cover,
-                    Author = _context.Authors.First(x => x.Id == book.AuthorId).Name,
-                    UploadAccountId = book.AccountId,
-                    Description = book.Description,
-                    GenreId = book.GenreId,
-                    Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count()
-                };
+                BookDTO bookDTO = Mapper.ToBookDTO(book);
                 bookDTOs.Add(bookDTO);
             }
             return bookDTOs;
@@ -119,26 +128,23 @@ namespace DataAccessLayer
             }
         }
 
-        public List<BookDTO> SearchBooks(string search)
+        public List<BookDTO> GetSearchBooks(string search)
         {
             List<Book> books = _context.Books.Where(x => x.Name.ToLower().Contains(search)).ToList();
             List<BookDTO> bookDTOs = new List<BookDTO>();
             foreach (Book book in books)
             {
-                BookDTO bookDTO = new BookDTO
-                {
-                    Id = book.Id,
-                    Name = book.Name,
-                    BookCover = book.Cover,
-                    Author = _context.Authors.First(x => x.Id == book.AuthorId).Name,
-                    UploadAccountId = book.AccountId,
-                    Description = book.Description,
-                    GenreId = book.GenreId,
-                    Follows = _context.Libraries.Where(x => x.BookId == book.Id).Count()
-                };
+                BookDTO bookDTO = Mapper.ToBookDTO(book);
                 bookDTOs.Add(bookDTO);
             }
             return bookDTOs;
+        }
+
+        public void IncreaseView(int Id)
+        {
+            Book book = _context.Books.FirstOrDefault(x => x.Id == Id);
+            book.Views += 1;
+            _context.SaveChanges();
         }
     }
 }

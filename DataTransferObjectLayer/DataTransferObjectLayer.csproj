@@ -52,7 +52,9 @@
     <Compile Include="LibraryDTO.cs" />
     <Compile Include="NotificationDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatedBookDTO.cs" />
     <Compile Include="UserInfoDTO.cs" />
+    <Compile Include="VerificationDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

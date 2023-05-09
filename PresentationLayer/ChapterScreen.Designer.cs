@@ -84,10 +84,10 @@ namespace PresentationLayer
             this.labelContent.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelContent.Location = new System.Drawing.Point(20, 70);
             this.labelContent.MaximumSize = new System.Drawing.Size(984, 0);
-            this.labelContent.MinimumSize = new System.Drawing.Size(984, 540);
+            this.labelContent.MinimumSize = new System.Drawing.Size(984, 0);
             this.labelContent.Name = "labelContent";
             this.labelContent.Padding = new System.Windows.Forms.Padding(10);
-            this.labelContent.Size = new System.Drawing.Size(984, 540);
+            this.labelContent.Size = new System.Drawing.Size(984, 82);
             this.labelContent.TabIndex = 2;
             this.labelContent.Text = "Line1\nLine2";
             // 
@@ -104,7 +104,7 @@ namespace PresentationLayer
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(20, 3);
-            this.labelTitle.MaximumSize = new System.Drawing.Size(984, 60);
+            this.labelTitle.MaximumSize = new System.Drawing.Size(984, 0);
             this.labelTitle.MinimumSize = new System.Drawing.Size(984, 60);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);

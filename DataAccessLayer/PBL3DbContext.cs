@@ -19,6 +19,7 @@ namespace DataAccessLayer
 
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<UserInfo> UserInfoes { get; set; }
+        public virtual DbSet<Verification> Verifications { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Genre> Genres { get; set; }
@@ -27,11 +28,15 @@ namespace DataAccessLayer
         public virtual DbSet<History> Histories { get; set; }
         public virtual DbSet<Library> Libraries { get; set; }
         public virtual DbSet<RatedBook> RatedBooks { get; set; }
+        public virtual DbSet<BookReport> BookReports { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Account>()
                         .HasOptional(s => s.UserInfo)
+                        .WithRequired(ad => ad.Account);
+            modelBuilder.Entity<Account>()
+                        .HasOptional(s => s.Verification)
                         .WithRequired(ad => ad.Account);
         }
     }

@@ -16,9 +16,11 @@ namespace EntityLayer
         public int RoleId { get; set; }
 
         public virtual UserInfo UserInfo { get; set; }
+        public virtual Verification Verification { get; set; }
         public virtual Role Role { get; set; }
         public virtual List<History> Histories { get; set; }
         public virtual List<Library> Libraries { get; set; }
         public virtual List<RatedBook> RatedBooks { get; set; }
+        public virtual List<BookReport> BookReports { get; set; }
     }
 }
