@@ -58,7 +58,7 @@ namespace DataAccessLayer
         {
             List<Account> accounts = _context.Accounts.ToList();
             List<AccountDTO> accountDTOs = new List<AccountDTO>();
-            foreach (Account account in accounts)
+            foreach(Account account in accounts)
             {
                 AccountDTO accountDTO = Mapper.ToAccountDTO(account);
                 accountDTOs.Add(accountDTO);
