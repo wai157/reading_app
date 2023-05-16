@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataTransferObjectLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,14 +21,15 @@ namespace PresentationLayer
         private void buttonHome_Click(object sender, EventArgs e)
         {
             FormReadingApp formReadingApp = ParentForm as FormReadingApp;
-            if (formReadingApp.LogInAccountDTO.RoleID == 1)
+            AccountDTO logInAccount = formReadingApp.LogInAccountDTO;
+            if (logInAccount.RoleID == 1)
             {
-                AdminScreen adminScreen = new AdminScreen(formReadingApp.LogInAccountDTO);
+                AdminScreen adminScreen = new AdminScreen(logInAccount);
                 Utils.ShowScreen(ParentForm, adminScreen);
             }
-            else if (formReadingApp.LogInAccountDTO.RoleID == 3)
+            else if (logInAccount.RoleID == 3)
             {
-                MainScreen mainScreen = new MainScreen(formReadingApp.LogInAccountDTO);
+                MainScreen mainScreen = new MainScreen(logInAccount);
                 Utils.ShowScreen(ParentForm, mainScreen);
             }
         }
@@ -63,6 +65,34 @@ namespace PresentationLayer
             {
                 GeneralScreen searchResultScreen = new GeneralScreen(0, textBoxSearch.Text);
                 Utils.ShowScreen(ParentForm, searchResultScreen);
+            }
+        }
+
+        private void buttonNotification_Click(object sender, EventArgs e)
+        {
+            bool opened = false;
+            foreach (Control childControl in ParentForm.Controls)
+            {
+                if (childControl is FormNotifications childForm)
+                {
+                    childForm.Close();
+                    childForm.Dispose();
+                    opened = true;
+                    break;
+                }
+            }
+            if (!opened)
+            {
+                FormReadingApp formReadingApp = ParentForm as FormReadingApp;
+                AccountDTO logInAccount = formReadingApp.LogInAccountDTO;
+                FormNotifications formNotifications = new FormNotifications(logInAccount.Id)
+                {
+                    TopLevel = false
+                };
+                ParentForm.Controls.Add(formNotifications);
+                formNotifications.BringToFront();
+                formNotifications.Location = new Point(this.buttonNotification.Location.X-363, 62);
+                formNotifications.Show();
             }
         }
     }

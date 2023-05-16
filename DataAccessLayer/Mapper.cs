@@ -151,5 +151,17 @@ namespace DataAccessLayer
                 Rating = ratedBook.Rating
             };
         }
+
+        public static NotificationDTO ToNotificationDTO(Notification notification)
+        {
+            if (notification == null) return null;
+            return new NotificationDTO
+            {
+                Id = notification.Id,
+                AccountID = notification.AccountId,
+                BookID = notification.BookId,
+                Content = notification.Content
+            };
+        }
     }
 }

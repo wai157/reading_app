@@ -29,6 +29,7 @@ namespace DataAccessLayer
         public virtual DbSet<Library> Libraries { get; set; }
         public virtual DbSet<RatedBook> RatedBooks { get; set; }
         public virtual DbSet<BookReport> BookReports { get; set; }
+        public virtual DbSet<Notification> Notifications { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

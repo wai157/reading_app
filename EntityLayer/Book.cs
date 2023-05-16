@@ -27,5 +27,6 @@ namespace EntityLayer
         public virtual List<Library> Libraries { get; set; }
         public virtual List<RatedBook> RatedBooks { get; set; }
         public virtual List<BookReport> BookReports { get; set; }
+        public virtual List<Notification> Notifications { get; set; }
     }
 }

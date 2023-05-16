@@ -31,6 +31,7 @@ namespace PresentationLayer
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.buttonNotification = new System.Windows.Forms.Button();
             this.buttonHome = new System.Windows.Forms.Button();
             this.buttonUserProfile = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@ namespace PresentationLayer
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.buttonNotification);
             this.panel1.Controls.Add(this.buttonHome);
             this.panel1.Controls.Add(this.buttonUserProfile);
             this.panel1.Controls.Add(this.buttonSearch);
@@ -63,6 +65,18 @@ namespace PresentationLayer
             this.textBoxSearch.Text = " Tìm Kiếm";
             this.textBoxSearch.GotFocus += new System.EventHandler(this.textBoxSearch_RemoveText);
             this.textBoxSearch.LostFocus += new System.EventHandler(this.textBoxSearch_AddText);
+            // 
+            // buttonNotification
+            // 
+            this.buttonNotification.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonNotification.BackgroundImage = global::PresentationLayer.Properties.Resources.bell1;
+            this.buttonNotification.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonNotification.Location = new System.Drawing.Point(1075, 12);
+            this.buttonNotification.Name = "buttonNotification";
+            this.buttonNotification.Size = new System.Drawing.Size(47, 47);
+            this.buttonNotification.TabIndex = 4;
+            this.buttonNotification.UseVisualStyleBackColor = true;
+            this.buttonNotification.Click += new System.EventHandler(this.buttonNotification_Click);
             // 
             // buttonHome
             // 
@@ -125,5 +139,6 @@ namespace PresentationLayer
         private System.Windows.Forms.Button buttonUserProfile;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Button buttonNotification;
     }
 }

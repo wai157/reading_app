@@ -16,12 +16,14 @@ namespace PresentationLayer
     public partial class FormAddChap : Form
     {
         private readonly ChapterManager _chapterManager;
+        private readonly NotificationManager _notificationManager;
         private readonly ChapterDTO _chapter;
         private readonly BookDTO _book;
         public FormAddChap(BookDTO book)
         {
             InitializeComponent();
             _chapterManager = new ChapterManager();
+            _notificationManager = new NotificationManager();
             _chapter = new ChapterDTO();
             _book = book;
         }
@@ -79,6 +81,7 @@ namespace PresentationLayer
                     _chapter.BookId = _book.Id;
                     _chapterManager.AddChapter(_chapter);
                     MessageBox.Show("Thêm chương sách thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _notificationManager.AddNotification(2, _book.Id);
                     e.Cancel = false;
                     this.Dispose();
                 }

@@ -133,6 +133,12 @@
     <Compile Include="FormAddChap.Designer.cs">
       <DependentUpon>FormAddChap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNotifications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNotifications.Designer.cs">
+      <DependentUpon>FormNotifications.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRating.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,12 @@
     </Compile>
     <Compile Include="MainScreen.Designer.cs">
       <DependentUpon>MainScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonNotification.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ButtonNotification.Designer.cs">
+      <DependentUpon>ButtonNotification.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -235,6 +247,9 @@
     <EmbeddedResource Include="FormAddChap.resx">
       <DependentUpon>FormAddChap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNotifications.resx">
+      <DependentUpon>FormNotifications.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRating.resx">
       <DependentUpon>FormRating.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ButtonNotification.resx">
+      <DependentUpon>ButtonNotification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -344,6 +362,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\star_fill.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bell1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\belldot.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

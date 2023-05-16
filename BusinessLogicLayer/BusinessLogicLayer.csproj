@@ -52,6 +52,7 @@
     <Compile Include="GenreManager.cs" />
     <Compile Include="HistoryManager.cs" />
     <Compile Include="LibraryManager.cs" />
+    <Compile Include="NotificationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RatedBookManager.cs" />
   </ItemGroup>

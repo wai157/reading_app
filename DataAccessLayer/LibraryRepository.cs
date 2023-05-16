@@ -28,6 +28,11 @@ namespace DataAccessLayer
             return libraryDTOs;
         }
 
+        public List<int> GetFollowedIds(int bookId)
+        {
+            return _context.Libraries.Where(x => x.BookId == bookId).Select(x => x.AccountId).ToList();
+        }
+
         public void AddLibrary(LibraryDTO libraryDTO)
         {
             _context.Libraries.Add(new Library

@@ -14,20 +14,20 @@ namespace PresentationLayer
 {
     public partial class ButtonBookCover : UserControl
     {
-        public BookDTO PresentedBook { get; set; }
+        private BookDTO _presentedBook;
 
         public ButtonBookCover(BookDTO book)
         {
             InitializeComponent();
-            PresentedBook = book;
+            _presentedBook = book;
             button1.BackgroundImage = Image.FromStream(new MemoryStream(book.BookCover));
-            toolTip.SetToolTip(this.button1, PresentedBook.Name);
+            toolTip.SetToolTip(this.button1, _presentedBook.Name);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             FormReadingApp parentForm = ParentForm as FormReadingApp;
-            BookScreen bookScreen = new BookScreen(parentForm.LogInAccountDTO, PresentedBook);
+            BookScreen bookScreen = new BookScreen(parentForm.LogInAccountDTO, _presentedBook);
             Utils.ShowScreen(ParentForm, bookScreen);
         }
     }

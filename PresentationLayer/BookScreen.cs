@@ -185,7 +185,6 @@ namespace PresentationLayer
         {
             using (FormRating formRating = new FormRating(_logInAccount.Id, _book.Id))
             {
-                formRating.Location = new Point(this.panel2.Location.X + 108, this.panel2.Location.Y + 490);
                 formRating.ShowDialog();
                 if (formRating.DialogResult == DialogResult.OK)
                 {
