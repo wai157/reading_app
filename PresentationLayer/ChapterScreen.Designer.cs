@@ -58,7 +58,7 @@ namespace PresentationLayer
             this.buttonBack.BackgroundImage = global::PresentationLayer.Properties.Resources.back_vector_icon_256;
             this.buttonBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonBack.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBack.Location = new System.Drawing.Point(69, 12);
+            this.buttonBack.Location = new System.Drawing.Point(65, 12);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(47, 47);
             this.buttonBack.TabIndex = 3;
@@ -69,7 +69,7 @@ namespace PresentationLayer
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.panel1.Controls.Add(this.labelContent);
             this.panel1.Controls.Add(this.panelLine);
             this.panel1.Controls.Add(this.labelTitle);
@@ -130,6 +130,7 @@ namespace PresentationLayer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.Name = "ChapterScreen";
             this.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.ResumeLayout(false);

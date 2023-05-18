@@ -20,7 +20,7 @@ namespace PresentationLayer
                 ButtonBookCover bookCover = new ButtonBookCover(book);
                 this.flowLayoutPanelHotBooks.Controls.Add(bookCover);
             }
-            List<BookDTO> books = _bookManager.GetAllBooks();
+            List<BookDTO> books = _bookManager.GetAllVerifiedBooks();
             foreach (BookDTO book in books)
             {
                 ButtonBookCover bookCover = new ButtonBookCover(book);

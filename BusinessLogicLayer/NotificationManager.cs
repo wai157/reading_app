@@ -29,17 +29,20 @@ namespace BusinessLogicLayer
         {
             _notificationRepository.DeleteNotification();
             string content;
+            BookDTO book = _bookRepository.GetBookById(bookId);
             switch (type)
             {
+                case -1:
+                    content = "Truyện " + book.Name + " của bạn đã không được duyệt!";
+                    _notificationRepository.AddNotification(book.UploadAccountId, bookId, content);
+                    break;
                 case 1:
-                    int accountId = _bookRepository.GetBookById(bookId).UploadAccountId;
-                    content = "Truyện của bạn đã được duyệt!";
-                    _notificationRepository.AddNotification(accountId, bookId, content);
+                    content = "Truyện " + book.Name + " của bạn đã được duyệt!";
+                    _notificationRepository.AddNotification(book.UploadAccountId, bookId, content);
                     break;
                 case 2:
-                    string bookName = _bookRepository.GetBookById(bookId).Name;
                     List<int> accountIds = _libraryRepository.GetFollowedIds(bookId);
-                    content = "Truyện " + bookName + " đã có chương mới!";
+                    content = "Truyện " + book.Name + " đã có chương mới!";
                     _notificationRepository.AddNotifications(accountIds, bookId, content);
                     break;
             }

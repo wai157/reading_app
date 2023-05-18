@@ -29,29 +29,39 @@ namespace PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.buttonAddBook = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageBooks = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPageUsers = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelAccounts = new System.Windows.Forms.FlowLayoutPanel();
-            this.header1 = new PresentationLayer.Header();
             this.tabPageBookReport = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonViewBookReport = new System.Windows.Forms.Button();
+            this.dataGridViewBookReports = new System.Windows.Forms.DataGridView();
             this.reportId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateAccountId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReportedBookId = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.buttonView = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
+            this.tabPageBookVerifications = new System.Windows.Forms.TabPage();
+            this.buttonVerifyAll = new System.Windows.Forms.Button();
+            this.buttonViewVerify = new System.Windows.Forms.Button();
+            this.dGVUnverifiedBooks = new System.Windows.Forms.DataGridView();
+            this.dataGridViewId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.header1 = new PresentationLayer.Header();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageBooks.SuspendLayout();
             this.tabPageUsers.SuspendLayout();
             this.tabPageBookReport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookReports)).BeginInit();
+            this.tabPageBookVerifications.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVUnverifiedBooks)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -59,7 +69,6 @@ namespace PresentationLayer
             this.panelMain.AutoScroll = true;
             this.panelMain.BackgroundImage = global::PresentationLayer.Properties.Resources.vivid_blurred_colorful_background;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelMain.Controls.Add(this.buttonAddBook);
             this.panelMain.Controls.Add(this.panel2);
             this.panelMain.Controls.Add(this.header1);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -68,22 +77,10 @@ namespace PresentationLayer
             this.panelMain.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.TabIndex = 17;
             // 
-            // buttonAddBook
-            // 
-            this.buttonAddBook.BackColor = System.Drawing.Color.Transparent;
-            this.buttonAddBook.BackgroundImage = global::PresentationLayer.Properties.Resources._111365_200;
-            this.buttonAddBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonAddBook.Location = new System.Drawing.Point(69, 12);
-            this.buttonAddBook.Name = "buttonAddBook";
-            this.buttonAddBook.Size = new System.Drawing.Size(47, 47);
-            this.buttonAddBook.TabIndex = 0;
-            this.buttonAddBook.UseVisualStyleBackColor = false;
-            this.buttonAddBook.Click += new System.EventHandler(this.buttonAddBook_Click);
-            // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.panel2.Controls.Add(this.tabControl1);
             this.panel2.Location = new System.Drawing.Point(128, 78);
             this.panel2.Name = "panel2";
@@ -95,8 +92,9 @@ namespace PresentationLayer
             this.tabControl1.Controls.Add(this.tabPageBooks);
             this.tabControl1.Controls.Add(this.tabPageUsers);
             this.tabControl1.Controls.Add(this.tabPageBookReport);
+            this.tabControl1.Controls.Add(this.tabPageBookVerifications);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(60, 30);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -107,8 +105,9 @@ namespace PresentationLayer
             // tabPageBooks
             // 
             this.tabPageBooks.AutoScroll = true;
-            this.tabPageBooks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            this.tabPageBooks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.tabPageBooks.Controls.Add(this.flowLayoutPanelBooks);
+            this.tabPageBooks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.tabPageBooks.Location = new System.Drawing.Point(4, 34);
             this.tabPageBooks.Name = "tabPageBooks";
             this.tabPageBooks.Padding = new System.Windows.Forms.Padding(3);
@@ -130,8 +129,9 @@ namespace PresentationLayer
             // tabPageUsers
             // 
             this.tabPageUsers.AutoScroll = true;
-            this.tabPageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            this.tabPageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.tabPageUsers.Controls.Add(this.flowLayoutPanelAccounts);
+            this.tabPageUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.tabPageUsers.Location = new System.Drawing.Point(4, 34);
             this.tabPageUsers.Name = "tabPageUsers";
             this.tabPageUsers.Padding = new System.Windows.Forms.Padding(3);
@@ -149,85 +149,19 @@ namespace PresentationLayer
             this.flowLayoutPanelAccounts.Size = new System.Drawing.Size(1010, 568);
             this.flowLayoutPanelAccounts.TabIndex = 0;
             // 
-            // header1
-            // 
-            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.header1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.header1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.header1.Location = new System.Drawing.Point(0, 0);
-            this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(1280, 72);
-            this.header1.TabIndex = 15;
-            // 
             // tabPageBookReport
             // 
-            this.tabPageBookReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            this.tabPageBookReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.tabPageBookReport.Controls.Add(this.buttonDelete);
-            this.tabPageBookReport.Controls.Add(this.buttonView);
-            this.tabPageBookReport.Controls.Add(this.dataGridView1);
+            this.tabPageBookReport.Controls.Add(this.buttonViewBookReport);
+            this.tabPageBookReport.Controls.Add(this.dataGridViewBookReports);
+            this.tabPageBookReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.tabPageBookReport.Location = new System.Drawing.Point(4, 34);
             this.tabPageBookReport.Name = "tabPageBookReport";
             this.tabPageBookReport.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageBookReport.Size = new System.Drawing.Size(1016, 574);
             this.tabPageBookReport.TabIndex = 2;
             this.tabPageBookReport.Text = "Báo cáo sách";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.reportId,
-            this.CreateAccountId,
-            this.ReportedBookId});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1010, 500);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // reportId
-            // 
-            this.reportId.HeaderText = "Id";
-            this.reportId.Name = "reportId";
-            this.reportId.ReadOnly = true;
-            // 
-            // CreateAccountId
-            // 
-            this.CreateAccountId.HeaderText = "Id người dùng";
-            this.CreateAccountId.Name = "CreateAccountId";
-            this.CreateAccountId.ReadOnly = true;
-            // 
-            // ReportedBookId
-            // 
-            this.ReportedBookId.ActiveLinkColor = System.Drawing.Color.Black;
-            this.ReportedBookId.HeaderText = "Id sách";
-            this.ReportedBookId.LinkColor = System.Drawing.Color.Black;
-            this.ReportedBookId.Name = "ReportedBookId";
-            this.ReportedBookId.ReadOnly = true;
-            this.ReportedBookId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ReportedBookId.TrackVisitedState = false;
-            // 
-            // buttonView
-            // 
-            this.buttonView.Location = new System.Drawing.Point(935, 509);
-            this.buttonView.Name = "buttonView";
-            this.buttonView.Size = new System.Drawing.Size(75, 40);
-            this.buttonView.TabIndex = 1;
-            this.buttonView.Text = "Xem";
-            this.buttonView.UseVisualStyleBackColor = true;
-            this.buttonView.Click += new System.EventHandler(this.buttonView_Click);
             // 
             // buttonDelete
             // 
@@ -240,6 +174,170 @@ namespace PresentationLayer
             this.buttonDelete.Text = "Xóa";
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonViewBookReport
+            // 
+            this.buttonViewBookReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
+            this.buttonViewBookReport.Location = new System.Drawing.Point(935, 509);
+            this.buttonViewBookReport.Name = "buttonViewBookReport";
+            this.buttonViewBookReport.Size = new System.Drawing.Size(75, 40);
+            this.buttonViewBookReport.TabIndex = 1;
+            this.buttonViewBookReport.Text = "Xem";
+            this.buttonViewBookReport.UseVisualStyleBackColor = false;
+            this.buttonViewBookReport.Click += new System.EventHandler(this.buttonView_Click);
+            // 
+            // dataGridViewBookReports
+            // 
+            this.dataGridViewBookReports.AllowUserToAddRows = false;
+            this.dataGridViewBookReports.AllowUserToDeleteRows = false;
+            this.dataGridViewBookReports.AllowUserToResizeColumns = false;
+            this.dataGridViewBookReports.AllowUserToResizeRows = false;
+            this.dataGridViewBookReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewBookReports.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.dataGridViewBookReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBookReports.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.reportId,
+            this.CreateAccountId,
+            this.ReportedBookId});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(134)))), ((int)(((byte)(195)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewBookReports.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewBookReports.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridViewBookReports.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewBookReports.MultiSelect = false;
+            this.dataGridViewBookReports.Name = "dataGridViewBookReports";
+            this.dataGridViewBookReports.ReadOnly = true;
+            this.dataGridViewBookReports.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridViewBookReports.RowTemplate.Height = 30;
+            this.dataGridViewBookReports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewBookReports.Size = new System.Drawing.Size(1010, 500);
+            this.dataGridViewBookReports.TabIndex = 0;
+            this.dataGridViewBookReports.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // reportId
+            // 
+            this.reportId.HeaderText = "Id";
+            this.reportId.Name = "reportId";
+            this.reportId.ReadOnly = true;
+            // 
+            // CreateAccountId
+            // 
+            this.CreateAccountId.HeaderText = "Tên người dùng";
+            this.CreateAccountId.Name = "CreateAccountId";
+            this.CreateAccountId.ReadOnly = true;
+            // 
+            // ReportedBookId
+            // 
+            this.ReportedBookId.ActiveLinkColor = System.Drawing.Color.Black;
+            this.ReportedBookId.HeaderText = "Tên sách";
+            this.ReportedBookId.LinkColor = System.Drawing.Color.Black;
+            this.ReportedBookId.Name = "ReportedBookId";
+            this.ReportedBookId.ReadOnly = true;
+            this.ReportedBookId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ReportedBookId.TrackVisitedState = false;
+            // 
+            // tabPageBookVerifications
+            // 
+            this.tabPageBookVerifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.tabPageBookVerifications.Controls.Add(this.buttonVerifyAll);
+            this.tabPageBookVerifications.Controls.Add(this.buttonViewVerify);
+            this.tabPageBookVerifications.Controls.Add(this.dGVUnverifiedBooks);
+            this.tabPageBookVerifications.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
+            this.tabPageBookVerifications.Location = new System.Drawing.Point(4, 34);
+            this.tabPageBookVerifications.Name = "tabPageBookVerifications";
+            this.tabPageBookVerifications.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBookVerifications.Size = new System.Drawing.Size(1016, 574);
+            this.tabPageBookVerifications.TabIndex = 3;
+            this.tabPageBookVerifications.Text = "Kiểm duyệt truyện";
+            // 
+            // buttonVerifyAll
+            // 
+            this.buttonVerifyAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
+            this.buttonVerifyAll.Location = new System.Drawing.Point(779, 509);
+            this.buttonVerifyAll.Name = "buttonVerifyAll";
+            this.buttonVerifyAll.Size = new System.Drawing.Size(150, 40);
+            this.buttonVerifyAll.TabIndex = 3;
+            this.buttonVerifyAll.Text = "Duyệt tất cả";
+            this.buttonVerifyAll.UseVisualStyleBackColor = false;
+            this.buttonVerifyAll.Click += new System.EventHandler(this.buttonVerifyAll_Click);
+            // 
+            // buttonViewVerify
+            // 
+            this.buttonViewVerify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
+            this.buttonViewVerify.Location = new System.Drawing.Point(935, 509);
+            this.buttonViewVerify.Name = "buttonViewVerify";
+            this.buttonViewVerify.Size = new System.Drawing.Size(75, 40);
+            this.buttonViewVerify.TabIndex = 2;
+            this.buttonViewVerify.Text = "Xem";
+            this.buttonViewVerify.UseVisualStyleBackColor = false;
+            this.buttonViewVerify.Click += new System.EventHandler(this.buttonViewVerify_Click);
+            // 
+            // dGVUnverifiedBooks
+            // 
+            this.dGVUnverifiedBooks.AllowUserToAddRows = false;
+            this.dGVUnverifiedBooks.AllowUserToDeleteRows = false;
+            this.dGVUnverifiedBooks.AllowUserToResizeColumns = false;
+            this.dGVUnverifiedBooks.AllowUserToResizeRows = false;
+            this.dGVUnverifiedBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dGVUnverifiedBooks.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.dGVUnverifiedBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVUnverifiedBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewId,
+            this.dataGridViewUsername,
+            this.dataGridViewBookName});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(134)))), ((int)(((byte)(195)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGVUnverifiedBooks.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dGVUnverifiedBooks.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dGVUnverifiedBooks.Location = new System.Drawing.Point(3, 3);
+            this.dGVUnverifiedBooks.MultiSelect = false;
+            this.dGVUnverifiedBooks.Name = "dGVUnverifiedBooks";
+            this.dGVUnverifiedBooks.ReadOnly = true;
+            this.dGVUnverifiedBooks.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dGVUnverifiedBooks.RowTemplate.Height = 30;
+            this.dGVUnverifiedBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGVUnverifiedBooks.Size = new System.Drawing.Size(1010, 500);
+            this.dGVUnverifiedBooks.TabIndex = 1;
+            // 
+            // dataGridViewId
+            // 
+            this.dataGridViewId.HeaderText = "Id";
+            this.dataGridViewId.Name = "dataGridViewId";
+            this.dataGridViewId.ReadOnly = true;
+            // 
+            // dataGridViewUsername
+            // 
+            this.dataGridViewUsername.HeaderText = "Tên người đăng";
+            this.dataGridViewUsername.Name = "dataGridViewUsername";
+            this.dataGridViewUsername.ReadOnly = true;
+            // 
+            // dataGridViewBookName
+            // 
+            this.dataGridViewBookName.HeaderText = "Tên sách";
+            this.dataGridViewBookName.Name = "dataGridViewBookName";
+            this.dataGridViewBookName.ReadOnly = true;
+            this.dataGridViewBookName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // header1
+            // 
+            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.header1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.header1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header1.Location = new System.Drawing.Point(0, 0);
+            this.header1.Name = "header1";
+            this.header1.Size = new System.Drawing.Size(1280, 72);
+            this.header1.TabIndex = 15;
             // 
             // AdminScreen
             // 
@@ -255,7 +353,9 @@ namespace PresentationLayer
             this.tabPageBooks.ResumeLayout(false);
             this.tabPageUsers.ResumeLayout(false);
             this.tabPageBookReport.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookReports)).EndInit();
+            this.tabPageBookVerifications.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dGVUnverifiedBooks)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -269,14 +369,20 @@ namespace PresentationLayer
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelBooks;
         private System.Windows.Forms.TabPage tabPageUsers;
         private System.Windows.Forms.Panel panelMain;
-        private System.Windows.Forms.Button buttonAddBook;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelAccounts;
         private System.Windows.Forms.TabPage tabPageBookReport;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewBookReports;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonViewBookReport;
         private System.Windows.Forms.DataGridViewTextBoxColumn reportId;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateAccountId;
         private System.Windows.Forms.DataGridViewLinkColumn ReportedBookId;
-        private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Button buttonView;
+        private System.Windows.Forms.TabPage tabPageBookVerifications;
+        private System.Windows.Forms.Button buttonViewVerify;
+        private System.Windows.Forms.DataGridView dGVUnverifiedBooks;
+        private System.Windows.Forms.Button buttonVerifyAll;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewUsername;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewBookName;
     }
 }

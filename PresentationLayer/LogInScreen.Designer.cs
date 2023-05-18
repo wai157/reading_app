@@ -58,7 +58,7 @@ namespace PresentationLayer
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.panel1.Controls.Add(this.labelError);
             this.panel1.Controls.Add(this.buttonSignUp);
             this.panel1.Controls.Add(this.linkLabelForgotPassword);
@@ -84,8 +84,9 @@ namespace PresentationLayer
             // buttonSignUp
             // 
             this.buttonSignUp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSignUp.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
             this.buttonSignUp.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSignUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.buttonSignUp.Location = new System.Drawing.Point(250, 323);
             this.buttonSignUp.Name = "buttonSignUp";
             this.buttonSignUp.Size = new System.Drawing.Size(100, 40);
@@ -96,7 +97,7 @@ namespace PresentationLayer
             // 
             // linkLabelForgotPassword
             // 
-            this.linkLabelForgotPassword.ActiveLinkColor = System.Drawing.Color.Turquoise;
+            this.linkLabelForgotPassword.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.linkLabelForgotPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linkLabelForgotPassword.AutoSize = true;
             this.linkLabelForgotPassword.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,8 +114,9 @@ namespace PresentationLayer
             // buttonLogIn
             // 
             this.buttonLogIn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(252)))), ((int)(((byte)(241)))));
+            this.buttonLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
             this.buttonLogIn.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.buttonLogIn.Location = new System.Drawing.Point(200, 172);
             this.buttonLogIn.Name = "buttonLogIn";
             this.buttonLogIn.Size = new System.Drawing.Size(200, 43);

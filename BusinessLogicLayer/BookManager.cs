@@ -36,18 +36,23 @@ namespace BusinessLogicLayer
 
         public List<BookDTO> GetBooksByGenreId(int genreId)
         {
-            return _bookRepository.GetBooksByGenreId(genreId);
+            return _bookRepository.GetVerifiedBooksByGenreId(genreId);
         }
 
         public List<BookDTO> GetBooksByAuthorName(string name)
         {
             int authorId = _authorRepository.GetAuthorByName(name).Id;
-            return _bookRepository.GetBooksByAuthorId(authorId);
+            return _bookRepository.GetVerifiedBooksByAuthorId(authorId);
         }
 
-        public List<BookDTO> GetAllBooks()
+        public List<BookDTO> GetAllVerifiedBooks()
         {
-            return _bookRepository.GetAllBooks();
+            return _bookRepository.GetAllVerifiedBooks();
+        }
+
+        public List<BookDTO> GetAllUnverifiedBooks()
+        {
+            return _bookRepository.GetAllUnverifiedBooks();
         }
 
         public void AddBook(BookDTO book)
@@ -66,6 +71,19 @@ namespace BusinessLogicLayer
                 _authorRepository.AddAuthor(updatedBook.Author);
             }
             _bookRepository.UpdateBook(updatedBook);
+        }
+
+        public void VerifyBook(int bookId)
+        {
+            _bookRepository.VerifyBook(bookId);
+        }
+
+        public void VerifyAllBooks()
+        {
+            foreach(BookDTO book in _bookRepository.GetAllUnverifiedBooks())
+            {
+                _bookRepository.VerifyBook(book.Id);
+            }
         }
 
         public void DeleteBook(int Id)

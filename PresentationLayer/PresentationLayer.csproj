@@ -103,6 +103,12 @@
     <Compile Include="ForgotPasswordScreen.Designer.cs">
       <DependentUpon>ForgotPasswordScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBookVerification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBookVerification.Designer.cs">
+      <DependentUpon>FormBookVerification.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBookReportView.resx">
       <DependentUpon>FormBookReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBookVerification.resx">
+      <DependentUpon>FormBookVerification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditBook.resx">
       <DependentUpon>FormEditBook.cs</DependentUpon>

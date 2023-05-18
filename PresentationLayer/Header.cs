@@ -22,7 +22,7 @@ namespace PresentationLayer
         {
             FormReadingApp formReadingApp = ParentForm as FormReadingApp;
             AccountDTO logInAccount = formReadingApp.LogInAccountDTO;
-            if (logInAccount.RoleID == 1)
+            if (logInAccount.RoleID != 3)
             {
                 AdminScreen adminScreen = new AdminScreen(logInAccount);
                 Utils.ShowScreen(ParentForm, adminScreen);
@@ -93,6 +93,21 @@ namespace PresentationLayer
                 formNotifications.BringToFront();
                 formNotifications.Location = new Point(this.buttonNotification.Location.X-363, 62);
                 formNotifications.Show();
+            }
+        }
+
+        private void buttonAddBook_Click(object sender, EventArgs e)
+        {
+            FormReadingApp formReadingApp = ParentForm as FormReadingApp;
+            AccountDTO logInAccount = formReadingApp.LogInAccountDTO;
+            using (FormAddBook formAddBook = new FormAddBook(logInAccount))
+            {
+                formAddBook.ShowDialog();
+                if (formAddBook.DialogResult == DialogResult.OK)
+                {
+                    AdminScreen adminScreen = new AdminScreen(logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
+                }
             }
         }
     }

@@ -23,7 +23,7 @@ namespace DataAccessLayer
 
         public AccountDTO GetAccountById(int Id)
         {
-            Account account = _context.Accounts.First(x => x.Id == Id);
+            Account account = _context.Accounts.FirstOrDefault(x => x.Id == Id);
             return Mapper.ToAccountDTO(account);
         }
         public AccountDTO GetAccountByUsername(string username)

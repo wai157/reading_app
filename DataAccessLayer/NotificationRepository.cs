@@ -19,7 +19,9 @@ namespace DataAccessLayer
 
         public List<NotificationDTO> GetNotiById(int accountId)
         {
-            List<Notification> notifications = _context.Notifications.Where(x => x.AccountId == accountId).ToList();
+            List<Notification> notifications = _context.Notifications.Where(x => x.AccountId == accountId)
+                .OrderByDescending(x => x.Date)
+                .ToList();
             List<NotificationDTO> notificationDTOs = new List<NotificationDTO>();
             foreach (Notification notification in notifications)
             {

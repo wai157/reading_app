@@ -18,6 +18,7 @@ namespace PresentationLayer
         private readonly BookManager _bookManager;
         private readonly AccountManager _accountManager;
         private readonly BookReportManager _bookReportManager;
+        private readonly NotificationManager _notificationManager;
         private readonly AccountDTO _logInAccount;
         public AdminScreen(AccountDTO logInAccountDTO)
         {
@@ -25,45 +26,51 @@ namespace PresentationLayer
             _bookManager = new BookManager();
             _accountManager = new AccountManager();
             _bookReportManager = new BookReportManager();
+            _notificationManager = new NotificationManager();
             _logInAccount = logInAccountDTO;
-            List<BookDTO> books = _bookManager.GetAllBooks();
+            List<BookDTO> books = _bookManager.GetAllVerifiedBooks();
             foreach (BookDTO book in books)
             {
                 ButtonBookCover bookCover = new ButtonBookCover(book);
                 this.flowLayoutPanelBooks.Controls.Add(bookCover);
             }
-            List<AccountDTO> accounts = _accountManager.GetAllAccounts();
-            foreach(AccountDTO account in accounts)
-            {
-                ButtonAccount buttonAccount = new ButtonAccount(_logInAccount, account);
-                this.flowLayoutPanelAccounts.Controls.Add(buttonAccount);
-            }
             List<BookReportDTO> bookReports = _bookReportManager.GetAllBookReports();
             foreach (BookReportDTO bookReport in bookReports)
             {
-                dataGridView1.Rows.Add(new string[] { bookReport.Id.ToString(), bookReport.CreateAccountID.ToString(), bookReport.ReportedBookID.ToString() });
+                dataGridViewBookReports.Rows.Add(new string[] { bookReport.Id.ToString(), 
+                    _accountManager.GetAccountById(bookReport.CreateAccountID).Username, 
+                    _bookManager.GetBookById(bookReport.ReportedBookID).Name });
             }
-        }
-
-        private void buttonAddBook_Click(object sender, EventArgs e)
-        {
-            using (FormAddBook formAddBook = new FormAddBook(_logInAccount))
+            List<BookDTO> unverifiedBooks = _bookManager.GetAllUnverifiedBooks();
+            foreach (BookDTO unverifiedBook in unverifiedBooks)
             {
-                formAddBook.ShowDialog();
-                if (formAddBook.DialogResult == DialogResult.OK)
+                dGVUnverifiedBooks.Rows.Add(new string[] { unverifiedBook.Id.ToString(),
+                    _accountManager.GetAccountById(unverifiedBook.UploadAccountId).Username,
+                    _bookManager.GetBookById(unverifiedBook.Id).Name });
+            }
+            if (_logInAccount.RoleID == 1)
+            {
+                List<AccountDTO> accounts = _accountManager.GetAllAccounts();
+                foreach (AccountDTO account in accounts)
                 {
-                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
-                    Utils.ShowScreen(ParentForm, adminScreen);
+                    ButtonAccount buttonAccount = new ButtonAccount(_logInAccount, account);
+                    this.flowLayoutPanelAccounts.Controls.Add(buttonAccount);
                 }
             }
+            else
+            {
+                tabControl1.TabPages.Remove(tabPageUsers);
+            }
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewLinkColumn && e.RowIndex >= 0)
+            if (dataGridViewBookReports.Columns[e.ColumnIndex] is DataGridViewLinkColumn && e.RowIndex >= 0)
             {
-                string linkValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                BookDTO book = _bookManager.GetBookById(int.Parse(linkValue));
+                string reportId = dataGridViewBookReports.Rows[e.RowIndex].Cells[0].Value.ToString();
+                int bookId = _bookReportManager.GetBookReportById(int.Parse(reportId)).ReportedBookID; 
+                BookDTO book = _bookManager.GetBookById(bookId);
                 BookScreen bookScreen = new BookScreen(_logInAccount, book);
                 Utils.ShowScreen(ParentForm, bookScreen);
             }
@@ -71,9 +78,9 @@ namespace PresentationLayer
 
         private void buttonView_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows != null)
+            if (dataGridViewBookReports.SelectedRows != null)
             {
-                DataGridViewRow row = dataGridView1.SelectedRows[0];
+                DataGridViewRow row = dataGridViewBookReports.SelectedRows[0];
                 int reportId = int.Parse(row.Cells[0].Value.ToString());
                 FormBookReportView formBookReportView = new FormBookReportView(reportId);
                 formBookReportView.Show();
@@ -86,12 +93,12 @@ namespace PresentationLayer
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows != null)
+            if (dataGridViewBookReports.SelectedRows != null)
             {
-                DataGridViewRow row = dataGridView1.SelectedRows[0];
+                DataGridViewRow row = dataGridViewBookReports.SelectedRows[0];
                 if (MessageBox.Show("Bạn có chắc muốn xóa báo cáo này?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    dataGridView1.Rows.Remove(row);
+                    dataGridViewBookReports.Rows.Remove(row);
                     int reportId = int.Parse(row.Cells[0].Value.ToString());
                     _bookReportManager.DeleteBookReport(reportId);
                     MessageBox.Show("Xóa báo cáo thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -100,6 +107,51 @@ namespace PresentationLayer
             else
             {
                 MessageBox.Show("Vui lòng chọn một báo cáo để xóa!");
+            }
+        }
+
+        private void buttonViewVerify_Click(object sender, EventArgs e)
+        {
+            if (dGVUnverifiedBooks.SelectedRows == null)
+            {
+                MessageBox.Show("Vui lòng chọn sách để xem!");
+                return;
+            }
+            DataGridViewRow row = dGVUnverifiedBooks.SelectedRows[0];
+            BookDTO book = _bookManager.GetBookById(int.Parse(row.Cells[0].Value.ToString()));
+            using (FormBookVerification formBookVerification = new FormBookVerification(book))
+            {
+                formBookVerification.ShowDialog();
+                if (formBookVerification.DialogResult == DialogResult.Yes)
+                {
+                    _bookManager.VerifyBook(book.Id);
+                    _notificationManager.AddNotification(1, book.Id);
+                    dGVUnverifiedBooks.Rows.Remove(row);
+                    MessageBox.Show("Duyệt sách thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (formBookVerification.DialogResult == DialogResult.No)
+                {
+                    dGVUnverifiedBooks.Rows.Remove(row);
+                    _notificationManager.AddNotification(-1, book.Id);
+                    _bookManager.DeleteBook(book.Id);
+                    MessageBox.Show("Sách đã không được duyệt!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void buttonVerifyAll_Click(object sender, EventArgs e)
+        {                
+            if (MessageBox.Show("Bạn có chắc muốn duyệt tất cả truyện?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                foreach (DataGridViewRow row in dGVUnverifiedBooks.Rows)
+                {
+                    BookDTO book = _bookManager.GetBookById(int.Parse(row.Cells[0].Value.ToString()));
+                    _bookManager.VerifyBook(book.Id);
+                    _notificationManager.AddNotification(1, book.Id);
+                }
+                dGVUnverifiedBooks.Rows.Clear();
+                _bookManager.VerifyAllBooks();
+                MessageBox.Show("Duyệt tất cả thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

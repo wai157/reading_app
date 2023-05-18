@@ -30,11 +30,12 @@ namespace PresentationLayer
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.buttonAddBook = new System.Windows.Forms.Button();
             this.buttonNotification = new System.Windows.Forms.Button();
             this.buttonHome = new System.Windows.Forms.Button();
             this.buttonUserProfile = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,6 +43,8 @@ namespace PresentationLayer
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
+            this.panel1.Controls.Add(this.buttonAddBook);
             this.panel1.Controls.Add(this.buttonNotification);
             this.panel1.Controls.Add(this.buttonHome);
             this.panel1.Controls.Add(this.buttonUserProfile);
@@ -53,18 +56,17 @@ namespace PresentationLayer
             this.panel1.Size = new System.Drawing.Size(1280, 72);
             this.panel1.TabIndex = 0;
             // 
-            // textBoxSearch
+            // buttonAddBook
             // 
-            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearch.Font = new System.Drawing.Font("Times New Roman", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearch.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxSearch.Location = new System.Drawing.Point(256, 12);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(724, 47);
-            this.textBoxSearch.TabIndex = 1;
-            this.textBoxSearch.Text = " Tìm Kiếm";
-            this.textBoxSearch.GotFocus += new System.EventHandler(this.textBoxSearch_RemoveText);
-            this.textBoxSearch.LostFocus += new System.EventHandler(this.textBoxSearch_AddText);
+            this.buttonAddBook.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAddBook.BackgroundImage = global::PresentationLayer.Properties.Resources._111365_200;
+            this.buttonAddBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAddBook.Location = new System.Drawing.Point(65, 12);
+            this.buttonAddBook.Name = "buttonAddBook";
+            this.buttonAddBook.Size = new System.Drawing.Size(47, 47);
+            this.buttonAddBook.TabIndex = 1;
+            this.buttonAddBook.UseVisualStyleBackColor = false;
+            this.buttonAddBook.Click += new System.EventHandler(this.buttonAddBook_Click);
             // 
             // buttonNotification
             // 
@@ -94,19 +96,20 @@ namespace PresentationLayer
             // buttonUserProfile
             // 
             this.buttonUserProfile.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonUserProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(134)))), ((int)(((byte)(195)))));
             this.buttonUserProfile.BackgroundImage = global::PresentationLayer.Properties.Resources.user;
             this.buttonUserProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonUserProfile.Location = new System.Drawing.Point(1128, 12);
             this.buttonUserProfile.Name = "buttonUserProfile";
             this.buttonUserProfile.Size = new System.Drawing.Size(47, 47);
             this.buttonUserProfile.TabIndex = 3;
-            this.buttonUserProfile.UseVisualStyleBackColor = true;
+            this.buttonUserProfile.UseVisualStyleBackColor = false;
             this.buttonUserProfile.Click += new System.EventHandler(this.buttonUserProfile_Click);
             // 
             // buttonSearch
             // 
             this.buttonSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonSearch.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(134)))), ((int)(((byte)(195)))));
             this.buttonSearch.BackgroundImage = global::PresentationLayer.Properties.Resources.free_search_icon_free_vector;
             this.buttonSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonSearch.Location = new System.Drawing.Point(977, 11);
@@ -116,6 +119,19 @@ namespace PresentationLayer
             this.buttonSearch.TabIndex = 2;
             this.buttonSearch.UseVisualStyleBackColor = false;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearch.Font = new System.Drawing.Font("Cambria", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxSearch.Location = new System.Drawing.Point(256, 11);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(724, 48);
+            this.textBoxSearch.TabIndex = 1;
+            this.textBoxSearch.Text = " Tìm Kiếm";
+            this.textBoxSearch.GotFocus += new System.EventHandler(this.textBoxSearch_RemoveText);
+            this.textBoxSearch.LostFocus += new System.EventHandler(this.textBoxSearch_AddText);
             // 
             // Header
             // 
@@ -140,5 +156,6 @@ namespace PresentationLayer
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Button buttonNotification;
+        private System.Windows.Forms.Button buttonAddBook;
     }
 }

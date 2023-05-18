@@ -77,7 +77,7 @@ namespace PresentationLayer
                 FormReadingApp formReadingApp = ParentForm as FormReadingApp;
                 formReadingApp.LogInAccountDTO = LogInAccount;
                 formReadingApp.AcceptButton = null;
-                if (LogInAccount.RoleID == 1)
+                if (LogInAccount.RoleID != 3)
                 {
                     AdminScreen adminScreen = new AdminScreen(LogInAccount);
                     Utils.ShowScreen(ParentForm, adminScreen);

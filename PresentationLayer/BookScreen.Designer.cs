@@ -53,8 +53,8 @@ namespace PresentationLayer
             this.labelName = new System.Windows.Forms.Label();
             this.tabPageTableOfContent = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelChapters = new System.Windows.Forms.FlowLayoutPanel();
-            this.header1 = new PresentationLayer.Header();
             this.buttonAddChap = new System.Windows.Forms.Button();
+            this.header1 = new PresentationLayer.Header();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -84,6 +84,7 @@ namespace PresentationLayer
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.panel2.Controls.Add(this.splitContainer1);
             this.panel2.Location = new System.Drawing.Point(128, 78);
             this.panel2.Name = "panel2";
@@ -92,7 +93,7 @@ namespace PresentationLayer
             // 
             // splitContainer1
             // 
-            this.splitContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.splitContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
@@ -100,6 +101,7 @@ namespace PresentationLayer
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.splitContainer1.Panel1.Controls.Add(this.buttonRate);
             this.splitContainer1.Panel1.Controls.Add(this.linkLabelReport);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
@@ -120,17 +122,20 @@ namespace PresentationLayer
             // 
             // buttonRate
             // 
+            this.buttonRate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
+            this.buttonRate.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.buttonRate.Location = new System.Drawing.Point(64, 454);
             this.buttonRate.Name = "buttonRate";
-            this.buttonRate.Size = new System.Drawing.Size(75, 25);
+            this.buttonRate.Size = new System.Drawing.Size(75, 40);
             this.buttonRate.TabIndex = 17;
             this.buttonRate.Text = "đánh giá";
-            this.buttonRate.UseVisualStyleBackColor = true;
+            this.buttonRate.UseVisualStyleBackColor = false;
             this.buttonRate.Click += new System.EventHandler(this.buttonRate_Click);
             // 
             // linkLabelReport
             // 
-            this.linkLabelReport.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelReport.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.linkLabelReport.AutoSize = true;
             this.linkLabelReport.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelReport.LinkColor = System.Drawing.Color.Black;
@@ -198,24 +203,26 @@ namespace PresentationLayer
             // 
             // btdFollow
             // 
+            this.btdFollow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
             this.btdFollow.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btdFollow.Location = new System.Drawing.Point(176, 500);
             this.btdFollow.Name = "btdFollow";
             this.btdFollow.Size = new System.Drawing.Size(144, 48);
             this.btdFollow.TabIndex = 2;
             this.btdFollow.Text = "Theo dõi";
-            this.btdFollow.UseVisualStyleBackColor = true;
+            this.btdFollow.UseVisualStyleBackColor = false;
             this.btdFollow.Click += new System.EventHandler(this.btdFollow_Click);
             // 
             // btnRead
             // 
+            this.btnRead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
             this.btnRead.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRead.Location = new System.Drawing.Point(64, 500);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(106, 48);
             this.btnRead.TabIndex = 1;
             this.btnRead.Text = "Đọc";
-            this.btnRead.UseVisualStyleBackColor = true;
+            this.btnRead.UseVisualStyleBackColor = false;
             this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
             // 
             // pictureBoxCover
@@ -241,7 +248,7 @@ namespace PresentationLayer
             // tabPageAbout
             // 
             this.tabPageAbout.AutoScroll = true;
-            this.tabPageAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.tabPageAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.tabPageAbout.Controls.Add(this.linkLabelAuthor);
             this.tabPageAbout.Controls.Add(this.linkLabelGenre);
             this.tabPageAbout.Controls.Add(this.labelDescription);
@@ -258,7 +265,7 @@ namespace PresentationLayer
             // 
             // linkLabelAuthor
             // 
-            this.linkLabelAuthor.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelAuthor.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.linkLabelAuthor.AutoSize = true;
             this.linkLabelAuthor.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelAuthor.LinkColor = System.Drawing.Color.Black;
@@ -273,7 +280,7 @@ namespace PresentationLayer
             // 
             // linkLabelGenre
             // 
-            this.linkLabelGenre.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelGenre.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.linkLabelGenre.AutoSize = true;
             this.linkLabelGenre.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelGenre.LinkColor = System.Drawing.Color.Black;
@@ -335,7 +342,7 @@ namespace PresentationLayer
             // 
             // tabPageTableOfContent
             // 
-            this.tabPageTableOfContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.tabPageTableOfContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.tabPageTableOfContent.Controls.Add(this.flowLayoutPanelChapters);
             this.tabPageTableOfContent.Location = new System.Drawing.Point(4, 32);
             this.tabPageTableOfContent.Name = "tabPageTableOfContent";
@@ -347,6 +354,7 @@ namespace PresentationLayer
             // flowLayoutPanelChapters
             // 
             this.flowLayoutPanelChapters.AutoScroll = true;
+            this.flowLayoutPanelChapters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.flowLayoutPanelChapters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelChapters.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelChapters.Margin = new System.Windows.Forms.Padding(0);
@@ -354,27 +362,30 @@ namespace PresentationLayer
             this.flowLayoutPanelChapters.Size = new System.Drawing.Size(622, 570);
             this.flowLayoutPanelChapters.TabIndex = 0;
             // 
-            // header1
-            // 
-            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.header1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.header1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.header1.Location = new System.Drawing.Point(0, 0);
-            this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(1280, 72);
-            this.header1.TabIndex = 0;
-            // 
             // buttonAddChap
             // 
+            this.buttonAddChap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
+            this.buttonAddChap.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddChap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.buttonAddChap.Location = new System.Drawing.Point(3, 0);
             this.buttonAddChap.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.buttonAddChap.Name = "buttonAddChap";
             this.buttonAddChap.Size = new System.Drawing.Size(595, 30);
             this.buttonAddChap.TabIndex = 18;
             this.buttonAddChap.Text = "+";
-            this.buttonAddChap.UseVisualStyleBackColor = true;
+            this.buttonAddChap.UseVisualStyleBackColor = false;
             this.buttonAddChap.Click += new System.EventHandler(this.buttonAddChap_Click);
+            // 
+            // header1
+            // 
+            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.header1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
+            this.header1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header1.Location = new System.Drawing.Point(0, 0);
+            this.header1.Name = "header1";
+            this.header1.Size = new System.Drawing.Size(1280, 72);
+            this.header1.TabIndex = 0;
             // 
             // BookScreen
             // 
@@ -382,6 +393,7 @@ namespace PresentationLayer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.Name = "BookScreen";
             this.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.ResumeLayout(false);

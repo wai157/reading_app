@@ -59,7 +59,7 @@ namespace PresentationLayer
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.panel1.Controls.Add(this.textBoxEmail);
             this.panel1.Controls.Add(this.textBoxRePassword);
             this.panel1.Controls.Add(this.labelError);
@@ -113,7 +113,7 @@ namespace PresentationLayer
             // 
             // linkLabelBackToLogIn
             // 
-            this.linkLabelBackToLogIn.ActiveLinkColor = System.Drawing.Color.Turquoise;
+            this.linkLabelBackToLogIn.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.linkLabelBackToLogIn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linkLabelBackToLogIn.AutoSize = true;
             this.linkLabelBackToLogIn.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,7 +130,7 @@ namespace PresentationLayer
             // buttonRegister
             // 
             this.buttonRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(252)))), ((int)(((byte)(241)))));
+            this.buttonRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
             this.buttonRegister.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegister.Location = new System.Drawing.Point(200, 244);
             this.buttonRegister.Name = "buttonRegister";

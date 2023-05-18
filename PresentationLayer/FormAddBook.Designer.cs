@@ -51,7 +51,7 @@ namespace PresentationLayer
             // 
             // panelMain
             // 
-            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMain.Controls.Add(this.buttonConfirm);
             this.panelMain.Controls.Add(this.label1);
@@ -73,6 +73,7 @@ namespace PresentationLayer
             // 
             // buttonConfirm
             // 
+            this.buttonConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
             this.buttonConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonConfirm.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirm.Location = new System.Drawing.Point(628, 448);
@@ -80,7 +81,7 @@ namespace PresentationLayer
             this.buttonConfirm.Size = new System.Drawing.Size(160, 40);
             this.buttonConfirm.TabIndex = 11;
             this.buttonConfirm.Text = "Xác nhận";
-            this.buttonConfirm.UseVisualStyleBackColor = true;
+            this.buttonConfirm.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -91,20 +92,23 @@ namespace PresentationLayer
             this.label1.Location = new System.Drawing.Point(3, 478);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(256, 19);
+            this.label1.Size = new System.Drawing.Size(575, 19);
             this.label1.TabIndex = 10;
-            this.label1.Text = "    Bạn có thể thêm các chương sách sau.";
+            this.label1.Text = "    Sách sẽ cần được kiểm duyệt trước khi được đăng! Bạn có thể thêm các chương s" +
+    "ách sau. ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // buttonSelectCover
             // 
+            this.buttonSelectCover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
             this.buttonSelectCover.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSelectCover.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.buttonSelectCover.Location = new System.Drawing.Point(12, 226);
             this.buttonSelectCover.Name = "buttonSelectCover";
             this.buttonSelectCover.Size = new System.Drawing.Size(156, 30);
             this.buttonSelectCover.TabIndex = 9;
             this.buttonSelectCover.Text = "Chọn bìa sách";
-            this.buttonSelectCover.UseVisualStyleBackColor = true;
+            this.buttonSelectCover.UseVisualStyleBackColor = false;
             this.buttonSelectCover.Click += new System.EventHandler(this.buttonSelectCover_Click);
             this.buttonSelectCover.Validated += new System.EventHandler(this.buttonSelectCover_Validated);
             // 
@@ -141,6 +145,7 @@ namespace PresentationLayer
             // 
             // textBoxName
             // 
+            this.textBoxName.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxName.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxName.Location = new System.Drawing.Point(286, 12);
             this.textBoxName.Name = "textBoxName";
@@ -190,7 +195,7 @@ namespace PresentationLayer
             // 
             // pictureBoxCover
             // 
-            this.pictureBoxCover.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBoxCover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
             this.pictureBoxCover.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxCover.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxCover.Name = "pictureBoxCover";
@@ -209,6 +214,7 @@ namespace PresentationLayer
             this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(816, 539);
             this.MinimizeBox = false;

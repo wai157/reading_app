@@ -19,7 +19,9 @@ namespace DataAccessLayer
 
         public List<LibraryDTO> GetLibraryByAccountId(int accountId)
         {
-            List<Library> libraries = _context.Libraries.Where(x => x.AccountId == accountId).ToList();
+            List<Library> libraries = _context.Libraries.Where(x => x.AccountId == accountId)
+                .Where(x => _context.Books.FirstOrDefault(s => x.BookId == s.Id && s.IsVerified == true) != null)
+                .ToList();
             List<LibraryDTO> libraryDTOs = new List<LibraryDTO>();
             foreach (Library library in libraries)
             {

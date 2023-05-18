@@ -60,7 +60,7 @@ namespace PresentationLayer
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.panel1.Controls.Add(this.linkLabelBackToLogIn);
             this.panel1.Controls.Add(this.buttonSend);
             this.panel1.Controls.Add(this.labelInfo);
@@ -75,7 +75,7 @@ namespace PresentationLayer
             // 
             // linkLabelBackToLogIn
             // 
-            this.linkLabelBackToLogIn.ActiveLinkColor = System.Drawing.Color.Turquoise;
+            this.linkLabelBackToLogIn.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.linkLabelBackToLogIn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linkLabelBackToLogIn.AutoSize = true;
             this.linkLabelBackToLogIn.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -91,12 +91,14 @@ namespace PresentationLayer
             // 
             // buttonSend
             // 
+            this.buttonSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
+            this.buttonSend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.buttonSend.Location = new System.Drawing.Point(360, 98);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(40, 30);
             this.buttonSend.TabIndex = 1;
             this.buttonSend.Text = "Gửi";
-            this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.UseVisualStyleBackColor = false;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // labelInfo
@@ -126,7 +128,7 @@ namespace PresentationLayer
             // buttonVerify
             // 
             this.buttonVerify.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonVerify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(252)))), ((int)(((byte)(241)))));
+            this.buttonVerify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
             this.buttonVerify.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonVerify.Location = new System.Drawing.Point(200, 172);
             this.buttonVerify.Name = "buttonVerify";

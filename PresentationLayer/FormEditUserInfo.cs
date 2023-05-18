@@ -27,6 +27,7 @@ namespace PresentationLayer
             _presentedUserInfo = _accountManager.GetUserInfo(_presentedAccount.Id);
             comboBoxRole.DataSource = new List<string>{
                 "Admin",
+                "Mod",
                 "User"
             };
             if (logInAccount.RoleID != 1)
@@ -53,6 +54,10 @@ namespace PresentationLayer
             if (_presentedAccount.RoleID == 1)
             {
                 comboBoxRole.SelectedItem = "Admin";
+            }
+            else if (_presentedAccount.RoleID == 2)
+            {
+                comboBoxRole.SelectedItem = "Mod";
             }
             else
             {
@@ -83,7 +88,11 @@ namespace PresentationLayer
             {
                 _presentedAccount.RoleID = 1;
             }
-            else if(comboBoxRole.SelectedItem.ToString() == "User")
+            else if(comboBoxRole.SelectedItem.ToString() == "Mod")
+            {
+                _presentedAccount.RoleID = 2;
+            }
+            else if (comboBoxRole.SelectedItem.ToString() == "User")
             {
                 _presentedAccount.RoleID = 3;
             }

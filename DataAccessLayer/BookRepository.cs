@@ -20,13 +20,13 @@ namespace DataAccessLayer
 
         public BookDTO GetBookById(int Id)
         {
-            Book book = _context.Books.First(x => x.Id == Id);
+            Book book = _context.Books.FirstOrDefault(x => x.Id == Id);
             return Mapper.ToBookDTO(book);
         }
 
         public List<BookDTO> GetBooksUploadById(int accountId)
         {
-            List<Book> books = _context.Books.Where(x => x.AccountId == accountId)
+            List<Book> books = _context.Books.Where(x => x.AccountId == accountId && x.IsVerified == true)
                                              .ToList();
             List<BookDTO> bookDTOs = new List<BookDTO>();
             foreach (Book book in books)
@@ -39,7 +39,8 @@ namespace DataAccessLayer
 
         public List<BookDTO> GetHotBooks()
         {
-            List<Book> books = _context.Books.OrderByDescending(x => x.Views)
+            List<Book> books = _context.Books.Where(x => x.IsVerified == true)
+                                             .OrderByDescending(x => x.Views)
                                              .ThenByDescending(x => _context.Libraries.Where(s => s.BookId == x.Id).Count())
                                              .ThenByDescending(x => _context.RatedBooks.Where(s => s.BookId == x.Id).Select(s => s.Rating).DefaultIfEmpty(0).Average())
                                              .Take(6)
@@ -53,9 +54,9 @@ namespace DataAccessLayer
             return bookDTOs;
         }
 
-        public List<BookDTO> GetBooksByGenreId(int genreId)
+        public List<BookDTO> GetVerifiedBooksByGenreId(int genreId)
         {
-            List<Book> books = _context.Books.Where(x => x.GenreId == genreId)
+            List<Book> books = _context.Books.Where(x => x.GenreId == genreId && x.IsVerified == true)
                                              .ToList();
             List<BookDTO> bookDTOs = new List<BookDTO>();
             foreach (Book book in books)
@@ -66,9 +67,9 @@ namespace DataAccessLayer
             return bookDTOs;
         }
 
-        public List<BookDTO> GetBooksByAuthorId(int authorId)
+        public List<BookDTO> GetVerifiedBooksByAuthorId(int authorId)
         {
-            List<Book> books = _context.Books.Where(x => x.AuthorId == authorId)
+            List<Book> books = _context.Books.Where(x => x.AuthorId == authorId && x.IsVerified == true)
                                              .ToList();
             List<BookDTO> bookDTOs = new List<BookDTO>();
             foreach (Book book in books)
@@ -79,9 +80,21 @@ namespace DataAccessLayer
             return bookDTOs;
         }
 
-        public List<BookDTO> GetAllBooks()
+        public List<BookDTO> GetAllVerifiedBooks()
         {
-            List<Book> books = _context.Books.ToList();
+            List<Book> books = _context.Books.Where(x => x.IsVerified == true).ToList();
+            List<BookDTO> bookDTOs = new List<BookDTO>();
+            foreach (Book book in books)
+            {
+                BookDTO bookDTO = Mapper.ToBookDTO(book);
+                bookDTOs.Add(bookDTO);
+            }
+            return bookDTOs;
+        }
+
+        public List<BookDTO> GetAllUnverifiedBooks()
+        {
+            List<Book> books = _context.Books.Where(x => x.IsVerified == false).ToList();
             List<BookDTO> bookDTOs = new List<BookDTO>();
             foreach (Book book in books)
             {
@@ -93,9 +106,11 @@ namespace DataAccessLayer
 
         public void AddBook(BookDTO book)
         {
-            Author author = _context.Authors.First(x => x.Name == book.Author);
+            Author author = _context.Authors.FirstOrDefault(x => x.Name == book.Author)
+                            ?? _context.Authors.First(x => x.Id == 1); ;
             _context.Books.Add(new Book
             {
+                IsVerified = false,
                 Name = book.Name,
                 Description = book.Description,
                 Cover = book.BookCover,
@@ -108,13 +123,22 @@ namespace DataAccessLayer
 
         public void UpdateBook(BookDTO updatedBook)
         {
-            Author author = _context.Authors.First(x => x.Name == updatedBook.Author);
+            Author author = _context.Authors.FirstOrDefault(x => x.Name == updatedBook.Author) 
+                            ?? _context.Authors.First(x => x.Id == 1);
             Book book = _context.Books.First(x => x.Id == updatedBook.Id);
+            book.IsVerified = false;
             book.Cover = updatedBook.BookCover;
             book.Name = updatedBook.Name;
             book.AuthorId = author.Id;
             book.Description = updatedBook.Description;
             book.GenreId = updatedBook.GenreId;
+            _context.SaveChanges();
+        }
+
+        public void VerifyBook(int bookId)
+        {
+            Book book = _context.Books.First(x => x.Id == bookId);
+            book.IsVerified = true;
             _context.SaveChanges();
         }
 
@@ -130,7 +154,8 @@ namespace DataAccessLayer
 
         public List<BookDTO> GetSearchBooks(string search)
         {
-            List<Book> books = _context.Books.Where(x => x.Name.ToLower().Contains(search)).ToList();
+            List<Book> books = _context.Books.Where(x => x.Name.ToLower().Contains(search) && x.IsVerified == true)
+                                             .ToList();
             List<BookDTO> bookDTOs = new List<BookDTO>();
             foreach (Book book in books)
             {

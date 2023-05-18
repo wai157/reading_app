@@ -44,6 +44,7 @@ namespace PresentationLayer
             this.labelName = new System.Windows.Forms.Label();
             this.pictureBoxCover = new System.Windows.Forms.PictureBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -51,6 +52,7 @@ namespace PresentationLayer
             // 
             // buttonConfirm
             // 
+            this.buttonConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
             this.buttonConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonConfirm.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirm.Location = new System.Drawing.Point(628, 448);
@@ -58,12 +60,13 @@ namespace PresentationLayer
             this.buttonConfirm.Size = new System.Drawing.Size(160, 40);
             this.buttonConfirm.TabIndex = 11;
             this.buttonConfirm.Text = "Xác nhận";
-            this.buttonConfirm.UseVisualStyleBackColor = true;
+            this.buttonConfirm.UseVisualStyleBackColor = false;
             // 
             // panelMain
             // 
-            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMain.Controls.Add(this.label1);
             this.panelMain.Controls.Add(this.buttonDelete);
             this.panelMain.Controls.Add(this.buttonConfirm);
             this.panelMain.Controls.Add(this.buttonSelectCover);
@@ -97,13 +100,15 @@ namespace PresentationLayer
             // 
             // buttonSelectCover
             // 
+            this.buttonSelectCover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
             this.buttonSelectCover.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSelectCover.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.buttonSelectCover.Location = new System.Drawing.Point(12, 226);
             this.buttonSelectCover.Name = "buttonSelectCover";
             this.buttonSelectCover.Size = new System.Drawing.Size(156, 30);
             this.buttonSelectCover.TabIndex = 9;
             this.buttonSelectCover.Text = "Chọn bìa sách";
-            this.buttonSelectCover.UseVisualStyleBackColor = true;
+            this.buttonSelectCover.UseVisualStyleBackColor = false;
             this.buttonSelectCover.Click += new System.EventHandler(this.buttonSelectCover_Click);
             this.buttonSelectCover.Validated += new System.EventHandler(this.buttonSelectCover_Validated);
             // 
@@ -201,6 +206,20 @@ namespace PresentationLayer
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Image = global::PresentationLayer.Properties.Resources._665049;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(3, 478);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(453, 19);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "    Sách của bạn sẽ cần được kiểm duyệt trước khi thực hiện các thay đổi.";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FormEditBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -208,6 +227,8 @@ namespace PresentationLayer
             this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(816, 539);
             this.MinimizeBox = false;
@@ -240,5 +261,6 @@ namespace PresentationLayer
         private System.Windows.Forms.PictureBox pictureBoxCover;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Label label1;
     }
 }

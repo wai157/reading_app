@@ -114,15 +114,19 @@ namespace PresentationLayer
             using (FormEditBook formEditBook = new FormEditBook(_book))
             {
                 formEditBook.ShowDialog();
-                if (_book.Id == -1)
+                if (_book.Id != -1 && formEditBook.DialogResult != DialogResult.OK)
+                {
+                    return;
+                }
+                if (_logInAccount.RoleID != 3)
                 {
                     AdminScreen adminScreen = new AdminScreen(_logInAccount);
                     Utils.ShowScreen(ParentForm, adminScreen);
                 }
-                else if (formEditBook.DialogResult == DialogResult.OK)
+                else if (_logInAccount.RoleID == 3)
                 {
-                    BookScreen bookScreen = new BookScreen(_logInAccount, _book);
-                    Utils.ShowScreen(ParentForm, bookScreen);
+                    MainScreen mainScreen = new MainScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, mainScreen);
                 }
             }
         }
