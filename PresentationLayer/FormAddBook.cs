@@ -69,7 +69,7 @@ namespace PresentationLayer
                     _bookToAdd.GenreId = (int)comboBoxGenre.SelectedValue;
                     _bookToAdd.UploadAccountId = _uploadAccount.Id;
                     _bookManager.AddBook(_bookToAdd);
-                    MessageBox.Show("Thêm sách thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thêm sách thành công!\nSách đã được gửi đi để kiểm duyệt!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     e.Cancel = false;
                     this.Dispose();
                 }

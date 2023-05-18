@@ -115,7 +115,7 @@ namespace PresentationLayer
             }
             else
             {
-                if (_accountManager.GetAccountByUsername(textBoxUsername.Text) != null)
+                if (_accountManager.GetAccountByUsername(textBoxUsername.Text.Trim()) != null)
                 {
                     labelError.Text = "Tên đăng nhập đã được sử dụng, vui lòng nhập tên khác!";
                 }
@@ -124,8 +124,8 @@ namespace PresentationLayer
                     labelError.Text = "";
                     AccountDTO registerAccount = new AccountDTO
                     {
-                        Email = textBoxEmail.Text,
-                        Username = textBoxUsername.Text,
+                        Email = textBoxEmail.Text.Trim(),
+                        Username = textBoxUsername.Text.Trim(),
                         Password = textBoxRePassword.Text
                     };
                     _accountManager.AddAccount(registerAccount);
@@ -136,7 +136,7 @@ namespace PresentationLayer
 
         private void textBoxEmail_Validated(object sender, EventArgs e)
         {
-            if (textBoxEmail.ForeColor != Color.Black || string.IsNullOrEmpty(textBoxEmail.Text))
+            if (textBoxEmail.ForeColor != Color.Black || string.IsNullOrWhiteSpace(textBoxEmail.Text))
             {
                 errorProvider.SetError(textBoxEmail, "Vui lòng nhập email!");
             }
@@ -152,7 +152,7 @@ namespace PresentationLayer
 
         private void textBoxUsername_Validated(object sender, EventArgs e)
         {
-            if (textBoxUsername.ForeColor != Color.Black || string.IsNullOrEmpty(textBoxUsername.Text))
+            if (textBoxUsername.ForeColor != Color.Black || string.IsNullOrWhiteSpace(textBoxUsername.Text))
             {
                 errorProvider.SetError(textBoxUsername, "Vui lòng nhập tên đăng nhập!");
             }

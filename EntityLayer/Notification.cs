@@ -15,6 +15,5 @@ namespace EntityLayer
         public DateTime Date { get; set; }
 
         public virtual Account Account { get; set; }
-        public virtual Book Book { get; set; }
     }
 }

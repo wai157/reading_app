@@ -70,7 +70,7 @@ namespace PresentationLayer
                     _book.Description = textBoxDescription.Text;
                     _book.GenreId = (int)comboBoxGenre.SelectedValue;
                     _bookManager.UpdateBook(_book);
-                    MessageBox.Show("Chỉnh sửa sách thành công!\n Sách đã được gửi đi để kiểm duyệt!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Chỉnh sửa sách thành công!\nSách đã được gửi đi để kiểm duyệt!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     e.Cancel = false;
                     this.Dispose();
                 }

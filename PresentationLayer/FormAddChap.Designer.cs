@@ -47,7 +47,7 @@ namespace PresentationLayer
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.panel1.Controls.Add(this.buttonDel);
             this.panel1.Controls.Add(this.labelFile);
             this.panel1.Controls.Add(this.buttonConfirm);
@@ -65,8 +65,9 @@ namespace PresentationLayer
             // 
             // buttonDel
             // 
-            this.buttonDel.BackColor = System.Drawing.Color.White;
+            this.buttonDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
             this.buttonDel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.buttonDel.Location = new System.Drawing.Point(244, 92);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(30, 30);
@@ -79,7 +80,7 @@ namespace PresentationLayer
             // labelFile
             // 
             this.labelFile.AutoSize = true;
-            this.labelFile.BackColor = System.Drawing.Color.White;
+            this.labelFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
             this.labelFile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelFile.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFile.Location = new System.Drawing.Point(163, 92);
@@ -94,6 +95,7 @@ namespace PresentationLayer
             // 
             // buttonConfirm
             // 
+            this.buttonConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
             this.buttonConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonConfirm.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirm.Location = new System.Drawing.Point(403, 132);
@@ -101,17 +103,19 @@ namespace PresentationLayer
             this.buttonConfirm.Size = new System.Drawing.Size(160, 40);
             this.buttonConfirm.TabIndex = 12;
             this.buttonConfirm.Text = "Xác nhận";
-            this.buttonConfirm.UseVisualStyleBackColor = true;
+            this.buttonConfirm.UseVisualStyleBackColor = false;
             // 
             // buttonAdd
             // 
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
             this.buttonAdd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.buttonAdd.Location = new System.Drawing.Point(163, 92);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 30);
             this.buttonAdd.TabIndex = 11;
             this.buttonAdd.Text = "Chọn tệp ";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // textBoxTitle
@@ -178,6 +182,7 @@ namespace PresentationLayer
             this.ClientSize = new System.Drawing.Size(584, 181);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAddChap";

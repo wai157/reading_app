@@ -33,67 +33,69 @@ namespace PresentationLayer
             _libraryManager = new LibraryManager();
             _ratedBookManager = new RatedBookManager();
             _logInAccount = logInAccount;
-
-            if (book != null)
+            if (book == null)
             {
-                _book = book;
-                pictureBoxCover.Image = Image.FromStream(new MemoryStream(book.BookCover));
-                pictureBoxCover.SizeMode = PictureBoxSizeMode.StretchImage;
-                labelViews.Text = $"Lượt đọc: {book.Views}";
-                labelRating.Text = $"Đánh giá: {book.Rating}";
-                labelFollowed.Text = $"Lượt theo dõi: {book.Follows}";
-                labelName.Text = book.Name;
-                linkLabelAuthor.Text = book.Author;
-                labelDescription.Text = "Nội dung: " + book.Description;
-                linkLabelGenre.Text = _genreManager.GetGenreById(book.GenreId).Name;
-                if (_logInAccount.RoleID == 1)
-                {
-                    this.flowLayoutPanelChapters.Controls.Add(this.buttonAddChap);
-                    this.buttonEdit.Visible = true;
-                    this.buttonEdit.Enabled = true;
-                }
-                List<ChapterDTO> chapters = _chapterManager.GetAllChapters(book);
-                _history = _historyManager.GetHistoryOfBook(_logInAccount.Id, _book.Id);
-                if (_history != null)
-                {
-                    btnRead.Text = "Đọc tiếp";
-                }
-                if (chapters.Count == 0)
-                {
-                    btnRead.Enabled = false;
-                }
-                int X = buttonAddChap.Location.X;
-                int Y = buttonAddChap.Location.Y + buttonAddChap.Size.Height + 3;
-                foreach (ChapterDTO chapter in chapters)
-                {
-
-                    ButtonChapter buttonChapter = new ButtonChapter(_logInAccount.Id, book, chapter)
-                    {
-                        Location = new Point(X, Y)
-                    };
-                    Y += buttonChapter.Size.Height + 3;
-                    if (_history != null && _history.ReadChapterIds.Contains(chapter.Id))
-                    {
-                        buttonChapter.ForeColor = Color.Gray;
-                    }
-                    this.flowLayoutPanelChapters.Controls.Add(buttonChapter);
-                }
-                bool inLibrary = _libraryManager.GetLibraryByAccountId(_logInAccount.Id)
-                                                .Where(x => x.BookId == _book.Id)
-                                                .Count() > 0;
-                if (inLibrary == true)
-                {
-                    btdFollow.Text = "Hủy theo dõi";
-                    _library = _libraryManager.GetLibraryByAccountId(_logInAccount.Id).FirstOrDefault(x => x.BookId == _book.Id);
-                }
-                else
-                {
-                    _library = null;
-                }
-
-                double rating = _ratedBookManager.GetRatingListByBookId(_book.Id, out int count);
-                this.labelRating.Text = "Đánh giá: " + rating.ToString("F1") + "/5 (" + count.ToString() + " lượt)";
+                this.panel2.Controls.Clear();
+                this.panel2.Controls.Add(this.labelError);
+                return;
             }
+            _book = book;
+            pictureBoxCover.Image = Image.FromStream(new MemoryStream(book.BookCover));
+            pictureBoxCover.SizeMode = PictureBoxSizeMode.StretchImage;
+            labelViews.Text = $"Lượt đọc: {book.Views}";
+            labelRating.Text = $"Đánh giá: {book.Rating}";
+            labelFollowed.Text = $"Lượt theo dõi: {book.Follows}";
+            labelName.Text = book.Name;
+            linkLabelAuthor.Text = book.Author;
+            labelDescription.Text = "Nội dung: " + book.Description;
+            linkLabelGenre.Text = _genreManager.GetGenreById(book.GenreId).Name;
+            if (_logInAccount.Id == book.UploadAccountId)
+            {
+                this.flowLayoutPanelChapters.Controls.Add(this.buttonAddChap);
+                this.buttonEdit.Visible = true;
+                this.buttonEdit.Enabled = true;
+            }
+            List<ChapterDTO> chapters = _chapterManager.GetAllChapters(book);
+            _history = _historyManager.GetHistoryOfBook(_logInAccount.Id, _book.Id);
+            if (_history != null)
+            {
+                btnRead.Text = "Đọc tiếp";
+            }
+            if (chapters.Count == 0)
+            {
+                btnRead.Enabled = false;
+            }
+            int X = buttonAddChap.Location.X;
+            int Y = buttonAddChap.Location.Y + buttonAddChap.Size.Height + 3;
+            foreach (ChapterDTO chapter in chapters)
+            {
+
+                ButtonChapter buttonChapter = new ButtonChapter(_logInAccount.Id, book, chapter)
+                {
+                    Location = new Point(X, Y)
+                };
+                Y += buttonChapter.Size.Height + 3;
+                if (_history != null && _history.ReadChapterIds.Contains(chapter.Id))
+                {
+                    buttonChapter.ForeColor = Color.Gray;
+                }
+                this.flowLayoutPanelChapters.Controls.Add(buttonChapter);
+            }
+            bool inLibrary = _libraryManager.GetLibraryByAccountId(_logInAccount.Id)
+                                            .Where(x => x.BookId == _book.Id)
+                                            .Count() > 0;
+            if (inLibrary == true)
+            {
+                btdFollow.Text = "Hủy theo dõi";
+                _library = _libraryManager.GetLibraryByAccountId(_logInAccount.Id).FirstOrDefault(x => x.BookId == _book.Id);
+            }
+            else
+            {
+                _library = null;
+            }
+
+            double rating = _ratedBookManager.GetRatingListByBookId(_book.Id, out int count);
+            this.labelRating.Text = "Đánh giá: " + rating.ToString("F1") + "/5 (" + count.ToString() + " lượt)";
         }
 
         private void buttonAddChap_Click(object sender, EventArgs e)

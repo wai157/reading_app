@@ -57,7 +57,7 @@ namespace PresentationLayer
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.AutoScroll = true;
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.panel2.Controls.Add(this.flowLayoutPanelHotBooks);
             this.panel2.Controls.Add(this.flowLayoutPanelAllBooks);
             this.panel2.Controls.Add(this.labelAllBooks);
@@ -134,6 +134,7 @@ namespace PresentationLayer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.Name = "MainScreen";
             this.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.ResumeLayout(false);

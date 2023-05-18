@@ -15,6 +15,8 @@ namespace PresentationLayer
 {
     public partial class FormBookVerification : Form
     {
+        public string Reason { get; set; }
+
         private readonly GenreManager _genreManager;
         public FormBookVerification(BookDTO book)
         {
@@ -29,13 +31,21 @@ namespace PresentationLayer
 
         private void FormBookVerification_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.DialogResult == DialogResult.No)
+            if (this.DialogResult != DialogResult.No)
             {
-                DialogResult confirm = MessageBox.Show("Bạn có chắc không duyệt truyện này?", "Xác nhận", MessageBoxButtons.YesNo);
-                if (confirm == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
+                e.Cancel = false;
+                return;
+            }
+            FormReason formReason = new FormReason();
+            DialogResult confirm = formReason.ShowDialog();
+            if (confirm != DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                Reason = formReason.Reason;
+                e.Cancel = false;
             }
         }
     }

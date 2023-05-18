@@ -79,7 +79,7 @@ namespace PresentationLayer
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(238)))), ((int)(((byte)(247)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.panel1.Controls.Add(this.buttonUpload);
             this.panel1.Controls.Add(this.flowLayoutPanelLibrary);
             this.panel1.Controls.Add(this.flowLayoutPanelHistory);
@@ -89,6 +89,7 @@ namespace PresentationLayer
             this.panel1.Controls.Add(this.buttonFollowed);
             this.panel1.Controls.Add(this.buttonAccountInfo);
             this.panel1.Controls.Add(this.panelAccountInfo);
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.panel1.Location = new System.Drawing.Point(128, 78);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1024, 612);
@@ -96,7 +97,7 @@ namespace PresentationLayer
             // 
             // buttonUpload
             // 
-            this.buttonUpload.BackColor = System.Drawing.Color.White;
+            this.buttonUpload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
             this.buttonUpload.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpload.Location = new System.Drawing.Point(0, 253);
             this.buttonUpload.Name = "buttonUpload";
@@ -141,7 +142,7 @@ namespace PresentationLayer
             // 
             // buttonLogOut
             // 
-            this.buttonLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            this.buttonLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
             this.buttonLogOut.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogOut.Location = new System.Drawing.Point(0, 512);
             this.buttonLogOut.Name = "buttonLogOut";
@@ -153,7 +154,7 @@ namespace PresentationLayer
             // 
             // buttonHistory
             // 
-            this.buttonHistory.BackColor = System.Drawing.Color.White;
+            this.buttonHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
             this.buttonHistory.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHistory.Location = new System.Drawing.Point(0, 197);
             this.buttonHistory.Name = "buttonHistory";
@@ -165,7 +166,7 @@ namespace PresentationLayer
             // 
             // buttonFollowed
             // 
-            this.buttonFollowed.BackColor = System.Drawing.Color.White;
+            this.buttonFollowed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
             this.buttonFollowed.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFollowed.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonFollowed.Location = new System.Drawing.Point(0, 141);
@@ -178,7 +179,7 @@ namespace PresentationLayer
             // 
             // buttonAccountInfo
             // 
-            this.buttonAccountInfo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonAccountInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.buttonAccountInfo.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAccountInfo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonAccountInfo.Location = new System.Drawing.Point(0, 85);
@@ -228,13 +229,15 @@ namespace PresentationLayer
             // 
             // buttonSave
             // 
-            this.buttonSave.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
+            this.buttonSave.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.buttonSave.Location = new System.Drawing.Point(292, 560);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(75, 30);
             this.buttonSave.TabIndex = 13;
             this.buttonSave.Text = "Lưu";
-            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // textBoxConfirmNewPassword
@@ -399,6 +402,7 @@ namespace PresentationLayer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.Name = "UserProfileScreen";
             this.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.ResumeLayout(false);

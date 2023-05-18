@@ -103,11 +103,6 @@ namespace PresentationLayer
             using (FormAddBook formAddBook = new FormAddBook(logInAccount))
             {
                 formAddBook.ShowDialog();
-                if (formAddBook.DialogResult == DialogResult.OK)
-                {
-                    AdminScreen adminScreen = new AdminScreen(logInAccount);
-                    Utils.ShowScreen(ParentForm, adminScreen);
-                }
             }
         }
     }

@@ -70,7 +70,7 @@ namespace PresentationLayer
             this.labelUsername.Location = new System.Drawing.Point(5, 159);
             this.labelUsername.Margin = new System.Windows.Forms.Padding(5);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(88, 22);
+            this.labelUsername.Size = new System.Drawing.Size(70, 19);
             this.labelUsername.TabIndex = 2;
             this.labelUsername.Text = "Username";
             // 
@@ -81,13 +81,13 @@ namespace PresentationLayer
             this.labelRole.Location = new System.Drawing.Point(5, 188);
             this.labelRole.Margin = new System.Windows.Forms.Padding(5);
             this.labelRole.Name = "labelRole";
-            this.labelRole.Size = new System.Drawing.Size(54, 22);
+            this.labelRole.Size = new System.Drawing.Size(40, 19);
             this.labelRole.TabIndex = 3;
             this.labelRole.Text = "Role:";
             // 
             // ButtonAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.labelRole);
@@ -95,6 +95,7 @@ namespace PresentationLayer
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.Name = "ButtonAccount";
             this.Size = new System.Drawing.Size(154, 231);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

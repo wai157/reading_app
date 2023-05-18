@@ -69,7 +69,7 @@ namespace PresentationLayer
             ValidateChildren(ValidationConstraints.Enabled);
             if (string.IsNullOrEmpty(errorProvider.GetError(textBoxUsername)) == false
                 || string.IsNullOrEmpty(errorProvider.GetError(textBoxPassword)) == false) return;
-            string username = textBoxUsername.Text;
+            string username = textBoxUsername.Text.Trim();
             string password = textBoxPassword.Text;
             LogInAccount = _accountManager.Validate(username, password);
             if (LogInAccount != null)
@@ -101,7 +101,7 @@ namespace PresentationLayer
 
         private void textBoxUsername_Validated(object sender, EventArgs e)
         {
-            if (textBoxUsername.ForeColor != Color.Black || string.IsNullOrEmpty(textBoxUsername.Text))
+            if (textBoxUsername.ForeColor != Color.Black || string.IsNullOrWhiteSpace(textBoxUsername.Text))
             {
                 errorProvider.SetError(textBoxUsername, "Vui lòng nhập tên đăng nhập!");
             }

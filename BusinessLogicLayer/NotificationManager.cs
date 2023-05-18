@@ -25,7 +25,7 @@ namespace BusinessLogicLayer
             return _notificationRepository.GetNotiById(accountId);
         }
 
-        public void AddNotification(int type, int bookId)
+        public void AddNotification(int type, int bookId, string reason="")
         {
             _notificationRepository.DeleteNotification();
             string content;
@@ -33,16 +33,16 @@ namespace BusinessLogicLayer
             switch (type)
             {
                 case -1:
-                    content = "Truyện " + book.Name + " của bạn đã không được duyệt!";
+                    content = "Truyện " + book.Name + " của bạn đã không được duyệt! Lí do: " + reason;
                     _notificationRepository.AddNotification(book.UploadAccountId, bookId, content);
                     break;
                 case 1:
-                    content = "Truyện " + book.Name + " của bạn đã được duyệt!";
+                    content = "Truyện " + book.Name + " của bạn đã được duyệt! Bây giờ bạn có thể thêm các chương vào truyện.";
                     _notificationRepository.AddNotification(book.UploadAccountId, bookId, content);
                     break;
                 case 2:
                     List<int> accountIds = _libraryRepository.GetFollowedIds(bookId);
-                    content = "Truyện " + book.Name + " đã có chương mới!";
+                    content = "Truyện " + book.Name + " đã có chương mới! Bấm vào để đọc ngay!";
                     _notificationRepository.AddNotifications(accountIds, bookId, content);
                     break;
             }

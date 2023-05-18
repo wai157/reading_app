@@ -157,6 +157,12 @@
     <Compile Include="FormReadingApp.Designer.cs">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReason.Designer.cs">
+      <DependentUpon>FormReason.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReadingApp.resx">
       <DependentUpon>FormReadingApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReason.resx">
+      <DependentUpon>FormReason.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReport.resx">
       <DependentUpon>FormReport.cs</DependentUpon>

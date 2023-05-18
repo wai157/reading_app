@@ -78,7 +78,7 @@ namespace PresentationLayer
 
         private void buttonView_Click(object sender, EventArgs e)
         {
-            if (dataGridViewBookReports.SelectedRows != null)
+            if (dataGridViewBookReports.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dataGridViewBookReports.SelectedRows[0];
                 int reportId = int.Parse(row.Cells[0].Value.ToString());
@@ -93,7 +93,7 @@ namespace PresentationLayer
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridViewBookReports.SelectedRows != null)
+            if (dataGridViewBookReports.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dataGridViewBookReports.SelectedRows[0];
                 if (MessageBox.Show("Bạn có chắc muốn xóa báo cáo này?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -112,7 +112,7 @@ namespace PresentationLayer
 
         private void buttonViewVerify_Click(object sender, EventArgs e)
         {
-            if (dGVUnverifiedBooks.SelectedRows == null)
+            if (dGVUnverifiedBooks.SelectedRows.Count <= 0)
             {
                 MessageBox.Show("Vui lòng chọn sách để xem!");
                 return;
@@ -132,7 +132,7 @@ namespace PresentationLayer
                 else if (formBookVerification.DialogResult == DialogResult.No)
                 {
                     dGVUnverifiedBooks.Rows.Remove(row);
-                    _notificationManager.AddNotification(-1, book.Id);
+                    _notificationManager.AddNotification(-1, book.Id, formBookVerification.Reason);
                     _bookManager.DeleteBook(book.Id);
                     MessageBox.Show("Sách đã không được duyệt!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

@@ -55,6 +55,7 @@ namespace DataAccessLayer
                 return new BookDTO
                 {
                     Id = book.Id,
+                    IsVerified = book.IsVerified,
                     Name = book.Name,
                     BookCover = book.Cover,
                     Author = context.Authors.First(x => x.Id == book.AuthorId).Name,

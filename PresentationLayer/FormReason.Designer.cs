@@ -1,7 +1,7 @@
 ﻿
 namespace PresentationLayer
 {
-    partial class FormReport
+    partial class FormReason
     {
         /// <summary>
         /// Required designer variable.
@@ -63,7 +63,7 @@ namespace PresentationLayer
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(600, 450);
-            this.panelMain.TabIndex = 2;
+            this.panelMain.TabIndex = 3;
             // 
             // textBoxContent
             // 
@@ -80,30 +80,27 @@ namespace PresentationLayer
             // 
             this.labelDescription.AutoSize = true;
             this.labelDescription.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(38, 9);
+            this.labelDescription.Location = new System.Drawing.Point(68, 9);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(524, 25);
+            this.labelDescription.Size = new System.Drawing.Size(464, 25);
             this.labelDescription.TabIndex = 4;
-            this.labelDescription.Text = "Vui lòng cung cấp chi tiết lí do mà bạn báo cáo truyện này";
+            this.labelDescription.Text = "Vui lòng cung cấp lí do bạn không duyệt truyện này";
             // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // FormReport
+            // FormReason
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 450);
             this.Controls.Add(this.panelMain);
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(616, 489);
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(616, 489);
-            this.Name = "FormReport";
+            this.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name = "FormReason";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormReport";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormReport_FormClosing);
+            this.Text = "FormReason";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormReason_FormClosing);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

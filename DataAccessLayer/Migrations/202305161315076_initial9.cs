@@ -19,7 +19,6 @@
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Accounts", t => t.AccountId, cascadeDelete: true)
-                .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
                 .Index(t => t.AccountId)
                 .Index(t => t.BookId);
             
@@ -27,11 +26,10 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.Notifications", "BookId", "dbo.Books");
-            DropForeignKey("dbo.Notifications", "AccountId", "dbo.Accounts");
-            DropIndex("dbo.Notifications", new[] { "BookId" });
-            DropIndex("dbo.Notifications", new[] { "AccountId" });
-            DropTable("dbo.Notifications");
+            DropForeignKey("Notifications", "AccountId", "Accounts");
+            DropIndex("Notifications", new[] { "BookId" });
+            DropIndex("Notifications", new[] { "AccountId" });
+            DropTable("Notifications");
         }
     }
 }

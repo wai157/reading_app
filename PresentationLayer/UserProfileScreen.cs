@@ -191,10 +191,10 @@ namespace PresentationLayer
             flowLayoutPanelUpload.Enabled = false;
             panelAccountInfo.Visible = true;
             panelAccountInfo.Enabled = true;
-            buttonAccountInfo.BackColor = SystemColors.ActiveCaption;
-            buttonHistory.BackColor = Color.White;
-            buttonFollowed.BackColor = Color.White;
-            buttonUpload.BackColor = Color.White;
+            buttonAccountInfo.BackColor = Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
+            buttonHistory.BackColor = Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
+            buttonFollowed.BackColor = Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
+            buttonUpload.BackColor = Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
         }
 
         private void buttonFollowed_Click(object sender, EventArgs e)
@@ -207,10 +207,10 @@ namespace PresentationLayer
             flowLayoutPanelUpload.Enabled = false;
             flowLayoutPanelLibrary.Visible = true;
             flowLayoutPanelLibrary.Enabled = true;
-            buttonFollowed.BackColor = SystemColors.ActiveCaption;
-            buttonHistory.BackColor = Color.White;
-            buttonAccountInfo.BackColor = Color.White;
-            buttonUpload.BackColor = Color.White;
+            buttonFollowed.BackColor = Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
+            buttonHistory.BackColor = Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
+            buttonAccountInfo.BackColor = Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
+            buttonUpload.BackColor = Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
         }
 
         private void buttonHistory_Click(object sender, EventArgs e)
@@ -223,10 +223,10 @@ namespace PresentationLayer
             flowLayoutPanelUpload.Enabled = false;
             flowLayoutPanelHistory.Visible = true;
             flowLayoutPanelHistory.Enabled = true;
-            buttonHistory.BackColor = SystemColors.ActiveCaption;
-            buttonAccountInfo.BackColor = Color.White;
-            buttonFollowed.BackColor = Color.White;
-            buttonUpload.BackColor = Color.White;
+            buttonHistory.BackColor = Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
+            buttonAccountInfo.BackColor = Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
+            buttonFollowed.BackColor = Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
+            buttonUpload.BackColor = Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
         }
 
         private void buttonUpload_Click(object sender, EventArgs e)
@@ -239,10 +239,10 @@ namespace PresentationLayer
             flowLayoutPanelHistory.Enabled = false;
             flowLayoutPanelUpload.Visible = true;
             flowLayoutPanelUpload.Enabled = true;
-            buttonUpload.BackColor = SystemColors.ActiveCaption;
-            buttonAccountInfo.BackColor = Color.White;
-            buttonFollowed.BackColor = Color.White;
-            buttonHistory.BackColor = Color.White;
+            buttonUpload.BackColor = Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
+            buttonAccountInfo.BackColor = Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
+            buttonFollowed.BackColor = Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
+            buttonHistory.BackColor = Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
         }
     }
 }

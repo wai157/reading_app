@@ -104,6 +104,7 @@
             // 
             // buttonSave
             // 
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
             this.buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonSave.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.buttonSave.Location = new System.Drawing.Point(672, 309);
@@ -111,7 +112,7 @@
             this.buttonSave.Size = new System.Drawing.Size(100, 40);
             this.buttonSave.TabIndex = 9;
             this.buttonSave.Text = "Lưu";
-            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // radioButtonMale
@@ -140,13 +141,15 @@
             // 
             // buttonSelectAvatar
             // 
+            this.buttonSelectAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(229)))), ((int)(((byte)(253)))));
             this.buttonSelectAvatar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.buttonSelectAvatar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
             this.buttonSelectAvatar.Location = new System.Drawing.Point(12, 218);
             this.buttonSelectAvatar.Name = "buttonSelectAvatar";
             this.buttonSelectAvatar.Size = new System.Drawing.Size(200, 40);
             this.buttonSelectAvatar.TabIndex = 10;
             this.buttonSelectAvatar.Text = "Chọn ảnh đại diện";
-            this.buttonSelectAvatar.UseVisualStyleBackColor = true;
+            this.buttonSelectAvatar.UseVisualStyleBackColor = false;
             this.buttonSelectAvatar.Click += new System.EventHandler(this.buttonSelectAvatar_Click);
             // 
             // labelRole
@@ -198,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.ClientSize = new System.Drawing.Size(784, 361);
             this.Controls.Add(this.radioButtonOther);
             this.Controls.Add(this.buttonDelete);
@@ -215,6 +218,7 @@
             this.Controls.Add(this.labelDOB);
             this.Controls.Add(this.labelName);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(800, 400);
             this.MinimizeBox = false;
