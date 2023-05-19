@@ -110,7 +110,17 @@ namespace PresentationLayer
             int prevRoleId = _logInAccount.RoleID;
             using (FormEditUserInfo editUserInfoScreen = new FormEditUserInfo(_logInAccount, _logInAccount))
             {
-                editUserInfoScreen.ShowDialog();
+                try
+                {
+                    editUserInfoScreen.ShowDialog();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Người dùng không tồn tại!", "Lỗi", MessageBoxButtons.OK);
+                    LogInScreen logInScreen = new LogInScreen();
+                    Utils.ShowScreen(ParentForm, logInScreen);
+                    
+                }
                 if (_logInAccount.Id == -1)
                 {
                     MessageBox.Show("Phiên đăng nhập hết hạn!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);

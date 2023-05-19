@@ -135,34 +135,68 @@ namespace PresentationLayer
 
         private void btnRead_Click(object sender, EventArgs e)
         {
-            ChapterDTO chapterDTO = new ChapterDTO();
-            if (_history != null)
+            try
             {
-                chapterDTO = _chapterManager.GetChapterById(_history.ReadChapterIds.Last());
+                ChapterDTO chapterDTO = new ChapterDTO();
+                if (_history != null)
+                {
+                    chapterDTO = _chapterManager.GetChapterById(_history.ReadChapterIds.Last());
+                }
+                else
+                {
+                    chapterDTO = _chapterManager.GetAllChapters(_book).Last();
+                }
+                ChapterScreen chapterScreen = new ChapterScreen(_logInAccount, _book, chapterDTO);
+                Utils.ShowScreen(ParentForm, chapterScreen);
             }
-            else
+            catch (Exception)
             {
-                chapterDTO = _chapterManager.GetAllChapters(_book).Last();
+                MessageBox.Show("Truyện không tồn tại!", "Lỗi", MessageBoxButtons.OK);
+                if (_logInAccount.RoleID != 3)
+                {
+                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
+                }
+                else if (_logInAccount.RoleID == 3)
+                {
+                    MainScreen mainScreen = new MainScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, mainScreen);
+                }
             }
-            ChapterScreen chapterScreen = new ChapterScreen(_logInAccount, _book, chapterDTO);
-            Utils.ShowScreen(ParentForm, chapterScreen);
         }
 
         private void btdFollow_Click(object sender, EventArgs e)
         {
-            if (_library == null)
+            try
             {
-                _libraryManager.AddLibrary(_logInAccount.Id, _book.Id);
-                _library = _libraryManager.GetLibraryByAccountId(_logInAccount.Id).FirstOrDefault(x => x.BookId == _book.Id);
-                btdFollow.Text = "Hủy theo dõi";
-                _book.Follows += 1;
-            }
-            else
+                if (_library == null)
+                {
+                    _libraryManager.AddLibrary(_logInAccount.Id, _book.Id);
+                    _library = _libraryManager.GetLibraryByAccountId(_logInAccount.Id).FirstOrDefault(x => x.BookId == _book.Id);
+                    btdFollow.Text = "Hủy theo dõi";
+                    _book.Follows += 1;
+                }
+                else
+                {
+                    _libraryManager.DeleteLibrary(_library.Id);
+                    _library = null;
+                    btdFollow.Text = "Theo dõi";
+                    _book.Follows -= 1;
+                }
+            } 
+            catch (Exception)
             {
-                _libraryManager.DeleteLibrary(_library.Id);
-                _library = null;
-                btdFollow.Text = "Theo dõi";
-                _book.Follows -= 1;
+                MessageBox.Show("Truyện không tồn tại!", "Lỗi", MessageBoxButtons.OK);
+                if (_logInAccount.RoleID != 3)
+                {
+                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
+                }
+                else if (_logInAccount.RoleID == 3)
+                {
+                    MainScreen mainScreen = new MainScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, mainScreen);
+                }
             }
             labelFollowed.Text = "Lượt theo dõi: " + _book.Follows;
         }
@@ -181,24 +215,58 @@ namespace PresentationLayer
 
         private void linkLabelReport_Click(object sender, EventArgs e)
         {
-            using (FormReport formReport = new FormReport(_logInAccount.Id, _book.Id))
+            try
             {
-                formReport.ShowDialog();
+                using (FormReport formReport = new FormReport(_logInAccount.Id, _book.Id))
+                {
+                    formReport.ShowDialog();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Truyện không tồn tại!", "Lỗi", MessageBoxButtons.OK);
+                if (_logInAccount.RoleID != 3)
+                {
+                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
+                }
+                else if (_logInAccount.RoleID == 3)
+                {
+                    MainScreen mainScreen = new MainScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, mainScreen);
+                }
             }
         }
 
         private void buttonRate_Click(object sender, EventArgs e)
         {
-            using (FormRating formRating = new FormRating(_logInAccount.Id, _book.Id))
+            try
             {
-                formRating.ShowDialog();
-                if (formRating.DialogResult == DialogResult.OK)
+                using (FormRating formRating = new FormRating(_logInAccount.Id, _book.Id))
                 {
-                    double rating = _ratedBookManager.GetRatingListByBookId(_book.Id, out int count);
-                    this.labelRating.Text = "Đánh giá: " + rating.ToString("F1") + "/5 (" + count.ToString() + " lượt)";
+                    formRating.ShowDialog();
+                    if (formRating.DialogResult == DialogResult.OK)
+                    {
+                        double rating = _ratedBookManager.GetRatingListByBookId(_book.Id, out int count);
+                        this.labelRating.Text = "Đánh giá: " + rating.ToString("F1") + "/5 (" + count.ToString() + " lượt)";
+                    }
                 }
             }
-            
+            catch (Exception)
+            {
+                MessageBox.Show("Truyện không tồn tại!", "Lỗi", MessageBoxButtons.OK);
+                if (_logInAccount.RoleID != 3)
+                {
+                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
+                }
+                else if (_logInAccount.RoleID == 3)
+                {
+                    MainScreen mainScreen = new MainScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, mainScreen);
+                }
+            }
+
         }
     }
 }

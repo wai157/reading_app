@@ -68,11 +68,20 @@ namespace PresentationLayer
         {
             if (dataGridViewBookReports.Columns[e.ColumnIndex] is DataGridViewLinkColumn && e.RowIndex >= 0)
             {
-                string reportId = dataGridViewBookReports.Rows[e.RowIndex].Cells[0].Value.ToString();
-                int bookId = _bookReportManager.GetBookReportById(int.Parse(reportId)).ReportedBookID; 
-                BookDTO book = _bookManager.GetBookById(bookId);
-                BookScreen bookScreen = new BookScreen(_logInAccount, book);
-                Utils.ShowScreen(ParentForm, bookScreen);
+                try
+                {
+                    string reportId = dataGridViewBookReports.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    int bookId = _bookReportManager.GetBookReportById(int.Parse(reportId)).ReportedBookID;
+                    BookDTO book = _bookManager.GetBookById(bookId);
+                    BookScreen bookScreen = new BookScreen(_logInAccount, book);
+                    Utils.ShowScreen(ParentForm, bookScreen);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Truyện đã bị xóa!", "Lỗi", MessageBoxButtons.OK);
+                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
+                }
             }
         }
 
@@ -80,28 +89,47 @@ namespace PresentationLayer
         {
             if (dataGridViewBookReports.SelectedRows.Count > 0)
             {
-                DataGridViewRow row = dataGridViewBookReports.SelectedRows[0];
-                int reportId = int.Parse(row.Cells[0].Value.ToString());
-                FormBookReportView formBookReportView = new FormBookReportView(reportId);
-                formBookReportView.Show();
+                try
+                {
+                    DataGridViewRow row = dataGridViewBookReports.SelectedRows[0];
+                    int reportId = int.Parse(row.Cells[0].Value.ToString());
+                    FormBookReportView formBookReportView = new FormBookReportView(reportId);
+                    formBookReportView.Show();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Báo cáo đã được xử lí!", "Lỗi", MessageBoxButtons.OK);
+                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
+                }
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn một báo cáo để xem!");
             }
+
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewBookReports.SelectedRows.Count > 0)
             {
-                DataGridViewRow row = dataGridViewBookReports.SelectedRows[0];
-                if (MessageBox.Show("Bạn có chắc muốn xóa báo cáo này?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                try
                 {
-                    dataGridViewBookReports.Rows.Remove(row);
-                    int reportId = int.Parse(row.Cells[0].Value.ToString());
-                    _bookReportManager.DeleteBookReport(reportId);
-                    MessageBox.Show("Xóa báo cáo thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DataGridViewRow row = dataGridViewBookReports.SelectedRows[0];
+                    if (MessageBox.Show("Bạn có chắc muốn xóa báo cáo này?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        dataGridViewBookReports.Rows.Remove(row);
+                        int reportId = int.Parse(row.Cells[0].Value.ToString());
+                        _bookReportManager.DeleteBookReport(reportId);
+                        MessageBox.Show("Xóa báo cáo thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Báo cáo đã được xử lí!", "Lỗi", MessageBoxButtons.OK);
+                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
                 }
             }
             else
@@ -117,25 +145,34 @@ namespace PresentationLayer
                 MessageBox.Show("Vui lòng chọn sách để xem!");
                 return;
             }
-            DataGridViewRow row = dGVUnverifiedBooks.SelectedRows[0];
-            BookDTO book = _bookManager.GetBookById(int.Parse(row.Cells[0].Value.ToString()));
-            using (FormBookVerification formBookVerification = new FormBookVerification(book))
+            try
             {
-                formBookVerification.ShowDialog();
-                if (formBookVerification.DialogResult == DialogResult.Yes)
+                DataGridViewRow row = dGVUnverifiedBooks.SelectedRows[0];
+                BookDTO book = _bookManager.GetBookById(int.Parse(row.Cells[0].Value.ToString()));
+                using (FormBookVerification formBookVerification = new FormBookVerification(book))
                 {
-                    _bookManager.VerifyBook(book.Id);
-                    _notificationManager.AddNotification(1, book.Id);
-                    dGVUnverifiedBooks.Rows.Remove(row);
-                    MessageBox.Show("Duyệt sách thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    formBookVerification.ShowDialog();
+                    if (formBookVerification.DialogResult == DialogResult.Yes)
+                    {
+                        _bookManager.VerifyBook(book.Id);
+                        _notificationManager.AddNotification(1, book.Id);
+                        dGVUnverifiedBooks.Rows.Remove(row);
+                        MessageBox.Show("Duyệt sách thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (formBookVerification.DialogResult == DialogResult.No)
+                    {
+                        dGVUnverifiedBooks.Rows.Remove(row);
+                        _notificationManager.AddNotification(-1, book.Id, formBookVerification.Reason);
+                        _bookManager.DeleteBook(book.Id);
+                        MessageBox.Show("Sách đã không được duyệt!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                else if (formBookVerification.DialogResult == DialogResult.No)
-                {
-                    dGVUnverifiedBooks.Rows.Remove(row);
-                    _notificationManager.AddNotification(-1, book.Id, formBookVerification.Reason);
-                    _bookManager.DeleteBook(book.Id);
-                    MessageBox.Show("Sách đã không được duyệt!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Yêu cầu đã được xử lí!", "Lỗi", MessageBoxButtons.OK);
+                AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                Utils.ShowScreen(ParentForm, adminScreen);
             }
         }
 
@@ -143,15 +180,24 @@ namespace PresentationLayer
         {                
             if (MessageBox.Show("Bạn có chắc muốn duyệt tất cả truyện?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                foreach (DataGridViewRow row in dGVUnverifiedBooks.Rows)
+                try
                 {
-                    BookDTO book = _bookManager.GetBookById(int.Parse(row.Cells[0].Value.ToString()));
-                    _bookManager.VerifyBook(book.Id);
-                    _notificationManager.AddNotification(1, book.Id);
+                    foreach (DataGridViewRow row in dGVUnverifiedBooks.Rows)
+                    {
+                        BookDTO book = _bookManager.GetBookById(int.Parse(row.Cells[0].Value.ToString()));
+                        _bookManager.VerifyBook(book.Id);
+                        _notificationManager.AddNotification(1, book.Id);
+                    }
+                    dGVUnverifiedBooks.Rows.Clear();
+                    _bookManager.VerifyAllBooks();
+                    MessageBox.Show("Duyệt tất cả thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                dGVUnverifiedBooks.Rows.Clear();
-                _bookManager.VerifyAllBooks();
-                MessageBox.Show("Duyệt tất cả thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                catch (Exception)
+                {
+                    MessageBox.Show("Có một số yêu cầu đã được xử lí!", "Lỗi", MessageBoxButtons.OK);
+                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
+                }
             }
         }
     }

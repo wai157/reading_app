@@ -36,7 +36,29 @@ namespace PresentationLayer
             bool isSelfEdit = (_logInAccount.Id == _presentedAccount.Id);
             using (FormEditUserInfo formEditUserInfo = new FormEditUserInfo(_logInAccount, _presentedAccount))
             {
-                formEditUserInfo.ShowDialog();
+                try
+                {
+                    formEditUserInfo.ShowDialog();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Người dùng không tồn tại!", "Lỗi", MessageBoxButtons.OK);
+                    if (_logInAccount.Id == _presentedAccount.Id)
+                    {
+                        LogInScreen logInScreen = new LogInScreen();
+                        Utils.ShowScreen(ParentForm, logInScreen);
+                    }
+                    if (_logInAccount.RoleID != 3)
+                    {
+                        AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                        Utils.ShowScreen(ParentForm, adminScreen);
+                    }
+                    else if (_logInAccount.RoleID == 3)
+                    {
+                        MainScreen mainScreen = new MainScreen(_logInAccount);
+                        Utils.ShowScreen(ParentForm, mainScreen);
+                    }
+                }
                 if (isSelfEdit == true && _presentedAccount.Id == -1)
                 {
                     MessageBox.Show("Phiên đăng nhập hết hạn!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -55,11 +77,6 @@ namespace PresentationLayer
                     Utils.ShowScreen(ParentForm, adminScreen);
                 }
             }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

@@ -49,10 +49,10 @@ namespace PresentationLayer
             this.buttonVerifyAll = new System.Windows.Forms.Button();
             this.buttonViewVerify = new System.Windows.Forms.Button();
             this.dGVUnverifiedBooks = new System.Windows.Forms.DataGridView();
+            this.header1 = new PresentationLayer.Header();
             this.dataGridViewId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.header1 = new PresentationLayer.Header();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -309,9 +309,20 @@ namespace PresentationLayer
             this.dGVUnverifiedBooks.Size = new System.Drawing.Size(1010, 500);
             this.dGVUnverifiedBooks.TabIndex = 1;
             // 
+            // header1
+            // 
+            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.header1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.header1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header1.Location = new System.Drawing.Point(0, 0);
+            this.header1.Name = "header1";
+            this.header1.Size = new System.Drawing.Size(1280, 72);
+            this.header1.TabIndex = 15;
+            // 
             // dataGridViewId
             // 
-            this.dataGridViewId.HeaderText = "Id";
+            this.dataGridViewId.HeaderText = "Id sách";
             this.dataGridViewId.Name = "dataGridViewId";
             this.dataGridViewId.ReadOnly = true;
             // 
@@ -327,17 +338,6 @@ namespace PresentationLayer
             this.dataGridViewBookName.Name = "dataGridViewBookName";
             this.dataGridViewBookName.ReadOnly = true;
             this.dataGridViewBookName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // header1
-            // 
-            this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.header1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.header1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.header1.Location = new System.Drawing.Point(0, 0);
-            this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(1280, 72);
-            this.header1.TabIndex = 15;
             // 
             // AdminScreen
             // 

@@ -17,12 +17,14 @@ namespace PresentationLayer
     public partial class FormEditUserInfo : Form
     {
         private readonly AccountManager _accountManager;
+        private readonly AccountDTO _logInAccount;
         private readonly AccountDTO _presentedAccount;
         private readonly UserInfoDTO _presentedUserInfo;
         public FormEditUserInfo(AccountDTO logInAccount, AccountDTO presentedAccount)          
         {
             InitializeComponent();
             _accountManager = new AccountManager();
+            _logInAccount = logInAccount;
             _presentedAccount = presentedAccount;
             _presentedUserInfo = _accountManager.GetUserInfo(_presentedAccount.Id);
             comboBoxRole.DataSource = new List<string>{
