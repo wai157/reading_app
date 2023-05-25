@@ -32,6 +32,7 @@ namespace PresentationLayer
             this.components = new System.ComponentModel.Container();
             this.buttonConfirm = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonSelectCover = new System.Windows.Forms.Button();
             this.comboBoxGenre = new System.Windows.Forms.ComboBox();
@@ -44,7 +45,6 @@ namespace PresentationLayer
             this.labelName = new System.Windows.Forms.Label();
             this.pictureBoxCover = new System.Windows.Forms.PictureBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -84,6 +84,20 @@ namespace PresentationLayer
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(800, 500);
             this.panelMain.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Image = global::PresentationLayer.Properties.Resources._665049;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(3, 478);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(453, 19);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "    Sách của bạn sẽ cần được kiểm duyệt trước khi thực hiện các thay đổi.";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // buttonDelete
             // 
@@ -206,20 +220,6 @@ namespace PresentationLayer
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = global::PresentationLayer.Properties.Resources._665049;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(3, 478);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(453, 19);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "    Sách của bạn sẽ cần được kiểm duyệt trước khi thực hiện các thay đổi.";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // FormEditBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -235,7 +235,7 @@ namespace PresentationLayer
             this.MinimumSize = new System.Drawing.Size(816, 539);
             this.Name = "FormEditBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormEditBook";
+            this.Text = "Chỉnh sửa sách";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEditBook_FormClosing);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();

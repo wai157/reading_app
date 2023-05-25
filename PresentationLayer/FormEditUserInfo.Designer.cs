@@ -225,7 +225,7 @@
             this.MinimumSize = new System.Drawing.Size(800, 400);
             this.Name = "FormEditUserInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chỉnh sửa thông tin";
+            this.Text = "Chỉnh sửa thông tin người dùng";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

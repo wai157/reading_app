@@ -31,6 +31,7 @@ namespace PresentationLayer
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonDel = new System.Windows.Forms.Button();
             this.labelFile = new System.Windows.Forms.Label();
             this.buttonConfirm = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@ namespace PresentationLayer
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.buttonDel);
             this.panel1.Controls.Add(this.labelFile);
             this.panel1.Controls.Add(this.buttonConfirm);
@@ -62,6 +64,20 @@ namespace PresentationLayer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(584, 181);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Image = global::PresentationLayer.Properties.Resources._665049;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(3, 159);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(355, 19);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "    Chương sẽ cần được kiểm duyệt trước khi được đăng!";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // buttonDel
             // 
@@ -187,7 +203,7 @@ namespace PresentationLayer
             this.MinimizeBox = false;
             this.Name = "FormAddChap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormAddChap";
+            this.Text = "Thêm chương";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAddChap_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -209,5 +225,6 @@ namespace PresentationLayer
         private System.Windows.Forms.Button buttonDel;
         private System.Windows.Forms.Label labelFile;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label label1;
     }
 }

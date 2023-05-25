@@ -221,7 +221,7 @@ namespace PresentationLayer
             this.MinimumSize = new System.Drawing.Size(816, 539);
             this.Name = "FormAddBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormAddBook";
+            this.Text = "Thêm sách";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAddBook_FormClosing);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();

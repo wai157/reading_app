@@ -18,6 +18,7 @@ namespace PresentationLayer
         private readonly BookManager _bookManager;
         private readonly AccountManager _accountManager;
         private readonly BookReportManager _bookReportManager;
+        private readonly ChapterManager _chapterManager;
         private readonly NotificationManager _notificationManager;
         private readonly AccountDTO _logInAccount;
         public AdminScreen(AccountDTO logInAccountDTO)
@@ -26,6 +27,8 @@ namespace PresentationLayer
             _bookManager = new BookManager();
             _accountManager = new AccountManager();
             _bookReportManager = new BookReportManager();
+            _chapterManager = new ChapterManager();
+            
             _notificationManager = new NotificationManager();
             _logInAccount = logInAccountDTO;
             List<BookDTO> books = _bookManager.GetAllVerifiedBooks();
@@ -37,24 +40,49 @@ namespace PresentationLayer
             List<BookReportDTO> bookReports = _bookReportManager.GetAllBookReports();
             foreach (BookReportDTO bookReport in bookReports)
             {
-                dataGridViewBookReports.Rows.Add(new string[] { bookReport.Id.ToString(), 
+                dataGridViewBookReports.Rows.Add(new string[] {
+                    bookReport.Id.ToString(), 
                     _accountManager.GetAccountById(bookReport.CreateAccountID).Username, 
-                    _bookManager.GetBookById(bookReport.ReportedBookID).Name });
+                    _bookManager.GetBookById(bookReport.ReportedBookID).Name 
+                });
             }
             List<BookDTO> unverifiedBooks = _bookManager.GetAllUnverifiedBooks();
             foreach (BookDTO unverifiedBook in unverifiedBooks)
             {
-                dGVUnverifiedBooks.Rows.Add(new string[] { unverifiedBook.Id.ToString(),
+                dGVUnverifiedBooks.Rows.Add(new string[] { 
+                    unverifiedBook.Id.ToString(),
                     _accountManager.GetAccountById(unverifiedBook.UploadAccountId).Username,
-                    _bookManager.GetBookById(unverifiedBook.Id).Name });
+                    _bookManager.GetBookById(unverifiedBook.Id).Name 
+                });
             }
+            List<ChapterDTO> unverifiedChapters = _chapterManager.GetAllUnverifiedChapters();
+            foreach(ChapterDTO unverifiedChapter in unverifiedChapters)
+            {
+                BookDTO book = _bookManager.GetBookById(unverifiedChapter.BookId);
+                dGVUnverifiedChapters.Rows.Add(new string[]
+                {
+                    unverifiedChapter.Id.ToString(),
+                    _accountManager.GetAccountById(book.UploadAccountId).Username,
+                    book.Name,
+                    unverifiedChapter.No.ToString()
+                });
+            }
+
             if (_logInAccount.RoleID == 1)
             {
                 List<AccountDTO> accounts = _accountManager.GetAllAccounts();
                 foreach (AccountDTO account in accounts)
                 {
-                    ButtonAccount buttonAccount = new ButtonAccount(_logInAccount, account);
-                    this.flowLayoutPanelAccounts.Controls.Add(buttonAccount);
+                    UserInfoDTO userInfo = _accountManager.GetUserInfo(account.Id);
+                    dGVUsers.Rows.Add(new string[]
+                    {
+                        account.Username,
+                        account.Email,
+                        userInfo.Name,
+                        userInfo.Sex,
+                        userInfo.DOB.ToString(),
+                        account.RoleID == 1 ? "admin" : account.RoleID == 2 ? "mod" : "user"
+                    });
                 }
             }
             else
@@ -149,6 +177,10 @@ namespace PresentationLayer
             {
                 DataGridViewRow row = dGVUnverifiedBooks.SelectedRows[0];
                 BookDTO book = _bookManager.GetBookById(int.Parse(row.Cells[0].Value.ToString()));
+                if (book.IsVerified == true)
+                {
+                    throw new Exception();
+                }
                 using (FormBookVerification formBookVerification = new FormBookVerification(book))
                 {
                     formBookVerification.ShowDialog();
@@ -189,12 +221,138 @@ namespace PresentationLayer
                         _notificationManager.AddNotification(1, book.Id);
                     }
                     dGVUnverifiedBooks.Rows.Clear();
-                    _bookManager.VerifyAllBooks();
                     MessageBox.Show("Duyệt tất cả thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Có một số yêu cầu đã được xử lí!", "Lỗi", MessageBoxButtons.OK);
+                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dGVUnverifiedChapters.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Vui lòng chọn sách để xem!");
+                return;
+            }
+            try
+            {
+                DataGridViewRow row = dGVUnverifiedChapters.SelectedRows[0];
+                ChapterDTO chapter = _chapterManager.GetChapterById(int.Parse(row.Cells[0].Value.ToString()));
+                if (chapter.IsVerified == true)
+                {
+                    throw new NullReferenceException();
+                }
+                using (FormChapterVerification formChapterVerification = new FormChapterVerification(chapter))
+                {
+                    formChapterVerification.ShowDialog();
+                    if (formChapterVerification.DialogResult == DialogResult.Yes)
+                    {
+                        _chapterManager.VerifyChapter(chapter.Id);
+                        _notificationManager.AddNotification(2, chapter.BookId);
+                        _notificationManager.AddNotification(3, chapter.BookId, "", chapter.Id);
+                        dGVUnverifiedChapters.Rows.Remove(row);
+                        MessageBox.Show("Duyệt chương thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (formChapterVerification.DialogResult == DialogResult.No)
+                    {
+                        dGVUnverifiedChapters.Rows.Remove(row);
+                        _notificationManager.AddNotification(-3, chapter.BookId, formChapterVerification.Reason, chapter.Id);
+                        _chapterManager.DeleteChapter(chapter.Id);
+                        MessageBox.Show("Chương đã không được duyệt!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Yêu cầu đã được xử lí!", "Lỗi", MessageBoxButtons.OK);
+                AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                Utils.ShowScreen(ParentForm, adminScreen);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK);
+            }
+        }
+
+        private void buttonVerifyAllChapters_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn duyệt tất cả chương?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    foreach (DataGridViewRow row in dGVUnverifiedChapters.Rows)
+                    {
+                        ChapterDTO chapter = _chapterManager.GetChapterById(int.Parse(row.Cells[0].Value.ToString()));
+                        _notificationManager.AddNotification(2, chapter.BookId);
+                        _notificationManager.AddNotification(3, chapter.BookId, "", chapter.Id);
+                    }
+                    dGVUnverifiedChapters.Rows.Clear();
+                    _chapterManager.VerifyAllChapter();
+                    MessageBox.Show("Duyệt tất cả thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Có một số yêu cầu đã được xử lí!", "Lỗi", MessageBoxButtons.OK);
+                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
+                }
+            }
+        }
+
+        private void buttonEditUserInfo_Click(object sender, EventArgs e)
+        {
+            if (dGVUsers.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Vui lòng chọn sách để xem!");
+                return;
+            }
+            DataGridViewRow row = dGVUsers.SelectedRows[0];
+            AccountDTO presentedAccount = _accountManager.GetAccountByUsername(row.Cells[0].Value.ToString());
+            bool isSelfEdit = (_logInAccount.Id == presentedAccount.Id);
+            using (FormEditUserInfo formEditUserInfo = new FormEditUserInfo(_logInAccount, presentedAccount))
+            {
+                try
+                {
+                    formEditUserInfo.ShowDialog();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Người dùng không tồn tại!", "Lỗi", MessageBoxButtons.OK);
+                    if (_logInAccount.Id == presentedAccount.Id)
+                    {
+                        LogInScreen logInScreen = new LogInScreen();
+                        Utils.ShowScreen(ParentForm, logInScreen);
+                    }
+                    if (_logInAccount.RoleID != 3)
+                    {
+                        AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                        Utils.ShowScreen(ParentForm, adminScreen);
+                    }
+                    else if (_logInAccount.RoleID == 3)
+                    {
+                        MainScreen mainScreen = new MainScreen(_logInAccount);
+                        Utils.ShowScreen(ParentForm, mainScreen);
+                    }
+                }
+                if (isSelfEdit == true && presentedAccount.Id == -1)
+                {
+                    MessageBox.Show("Phiên đăng nhập hết hạn!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LogInScreen logInScreen = new LogInScreen();
+                    Utils.ShowScreen(ParentForm, logInScreen);
+                }
+                else if (isSelfEdit == true && _logInAccount.RoleID != presentedAccount.RoleID)
+                {
+                    MessageBox.Show("Bạn vừa thay đổi phân quyền của bản thân!\nVui lòng đăng nhập lại để thay đổi có hiệu lực!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LogInScreen logInScreen = new LogInScreen();
+                    Utils.ShowScreen(ParentForm, logInScreen);
+                }
+                else if (formEditUserInfo.DialogResult == DialogResult.OK || presentedAccount.Id == -1)
+                {
                     AdminScreen adminScreen = new AdminScreen(_logInAccount);
                     Utils.ShowScreen(ParentForm, adminScreen);
                 }

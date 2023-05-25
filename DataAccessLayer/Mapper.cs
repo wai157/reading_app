@@ -74,6 +74,7 @@ namespace DataAccessLayer
             return new ChapterDTO
             {
                 Id = chapter.Id,
+                IsVerified = chapter.IsVerified,
                 No = chapter.No,
                 Title = chapter.Title,
                 Content = chapter.Content,

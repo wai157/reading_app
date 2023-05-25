@@ -106,7 +106,7 @@ namespace PresentationLayer
             this.MinimizeBox = false;
             this.Name = "FormResetPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormResetPassword";
+            this.Text = "Tạo mới mật khẩu";
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

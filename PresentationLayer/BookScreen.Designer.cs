@@ -362,6 +362,7 @@ namespace PresentationLayer
             this.flowLayoutPanelChapters.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelChapters.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanelChapters.Name = "flowLayoutPanelChapters";
+            this.flowLayoutPanelChapters.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.flowLayoutPanelChapters.Size = new System.Drawing.Size(622, 570);
             this.flowLayoutPanelChapters.TabIndex = 0;
             // 

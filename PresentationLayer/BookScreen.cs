@@ -55,9 +55,14 @@ namespace PresentationLayer
                 this.buttonEdit.Visible = true;
                 this.buttonEdit.Enabled = true;
             }
-            List<ChapterDTO> chapters = _chapterManager.GetAllChapters(book);
+            if (_logInAccount.RoleID != 3)
+            {
+                this.buttonEdit.Visible = true;
+                this.buttonEdit.Enabled = true;
+            }
+            List<ChapterDTO> chapters = _chapterManager.GetAllVerifiedChaptersOf(book);
             _history = _historyManager.GetHistoryOfBook(_logInAccount.Id, _book.Id);
-            if (_history != null)
+            if (_history != null && chapters.Count !=0)
             {
                 btnRead.Text = "Đọc tiếp";
             }
@@ -65,16 +70,10 @@ namespace PresentationLayer
             {
                 btnRead.Enabled = false;
             }
-            int X = buttonAddChap.Location.X;
-            int Y = buttonAddChap.Location.Y + buttonAddChap.Size.Height + 3;
             foreach (ChapterDTO chapter in chapters)
             {
 
-                ButtonChapter buttonChapter = new ButtonChapter(_logInAccount.Id, book, chapter)
-                {
-                    Location = new Point(X, Y)
-                };
-                Y += buttonChapter.Size.Height + 3;
+                ButtonChapter buttonChapter = new ButtonChapter(_logInAccount.Id, book, chapter);
                 if (_history != null && _history.ReadChapterIds.Contains(chapter.Id))
                 {
                     buttonChapter.ForeColor = Color.Gray;
@@ -103,11 +102,6 @@ namespace PresentationLayer
             using (FormAddChap formAddChap = new FormAddChap(_book))
             {
                 formAddChap.ShowDialog();
-                if (formAddChap.DialogResult == DialogResult.OK)
-                {
-                    BookScreen bookScreen = new BookScreen(_logInAccount, _book);
-                    Utils.ShowScreen(ParentForm, bookScreen);
-                }
             }
         }
 
@@ -144,7 +138,7 @@ namespace PresentationLayer
                 }
                 else
                 {
-                    chapterDTO = _chapterManager.GetAllChapters(_book).Last();
+                    chapterDTO = _chapterManager.GetAllVerifiedChaptersOf(_book).Last();
                 }
                 ChapterScreen chapterScreen = new ChapterScreen(_logInAccount, _book, chapterDTO);
                 Utils.ShowScreen(ParentForm, chapterScreen);

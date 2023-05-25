@@ -203,7 +203,7 @@ namespace PresentationLayer
             this.MinimizeBox = false;
             this.Name = "FormEditChap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormEditChap";
+            this.Text = "Chỉnh sửa chương";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEditChap_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

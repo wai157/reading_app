@@ -102,7 +102,7 @@ namespace PresentationLayer
             this.MinimumSize = new System.Drawing.Size(616, 489);
             this.Name = "FormReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormReport";
+            this.Text = "Báo cáo sách";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormReport_FormClosing);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();

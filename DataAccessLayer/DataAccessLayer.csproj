@@ -155,6 +155,10 @@
     <Compile Include="Migrations\202305170821256_initial10.designer.cs">
       <DependentUpon>202305170821256_initial10.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305251505308_initial11.cs" />
+    <Compile Include="Migrations\202305251505308_initial11.designer.cs">
+      <DependentUpon>202305251505308_initial11.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NotificationRepository.cs" />
     <Compile Include="PBL3DbContext.cs" />
@@ -221,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305170821256_initial10.resx">
       <DependentUpon>202305170821256_initial10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305251505308_initial11.resx">
+      <DependentUpon>202305251505308_initial11.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

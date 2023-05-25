@@ -9,6 +9,7 @@ namespace EntityLayer
     public class Chapter
     {
         public int Id { get; set; }
+        public bool IsVerified { get; set; }
         public int No { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }

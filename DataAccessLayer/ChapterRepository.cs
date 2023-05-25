@@ -27,7 +27,7 @@ namespace DataAccessLayer
             return null;
         }
 
-        public List<ChapterDTO> GetAllChapters(BookDTO book)
+        public List<ChapterDTO> GetAllChaptersOf(BookDTO book)
         {
             List<Chapter> chapters = _context.Chapters.Where(x => x.BookId == book.Id)
                                                       .OrderByDescending(x => x.No)
@@ -42,11 +42,27 @@ namespace DataAccessLayer
             return chapterDTOs;
         }
 
+        public List<ChapterDTO> GetAllUnverifiedChapters()
+        {
+            List<Chapter> chapters = _context.Chapters.Where(x => x.IsVerified == false)
+                                                    .ToList();
+            List<ChapterDTO> chapterDTOs = new List<ChapterDTO>();
+            foreach (Chapter chapter in chapters)
+            {
+                ChapterDTO chapterDTO = Mapper.ToChapterDTO(chapter);
+                chapterDTOs.Add(chapterDTO);
+            }
+
+            return chapterDTOs;
+            
+        }
+
         public void AddChapter(ChapterDTO chapter)
         {
             _context.Chapters.Add(new Chapter
             {
                 No = chapter.No,
+                IsVerified = false,
                 Title = chapter.Title,
                 Content = chapter.Content,
                 BookId = chapter.BookId,
@@ -59,6 +75,7 @@ namespace DataAccessLayer
             Chapter chapterToUpdate = _context.Chapters.FirstOrDefault(x => x.Id == chapterDTO.Id);
             if (chapterToUpdate != null)
             {
+                chapterToUpdate.IsVerified = chapterDTO.IsVerified;
                 chapterToUpdate.No = chapterDTO.No;
                 chapterToUpdate.Title = chapterDTO.Title;
                 chapterToUpdate.Content = chapterDTO.Content;

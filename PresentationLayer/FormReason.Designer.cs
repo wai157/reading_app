@@ -80,11 +80,11 @@ namespace PresentationLayer
             // 
             this.labelDescription.AutoSize = true;
             this.labelDescription.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(68, 9);
+            this.labelDescription.Location = new System.Drawing.Point(117, 9);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(464, 25);
+            this.labelDescription.Size = new System.Drawing.Size(366, 25);
             this.labelDescription.TabIndex = 4;
-            this.labelDescription.Text = "Vui lòng cung cấp lí do bạn không duyệt truyện này";
+            this.labelDescription.Text = "Vui lòng cung cấp lí do bạn không duyệt";
             // 
             // errorProvider
             // 
@@ -99,7 +99,7 @@ namespace PresentationLayer
             this.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormReason";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormReason";
+            this.Text = "Lí do";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormReason_FormClosing);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
