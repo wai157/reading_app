@@ -49,19 +49,35 @@ namespace PresentationLayer
             linkLabelAuthor.Text = book.Author;
             labelDescription.Text = "Nội dung: " + book.Description;
             linkLabelGenre.Text = _genreManager.GetGenreById(book.GenreId).Name;
-            if (_logInAccount.Id == book.UploadAccountId)
+            if (_logInAccount != null)
             {
-                this.flowLayoutPanelChapters.Controls.Add(this.buttonAddChap);
-                this.buttonEdit.Visible = true;
-                this.buttonEdit.Enabled = true;
-            }
-            if (_logInAccount.RoleID != 3)
-            {
-                this.buttonEdit.Visible = true;
-                this.buttonEdit.Enabled = true;
+                if (_logInAccount.Id == book.UploadAccountId)
+                {
+                    this.flowLayoutPanelChapters.Controls.Add(this.buttonAddChap);
+                    this.buttonEdit.Visible = true;
+                    this.buttonEdit.Enabled = true;
+                }
+                if (_logInAccount.RoleID != 3)
+                {
+                    this.buttonEdit.Visible = true;
+                    this.buttonEdit.Enabled = true;
+                }
+                _history = _historyManager.GetHistoryOfBook(_logInAccount.Id, _book.Id);
+                bool inLibrary = _libraryManager.GetLibraryByAccountId(_logInAccount.Id)
+                                            .Where(x => x.BookId == _book.Id)
+                                            .Count() > 0;
+                if (inLibrary == true)
+                {
+                    btdFollow.Text = "Hủy theo dõi";
+                    _library = _libraryManager.GetLibraryByAccountId(_logInAccount.Id).FirstOrDefault(x => x.BookId == _book.Id);
+                }
+                else
+                {
+                    _library = null;
+                }
             }
             List<ChapterDTO> chapters = _chapterManager.GetAllVerifiedChaptersOf(book);
-            _history = _historyManager.GetHistoryOfBook(_logInAccount.Id, _book.Id);
+            
             if (_history != null && chapters.Count !=0)
             {
                 btnRead.Text = "Đọc tiếp";
@@ -73,25 +89,14 @@ namespace PresentationLayer
             foreach (ChapterDTO chapter in chapters)
             {
 
-                ButtonChapter buttonChapter = new ButtonChapter(_logInAccount.Id, book, chapter);
+                ButtonChapter buttonChapter = new ButtonChapter(_logInAccount, book, chapter);
                 if (_history != null && _history.ReadChapterIds.Contains(chapter.Id))
                 {
                     buttonChapter.ForeColor = Color.Gray;
                 }
                 this.flowLayoutPanelChapters.Controls.Add(buttonChapter);
             }
-            bool inLibrary = _libraryManager.GetLibraryByAccountId(_logInAccount.Id)
-                                            .Where(x => x.BookId == _book.Id)
-                                            .Count() > 0;
-            if (inLibrary == true)
-            {
-                btdFollow.Text = "Hủy theo dõi";
-                _library = _libraryManager.GetLibraryByAccountId(_logInAccount.Id).FirstOrDefault(x => x.BookId == _book.Id);
-            }
-            else
-            {
-                _library = null;
-            }
+            
 
             double rating = _ratedBookManager.GetRatingListByBookId(_book.Id, out int count);
             this.labelRating.Text = "Đánh giá: " + rating.ToString("F1") + "/5 (" + count.ToString() + " lượt)";
@@ -146,21 +151,26 @@ namespace PresentationLayer
             catch (Exception)
             {
                 MessageBox.Show("Truyện không tồn tại!", "Lỗi", MessageBoxButtons.OK);
-                if (_logInAccount.RoleID != 3)
-                {
-                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
-                    Utils.ShowScreen(ParentForm, adminScreen);
-                }
-                else if (_logInAccount.RoleID == 3)
+                if (_logInAccount == null || _logInAccount.RoleID == 3)
                 {
                     MainScreen mainScreen = new MainScreen(_logInAccount);
                     Utils.ShowScreen(ParentForm, mainScreen);
+                }
+                else if (_logInAccount.RoleID != 3)
+                {
+                    AdminScreen adminScreen = new AdminScreen(_logInAccount);
+                    Utils.ShowScreen(ParentForm, adminScreen);
                 }
             }
         }
 
         private void btdFollow_Click(object sender, EventArgs e)
         {
+            if (_logInAccount == null)
+            {
+                MessageBox.Show("Bạn cần đăng nhập để có thể thực hiện chức năng này.");
+                return;
+            }
             try
             {
                 if (_library == null)
@@ -209,6 +219,11 @@ namespace PresentationLayer
 
         private void linkLabelReport_Click(object sender, EventArgs e)
         {
+            if (_logInAccount == null)
+            {
+                MessageBox.Show("Bạn cần đăng nhập để có thể thực hiện chức năng này.");
+                return;
+            }
             try
             {
                 using (FormReport formReport = new FormReport(_logInAccount.Id, _book.Id))
@@ -234,6 +249,11 @@ namespace PresentationLayer
 
         private void buttonRate_Click(object sender, EventArgs e)
         {
+            if (_logInAccount == null)
+            {
+                MessageBox.Show("Bạn cần đăng nhập để có thể thực hiện chức năng này.");
+                return;
+            }
             try
             {
                 using (FormRating formRating = new FormRating(_logInAccount.Id, _book.Id))

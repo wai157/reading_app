@@ -15,10 +15,10 @@ namespace PresentationLayer
     {
         private readonly BookDTO _book;
         private readonly ChapterDTO _chapter;
-        public ButtonChapter(int logInAccountId, BookDTO book, ChapterDTO chapter)
+        public ButtonChapter(AccountDTO logInAccount, BookDTO book, ChapterDTO chapter)
         {
             InitializeComponent();
-            if (logInAccountId != book.UploadAccountId)
+            if (logInAccount == null || logInAccount.Id != book.UploadAccountId)
             {
                 buttonEdit.Visible = false;
                 button1.Dock = DockStyle.Fill;

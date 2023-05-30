@@ -13,6 +13,7 @@ namespace PresentationLayer
 {
     public partial class Header : UserControl
     {
+        private AccountDTO LogInAccount { get; set; }
         public Header()
         {
             InitializeComponent();
@@ -20,16 +21,20 @@ namespace PresentationLayer
         
         private void buttonHome_Click(object sender, EventArgs e)
         {
-            FormReadingApp formReadingApp = ParentForm as FormReadingApp;
-            AccountDTO logInAccount = formReadingApp.LogInAccountDTO;
-            if (logInAccount.RoleID != 3)
+            if (LogInAccount == null)
             {
-                AdminScreen adminScreen = new AdminScreen(logInAccount);
+                MainScreen mainScreen = new MainScreen(LogInAccount);
+                Utils.ShowScreen(ParentForm, mainScreen);
+                return;
+            }
+            if (LogInAccount.RoleID != 3)
+            {
+                AdminScreen adminScreen = new AdminScreen(LogInAccount);
                 Utils.ShowScreen(ParentForm, adminScreen);
             }
-            else if (logInAccount.RoleID == 3)
+            else if (LogInAccount.RoleID == 3)
             {
-                MainScreen mainScreen = new MainScreen(logInAccount);
+                MainScreen mainScreen = new MainScreen(LogInAccount);
                 Utils.ShowScreen(ParentForm, mainScreen);
             }
         }
@@ -54,8 +59,7 @@ namespace PresentationLayer
 
         private void buttonUserProfile_Click(object sender, EventArgs e)
         {
-            FormReadingApp formReadingApp = ParentForm as FormReadingApp;
-            UserProfileScreen userProfileScreen = new UserProfileScreen(formReadingApp.LogInAccountDTO);
+            UserProfileScreen userProfileScreen = new UserProfileScreen(LogInAccount);
             Utils.ShowScreen(ParentForm, userProfileScreen);
         }
 
@@ -83,9 +87,12 @@ namespace PresentationLayer
             }
             if (!opened)
             {
-                FormReadingApp formReadingApp = ParentForm as FormReadingApp;
-                AccountDTO logInAccount = formReadingApp.LogInAccountDTO;
-                FormNotifications formNotifications = new FormNotifications(logInAccount.Id)
+                if (LogInAccount == null)
+                {
+                    MessageBox.Show("Bạn cần đăng nhập để có thể thực hiện chức năng này.");
+                    return;
+                }
+                FormNotifications formNotifications = new FormNotifications(LogInAccount.Id)
                 {
                     TopLevel = false
                 };
@@ -98,12 +105,41 @@ namespace PresentationLayer
 
         private void buttonAddBook_Click(object sender, EventArgs e)
         {
-            FormReadingApp formReadingApp = ParentForm as FormReadingApp;
-            AccountDTO logInAccount = formReadingApp.LogInAccountDTO;
-            using (FormAddBook formAddBook = new FormAddBook(logInAccount))
+            if (LogInAccount == null)
+            {
+                MessageBox.Show("Bạn cần đăng nhập để có thể thực hiện chức năng này.");
+                return;
+            }
+            using (FormAddBook formAddBook = new FormAddBook(LogInAccount))
             {
                 formAddBook.ShowDialog();
             }
+        }
+
+        private void Header_Load(object sender, EventArgs e)
+        {
+            FormReadingApp formReadingApp = ParentForm as FormReadingApp;
+            LogInAccount = formReadingApp.LogInAccountDTO;
+            if (LogInAccount == null)
+            {
+                buttonUserProfile.Enabled = false;
+                buttonUserProfile.Visible = false;
+                buttonLogIn.Enabled = true;
+                buttonLogIn.Visible = true;
+            }
+            else
+            {
+                buttonUserProfile.Enabled = true;
+                buttonUserProfile.Visible = true;
+                buttonLogIn.Enabled = false;
+                buttonLogIn.Visible = false;
+            }
+        }
+
+        private void buttonLogIn_Click(object sender, EventArgs e)
+        {
+            LogInScreen logInScreen = new LogInScreen();
+            Utils.ShowScreen(ParentForm, logInScreen);
         }
     }
 }

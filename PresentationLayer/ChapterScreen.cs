@@ -35,14 +35,16 @@ namespace PresentationLayer
             _book.Views += 1;
             _bookManager.IncreaseView(_book.Id);
             _chapterManager.IncreaseView(_chapter.Id);
-            _history = _historyManager.GetHistoryOfBook(_logInAccount.Id, _book.Id);
-            if (_history != null)
-            {
-                _historyManager.UpdateHistory(_history, _chapter.Id);
-            }
-            else
-            {
-                _historyManager.AddHistory(_logInAccount.Id, _book.Id, _chapter.Id);
+            if (_logInAccount != null) {
+                _history = _historyManager.GetHistoryOfBook(_logInAccount.Id, _book.Id);
+                if (_history != null)
+                {
+                    _historyManager.UpdateHistory(_history, _chapter.Id);
+                }
+                else
+                {
+                    _historyManager.AddHistory(_logInAccount.Id, _book.Id, _chapter.Id);
+                }
             }
         }
 

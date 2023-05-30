@@ -134,5 +134,11 @@ namespace PresentationLayer
             ForgotPasswordScreen forgotPasswordScreen = new ForgotPasswordScreen();
             Utils.ShowScreen(ParentForm, forgotPasswordScreen);
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MainScreen mainScreen = new MainScreen(null);
+            Utils.ShowScreen(ParentForm, mainScreen);
+        }
     }
 }

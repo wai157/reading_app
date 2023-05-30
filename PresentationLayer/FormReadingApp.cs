@@ -20,8 +20,8 @@ namespace PresentationLayer
         public FormReadingApp()
         {
             InitializeComponent();
-            LogInScreen logInScreen = new LogInScreen();
-            Utils.ShowScreen(this, logInScreen);
+            MainScreen mainScreen = new MainScreen(null);
+            Utils.ShowScreen(this, mainScreen);
         }
     }
 }
