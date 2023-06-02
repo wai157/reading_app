@@ -71,16 +71,23 @@ namespace PresentationLayer
                 {
                     MessageBox.Show("Không được bỏ trống những vùng bắt buộc!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;
+                    return;
                 }
-                else
+                _chapter.No = int.Parse(maskedTextBoxNo.Text);
+                _chapter.Title = textBoxTitle.Text;
+                _chapter.BookId = _book.Id;
+                try
                 {
-                    _chapter.No = int.Parse(maskedTextBoxNo.Text);
-                    _chapter.Title = textBoxTitle.Text;
-                    _chapter.BookId = _book.Id;
-                    _chapterManager.AddChapter(_chapter);
+                    _chapterManager.AddChapter(_book, _chapter);
                     MessageBox.Show("Thêm chương sách thành công!\nChương đã được gửi đi để kiểm duyệt.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     e.Cancel = false;
                     this.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    e.Cancel = true;
+                    return;
                 }
             }
             else

@@ -16,12 +16,14 @@ namespace PresentationLayer
     public partial class FormEditChap : Form
     {
         private readonly ChapterManager _chapterManager;
-        private readonly ChapterDTO _chapter;
+        private readonly ChapterDTO _newChapter;
+        private readonly int _oldChapterNo;
         public FormEditChap(ChapterDTO chapter)
         {
             InitializeComponent();
             _chapterManager = new ChapterManager();
-            _chapter = chapter;
+            _newChapter = chapter;
+            _oldChapterNo = _newChapter.No;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -41,7 +43,7 @@ namespace PresentationLayer
                     buttonAdd.Enabled = false;
                     using (StreamReader streamReader = new StreamReader(fileDialog.FileName))
                     {
-                        _chapter.Content = streamReader.ReadToEnd();
+                        _newChapter.Content = streamReader.ReadToEnd();
                     }
                 }
             }
@@ -54,7 +56,7 @@ namespace PresentationLayer
             buttonDel.Enabled = false;
             buttonAdd.Visible = true;
             buttonAdd.Enabled = true;
-            _chapter.Content = null;
+            _newChapter.Content = null;
             labelFile.Text = null;
         }
 
@@ -69,15 +71,24 @@ namespace PresentationLayer
                 {
                     MessageBox.Show("Không được bỏ trống những vùng bắt buộc!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;
+                    return;
                 }
-                else
+                BookManager bookManager = new BookManager();
+                BookDTO book = bookManager.GetBookById(_newChapter.BookId);
+                _newChapter.No = int.Parse(maskedTextBoxNo.Text);
+                _newChapter.Title = textBoxTitle.Text;
+                try
                 {
-                    _chapter.No = int.Parse(maskedTextBoxNo.Text);
-                    _chapter.Title = textBoxTitle.Text;
-                    _chapterManager.UpdateChapter(_chapter);
-                    MessageBox.Show("Sửa chương sách thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _chapterManager.UpdateChapter(book, _oldChapterNo, _newChapter);
+                    MessageBox.Show("Sửa chương sách thành công!\nChương đã được gửi đi để kiểm duyệt!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     e.Cancel = false;
                     this.Dispose();
+                }  
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    e.Cancel = true;
+                    return;
                 }
             }
         }
@@ -128,10 +139,10 @@ namespace PresentationLayer
         {
             if (MessageBox.Show("Bạn có chắc muốn xóa chương này!", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                _chapterManager.DeleteChapter(_chapter.Id);
+                _chapterManager.DeleteChapter(_newChapter.Id);
                 HistoryManager historyManager = new HistoryManager();
-                historyManager.DeleteFromHistory(_chapter.BookId, _chapter.Id);
-                _chapter.Id = -1;
+                historyManager.DeleteFromHistory(_newChapter.BookId, _newChapter.Id);
+                _newChapter.Id = -1;
                 MessageBox.Show("Xóa chương thành công!", "Xóa chương", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
             }

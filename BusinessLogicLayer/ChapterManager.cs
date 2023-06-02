@@ -11,10 +11,12 @@ namespace BusinessLogicLayer
     public class ChapterManager
     {
         private readonly ChapterRepository _repository;
+        private readonly BookRepository _bookRepository;
 
         public ChapterManager()
         {
             _repository = new ChapterRepository();
+            _bookRepository = new BookRepository();
         }
 
         public ChapterDTO GetChapterById(int Id)
@@ -22,12 +24,26 @@ namespace BusinessLogicLayer
             return _repository.GetChapterById(Id);
         }
 
+        public List<ChapterDTO> GetAllChaptersOf(BookDTO book)
+        {
+
+            try
+            {
+                return _repository.GetAllChaptersOf(book).OrderByDescending(x => x.No).ToList();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public List<ChapterDTO> GetAllVerifiedChaptersOf(BookDTO book)
         {
             
             try
             {
-                return _repository.GetAllChaptersOf(book).Where(x => x.IsVerified == true).ToList();
+                return _repository.GetAllChaptersOf(book).Where(x => x.IsVerified == true)
+                    .OrderByDescending(x => x.No).ToList();
             }
             catch (Exception)
             {
@@ -47,15 +63,27 @@ namespace BusinessLogicLayer
             }
         }
 
-        public void AddChapter(ChapterDTO chapter)
+        public void AddChapter(BookDTO book, ChapterDTO chapter)
         {
+            List<ChapterDTO> chapters = _repository.GetAllChaptersOf(book).OrderByDescending(x => x.No).ToList();
+            if (chapters.Find(x => x.No == chapter.No) != null)
+            {
+                throw new Exception("Số chương đã tồn tại! Vui lòng chọn số chương khác!");
+            }
             _repository.AddChapter(chapter);
         }
 
-        public void UpdateChapter(ChapterDTO chapter)
+        public void UpdateChapter(BookDTO book, int oldChapterNo, ChapterDTO newChapter)
         {
-            chapter.IsVerified = false;
-            _repository.UpdateChapter(chapter);
+            List<ChapterDTO> chapters = this.GetAllChaptersOf(book);
+            ChapterDTO tempChap = chapters.Find(x => x.No == newChapter.No);
+            if (tempChap != null
+                && chapters.FindIndex(x => x.No == oldChapterNo) != chapters.FindIndex(x => x.No == tempChap.No))
+            {
+                throw new Exception("Số chương đã tồn tại! Vui lòng chọn số chương khác!");
+            }
+            newChapter.IsVerified = false;
+            _repository.UpdateChapter(newChapter);
         }
 
         public void VerifyChapter(int chapterId)

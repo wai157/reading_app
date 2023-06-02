@@ -30,6 +30,8 @@ namespace PresentationLayer
         private void InitializeComponent()
         {
             this.panelMain = new System.Windows.Forms.Panel();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.buttonPrev = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelContent = new System.Windows.Forms.Label();
@@ -44,6 +46,8 @@ namespace PresentationLayer
             // 
             this.panelMain.BackgroundImage = global::PresentationLayer.Properties.Resources.vivid_blurred_colorful_background;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMain.Controls.Add(this.buttonNext);
+            this.panelMain.Controls.Add(this.buttonPrev);
             this.panelMain.Controls.Add(this.buttonBack);
             this.panelMain.Controls.Add(this.panel1);
             this.panelMain.Controls.Add(this.header1);
@@ -52,6 +56,32 @@ namespace PresentationLayer
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1280, 720);
             this.panelMain.TabIndex = 0;
+            // 
+            // buttonNext
+            // 
+            this.buttonNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
+            this.buttonNext.BackgroundImage = global::PresentationLayer.Properties.Resources.next_vector_icon_256;
+            this.buttonNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonNext.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNext.Location = new System.Drawing.Point(1163, 360);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(47, 47);
+            this.buttonNext.TabIndex = 5;
+            this.buttonNext.UseVisualStyleBackColor = false;
+            this.buttonNext.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonPrev
+            // 
+            this.buttonPrev.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(80)))), ((int)(((byte)(231)))));
+            this.buttonPrev.BackgroundImage = global::PresentationLayer.Properties.Resources.back_vector_icon_256;
+            this.buttonPrev.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonPrev.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrev.Location = new System.Drawing.Point(70, 360);
+            this.buttonPrev.Name = "buttonPrev";
+            this.buttonPrev.Size = new System.Drawing.Size(47, 47);
+            this.buttonPrev.TabIndex = 4;
+            this.buttonPrev.UseVisualStyleBackColor = false;
+            this.buttonPrev.Click += new System.EventHandler(this.buttonPrev_Click);
             // 
             // buttonBack
             // 
@@ -149,5 +179,7 @@ namespace PresentationLayer
         private System.Windows.Forms.Panel panelLine;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Button buttonPrev;
+        private System.Windows.Forms.Button buttonNext;
     }
 }
