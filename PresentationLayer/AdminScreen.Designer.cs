@@ -29,23 +29,28 @@ namespace PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageBooks = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPageUsers = new System.Windows.Forms.TabPage();
+            this.buttonEditUserInfo = new System.Windows.Forms.Button();
+            this.dGVUsers = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageBookReport = new System.Windows.Forms.TabPage();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonViewBookReport = new System.Windows.Forms.Button();
             this.dataGridViewBookReports = new System.Windows.Forms.DataGridView();
-            this.reportId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateAccountId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReportedBookId = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tabPageBookVerifications = new System.Windows.Forms.TabPage();
             this.buttonVerifyAllBooks = new System.Windows.Forms.Button();
             this.buttonViewVerifyBook = new System.Windows.Forms.Button();
@@ -61,27 +66,22 @@ namespace PresentationLayer
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dGVUsers = new System.Windows.Forms.DataGridView();
-            this.buttonEditUserInfo = new System.Windows.Forms.Button();
             this.header1 = new PresentationLayer.Header();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateAccountId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReportedBookId = new System.Windows.Forms.DataGridViewLinkColumn();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageBooks.SuspendLayout();
             this.tabPageUsers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVUsers)).BeginInit();
             this.tabPageBookReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookReports)).BeginInit();
             this.tabPageBookVerifications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVUnverifiedBooks)).BeginInit();
             this.tabPageChapterVerifications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVUnverifiedChapters)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dGVUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -161,6 +161,89 @@ namespace PresentationLayer
             this.tabPageUsers.TabIndex = 1;
             this.tabPageUsers.Text = "Người dùng";
             // 
+            // buttonEditUserInfo
+            // 
+            this.buttonEditUserInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
+            this.buttonEditUserInfo.Location = new System.Drawing.Point(869, 509);
+            this.buttonEditUserInfo.Name = "buttonEditUserInfo";
+            this.buttonEditUserInfo.Size = new System.Drawing.Size(140, 40);
+            this.buttonEditUserInfo.TabIndex = 4;
+            this.buttonEditUserInfo.Text = "Chỉnh sửa";
+            this.buttonEditUserInfo.UseVisualStyleBackColor = false;
+            this.buttonEditUserInfo.Click += new System.EventHandler(this.buttonEditUserInfo_Click);
+            // 
+            // dGVUsers
+            // 
+            this.dGVUsers.AllowUserToAddRows = false;
+            this.dGVUsers.AllowUserToDeleteRows = false;
+            this.dGVUsers.AllowUserToResizeColumns = false;
+            this.dGVUsers.AllowUserToResizeRows = false;
+            this.dGVUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dGVUsers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.dGVUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
+            this.Column1,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.role});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(134)))), ((int)(((byte)(195)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGVUsers.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dGVUsers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dGVUsers.Location = new System.Drawing.Point(3, 3);
+            this.dGVUsers.MultiSelect = false;
+            this.dGVUsers.Name = "dGVUsers";
+            this.dGVUsers.ReadOnly = true;
+            this.dGVUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dGVUsers.RowTemplate.Height = 30;
+            this.dGVUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGVUsers.Size = new System.Drawing.Size(1010, 500);
+            this.dGVUsers.TabIndex = 3;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Tên người dùng";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Email";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Họ và tên";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Giới tính";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Ngày sinh";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // role
+            // 
+            this.role.HeaderText = "Quyền";
+            this.role.Name = "role";
+            this.role.ReadOnly = true;
+            // 
             // tabPageBookReport
             // 
             this.tabPageBookReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
@@ -230,28 +313,6 @@ namespace PresentationLayer
             this.dataGridViewBookReports.Size = new System.Drawing.Size(1010, 500);
             this.dataGridViewBookReports.TabIndex = 0;
             this.dataGridViewBookReports.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // reportId
-            // 
-            this.reportId.HeaderText = "Id";
-            this.reportId.Name = "reportId";
-            this.reportId.ReadOnly = true;
-            // 
-            // CreateAccountId
-            // 
-            this.CreateAccountId.HeaderText = "Tên người dùng";
-            this.CreateAccountId.Name = "CreateAccountId";
-            this.CreateAccountId.ReadOnly = true;
-            // 
-            // ReportedBookId
-            // 
-            this.ReportedBookId.ActiveLinkColor = System.Drawing.Color.Black;
-            this.ReportedBookId.HeaderText = "Tên sách";
-            this.ReportedBookId.LinkColor = System.Drawing.Color.Black;
-            this.ReportedBookId.Name = "ReportedBookId";
-            this.ReportedBookId.ReadOnly = true;
-            this.ReportedBookId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ReportedBookId.TrackVisitedState = false;
             // 
             // tabPageBookVerifications
             // 
@@ -326,6 +387,7 @@ namespace PresentationLayer
             this.dataGridViewId.HeaderText = "Id sách";
             this.dataGridViewId.Name = "dataGridViewId";
             this.dataGridViewId.ReadOnly = true;
+            this.dataGridViewId.Visible = false;
             // 
             // dataGridViewUsername
             // 
@@ -414,6 +476,7 @@ namespace PresentationLayer
             this.Id.HeaderText = "Id chương";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -434,52 +497,6 @@ namespace PresentationLayer
             this.No.Name = "No";
             this.No.ReadOnly = true;
             // 
-            // dGVUsers
-            // 
-            this.dGVUsers.AllowUserToAddRows = false;
-            this.dGVUsers.AllowUserToDeleteRows = false;
-            this.dGVUsers.AllowUserToResizeColumns = false;
-            this.dGVUsers.AllowUserToResizeRows = false;
-            this.dGVUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dGVUsers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
-            this.dGVUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
-            this.Column1,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.role});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(134)))), ((int)(((byte)(195)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dGVUsers.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dGVUsers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dGVUsers.Location = new System.Drawing.Point(3, 3);
-            this.dGVUsers.MultiSelect = false;
-            this.dGVUsers.Name = "dGVUsers";
-            this.dGVUsers.ReadOnly = true;
-            this.dGVUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dGVUsers.RowTemplate.Height = 30;
-            this.dGVUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGVUsers.Size = new System.Drawing.Size(1010, 500);
-            this.dGVUsers.TabIndex = 3;
-            // 
-            // buttonEditUserInfo
-            // 
-            this.buttonEditUserInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(251)))), ((int)(((byte)(214)))));
-            this.buttonEditUserInfo.Location = new System.Drawing.Point(869, 509);
-            this.buttonEditUserInfo.Name = "buttonEditUserInfo";
-            this.buttonEditUserInfo.Size = new System.Drawing.Size(140, 40);
-            this.buttonEditUserInfo.TabIndex = 4;
-            this.buttonEditUserInfo.Text = "Chỉnh sửa";
-            this.buttonEditUserInfo.UseVisualStyleBackColor = false;
-            this.buttonEditUserInfo.Click += new System.EventHandler(this.buttonEditUserInfo_Click);
-            // 
             // header1
             // 
             this.header1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -491,42 +508,31 @@ namespace PresentationLayer
             this.header1.Size = new System.Drawing.Size(1280, 72);
             this.header1.TabIndex = 15;
             // 
-            // dataGridViewTextBoxColumn4
+            // reportId
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Tên người dùng";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.reportId.FillWeight = 1F;
+            this.reportId.HeaderText = "Id";
+            this.reportId.Name = "reportId";
+            this.reportId.ReadOnly = true;
+            this.reportId.Visible = false;
             // 
-            // Column1
+            // CreateAccountId
             // 
-            this.Column1.HeaderText = "Email";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.CreateAccountId.FillWeight = 146.1929F;
+            this.CreateAccountId.HeaderText = "Tên người báo cáo";
+            this.CreateAccountId.Name = "CreateAccountId";
+            this.CreateAccountId.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // ReportedBookId
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Họ và tên";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Giới tính";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Ngày sinh";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // role
-            // 
-            this.role.HeaderText = "Quyền";
-            this.role.Name = "role";
-            this.role.ReadOnly = true;
+            this.ReportedBookId.ActiveLinkColor = System.Drawing.Color.Black;
+            this.ReportedBookId.FillWeight = 146.1929F;
+            this.ReportedBookId.HeaderText = "Tên sách";
+            this.ReportedBookId.LinkColor = System.Drawing.Color.Black;
+            this.ReportedBookId.Name = "ReportedBookId";
+            this.ReportedBookId.ReadOnly = true;
+            this.ReportedBookId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ReportedBookId.TrackVisitedState = false;
             // 
             // AdminScreen
             // 
@@ -541,13 +547,13 @@ namespace PresentationLayer
             this.tabControl1.ResumeLayout(false);
             this.tabPageBooks.ResumeLayout(false);
             this.tabPageUsers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dGVUsers)).EndInit();
             this.tabPageBookReport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookReports)).EndInit();
             this.tabPageBookVerifications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dGVUnverifiedBooks)).EndInit();
             this.tabPageChapterVerifications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dGVUnverifiedChapters)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dGVUsers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -565,24 +571,14 @@ namespace PresentationLayer
         private System.Windows.Forms.DataGridView dataGridViewBookReports;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonViewBookReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reportId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreateAccountId;
-        private System.Windows.Forms.DataGridViewLinkColumn ReportedBookId;
         private System.Windows.Forms.TabPage tabPageBookVerifications;
         private System.Windows.Forms.Button buttonViewVerifyBook;
         private System.Windows.Forms.DataGridView dGVUnverifiedBooks;
         private System.Windows.Forms.Button buttonVerifyAllBooks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewUsername;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewBookName;
         private System.Windows.Forms.TabPage tabPageChapterVerifications;
         private System.Windows.Forms.DataGridView dGVUnverifiedChapters;
         private System.Windows.Forms.Button buttonVerifyAllChapters;
         private System.Windows.Forms.Button buttonViewVerifyChapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridView dGVUsers;
         private System.Windows.Forms.Button buttonEditUserInfo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -591,5 +587,15 @@ namespace PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn role;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewUsername;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewBookName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateAccountId;
+        private System.Windows.Forms.DataGridViewLinkColumn ReportedBookId;
     }
 }

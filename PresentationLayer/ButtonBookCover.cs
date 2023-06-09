@@ -22,6 +22,7 @@ namespace PresentationLayer
             _presentedBook = book;
             button1.BackgroundImage = Image.FromStream(new MemoryStream(book.BookCover));
             toolTip.SetToolTip(this.button1, _presentedBook.Name);
+            label1.Text = book.Name;
         }
 
         private void button1_Click(object sender, EventArgs e)

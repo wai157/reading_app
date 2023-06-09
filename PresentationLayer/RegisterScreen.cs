@@ -167,11 +167,16 @@ namespace PresentationLayer
             if (textBoxPassword.ForeColor != Color.Black || string.IsNullOrEmpty(textBoxPassword.Text))
             {
                 errorProvider.SetError(textBoxPassword, "Vui lòng nhập mật khẩu!");
+                return;
             }
-            else
+
+            if (Utils.ValidatePassword(textBoxPassword.Text) != true)
             {
-                errorProvider.SetError(textBoxPassword, null);
+                errorProvider.SetError(textBoxPassword, "Mật khẩu cần chứa ít nhất:\n- 8 kí tự\n- 1 chữ cái thường\n- 1 chữ cái hoa\n- 1 số\n- 1 kí tự đặc biệt!");
+                return;
             }
+            
+            errorProvider.SetError(textBoxPassword, null);
         }
 
         private void textBoxRePassword_Validated(object sender, EventArgs e)

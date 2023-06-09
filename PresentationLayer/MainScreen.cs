@@ -26,6 +26,7 @@ namespace PresentationLayer
                 ButtonBookCover bookCover = new ButtonBookCover(book);
                 this.flowLayoutPanelAllBooks.Controls.Add(bookCover);
             }
+            this.ActiveControl = null;
         }
 
     }

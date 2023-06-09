@@ -156,6 +156,10 @@ namespace PresentationLayer
             {
                 errorProvider.SetError(textBoxNewPassword, "Vui lòng nhập mật khẩu mới!");
             }
+            else if (Utils.ValidatePassword(textBoxNewPassword.Text) != true)
+            {
+                errorProvider.SetError(textBoxNewPassword, "Mật khẩu cần chứa ít nhất:\n- 8 kí tự\n- 1 chữ cái thường\n- 1 chữ cái hoa\n- 1 số\n- 1 kí tự đặc biệt!");
+            }
             else
             {
                 errorProvider.SetError(textBoxNewPassword, null);
