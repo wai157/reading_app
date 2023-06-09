@@ -38,11 +38,18 @@ namespace PresentationLayer
             using (OpenFileDialog fileDialog = new OpenFileDialog())
             {
                 fileDialog.Filter = "Image Files (*.bmp, *.jpg, *.jpeg, *.png)|*.bmp;*.jpg;*.jpeg;*.png";
-                if (fileDialog.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    string fileName = fileDialog.FileName;
-                    Bitmap image = new Bitmap(fileName);
-                    pictureBoxCover.BackgroundImage = image;
+                    if (fileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string fileName = fileDialog.FileName;
+                        Bitmap image = new Bitmap(fileName);
+                        pictureBoxCover.BackgroundImage = image;
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Không thể thêm bìa sách!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

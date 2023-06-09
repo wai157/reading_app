@@ -130,6 +130,7 @@ namespace PresentationLayer
             this.textBoxDescription.MinimumSize = new System.Drawing.Size(480, 300);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxDescription.Size = new System.Drawing.Size(480, 300);
             this.textBoxDescription.TabIndex = 7;
             this.textBoxDescription.Validated += new System.EventHandler(this.textBoxDescription_Validated);
