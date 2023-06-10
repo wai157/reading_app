@@ -84,12 +84,17 @@ namespace PresentationLayer
                         account.RoleID == 1 ? "admin" : account.RoleID == 2 ? "mod" : "user"
                     });
                 }
+                this.labelTotalUsers.Text = "Tổng số người dùng: " + _accountManager.GetAllAccounts().Count.ToString();
             }
             else
             {
                 tabControl1.TabPages.Remove(tabPageUsers);
             }
-            
+
+            this.labelTotalBooks.Text = "Tổng số sách: " + _bookManager.GetAllVerifiedBooks().Count.ToString();
+            this.labelTotalReports.Text = "Tổng số báo cáo: " + _bookReportManager.GetAllBookReports().Count.ToString();
+            this.labelTotalUnverifiedBooks.Text = "Tổng số sách chưa kiểm duyệt: " + _bookManager.GetAllUnverifiedBooks().Count.ToString();
+            this.labelTotalUnverifiedChaps.Text = "Tổng số chương chưa kiểm duyệt: " + _chapterManager.GetAllUnverifiedChapters().Count.ToString();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

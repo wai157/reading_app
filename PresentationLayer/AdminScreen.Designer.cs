@@ -37,6 +37,7 @@ namespace PresentationLayer
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageBooks = new System.Windows.Forms.TabPage();
+            this.labelTotalBooks = new System.Windows.Forms.Label();
             this.flowLayoutPanelBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPageUsers = new System.Windows.Forms.TabPage();
             this.buttonEditUserInfo = new System.Windows.Forms.Button();
@@ -51,6 +52,9 @@ namespace PresentationLayer
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonViewBookReport = new System.Windows.Forms.Button();
             this.dataGridViewBookReports = new System.Windows.Forms.DataGridView();
+            this.reportId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateAccountId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReportedBookId = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tabPageBookVerifications = new System.Windows.Forms.TabPage();
             this.buttonVerifyAllBooks = new System.Windows.Forms.Button();
             this.buttonViewVerifyBook = new System.Windows.Forms.Button();
@@ -67,9 +71,10 @@ namespace PresentationLayer
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.header1 = new PresentationLayer.Header();
-            this.reportId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateAccountId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReportedBookId = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.labelTotalUsers = new System.Windows.Forms.Label();
+            this.labelTotalReports = new System.Windows.Forms.Label();
+            this.labelTotalUnverifiedBooks = new System.Windows.Forms.Label();
+            this.labelTotalUnverifiedChaps = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -127,6 +132,7 @@ namespace PresentationLayer
             // 
             this.tabPageBooks.AutoScroll = true;
             this.tabPageBooks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.tabPageBooks.Controls.Add(this.labelTotalBooks);
             this.tabPageBooks.Controls.Add(this.flowLayoutPanelBooks);
             this.tabPageBooks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
             this.tabPageBooks.Location = new System.Drawing.Point(4, 34);
@@ -136,21 +142,31 @@ namespace PresentationLayer
             this.tabPageBooks.TabIndex = 0;
             this.tabPageBooks.Text = "Sách";
             // 
+            // labelTotalBooks
+            // 
+            this.labelTotalBooks.AutoSize = true;
+            this.labelTotalBooks.Location = new System.Drawing.Point(3, 3);
+            this.labelTotalBooks.Name = "labelTotalBooks";
+            this.labelTotalBooks.Size = new System.Drawing.Size(131, 26);
+            this.labelTotalBooks.TabIndex = 1;
+            this.labelTotalBooks.Text = "Tổng số sách";
+            // 
             // flowLayoutPanelBooks
             // 
-            this.flowLayoutPanelBooks.AutoScroll = true;
+            this.flowLayoutPanelBooks.AutoSize = true;
             this.flowLayoutPanelBooks.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanelBooks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelBooks.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanelBooks.Location = new System.Drawing.Point(0, 40);
+            this.flowLayoutPanelBooks.MaximumSize = new System.Drawing.Size(998, 0);
             this.flowLayoutPanelBooks.Name = "flowLayoutPanelBooks";
-            this.flowLayoutPanelBooks.Padding = new System.Windows.Forms.Padding(19, 10, 0, 16);
-            this.flowLayoutPanelBooks.Size = new System.Drawing.Size(1010, 568);
+            this.flowLayoutPanelBooks.Padding = new System.Windows.Forms.Padding(20, 0, 0, 16);
+            this.flowLayoutPanelBooks.Size = new System.Drawing.Size(990, 16);
             this.flowLayoutPanelBooks.TabIndex = 0;
             // 
             // tabPageUsers
             // 
             this.tabPageUsers.AutoScroll = true;
             this.tabPageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.tabPageUsers.Controls.Add(this.labelTotalUsers);
             this.tabPageUsers.Controls.Add(this.buttonEditUserInfo);
             this.tabPageUsers.Controls.Add(this.dGVUsers);
             this.tabPageUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(25)))), ((int)(((byte)(8)))));
@@ -247,6 +263,7 @@ namespace PresentationLayer
             // tabPageBookReport
             // 
             this.tabPageBookReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.tabPageBookReport.Controls.Add(this.labelTotalReports);
             this.tabPageBookReport.Controls.Add(this.buttonDelete);
             this.tabPageBookReport.Controls.Add(this.buttonViewBookReport);
             this.tabPageBookReport.Controls.Add(this.dataGridViewBookReports);
@@ -314,9 +331,36 @@ namespace PresentationLayer
             this.dataGridViewBookReports.TabIndex = 0;
             this.dataGridViewBookReports.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // reportId
+            // 
+            this.reportId.FillWeight = 1F;
+            this.reportId.HeaderText = "Id";
+            this.reportId.Name = "reportId";
+            this.reportId.ReadOnly = true;
+            this.reportId.Visible = false;
+            // 
+            // CreateAccountId
+            // 
+            this.CreateAccountId.FillWeight = 146.1929F;
+            this.CreateAccountId.HeaderText = "Tên người báo cáo";
+            this.CreateAccountId.Name = "CreateAccountId";
+            this.CreateAccountId.ReadOnly = true;
+            // 
+            // ReportedBookId
+            // 
+            this.ReportedBookId.ActiveLinkColor = System.Drawing.Color.Black;
+            this.ReportedBookId.FillWeight = 146.1929F;
+            this.ReportedBookId.HeaderText = "Tên sách";
+            this.ReportedBookId.LinkColor = System.Drawing.Color.Black;
+            this.ReportedBookId.Name = "ReportedBookId";
+            this.ReportedBookId.ReadOnly = true;
+            this.ReportedBookId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ReportedBookId.TrackVisitedState = false;
+            // 
             // tabPageBookVerifications
             // 
             this.tabPageBookVerifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.tabPageBookVerifications.Controls.Add(this.labelTotalUnverifiedBooks);
             this.tabPageBookVerifications.Controls.Add(this.buttonVerifyAllBooks);
             this.tabPageBookVerifications.Controls.Add(this.buttonViewVerifyBook);
             this.tabPageBookVerifications.Controls.Add(this.dGVUnverifiedBooks);
@@ -405,6 +449,7 @@ namespace PresentationLayer
             // tabPageChapterVerifications
             // 
             this.tabPageChapterVerifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
+            this.tabPageChapterVerifications.Controls.Add(this.labelTotalUnverifiedChaps);
             this.tabPageChapterVerifications.Controls.Add(this.buttonVerifyAllChapters);
             this.tabPageChapterVerifications.Controls.Add(this.buttonViewVerifyChapter);
             this.tabPageChapterVerifications.Controls.Add(this.dGVUnverifiedChapters);
@@ -508,31 +553,41 @@ namespace PresentationLayer
             this.header1.Size = new System.Drawing.Size(1280, 72);
             this.header1.TabIndex = 15;
             // 
-            // reportId
+            // labelTotalUsers
             // 
-            this.reportId.FillWeight = 1F;
-            this.reportId.HeaderText = "Id";
-            this.reportId.Name = "reportId";
-            this.reportId.ReadOnly = true;
-            this.reportId.Visible = false;
+            this.labelTotalUsers.AutoSize = true;
+            this.labelTotalUsers.Location = new System.Drawing.Point(3, 545);
+            this.labelTotalUsers.Name = "labelTotalUsers";
+            this.labelTotalUsers.Size = new System.Drawing.Size(208, 26);
+            this.labelTotalUsers.TabIndex = 5;
+            this.labelTotalUsers.Text = "Tổng số người dùng: ";
             // 
-            // CreateAccountId
+            // labelTotalReports
             // 
-            this.CreateAccountId.FillWeight = 146.1929F;
-            this.CreateAccountId.HeaderText = "Tên người báo cáo";
-            this.CreateAccountId.Name = "CreateAccountId";
-            this.CreateAccountId.ReadOnly = true;
+            this.labelTotalReports.AutoSize = true;
+            this.labelTotalReports.Location = new System.Drawing.Point(3, 545);
+            this.labelTotalReports.Name = "labelTotalReports";
+            this.labelTotalReports.Size = new System.Drawing.Size(70, 26);
+            this.labelTotalReports.TabIndex = 3;
+            this.labelTotalReports.Text = "label1";
             // 
-            // ReportedBookId
+            // labelTotalUnverifiedBooks
             // 
-            this.ReportedBookId.ActiveLinkColor = System.Drawing.Color.Black;
-            this.ReportedBookId.FillWeight = 146.1929F;
-            this.ReportedBookId.HeaderText = "Tên sách";
-            this.ReportedBookId.LinkColor = System.Drawing.Color.Black;
-            this.ReportedBookId.Name = "ReportedBookId";
-            this.ReportedBookId.ReadOnly = true;
-            this.ReportedBookId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ReportedBookId.TrackVisitedState = false;
+            this.labelTotalUnverifiedBooks.AutoSize = true;
+            this.labelTotalUnverifiedBooks.Location = new System.Drawing.Point(3, 545);
+            this.labelTotalUnverifiedBooks.Name = "labelTotalUnverifiedBooks";
+            this.labelTotalUnverifiedBooks.Size = new System.Drawing.Size(70, 26);
+            this.labelTotalUnverifiedBooks.TabIndex = 4;
+            this.labelTotalUnverifiedBooks.Text = "label1";
+            // 
+            // labelTotalUnverifiedChaps
+            // 
+            this.labelTotalUnverifiedChaps.AutoSize = true;
+            this.labelTotalUnverifiedChaps.Location = new System.Drawing.Point(3, 545);
+            this.labelTotalUnverifiedChaps.Name = "labelTotalUnverifiedChaps";
+            this.labelTotalUnverifiedChaps.Size = new System.Drawing.Size(70, 26);
+            this.labelTotalUnverifiedChaps.TabIndex = 6;
+            this.labelTotalUnverifiedChaps.Text = "label1";
             // 
             // AdminScreen
             // 
@@ -546,13 +601,18 @@ namespace PresentationLayer
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPageBooks.ResumeLayout(false);
+            this.tabPageBooks.PerformLayout();
             this.tabPageUsers.ResumeLayout(false);
+            this.tabPageUsers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVUsers)).EndInit();
             this.tabPageBookReport.ResumeLayout(false);
+            this.tabPageBookReport.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookReports)).EndInit();
             this.tabPageBookVerifications.ResumeLayout(false);
+            this.tabPageBookVerifications.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVUnverifiedBooks)).EndInit();
             this.tabPageChapterVerifications.ResumeLayout(false);
+            this.tabPageChapterVerifications.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVUnverifiedChapters)).EndInit();
             this.ResumeLayout(false);
 
@@ -597,5 +657,10 @@ namespace PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn reportId;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateAccountId;
         private System.Windows.Forms.DataGridViewLinkColumn ReportedBookId;
+        private System.Windows.Forms.Label labelTotalBooks;
+        private System.Windows.Forms.Label labelTotalUsers;
+        private System.Windows.Forms.Label labelTotalReports;
+        private System.Windows.Forms.Label labelTotalUnverifiedBooks;
+        private System.Windows.Forms.Label labelTotalUnverifiedChaps;
     }
 }
